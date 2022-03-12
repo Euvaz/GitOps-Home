@@ -8,7 +8,6 @@ resources:
   - emberstack-charts.yaml
   - external-dns-charts.yaml
   - grafana-charts.yaml
-  - hajimari-charts.yaml
   - infracloudio-charts.yaml
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
