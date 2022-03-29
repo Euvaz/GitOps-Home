@@ -1,0 +1,16 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v2beta1
+kind: GitRepository
+metadata:
+  name: cert-manager-webhook-gandi-charts
+  namespace: flux-system
+spec:
+  interval: 10m
+  url: https://github.com/bwolf/cert-manager-webhook-gandi
+  ref:
+    tag: v0.2.0
+  ignore: |
+    # exclude all
+    /*
+    # include charts directory
+    !/deploy/
