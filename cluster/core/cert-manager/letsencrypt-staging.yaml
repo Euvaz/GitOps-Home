@@ -11,11 +11,10 @@ spec:
       name: letsencrypt-staging
     solvers:
       - dns01:
-          cloudflare:
-            email: "${SECRET_GANDI_EMAIL}"
-            apiKeySecretRef:
-              name: gandi-api-key
-              key: api-key
-        selector:
-          dnsZones:
-            - ${SECRET_DOMAIN}
+          webhook:
+            groupName: "${SECRET_DOMAIN}"
+            solverName: gandi
+            config:
+              apiKeySecretRef:
+                name: gandi-api-key
+                key: api-key
