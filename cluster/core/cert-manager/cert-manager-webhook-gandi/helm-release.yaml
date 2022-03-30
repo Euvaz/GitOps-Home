@@ -19,13 +19,5 @@ spec:
         namespace: flux-system
   values:
     groupName: "${SECRET_DOMAIN}"
-    logLevel: 2
-    image:
-      repository: bwolf/cert-manager-webhook-gandi
-      tag: 0.2.0
-      pullPolicy: IfNotPresent
-    service:
-      type: ClusterIP
-      port: 443
     features:
       apiPriorityAndFairness: true
