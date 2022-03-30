@@ -3,11 +3,13 @@ kind: Kustomization
 resources:
   - authentik-charts.yaml
   - bitnami-charts.yaml
+  - cert-manager-webhook-gandi-charts.yaml
   - deliveryhero-charts.yaml
   - descheduler-charts.yaml
   - emberstack-charts.yaml
   - external-dns-charts.yaml
   - grafana-charts.yaml
+  - hajimari-charts.yaml
   - infracloudio-charts.yaml
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
@@ -22,5 +24,3 @@ resources:
   - stakater-charts.yaml
   - traefik-charts.yaml
   - weaveworks-kured-charts.yaml
-  - cert-manager-webhook-gandi-charts.yaml
-  - hajimari-charts.yaml
