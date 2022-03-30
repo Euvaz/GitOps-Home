@@ -11,13 +11,12 @@ spec:
     - name: cert-manager
   chart:
     spec:
-      chart: ./deploy/cert-manager-webhook-gandi
+      chart: cert-manager-webhook-gandi
       version: 0.2.0
       sourceRef:
-        kind: GitRepository
+        kind: HelmRepository
         name: cert-manager-webhook-gandi-charts
         namespace: flux-system
-      interval: 5m
   values:
     groupName: "${SECRET_DOMAIN}"
     logLevel: 2
