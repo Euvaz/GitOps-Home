@@ -1,0 +1,37 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: minecraft
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: minecraft
+      version: 3.8.4
+      sourceRef:
+        kind: HelmRepository
+        name: minecraft-server-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    ## Configure resource requests and limits
+    ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+    ##
+    resources:
+      requests:
+        memory: 512Mi
+        cpu: 500m
+
+    minecraftServer:
+      # This must be overridden, since we can't accept this for the user.
+      eula: "TRUE"
+      # One of: peaceful, easy, normal, and hard
+      difficulty: normal
+      # If true, enable player-vs-player damage.
+      pvp: true
+      loadBalancerIP:
+        loadBalancerSourceRanges: ["${BOOTSTRAP_METALLB_TRAEFIK_ADDR}"]
+      ## Set the externalTrafficPolicy in the Service to either Cluster or Local
+        externalTrafficPolicy: Cluster
