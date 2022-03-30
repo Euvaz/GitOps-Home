@@ -31,7 +31,4 @@ spec:
       difficulty: normal
       # If true, enable player-vs-player damage.
       pvp: true
-      loadBalancerIP:
-        loadBalancerSourceRanges: ["${BOOTSTRAP_METALLB_TRAEFIK_ADDR}"]
-      ## Set the externalTrafficPolicy in the Service to either Cluster or Local
-        externalTrafficPolicy: Cluster
+      loadBalancerIP: "${BOOTSTRAP_METALLB_TRAEFIK_ADDR}"
