@@ -16,5 +16,5 @@ spec:
             solverName: gandi
             config:
               apiKeySecretRef:
-                name: gandi-api-key
+                name: gandi-credentials
                 key: api-key
