@@ -31,5 +31,6 @@ spec:
       difficulty: normal
       # If true, enable player-vs-player damage.
       pvp: true
+      serviceType: LoadBalancer
       loadBalancerIP: 10.11.0.211
       externalTrafficPolicy: Local
