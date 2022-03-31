@@ -31,4 +31,5 @@ spec:
       difficulty: normal
       # If true, enable player-vs-player damage.
       pvp: true
-      loadBalancerIP: "${BOOTSTRAP_METALLB_TRAEFIK_ADDR}"
+      loadBalancerIP: 10.11.0.211
+      externalTrafficPolicy: Local
