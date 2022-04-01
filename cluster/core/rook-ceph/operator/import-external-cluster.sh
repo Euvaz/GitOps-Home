@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefall
 
 #############
 # VARIABLES #
@@ -28,48 +28,36 @@ ROOK_EXTERNAL_MONITOR_SECRET=mon-secret
 # FUNCTIONS #
 #############
 
+function assertVar() {
+  for v in "$@"; do
+    if ! [[ -v "$v" ]]; then
+      printf '%s\n' "Please populate the environment variable $v" >&2
+      exit 1
+    fi
+  done
+}
+
 function checkEnvVars() {
-  if [ -z "$NAMESPACE" ]; then
-    echo "Please populate the environment variable NAMESPACE"
-    exit 1
-  fi
-  if [ -z "$ROOK_EXTERNAL_FSID" ]; then
-    echo "Please populate the environment variable ROOK_EXTERNAL_FSID"
-    exit 1
-  fi
-  if [ -z "$ROOK_EXTERNAL_CEPH_MON_DATA" ]; then
-    echo "Please populate the environment variable ROOK_EXTERNAL_CEPH_MON_DATA"
-    exit 1
-  fi
+  assertVar \
+    NAMESPACE \
+    ROOK_EXTERNAL_FSID \
+    ROOK_EXTERNAL_CEPH_MON_DATA
+
   if [[ "$ROOK_EXTERNAL_ADMIN_SECRET" == "admin-secret" ]]; then
-    if [ -z "$ROOK_EXTERNAL_USER_SECRET" ]; then
-      echo "Please populate the environment variable ROOK_EXTERNAL_USER_SECRET"
-      exit 1
-    fi
-    if [ -z "$ROOK_EXTERNAL_USERNAME" ]; then
-      echo "Please populate the environment variable ROOK_EXTERNAL_USERNAME"
-      exit 1
-    fi
-    if [ -z "$CSI_RBD_NODE_SECRET" ]; then
-      echo "Please populate the environment variable CSI_RBD_NODE_SECRET"
-      exit 1
-    fi
-    if [ -z "$CSI_RBD_PROVISIONER_SECRET" ]; then
-      echo "Please populate the environment variable CSI_RBD_PROVISIONER_SECRET"
-      exit 1
-    fi
-    if [ -z "$CSI_CEPHFS_NODE_SECRET" ]; then
-      echo "Please populate the environment variable CSI_CEPHFS_NODE_SECRET"
-      exit 1
-    fi
-    if [ -z "$CSI_CEPHFS_PROVISIONER_SECRET" ]; then
-      echo "Please populate the environment variable CSI_CEPHFS_PROVISIONER_SECRET"
-      exit 1
-    fi
+    assertVar \
+      ROOK_EXTERNAL_USER_SECRET \
+      ROOK_EXTERNAL_USERNAME \
+      CSI_RBD_NODE_SECRET \
+      CSI_RBD_PROVISIONER_SECRET \
+      CSI_CEPHFS_NODE_SECRET \
+      CSI_CEPHFS_PROVISIONER_SECRET
   fi
-  if [[ "$ROOK_EXTERNAL_ADMIN_SECRET" != "admin-secret" ]] && [ -n "$ROOK_EXTERNAL_USER_SECRET" ] ; then
-    echo "Providing both ROOK_EXTERNAL_ADMIN_SECRET and ROOK_EXTERNAL_USER_SECRET is not supported, choose one only."
-    exit 1
+
+  if [[ -v ROOK_EXTERNAL_ADMIN_SECRET && "$ROOK_EXTERNAL_ADMIN_SECRET" != "admin-secret" ]]; then
+    if [[ -v ROOK_EXTERNAL_USER_SECRET ]]; then
+      printf '%s\n' "Providing both ROOK_EXTERNAL_ADMIN_SECRET and ROOK_EXTERNAL_USER_SECRET is not supported, choose one only." >&2
+      exit 1
+    fi
   fi
 }
 
