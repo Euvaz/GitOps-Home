@@ -4,4 +4,4 @@ resources:
   - cert-manager.yaml
   - metallb-system.yaml
   - networking.yaml
-  - rook-ceph
+  - rook-ceph.yaml
