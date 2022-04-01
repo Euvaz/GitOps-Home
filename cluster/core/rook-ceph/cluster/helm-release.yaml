@@ -37,6 +37,10 @@ spec:
             interval: 45s
     cephBlockPools:
       - name: ceph-blockpool
+        spec:
+          failureDomain: host
+          replicated:
+            size: 3
         storageClass:
           enabled: true
           name: ceph-block
