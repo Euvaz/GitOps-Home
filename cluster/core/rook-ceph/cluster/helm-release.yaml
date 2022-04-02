@@ -26,7 +26,7 @@ spec:
       namespace: rook-ceph
   values:
     monitoring:
-      enabled: false
+      enabled: true
     ingress:
       dashboard:
         annotations:
