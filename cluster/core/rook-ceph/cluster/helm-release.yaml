@@ -54,7 +54,7 @@ spec:
       mgr:
         count: 2
       dashboard:
-        enabled: true
+        enabled: false
         urlPrefix: /
         ssl: false
       storage:
