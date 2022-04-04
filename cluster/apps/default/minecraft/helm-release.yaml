@@ -16,21 +16,23 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    ## Configure resource requests and limits
-    ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
-    ##
     resources:
       requests:
-        memory: 512Mi
-        cpu: 500m
-
+        memory: 6Gi
+        cpu: 250m
+      limits:
+        memory: 6Gi
+    persistence:
+      storageClass: "ceph-block"
+      dataDir:
+        enabled: true
+        Size: 10Gi
     minecraftServer:
-      # This must be overridden, since we can't accept this for the user.
       eula: "TRUE"
-      # One of: peaceful, easy, normal, and hard
-      difficulty: normal
-      # If true, enable player-vs-player damage.
+      difficulty: hard
       pvp: true
+      memory: 4096M
       serviceType: LoadBalancer
+      motd: "\u00A7kNot A Flag"
       loadBalancerIP: 10.11.0.211
       externalTrafficPolicy: Local
