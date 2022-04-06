@@ -29,7 +29,7 @@ spec:
       fullnameOverride: node-exporter
       prometheus:
         monitor:
-          enabled: true
+          enabled: false
           relabelings:
             - action: replace
               regex: (.*)
@@ -46,7 +46,7 @@ spec:
             etcd:
               enabled: true
     kubelet:
-      enabled: true
+      enabled: false
       serviceMonitor:
         metricRelabelings:
           - action: replace
@@ -54,33 +54,33 @@ spec:
               - node
             targetLabel: instance
     kubeApiServer:
-      enabled: true
+      enabled: false
     kubeControllerManager:
-      enabled: true
+      enabled: false
       endpoints:
         - 10.11.0.50
         - 10.11.0.60
         - 10.11.0.70
     kubeScheduler:
-      enabled: true
+      enabled: false
       endpoints:
         - 10.11.0.50
         - 10.11.0.60
         - 10.11.0.70
     kubeProxy:
-      enabled: true
+      enabled: false
       endpoints:
         - 10.11.0.50
         - 10.11.0.60
         - 10.11.0.70
     kubeEtcd:
-      enabled: true
+      enabled: false
       endpoints:
         - 10.11.0.50
         - 10.11.0.60
         - 10.11.0.70
       service:
-        enabled: true
+        enabled: false
         port: 2381
         targetPort: 2381
     prometheus:
