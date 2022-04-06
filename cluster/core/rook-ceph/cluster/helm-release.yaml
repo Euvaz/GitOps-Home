@@ -32,6 +32,8 @@ spec:
       dashboard:
         annotations:
           kubernetes.io/ingress.class: "traefik"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         host:
           name: &host "rook.${SECRET_DOMAIN}"
           path: "/"
@@ -57,7 +59,7 @@ spec:
       dashboard:
         enabled: true
         urlPrefix: /
-        ssl: false
+        ssl: true
       storage:
         useAllNodes: false
         useAllDevices: false
