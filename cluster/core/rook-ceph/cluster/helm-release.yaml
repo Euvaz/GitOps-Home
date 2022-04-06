@@ -40,6 +40,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: rook-ceph-cluster-tls
     cephClusterSpec:
       # TODO: [rook-ceph] Enable host network on next rebuild
       # network:
