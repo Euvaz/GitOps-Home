@@ -34,5 +34,5 @@ spec:
       memory: 4096M
       serviceType: LoadBalancer
       motd: "\u00A7kNot A Flag"
-      loadBalancerIP: 10.11.0.211
+      loadBalancerIP: "${LB_MINECRAFT_IP}"
       externalTrafficPolicy: Local
