@@ -33,7 +33,7 @@ main() {
         verify_kubevip
         verify_age
         verify_git_repository
-        verify_cloudflare
+        #verify_cloudflare
         success
     else
         # sops configuration file
@@ -53,9 +53,9 @@ main() {
         sops --encrypt --in-place "${PROJECT_DIR}/cluster/base/cluster-secrets.sops.yaml"
         sops --encrypt --in-place "${PROJECT_DIR}/cluster/core/cert-manager/secret.sops.yaml"
         # terraform
-        envsubst < "${PROJECT_DIR}/tmpl/terraform/secret.sops.yaml" \
-            > "${PROJECT_DIR}/provision/terraform/cloudflare/secret.sops.yaml"
-        sops --encrypt --in-place "${PROJECT_DIR}/provision/terraform/cloudflare/secret.sops.yaml"
+        #envsubst < "${PROJECT_DIR}/tmpl/terraform/secret.sops.yaml" \
+        #    > "${PROJECT_DIR}/provision/terraform/cloudflare/secret.sops.yaml"
+        #sops --encrypt --in-place "${PROJECT_DIR}/provision/terraform/cloudflare/secret.sops.yaml"
         # ansible
         envsubst < "${PROJECT_DIR}/tmpl/ansible/kube-vip.yml" \
             > "${PROJECT_DIR}/provision/ansible/inventory/group_vars/kubernetes/kube-vip.yml"
