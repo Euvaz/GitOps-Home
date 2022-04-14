@@ -67,15 +67,15 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: "k3s-00-00-worker-00"
+          - name: "k3s-00-worker"
             devices:
-              - name: "sdb"
-          - name: "k3s-00-01-worker-00"
+              - name: "nvme0n1"
+          - name: "k3s-01-worker"
             devices:
-              - name: "sdb"
-          - name: "k3s-00-02-worker-00"
+              - name: "nvme0n1"
+          - name: "k3s-02-worker"
             devices:
-              - name: "sdb"
+              - name: "nvme0n1"
 #    cephBlockPoolsVolumeSnapshotClass:
 #      enabled: true
 #      name: csi-rbdplugin-snapclass
