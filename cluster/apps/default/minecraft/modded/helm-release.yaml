@@ -29,6 +29,7 @@ spec:
         Size: 10Gi
     minecraftServer:
       eula: "TRUE"
+      version: "1.12.2"
       type: "FTBA"
       ftbModpackId: "35"
       ftbModpackVersionId: "3.4.0"
