@@ -32,7 +32,6 @@ spec:
       type: "FTBA"
       ftbModpackId: "35"
       ftbModpackVersionId: "3.4.0"
-      ftbLegacyJavaFixer: true
       difficulty: hard
       pvp: true
       memory: 4096M
