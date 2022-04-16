@@ -40,6 +40,6 @@ spec:
       memory: 4096M
       serviceType: LoadBalancer
       motd: "\u00A7kNot A Flag"
-      servicePort: 25566
+      servicePort: 25565
       loadBalancerIP: "${LB_MINECRAFT_FTB_IP}"
       externalTrafficPolicy: Local
