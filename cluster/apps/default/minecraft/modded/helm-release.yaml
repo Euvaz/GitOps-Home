@@ -43,3 +43,5 @@ spec:
       servicePort: 25566
       loadBalancerIP: "${LB_MINECRAFT_FTB_IP}"
       externalTrafficPolicy: Local
+      query:
+        port: 25566
