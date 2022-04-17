@@ -34,7 +34,7 @@ spec:
       version: "1.12.2"
       type: "FTBA"
       ftbModpackId: "35"
-      ftbModpackVersionId: "3.4.0"
+      ftbModpackVersionId: "3.5.0"
       difficulty: hard
       pvp: true
       memory: 4096M
