@@ -33,7 +33,7 @@ spec:
       pvp: true
       memory: 4096M
       serviceType: LoadBalancer
-      motd: "\u00A7kNot A Flag"
+      motd: "\u00A7kFTB:R"
       servicePort: 25566
       loadBalancerIP: "${LB_MINECRAFT_IP}"
       externalTrafficPolicy: Local
