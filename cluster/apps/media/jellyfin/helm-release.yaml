@@ -50,6 +50,15 @@ spec:
       config:
         enabled: true
         existingClaim: jellyfin-config
+      media:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "nas.${SECRET_DOMAIN}"
+            path: /zfsa/Media/Jellyfin
+        mountPath: /media
+        readOnly: true
       transcode:
         enabled: true
         type: emptyDir
