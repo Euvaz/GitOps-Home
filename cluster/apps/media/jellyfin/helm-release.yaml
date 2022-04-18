@@ -55,7 +55,7 @@ spec:
         type: custom
         volumeSpec:
           nfs:
-            server: "nas.${SECRET_DOMAIN}"
+            server: "10.11.0.40"
             path: /zfsa/Media/Jellyfin
         mountPath: /media
         readOnly: true
