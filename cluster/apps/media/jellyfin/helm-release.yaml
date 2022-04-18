@@ -56,7 +56,7 @@ spec:
         volumeSpec:
           nfs:
             server: "10.11.0.40"
-            path: /zfsa/Media/Jellyfin
+            path: /zfsa/Media/
         mountPath: /media
         readOnly: true
       transcode:
