@@ -39,6 +39,6 @@ spec:
       pvp: true
       memory: 4096M
       serviceType: LoadBalancer
-      motd: "FTB:R"
+      motd: "\u00A7kFTB:R"
       loadBalancerIP: "${LB_MINECRAFT_IP}"
       externalTrafficPolicy: Local
