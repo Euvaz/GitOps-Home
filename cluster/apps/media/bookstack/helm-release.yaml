@@ -6,6 +6,8 @@ metadata:
   namespace: media
 spec:
   interval: 5m
+  dependsOn:
+    - name: bookstack-db
   chart:
     spec:
       chart: bookstack
