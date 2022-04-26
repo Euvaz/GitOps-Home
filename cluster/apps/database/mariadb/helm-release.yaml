@@ -21,10 +21,6 @@ spec:
       database: ""
       username: "${SECRET_MARIADB_USERNAME}"
       password: "${SECRET_MARIADB_PASSWORD}"
-    service:
-      type: LoadBalancer
-      clusterIP: "${LB_MARIADB_IP}"
-      externalTrafficPolicy: Local
     persistence:
       enabled: true
       existingClaim: mariadb-v1
