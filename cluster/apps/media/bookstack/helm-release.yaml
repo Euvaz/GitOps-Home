@@ -7,7 +7,8 @@ metadata:
 spec:
   interval: 5m
   dependsOn:
-    - name: bookstack-db
+    - name: mariadb
+      namespace: database
   chart:
     spec:
       chart: bookstack
