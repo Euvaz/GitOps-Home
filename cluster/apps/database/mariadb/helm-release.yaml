@@ -21,9 +21,10 @@ spec:
       database: ""
       username: "${SECRET_MARIADB_USERNAME}"
       password: "${SECRET_MARIADB_PASSWORD}"
-    persistence:
-      enabled: true
-      existingClaim: mariadb-v1
+    primary:
+      persistence:
+        enabled: true
+        existingClaim: mariadb-v1
     resources:
       requests:
         cpu: 100m
