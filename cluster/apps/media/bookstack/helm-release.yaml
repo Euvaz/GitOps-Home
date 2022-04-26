@@ -17,12 +17,17 @@ spec:
         kind: HelmRepository
         name: k8s-at-home-charts
         namespace: flux-system
+      interval: 5m
   values:
     image:
       repository: bookstack/bookstack
       tag: v21.12
     env:
-      TZ: "${TIMEZONE}"
+      APP_URL: "https://docs.${SECRET_DOMAIN}"
+      DB_HOST: mariadb
+      DB_DATABASE: bookstack
+      DB_USERNAME: bookstack
+      DB_PASSWORD: ${SECRET_BOOKSTACK_DATABASE_PASSWORD}
     ingress:
       main:
         enabled: true
