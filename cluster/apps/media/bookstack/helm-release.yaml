@@ -20,9 +20,11 @@ spec:
       interval: 5m
   values:
     image:
-      repository: bookstack/bookstack
-      tag: "v21.12"
+      repository: ghcr.io/linuxserver/bookstack
+      pullPolicy: IfNotPresent
+      tag: "version-v22.03.1"
     env:
+      TZ: ${TIMEZONE}
       APP_URL: "https://docs.${SECRET_DOMAIN}"
       DB_HOST: mariadb
       DB_DATABASE: bookstack
