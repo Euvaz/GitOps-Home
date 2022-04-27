@@ -21,7 +21,7 @@ spec:
   values:
     image:
       repository: bookstack/bookstack
-      tag: v21.12
+      tag: "v21.12"
     env:
       APP_URL: "https://docs.${SECRET_DOMAIN}"
       DB_HOST: mariadb
