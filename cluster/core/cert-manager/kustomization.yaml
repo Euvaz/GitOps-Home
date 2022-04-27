@@ -5,4 +5,3 @@ resources:
   - letsencrypt-production.yaml
   - letsencrypt-staging.yaml
   - secret.sops.yaml
-  - cert-manager-webhook-gandi
