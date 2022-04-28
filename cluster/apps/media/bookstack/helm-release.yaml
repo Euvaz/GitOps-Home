@@ -26,7 +26,7 @@ spec:
     env:
       TZ: ${TIMEZONE}
       APP_URL: "https://docs.${SECRET_DOMAIN}"
-      DB_HOST: mariadb
+      DB_HOST: mariadb.database.svc.cluster.local:3306
       DB_DATABASE: bookstack
       DB_USERNAME: bookstack
       DB_PASSWORD: ${SECRET_BOOKSTACK_DATABASE_PASSWORD}
