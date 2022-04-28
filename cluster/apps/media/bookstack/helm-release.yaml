@@ -50,6 +50,7 @@ spec:
     persistence:
       config:
         enabled: true
+        mountPath: /config
         existingClaim: bookstack-config-v1
     resources:
       requests:
