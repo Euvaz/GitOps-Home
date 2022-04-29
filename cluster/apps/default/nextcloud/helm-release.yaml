@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: nextcloud
-      tag: 21.0.4
+      tag: 21.0.9
     ingress:
       enabled: true
       ingressClassName: "traefik"
