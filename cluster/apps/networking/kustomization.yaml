@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   #- external-dns
   - traefik
-  - unifi
+  #- unifi
