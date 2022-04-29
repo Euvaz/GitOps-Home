@@ -1,0 +1,84 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nextcloud
+  namespace: default
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: nextcloud
+      version: 2.10.0
+      sourceRef:
+        kind: HelmRepository
+        name: nextcloud-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: nextcloud
+      tag: 21.0.4
+    ingress:
+      enabled: true
+      ingressClassName: "traefik"
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        external-dns/is-public: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+      host:
+        - host: &host "cloud.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - *host
+          secretName: nextcloud-tls
+    persistence:
+      enabled: true
+      existingClaim: nextcloud-config-v1
+    internalDatabase:
+      enabled: false
+    externalDatabase:
+      enabled: true
+      type: mysql
+      host: mariadb.database.svc.cluster.local:3306
+      user: nextcloud
+      password: ${SECRET_NEXTCLOUD_DATABASE_PASSWORD}
+      database: nextcloud
+    metrics:
+      enabled: true
+      # resources:
+      #   limits:
+      #     cpu: 11m
+      #     memory: 83Mi
+      #   requests:
+      #     cpu: 11m
+      #     memory: 83Mi
+    nextcloud:
+      host: "cloud.${SECRET_DOMAIN}"
+      username: admin
+      extraVolumes:
+        - name: nfs-documents
+          persistentVolumeClaim:
+            claimName: media-nfs-documents-pvc
+        - name: nfs-unsorted
+          persistentVolumeClaim:
+            claimName: media-nfs-unsorted-pvc
+      extraVolumeMounts:
+        - name: nfs-documents
+          mountPath: /nfs/documents
+        - name: nfs-unsorted
+          mountPath: /nfs/unsorted
+  #    resources:
+  #      limits:
+  #        cpu: 23m
+  #        memory: 283Mi
+  #      requests:
+  #        cpu: 23m
+  #        memory: 283Mi
+  #    livenessProbe:
+  #      enabled: false
+  #    readinessProbe:
+  #      enabled: false
