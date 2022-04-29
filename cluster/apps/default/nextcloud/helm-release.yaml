@@ -61,16 +61,13 @@ spec:
       username: admin
       extraVolumes:
         - name: nfs-documents
-          persistentVolumeClaim:
-            claimName: media-nfs-documents-pvc
-        - name: nfs-unsorted
-          persistentVolumeClaim:
-            claimName: media-nfs-unsorted-pvc
+          nfs:
+            server: "nas.${SECRET_DOMAIN}"
+            path: "/nextcloud_data"
+            readonly: false
       extraVolumeMounts:
-        - name: nfs-documents
-          mountPath: /nfs/documents
-        - name: nfs-unsorted
-          mountPath: /nfs/unsorted
+        - name: nfs
+          mountPath: /data
   #    resources:
   #      limits:
   #        cpu: 23m
