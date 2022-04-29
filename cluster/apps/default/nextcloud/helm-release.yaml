@@ -21,16 +21,13 @@ spec:
       tag: 21.0.4
     ingress:
       enabled: true
-      ingressClassName: "traefik"
+      className: "traefik"
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-production
         external-dns/is-public: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-      host:
-        - host: &host "cloud.${SECRET_DOMAIN}"
-          paths:
-            - path: /
-              pathType: Prefix
+      hosts:
+        - &host "cloud.${SECRET_DOMAIN}"
       tls:
         - hosts:
             - *host
