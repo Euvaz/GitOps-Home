@@ -24,14 +24,14 @@ spec:
     service:
       main:
         type: LoadBalancer
-        metallb.universe.tf/loadBalancerIPs: "${LB_UNIFI_IP}"
+        loadBalancerIP: "${LB_UNIFI_IP}"
         externalTrafficPolicy: Local
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
+          kubernetes.io/ingress.class: traefik
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
           - host: &host "unifi.${SECRET_DOMAIN}"
