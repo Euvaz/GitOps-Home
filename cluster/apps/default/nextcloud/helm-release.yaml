@@ -26,11 +26,11 @@ spec:
         external-dns/is-public: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
-        - "cloud.${SECRET_DOMAIN}"
+        - &host "cloud.${SECRET_DOMAIN}"
       tls:
         - secretName: nextcloud-tls
           hosts:
-            - "cloud.${SECRET_DOMAIN}"
+            - *host
     persistence:
       enabled: true
       existingClaim: nextcloud-config-v1
@@ -45,33 +45,15 @@ spec:
       database: nextcloud
     metrics:
       enabled: true
-      # resources:
-      #   limits:
-      #     cpu: 11m
-      #     memory: 83Mi
-      #   requests:
-      #     cpu: 11m
-      #     memory: 83Mi
     nextcloud:
-      host: "cloud.${SECRET_DOMAIN}"
+      host: *host
       username: admin
       extraVolumes:
-        - name: nfs-documents
+        - name: nfs
           nfs:
             server: "nas.${SECRET_DOMAIN}"
             path: "/nextcloud_data"
             readonly: false
       extraVolumeMounts:
         - name: nfs
-          mountPath: /data
-  #    resources:
-  #      limits:
-  #        cpu: 23m
-  #        memory: 283Mi
-  #      requests:
-  #        cpu: 23m
-  #        memory: 283Mi
-  #    livenessProbe:
-  #      enabled: false
-  #    readinessProbe:
-  #      enabled: false
+          mountPath: "/legacy_data"
