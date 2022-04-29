@@ -27,10 +27,10 @@ spec:
         external-dns/is-public: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
-        - &host "cloud.${SECRET_DOMAIN}"
+        - "cloud.${SECRET_DOMAIN}"
       tls:
         - hosts:
-            - *host
+            - "cloud.${SECRET_DOMAIN}"
           secretName: nextcloud-tls
     persistence:
       enabled: true
