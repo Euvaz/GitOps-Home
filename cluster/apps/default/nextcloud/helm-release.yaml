@@ -20,18 +20,22 @@ spec:
       repository: nextcloud
       tag: 23.0.4
     ingress:
-      enabled: true
-      className: "traefik"
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-production
-        external-dns/is-public: "true"
-        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-      hosts:
-        - "cloud.${SECRET_DOMAIN}"
-      tls:
-        - hosts:
-            - "cloud.${SECRET_DOMAIN}"
-          secretName: nextcloud-tls
+      main:
+        enabled: true
+        className: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+          - host: &host "cloud.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: nextcloud-tls
     persistence:
       enabled: true
       existingClaim: nextcloud-config-v1
