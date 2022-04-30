@@ -29,9 +29,9 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          kubernetes.io/ingress.class: traefik
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
           - host: &host "unifi.${SECRET_DOMAIN}"
@@ -48,7 +48,7 @@ spec:
         existingClaim: unifi-config-v1
     resources:
       requests:
-        cpu: 23m
-        memory: 1390M
+        cpu: 15m
+        memory: 750Mi
       limits:
-        memory: 1390M
+        memory: 1000Mi
