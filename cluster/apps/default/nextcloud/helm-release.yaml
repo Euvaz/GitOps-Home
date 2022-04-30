@@ -48,12 +48,12 @@ spec:
     nextcloud:
       host: *host
       username: admin
-      extraVolumes:
-        - name: nfs
-          nfs:
-            server: "nas.${SECRET_DOMAIN}"
-            path: "/nextcloud_data"
-            readonly: false
-      extraVolumeMounts:
-        - name: nfs
-          mountPath: "/legacy_data"
+      #extraVolumes:
+      #  - name: nfs
+      #    nfs:
+      #      server: "nas.${SECRET_DOMAIN}"
+      #      path: "/nextcloud_data"
+      #      readonly: false
+      #extraVolumeMounts:
+      #  - name: nfs
+      #    mountPath: "/legacy_data"
