@@ -53,7 +53,7 @@ spec:
           nfs:
             server: "nas.${SECRET_DOMAIN}"
             path: /zfsa/Media/Downloads/
-            readonly: false
+            readOnly: false
       extraVolumeMounts:
         - name: nfs
           mountPath: /downloads
