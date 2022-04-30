@@ -46,7 +46,7 @@ spec:
     metrics:
       enabled: true
     nextcloud:
-      host: *host
+      host: "cloud.${SECRET_DOMAIN}"
       username: admin
       #extraVolumes:
       #  - name: nfs
