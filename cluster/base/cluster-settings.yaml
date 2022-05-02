@@ -7,6 +7,8 @@ metadata:
 data:
   TIMEZONE: "America/Los_Angeles"
   #
+  NETWORK_CLUSTER_CIDR: 10.11.0.0/16
+  #
   METALLB_LB_RANGE: 10.11.0.210-10.11.0.219
   METALLB_TRAEFIK_ADDR: 10.11.0.210
   #
