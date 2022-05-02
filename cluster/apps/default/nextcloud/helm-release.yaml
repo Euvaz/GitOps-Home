@@ -75,6 +75,8 @@ spec:
             array (
               0 => 'HTTP_X_FORWARDED_FOR',
             ),
+            'overwrite.cli.url' => 'https://cloud.${SECRET_DOMAIN}',
+            'overwriteprotocol' => 'https',
           );
         gitops.config.php: |-
           <?php
