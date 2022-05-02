@@ -43,7 +43,7 @@ spec:
               - *host
             secretName: unifi-controller-tls
     persistence:
-      config:
+      data:
         enabled: true
         existingClaim: unifi-config-v1
     resources:
