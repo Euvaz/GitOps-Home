@@ -20,7 +20,7 @@ spec:
       repository: jacobalberty/unifi
       tag: v7.1.61
     env:
-      TZ: ${TIMEZONE}
+      TZ: "${TIMEZONE}"
     service:
       main:
         type: LoadBalancer
@@ -43,7 +43,7 @@ spec:
               - *host
             secretName: unifi-controller-tls
     persistence:
-      data:
+      config:
         enabled: true
         existingClaim: unifi-config-v1
     resources:
