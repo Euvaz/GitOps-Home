@@ -69,13 +69,13 @@ spec:
         nodes:
           - name: "k3s-00-worker"
             devices:
-              - name: "sda"
+              - name: "/dev/disk/by-id/wwn-0x500a0751e608fbd9"
           - name: "k3s-01-worker"
             devices:
-              - name: "sda"
+              - name: "/dev/disk/by-id/wwn-0x500a0751e608fb42"
           - name: "k3s-02-worker"
             devices:
-              - name: "sda"
+              - name: "/dev/disk/by-id/wwn-0x500a0751e608fbc9"
 #    cephBlockPoolsVolumeSnapshotClass:
 #      enabled: true
 #      name: csi-rbdplugin-snapclass
