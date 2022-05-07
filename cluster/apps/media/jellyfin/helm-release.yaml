@@ -50,7 +50,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: jellyfin-config
+        existingClaim: jellyfin-config-v1
       media:
         enabled: true
         type: custom
