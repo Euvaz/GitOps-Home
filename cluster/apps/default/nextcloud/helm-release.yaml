@@ -47,8 +47,6 @@ spec:
       enabled: true
     nextcloud:
       host: "cloud.${SECRET_DOMAIN}"
-      username: admin
-      password: ${SECRET_NEXTCLOUD_PASSWORD}
       extraVolumes:
         - name: nfs-downloads
           nfs:
