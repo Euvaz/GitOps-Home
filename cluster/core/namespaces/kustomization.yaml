@@ -7,5 +7,5 @@ resources:
   - media.yaml
   - monitoring.yaml
   - networking.yaml
-  #- rook-ceph.yaml
+  - rook-ceph.yaml
   - vpn-gateway.yaml
