@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - goldilocks
   - kube-prometheus-stack
+  - vpa
