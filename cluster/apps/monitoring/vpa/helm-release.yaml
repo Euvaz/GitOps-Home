@@ -29,3 +29,10 @@ spec:
       enabled: false
     admissionController:
       enabled: false
+    resources:
+      requests:
+        cpu: 15m
+        memory: 105M
+      limits:
+        cpu: 15m
+        memory: 105M
