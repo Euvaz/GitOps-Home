@@ -27,7 +27,8 @@ spec:
         existingClaim: mariadb-v1
     resources:
       requests:
-        cpu: 100m
-        memory: 1000Mi
+        cpu: 15m
+        memory: 105M
       limits:
-        memory: 1000Mi
+        cpu: 15m
+        memory: 105M
