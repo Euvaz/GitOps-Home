@@ -7,3 +7,4 @@ resources:
   - metallb-system
   - rook-ceph
   - system-upgrade
+  - velero
