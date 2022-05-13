@@ -9,4 +9,4 @@ resources:
   - networking.yaml
   - rook-ceph.yaml
   - velero.yaml
-  - vpn-gateway.yaml
+  #- vpn-gateway.yaml
