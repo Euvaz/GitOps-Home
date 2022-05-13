@@ -36,7 +36,7 @@ spec:
           region: us-west-1
       resticTimeout: 6h
     credentials:
-      existingSecret: velero-minio-credentials
+      existingSecret: cloud-credentials
     initContainers:
       - name: velero-plugin-for-aws
         image: velero/velero-plugin-for-aws:v1.4.1
