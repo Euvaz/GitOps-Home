@@ -28,7 +28,7 @@ spec:
         config:
           region: us-west-1
           s3ForcePathStyle: true
-          s3Url: http://minio.${SECRET_DOMAIN}:9000
+          s3Url: https://minio.${SECRET_DOMAIN}
           publicUrl: https://minio.${SECRET_DOMAIN}
       volumeSnapshotLocation:
         name: aws
@@ -50,10 +50,6 @@ spec:
         memory: 300Mi
       limits:
         memory: 1500Mi
-    # tolerations:
-    # - key: "arm"
-    #   operator: "Exists"
-    # enableHelmHooks: false
     metrics:
       enabled: true
       serviceMonitor:
