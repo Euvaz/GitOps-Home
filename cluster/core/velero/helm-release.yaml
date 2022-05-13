@@ -89,3 +89,12 @@ spec:
         schedule: "0 6 * * *"
         template:
           ttl: "120h"
+      database-daily:
+        schedule: "0 6 * * *"
+        template:
+          labelSelector:
+            matchLabels:
+              app: mariadb
+          ttl: "120h"
+          includedNamespaces:
+            - database
