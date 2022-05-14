@@ -84,3 +84,12 @@ spec:
           ttl: "120h"
           includedNamespaces:
             - database
+      media-weekly:
+        schedule: "0 0 * * 0"
+        template:
+          labelSelector:
+            matchLabels:
+              app: [bookstack, jellyfin]
+          ttl: "120h"
+          includeNamespaces:
+            - media
