@@ -74,13 +74,13 @@ spec:
         - 10.11.0.51
         - 10.11.0.52
     kubeEtcd:
-      enabled: false
+      enabled: true
       endpoints:
         - 10.11.0.50
         - 10.11.0.51
         - 10.11.0.52
       service:
-        enabled: false
+        enabled: true
         port: 2381
         targetPort: 2381
     prometheus:
