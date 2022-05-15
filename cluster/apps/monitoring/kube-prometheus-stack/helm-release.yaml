@@ -56,7 +56,7 @@ spec:
     kubeApiServer:
       enabled: true
     kubeControllerManager:
-      enabled: false
+      enabled: true
       endpoints:
         - 10.11.0.50
         - 10.11.0.51
