@@ -89,7 +89,8 @@ spec:
         template:
           labelSelector:
             matchLabels:
-              app: [bookstack, jellyfin]
+              app0: bookstack
+              app1: jellyfin
           ttl: "120h"
           includedNamespaces:
             - media
