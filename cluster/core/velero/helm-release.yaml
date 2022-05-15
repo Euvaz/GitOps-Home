@@ -91,5 +91,5 @@ spec:
             matchLabels:
               app: [bookstack, jellyfin]
           ttl: "120h"
-          includeNamespaces:
+          includedNamespaces:
             - media
