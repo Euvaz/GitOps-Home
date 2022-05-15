@@ -46,7 +46,7 @@ spec:
             etcd:
               enabled: false
     kubelet:
-      enabled: false
+      enabled: true
       serviceMonitor:
         metricRelabelings:
           - action: replace
