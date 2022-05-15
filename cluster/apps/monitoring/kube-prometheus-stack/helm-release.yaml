@@ -68,7 +68,7 @@ spec:
         - 10.11.0.51
         - 10.11.0.52
     kubeProxy:
-      enabled: false
+      enabled: true
       endpoints:
         - 10.11.0.50
         - 10.11.0.51
