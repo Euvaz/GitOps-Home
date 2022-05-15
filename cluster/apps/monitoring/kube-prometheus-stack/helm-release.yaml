@@ -61,12 +61,20 @@ spec:
         - 10.11.0.50
         - 10.11.0.51
         - 10.11.0.52
+      service:
+        enabled: true
+        port: 10257
+        targetPort: 10257
     kubeScheduler:
       enabled: true
       endpoints:
         - 10.11.0.50
         - 10.11.0.51
         - 10.11.0.52
+      service:
+        enabled: true
+        port: 10259
+        targetPort: 10259
     kubeProxy:
       enabled: true
       endpoints:
