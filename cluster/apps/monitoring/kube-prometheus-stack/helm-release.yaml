@@ -59,26 +59,26 @@ spec:
       enabled: false
       endpoints:
         - 10.11.0.50
-        - 10.11.0.60
-        - 10.11.0.70
+        - 10.11.0.51
+        - 10.11.0.52
     kubeScheduler:
       enabled: false
       endpoints:
         - 10.11.0.50
-        - 10.11.0.60
-        - 10.11.0.70
+        - 10.11.0.51
+        - 10.11.0.52
     kubeProxy:
       enabled: false
       endpoints:
         - 10.11.0.50
-        - 10.11.0.60
-        - 10.11.0.70
+        - 10.11.0.51
+        - 10.11.0.52
     kubeEtcd:
       enabled: false
       endpoints:
         - 10.11.0.50
-        - 10.11.0.60
-        - 10.11.0.70
+        - 10.11.0.51
+        - 10.11.0.52
       service:
         enabled: false
         port: 2381
