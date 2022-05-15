@@ -54,7 +54,7 @@ spec:
               - node
             targetLabel: instance
     kubeApiServer:
-      enabled: false
+      enabled: true
     kubeControllerManager:
       enabled: false
       endpoints:
