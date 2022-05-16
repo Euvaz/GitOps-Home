@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
   namespace: monitoring
+  labels:
+    velero.io/schedule: weekly
 spec:
   interval: 5m
   chart:
