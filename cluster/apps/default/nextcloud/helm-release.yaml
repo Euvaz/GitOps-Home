@@ -86,3 +86,5 @@ spec:
             #'appstoreurl' => 'https://apps.nextcloud.com/api/v0',
             'mail_domain' => '${SECRET_DOMAIN}',
           );
+    podAnnotations:
+      backup.velero.io/backup-volumes: mariadb-v1
