@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: bookstack
   namespace: media
+  labels:
+    velero.io/schedule: weekly
 spec:
   interval: 5m
   dependsOn:
