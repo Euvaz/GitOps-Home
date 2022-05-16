@@ -71,11 +71,11 @@ spec:
           memory: 3000Mi
           cpu: null
     schedules:
-      daily-backup:
+      schedule-global-daily:
         schedule: "0 6 * * *"
         template:
           ttl: "120h"
-      database-daily:
+      schedule-daily:
         schedule: "0 6 * * *"
         template:
           labelSelector:
@@ -83,15 +83,22 @@ spec:
               app: mariadb
           ttl: "120h"
           includedNamespaces:
-            - database
-      media-weekly:
+            - "*"
+      schedule-weekly:
         schedule: "0 0 * * 0"
         template:
           labelSelector:
             matchLabels:
-              app:
-                - bookstack
-                - jellyfin
+              app: unifi
           ttl: "120h"
           includedNamespaces:
-            - media
+            - "*"
+      schedule-monthly:
+        schedule: "0 0 1 * *"
+        template:
+          labelSelector:
+            matchLabels:
+              app: mariadb
+          ttl: "120h"
+          includedNamespaces:
+            - "*"
