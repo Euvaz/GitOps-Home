@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: unifi
   namespace: networking
+  labels:
+    velero.io/schedule: weekly
 spec:
   interval: 5m
   chart:
