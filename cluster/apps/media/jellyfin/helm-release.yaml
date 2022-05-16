@@ -66,6 +66,8 @@ spec:
         enabled: true
         type: emptyDir
         medium: Memory
+    podAnnotations:
+      backup.velero.io/backup-volumes: jellyfin-config-v1
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
