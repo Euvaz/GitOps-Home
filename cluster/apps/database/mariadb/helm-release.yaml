@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: mariadb
   namespace: database
+  labels:
+    velero.io/schedule: daily
 spec:
   interval: 5m
   chart:
