@@ -54,6 +54,8 @@ spec:
         enabled: true
         mountPath: /config
         existingClaim: bookstack-config-v1
+    podAnnotations:
+      backup.velero.io/backup-volumes: bookstack-config-v1
     resources:
       requests:
         cpu: 15m
