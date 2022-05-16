@@ -80,7 +80,7 @@ spec:
         template:
           labelSelector:
             matchLabels:
-              app: mariadb
+              velero.io/schedule: daily
           ttl: "120h"
           includedNamespaces:
             - "*"
@@ -89,7 +89,7 @@ spec:
         template:
           labelSelector:
             matchLabels:
-              app: unifi
+              velero.io/schedule: weekly
           ttl: "120h"
           includedNamespaces:
             - "*"
@@ -98,7 +98,7 @@ spec:
         template:
           labelSelector:
             matchLabels:
-              app: mariadb
+              velero.io/schedule: monthly
           ttl: "120h"
           includedNamespaces:
             - "*"
