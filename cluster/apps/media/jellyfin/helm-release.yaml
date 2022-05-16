@@ -66,8 +66,6 @@ spec:
         enabled: true
         type: emptyDir
         medium: Memory
-    podAnnotations:
-      backup.velero.io/backup-volumes: jellyfin-config-v1
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
@@ -77,6 +75,8 @@ spec:
                   operator: In
                   values:
                     - "true"
+    podAnnotations:
+      backup.velero.io/backup-volumes: jellyfin-config-v1
     resources:
       requests:
         gpu.intel.com/i915: 1
