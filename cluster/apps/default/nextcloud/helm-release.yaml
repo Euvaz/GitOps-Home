@@ -70,7 +70,7 @@ spec:
           $CONFIG = array (
             'trusted_proxies' =>
             array (
-               0 => '${NETWORK_CLUSTER_CIDR}',
+              0 => '${NETWORK_CLUSTER_CIDR}',
             ),
             'forwarded_for_headers' =>
             array (
@@ -78,6 +78,7 @@ spec:
             ),
             'overwrite.cli.url' => 'https://cloud.${SECRET_DOMAIN}',
             'overwriteprotocol' => 'https',
+            'skeletondirectory' => '',
           );
         gitops.config.php: |-
           <?php
