@@ -295,17 +295,19 @@ kubectl --kubeconfig=./provision/kubeconfig get pods -n flux-system
 
 🎉 **Congratulations** you have a Kubernetes cluster managed by Flux, your Git repository is driving the state of your cluster.
 
-### ☁️ Configure Cloudflare DNS with Terraform
+### ☁️ Configure CRoute 53 DNS with Terraform
 
-📍 Review the Terraform scripts under `./terraform/cloudflare/` and make sure you understand what it's doing (no really review it). If your domain already has existing DNS records be sure to export those DNS settings before you continue. Ideally you can update the terraform script to manage DNS for all records if you so choose to.
+📍 Review the Terraform scripts under `./provision/terraform/route53/` and make sure you understand what it's doing (no really review it).
 
-1. Pull in the Terraform deps by running `task terraform:init:cloudflare`
+If your domain already has existing DNS records **be sure to export those DNS settings before you continue**.
 
-2. Review the changes Terraform will make to your Cloudflare domain by running `task terraform:plan:cloudflare`
+1. Pull in the Terraform deps by running `task terraform:init`
 
-3. Finally have Terraform execute the task by running `task terraform:apply:cloudflare`
+2. Review the changes Terraform will make to your Route 53 domain by running `task terraform:plan`
 
-If Terraform was ran successfully and you have port forwarded `80` and `443` in your router to the `${BOOTSTRAP_METALLB_TRAEFIK_ADDR}` IP, head over to your browser and you _should_ be able to access `https://hajimari.${BOOTSTRAP_CLOUDFLARE_DOMAIN}`!
+3. Finally have Terraform execute the task by running `task terraform:apply`
+
+If Terraform was ran successfully and you have port forwarded `80` and `443` in your router to the `${BOOTSTRAP_METALLB_TRAEFIK_ADDR}` IP, head over to your browser and you _should_ be able to access the services on their respective sub-domains, such as `https://jelly.${SECRET_DOMAIN}`!
 
 ## 📣 Post installation
 
