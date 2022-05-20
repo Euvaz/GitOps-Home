@@ -3,20 +3,20 @@ version: "3"
 
 tasks:
 
-  init:cloudflare:
-    desc: Initialize terraform
-    dir: provision/terraform/cloudflare
+  init:
+    desc: Initialize terraform dependencies
+    dir: provision/terraform/route53
     cmds:
-      - "terraform init"
+      - "terraform init {{.CLI_ARGS}}"
 
-  plan:cloudflare:
-    desc: Prepare all the k8s nodes for running k3s
-    dir: provision/terraform/cloudflare
+  plan:
+    desc: Show the changes terraform will make
+    dir: provision/terraform/route53
     cmds:
-      - "terraform plan"
+      - "terraform plan {{.CLI_ARGS}}"
 
-  apply:cloudflare:
-    desc: Prepare all the k8s nodes for running k3s
-    dir: provision/terraform/cloudflare
+  apply:
+    desc: Apply the changes to Route 53
+    dir: provision/terraform/route53
     cmds:
-      - "terraform apply"
+      - "terraform apply {{.CLI_ARGS}}"
