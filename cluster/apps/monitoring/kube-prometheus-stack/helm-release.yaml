@@ -60,6 +60,16 @@ spec:
           - hosts:
               - *host
             secretName: alert-manager-tls
+      alertmanagerSpec:
+        replicas: 3
+        podAntiAffinity: hard
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: "ceph-block"
+              resources:
+                requests:
+                  storage: 250Mi
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
     prometheus-node-exporter:
