@@ -25,6 +25,38 @@ spec:
     remediation:
       retries: 3
   values:
+    alertmanager:
+      config:
+        global:
+          resolve_timeout: 5m
+        receivers:
+          - name: "null"
+        route:
+          group_by: ["alertname", "job"]
+          group_wait: 30s
+          group_interval: 5m
+          repeat_interval: 6h
+          receiver: "pushover"
+          routes:
+            - receiver: "null"
+              matchers:
+                - alertname =~ "InfoInhibitor|Watchdog"
+        inhibit_rules:
+          - source_matcher:
+              - severity = "critical"
+            target_matcher:
+              - severity = "warning"
+            equal: ["alertname", "namespace"]
+      ingress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: "traefik"
+        hosts:
+          - &host "alert-manager.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - *host
+            secretName: alert-manager-tls
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
     prometheus-node-exporter:
