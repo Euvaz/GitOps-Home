@@ -44,9 +44,6 @@ spec:
             - match:
                 alertname: InfoInhibitor
               receiver: "null"
-            #- receiver: "null"
-            #  matchers:
-            #    - alertname =~ "InfoInhibitor|Watchdog"
         inhibit_rules:
           - source_matcher:
               - severity = "critical"
