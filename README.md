@@ -22,7 +22,6 @@ Feel free to read up on any of these technologies before you get started to be m
 - [cert-manager](https://cert-manager.io/) - SSL certificates - with Cloudflare DNS challenge
 - [calico](https://www.tigera.io/project-calico/) - CNI (container network interface)
 - [flux](https://toolkit.fluxcd.io/) - GitOps tool for deploying manifests from the `cluster` directory
-- [hajimari](https://github.com/toboshii/hajimari) - start page with ingress discovery
 - [kube-vip](https://kube-vip.io/) - layer 2 load balancer for the Kubernetes control plane
 - [local-path-provisioner](https://github.com/rancher/local-path-provisioner) - default storage class provided by k3s
 - [metallb](https://metallb.universe.tf/) - bare metal load balancer
