@@ -42,9 +42,9 @@ spec:
               matchers:
                 - alertname =~ "InfoInhibitor|Watchdog"
         inhibit_rules:
-          - source_matcher:
+          - source_matchers:
               - severity = "critical"
-            target_matcher:
+            target_matchers:
               - severity = "warning"
             equal: ["alertname", "namespace"]
       ingress:
