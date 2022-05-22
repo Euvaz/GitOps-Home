@@ -4,6 +4,7 @@ resources:
   - namespaces
   - cert-manager
   - kube-system
+  - kyverno
   - metallb-system
   - rook-ceph
   - system-upgrade
