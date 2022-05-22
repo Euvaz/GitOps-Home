@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - cert-manager.yaml
   - database.yaml
+  - kyverno.yaml
   - metallb-system.yaml
   - media.yaml
   - monitoring.yaml
