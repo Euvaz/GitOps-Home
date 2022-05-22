@@ -71,10 +71,6 @@ spec:
           memory: 3000Mi
           cpu: null
     schedules:
-      schedule-global-daily:
-        schedule: "0 6 * * *"
-        template:
-          ttl: "120h"
       schedule-daily:
         schedule: "0 6 * * *"
         template:
