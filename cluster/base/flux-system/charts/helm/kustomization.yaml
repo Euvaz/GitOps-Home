@@ -10,7 +10,6 @@ resources:
   - external-dns-charts.yaml
   - fairwinds-charts.yaml
   - grafana-charts.yaml
-  - hajimari-charts.yaml
   - infracloudio-charts.yaml
   - jetstack-charts.yaml
   - k8s-at-home-charts.yaml
