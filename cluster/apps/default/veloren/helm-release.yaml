@@ -34,7 +34,7 @@ spec:
         externalTrafficPolicy: Local
         ports:
           http:
-            port:
+            ports:
               - 14004
               - 14005
     ingress:
