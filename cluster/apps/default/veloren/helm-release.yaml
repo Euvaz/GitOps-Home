@@ -29,6 +29,9 @@ spec:
     tty: true
     service:
       main:
+        type: LoadBalancer
+        loadBalancerIP: "${LB_VELOREN_IP}"
+        externalTrafficPolicy: Local
         ports:
           http:
             port:
