@@ -89,6 +89,11 @@ spec:
       repository: containrrr/watchtower
     env:
       TZ: "${TIMEZONE}"
+    service:
+      main:
+        ports:
+          http:
+            port: 14004
     command: ["/bin/sh"]
     lifecycle:
       postStart:
