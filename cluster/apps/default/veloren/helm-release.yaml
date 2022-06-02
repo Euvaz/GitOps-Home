@@ -56,7 +56,7 @@ spec:
       config:
         enabled: true
         existingClaim: veloren-config-v1
-        mountPath: /data
+        mountPath: /opt/userdata
     resources:
       requests:
         cpu: 100m
