@@ -22,6 +22,7 @@ spec:
       nameOverride: *app
     image:
       repository: registry.gitlab.com/veloren/veloren/server-cli
+      pullPolicy: Always
       tag: nightly
     env:
       TZ: "${TIMEZONE}"
