@@ -4,6 +4,8 @@ kind: HelmRelease
 metadata:
   name: &app navidrome
   namespace: media
+  labels:
+    velero.io/schedule: weekly
 spec:
   interval: 15m
   chart:
@@ -61,6 +63,8 @@ spec:
         path: /zfsa/Media/Library/Music
         mountPath: /music
         readOnly: true
+    podAnnotations:
+      backup.velero.io/backup-volumes: navidrome-config-v1
     resources:
       requests:
         cpu: 100m
