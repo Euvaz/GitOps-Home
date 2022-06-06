@@ -49,15 +49,16 @@ spec:
       enabled: true
     nextcloud:
       host: "cloud.${SECRET_DOMAIN}"
+      datadir: /data
       extraVolumes:
-        - name: nfs-downloads
+        - name: nfs-data
           nfs:
             server: "nas.${SECRET_DOMAIN}"
-            path: /zfsa/Media/Downloads/
+            path: /zfsa/Nextcloud
             readOnly: false
       extraVolumeMounts:
-        - name: nfs-downloads
-          mountPath: /downloads
+        - name: nfs-data
+          mountPath: /data
       phpConfigs:
         uploadLimit.ini: |
           upload_max_filesize = 16G
@@ -88,4 +89,4 @@ spec:
             'mail_domain' => '${SECRET_DOMAIN}',
           );
     podAnnotations:
-      backup.velero.io/backup-volumes: mariadb-v1
+      backup.velero.io/backup-volumes: nextcloud-config-v1
