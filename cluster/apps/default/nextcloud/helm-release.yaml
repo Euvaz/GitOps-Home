@@ -49,15 +49,6 @@ spec:
       enabled: true
     nextcloud:
       host: "cloud.${SECRET_DOMAIN}"
-      extraVolumes:
-        - name: nfs-data
-          nfs:
-            server: "nas.${SECRET_DOMAIN}"
-            path: /zfsa/Nextcloud
-            readOnly: false
-      extraVolumeMounts:
-        - name: nfs-data
-          mountPath: /var/www/html/data
       phpConfigs:
         uploadLimit.ini: |
           upload_max_filesize = 16G
