@@ -35,7 +35,7 @@ spec:
             - *host
     persistence:
       enabled: true
-      existingClaim: nextcloud-config-v1
+      existingClaim: nfs-nextcloud-v1
     internalDatabase:
       enabled: false
     externalDatabase:
