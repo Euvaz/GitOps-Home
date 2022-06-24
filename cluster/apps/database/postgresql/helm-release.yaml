@@ -18,16 +18,21 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    postgresql:
-      auth:
-        postgresPassword: "${SECRET_POSTGRESQL_ROOT_PASSWORD}"
-        database: ""
-        username: ""
-        password: ""
+    auth:
+      enablePostgresUser: false
+      username: root
+      password: "${SECRET_POSTGRESQL_ROOT_PASSWORD}"
+      database: root
     primary:
       persistence:
         enabled: true
         existingClaim: postgresql-v1
+    initdb:
+      scripts:
+        create-synapse-db.sql: |
+          CREATE DATABASE "synapse";
+          CREATE USER "synapse" WITH PASSWORD '${SECRET_SYNAPSE_DATABASE_PASSWORD}';
+          GRANT ALL PRIVILEGES ON DATABASE "synapse" TO "synapse";
     resources:
       requests:
         cpu: 15m
