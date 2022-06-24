@@ -27,9 +27,6 @@ spec:
       persistence:
         enabled: true
         existingClaim: postgresql-v1
-      pgHbaConfiguration: |
-        # TYPE  DATABASE        USER            ADDRESS                 METHOD
-          host  all             all             10.42.0.0/16            md5
       initdb:
         scripts:
           create-synapse-db.sql: |
