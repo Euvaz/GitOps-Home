@@ -58,9 +58,10 @@ spec:
       password: ${SECRET_SYNAPSE_DATABASE_PASSWORD}
       database: synapse
     redis:
-      enabled: false
+      enabled: true
       auth:
-        enabled: false
+        enabled: true
+        password: ${SECRET_MATRIX_REDIS_PASSWORD}
     signingkey:
       job:
         enabled: false
