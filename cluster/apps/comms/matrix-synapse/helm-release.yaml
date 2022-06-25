@@ -42,7 +42,7 @@ spec:
       trustedKeyServers:
         - server_name: null
       enableRegistration: true
-      registrationSharedSecret: "${SECRET_MATRIX_REGISTRATION_SECRET}"
+    # registrationSharedSecret: "${SECRET_MATRIX_REGISTRATION_SECRET}"
     workers:
       media_repository:
         enabled: false
