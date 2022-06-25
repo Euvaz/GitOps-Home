@@ -16,20 +16,6 @@ spec:
         name: ananace-charts
         namespace: flux-system
       interval: 5m
-  install:
-    timeout: 10m
-    remediation:
-      retries: 3
-  upgrade:
-    timeout: 10m
-    remediation:
-      retries: 3
-      remediateLastFailure: true
-    cleanupOnFail: true
-  rollback:
-    timeout: 10m
-    recreate: true
-    cleanupOnFail: true
   values:
     image:
       repository: matrixdotorg/synapse
@@ -54,13 +40,15 @@ spec:
       traefikPaths: true
       className: traefik
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-production
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
         external-dns/is-public: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+      hosts:
+        - &host "matrix.${SECRET_DOMAIN}"
       tls:
         - secretName: matrix-synapse-tls
           hosts:
-            - matrix.${SECRET_DOMAIN}
+            - *host
     postgresql:
       enabled: false
     externalPostgresql:
