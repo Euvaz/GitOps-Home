@@ -1,0 +1,80 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: matrix-synapse
+  namespace: comms
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://ananace.gitlab.io/charts
+      chart: matrix-synapse
+      version: 2.3.0
+      sourceRef:
+        kind: HelmRepository
+        name: ananace-charts
+        namespace: flux-system
+      interval: 5m
+  install:
+    timeout: 10m
+    remediation:
+      retries: 3
+  upgrade:
+    timeout: 10m
+    remediation:
+      retries: 3
+      remediateLastFailure: true
+    cleanupOnFail: true
+  rollback:
+    timeout: 10m
+    recreate: true
+    cleanupOnFail: true
+  values:
+    image:
+      repository: matrixdotorg/synapse
+      tag: v1.61.0
+    serverName: matrix.${SECRET_DOMAIN}
+    publicServerName: matrix.${SECRET_DOMAIN}
+    wellknown:
+      enabled: true
+    config:
+      trustedKeyServers:
+        - server_name: null
+      enableRegistration: true
+      registrationSharedSecret: "${SECRET_MATRIX_REGISTRATION_SECRET}"
+    workers:
+      media_repository:
+        enabled: false
+    extraConfig:
+      suppress_key_server_warning: true
+      enable_registration_without_verification: true
+    ingress:
+      enabled: true
+      traefikPaths: true
+      className: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        external-dns/is-public: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+      tls:
+        - secretName: matrix-synapse-tls
+          hosts:
+            - matrix.${SECRET_DOMAIN}
+    postgresql:
+      enabled: false
+    externalPostgresql:
+      host: postgresql.database.svc.cluster.local
+      port: 5432
+      username: synapse
+      password: ${SECRET_SYNAPSE_DATABASE_PASSWORD}
+      database: synapse
+    redis:
+      enabled: false
+      auth:
+        enabled: false
+    signingkey:
+      job:
+        enabled: false
+    persistence:
+      enabled: false
