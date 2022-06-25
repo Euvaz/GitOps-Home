@@ -64,6 +64,6 @@ spec:
         password: ${SECRET_MATRIX_REDIS_PASSWORD}
     signingkey:
       job:
-        enabled: true
+        enabled: false
     persistence:
       enabled: false
