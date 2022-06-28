@@ -40,7 +40,7 @@ spec:
       enabled: true
     config:
       trustedKeyServers:
-        - server_name: matrix.org
+        - server_name: []
       enableRegistration: true
     # registrationSharedSecret: "${SECRET_MATRIX_REGISTRATION_SECRET}"
     workers:
