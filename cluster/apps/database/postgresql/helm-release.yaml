@@ -27,9 +27,8 @@ spec:
       initdb:
         scripts:
           init-synapse.sql: |
-            CREATE DATABASE "synapse";
             CREATE USER "synapse" WITH PASSWORD '${SECRET_SYNAPSE_DATABASE_PASSWORD}';
-            GRANT ALL PRIVILEGES ON DATABASE "synapse" TO "synapse";
+            CREATE DATABASE synapse WITH OWNER 'synapse' ENCODING 'UTF8' LOCALE 'C' TEMPLATE template0;
     resources:
       requests:
         cpu: 15m
