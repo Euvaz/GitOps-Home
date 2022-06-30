@@ -38,12 +38,6 @@ spec:
     publicServerName: matrix.${SECRET_DOMAIN}
     wellknown:
       enabled: true
-      server: {
-        "m.server": "matrix.${SECRET_DOMAIN}:443"
-      }
-      client: {
-        "m.homeserver": "https://matrix.${SECRET_DOMAIN}"
-      }
     wkHosts:
       - ${SECRET_DOMAIN}
     config:
