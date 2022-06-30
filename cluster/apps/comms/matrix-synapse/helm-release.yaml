@@ -34,10 +34,12 @@ spec:
     image:
       repository: matrixdotorg/synapse
       tag: v1.61.1
-    serverName: matrix.${SECRET_DOMAIN}
+    serverName: ${SECRET_DOMAIN}
     publicServerName: matrix.${SECRET_DOMAIN}
     wellknown:
       enabled: true
+    wkHosts:
+      - ${SECRET_DOMAIN}
     config:
       trustedKeyServers:
         - server_name: ""
