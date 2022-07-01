@@ -43,7 +43,7 @@ spec:
     config:
       trustedKeyServers:
         - server_name: ""
-      enableRegistration: true
+      enableRegistration: false
       registrationSharedSecret: "${SECRET_MATRIX_REGISTRATION_TOKEN}"
     workers:
       media_repository:
