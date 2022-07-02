@@ -29,9 +29,9 @@ spec:
       MUMBLE_SUPERUSER_PASSWORD: ${SECRET_MUMBLE_SUPERUSER_PASSWORD}
     service:
       main:
-        #type: LoadBalancer
-        #loadBalancerIP: "${LB_MUMBLE_IP}"
-        #externalTrafficPolicy: Local
+        type: LoadBalancer
+        loadBalancerIP: "${LB_MUMBLE_IP}"
+        externalTrafficPolicy: Local
         ports:
           http:
             port: 64738
