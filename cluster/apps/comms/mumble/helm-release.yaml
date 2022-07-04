@@ -29,10 +29,6 @@ spec:
       MUMBLE_SUPERUSER_PASSWORD: ${SECRET_MUMBLE_SUPERUSER_PASSWORD}
     service:
       main:
-        ports:
-          http:
-            port: 64738
-      dns:
         enabled: true
         type: LoadBalancer
         loadBalancerIP: "${LB_MUMBLE_IP}"
