@@ -34,12 +34,12 @@ spec:
         loadBalancerIP: "${LB_MUMBLE_IP}"
         externalTrafficPolicy: Local
         ports:
-          - name: "tcp"
+          tcp:
             enabled: true
             port: 64738
             protocol: TCP
             targetPort: 64738
-          - name: "udp"
+          udp:
             enabled: true
             port: 64738
             protocol: UDP
