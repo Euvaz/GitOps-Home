@@ -6,6 +6,9 @@ metadata:
   namespace: comms
 spec:
   interval: 5m
+  dependsOn:
+    - name: postgresql
+      namespace: database
   chart:
     spec:
       # renovate: registryUrl=https://ananace.gitlab.io/charts
