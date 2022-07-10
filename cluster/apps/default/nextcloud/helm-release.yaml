@@ -69,7 +69,7 @@ spec:
           $CONFIG = array (
             'trusted_proxies' =>
             array (
-              0 => '${NETWORK_CLUSTER_CIDR}',
+              0 => '${NET_NODE_CIDR}',
             ),
             'forwarded_for_headers' =>
             array (
