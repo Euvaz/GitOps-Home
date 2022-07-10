@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - matrix-synapse
   - mumble
+  - namespace.yaml
