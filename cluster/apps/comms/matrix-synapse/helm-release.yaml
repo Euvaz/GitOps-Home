@@ -91,4 +91,5 @@ spec:
       job:
         enabled: false
     persistence:
-      enabled: false
+      enabled: true
+      existingClaim: matrix-redis-v1
