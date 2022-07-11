@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - cert-manager
   - intel-gpu-plugin
-  - kube-system
+  - kube-vip
   - metrics-server
   - namespace.yaml
   - node-feature-discovery
