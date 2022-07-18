@@ -17,7 +17,7 @@ The Git repository contains the following directories under `cluster` and are or
 
 ```
 cluster         # K3s cluster defined as code
-├── base        # Flux, GitOps operator, loaded first
+├── flux        # Flux, GitOps operator, loaded first
 ├── crds        # Custom resources, loaded before core and apps
 ├── charts      # Helm repositories, loaded before core and apps
 ├── config      # Cluster configuration, loaded before core and apps
