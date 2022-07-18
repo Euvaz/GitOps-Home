@@ -4,7 +4,7 @@
 
 Powered by the [GitOps](https://www.weave.works/blog/what-is-gitops-really) tool [Flux](https://toolkit.fluxcd.io/). Utilizing [Ansible](https://github.com/ansible-collections/community.sops), [Terraform](https://github.com/carlpett/terraform-provider-sops) and [Flux](https://toolkit.fluxcd.io/guides/mozilla-sops/) SOPS integrations to utilize Age encrypted secrets within this public repository.
 
-Effectively, this GitHub repository is the heary of my cluser.
+Effectively, this GitHub repository is the heart of my cluser.
 
 ## Overview
 
