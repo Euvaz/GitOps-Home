@@ -34,16 +34,23 @@ spec:
           group_wait: 30s
           group_interval: 5m
           repeat_interval: 6h
-          receiver: "discord_webhook"
+          receiver: "alerts"
           routes:
             - receiver: "null"
               matchers:
                 - alertname =~ "InfoInhibitor|Watchdog"
         receivers:
           - name: "null"
-          - name: "discord_webhook"
-            webhook_configs:
-              - url: "http://10.10.0.75:9094"
+          - name: "alerts"
+            #webhook_configs:
+            #  - url: ""
+            email_configs:
+              - to: &email "${ALERTING_EMAIL}"
+                from: *email
+                smarthost: smtp.domain.tld:port
+                auth_username: *email
+                auth_identity: *email
+                auth_password: "${ALERTING_PASSWORD}"
         inhibit_rules:
           - source_matchers:
               - severity = "critical"
