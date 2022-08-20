@@ -5,6 +5,7 @@ resources:
   - comms
   - database
   - default
+  - development
   - kube-system
   - kyverno
   - media
