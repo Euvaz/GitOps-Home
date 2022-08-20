@@ -21,8 +21,8 @@ spec:
     auth:
       rootPassword: "${SECRET_MARIADB_ROOT_PASSWORD}"
       database: ""
-      username: ""
-      password: ""
+      username: "${SECRET_MARIADB_USERNAME}"
+      password: "${SECRET_MARIADB_PASSWORD}"
       service:
         type: LoadBalancer
         clusterIP: "${LB_MARIADB_IP}"
