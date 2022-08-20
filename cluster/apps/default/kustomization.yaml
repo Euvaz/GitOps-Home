@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   #- minecraft
   - nextcloud
-  - veloren
+  #- veloren
