@@ -5,7 +5,7 @@ resources:
   - intel-gpu-plugin
   - kube-vip
   - metrics-server
-  - namespace.yaml
+  #- namespace.yaml
   - node-feature-discovery
   - reflector
   - reloader
