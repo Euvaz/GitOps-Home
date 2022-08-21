@@ -31,12 +31,13 @@ spec:
     ingress:
       dashboard:
         annotations:
-          kubernetes.io/ingress.class: "traefik"
+          kubernetes.io/ingress.class: "nginx"
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        host:
-          name: &host "rook.${SECRET_DOMAIN}"
-          path: "/"
+        hosts:
+          - host: &host "rook.${SECRET_DOMAIN}"
+          paths:
+            - path: "/"
+              pathType: Prefix
         tls:
           - hosts:
               - *host
@@ -67,13 +68,13 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: "k3s-00-worker"
+          - name: "k3s-worker-00"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fbd9"
-          - name: "k3s-01-worker"
+          - name: "k3s-worker-00"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fb42"
-          - name: "k3s-02-worker"
+          - name: "k3s-worker-00"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fbc9"
 #    cephBlockPoolsVolumeSnapshotClass:
