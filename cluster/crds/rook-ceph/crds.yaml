@@ -13,7 +13,7 @@ spec:
   ignore: |
     # exclude all
     /*
-    # path to crds
+    # include crd directory
     !/deploy/examples/crds.yaml
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
