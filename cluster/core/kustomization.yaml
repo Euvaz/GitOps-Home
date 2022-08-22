@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - cert-manager
   - cluster-issuers
-  - rook-ceph
+  #- rook-ceph
