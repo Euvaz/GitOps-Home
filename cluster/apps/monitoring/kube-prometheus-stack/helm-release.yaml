@@ -152,10 +152,9 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "traefik"
+        ingressClassName: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
           - &host "prometheus.${SECRET_DOMAIN}"
         tls:
