@@ -5,6 +5,7 @@ resources:
   - bitnami.yaml
   - emberstack.yaml
   - external-dns.yaml
+  - fairwinds.yaml
   - ingress-nginx.yaml
   - jetstack.yaml
   - k8s-at-home.yaml
