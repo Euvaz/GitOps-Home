@@ -71,10 +71,10 @@ spec:
           - name: "k3s-worker-00"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fbd9"
-          - name: "k3s-worker-00"
+          - name: "k3s-worker-01"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fb42"
-          - name: "k3s-worker-00"
+          - name: "k3s-worker-02"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fbc9"
 #    cephBlockPoolsVolumeSnapshotClass:
