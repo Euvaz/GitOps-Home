@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ananace.yaml
   - bitnami.yaml
+  - bjw-s.yaml
   - emberstack.yaml
   - external-dns.yaml
   - fairwinds.yaml
