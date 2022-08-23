@@ -55,6 +55,7 @@ spec:
       trustedKeyServers:
         - server_name: ""
       enableRegistration: false
+      registrationSharedSecret: "${SECRET_MATRIX_REGISTRATION_TOKEN}"
     workers:
       media_repository:
         enabled: false
