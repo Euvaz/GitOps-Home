@@ -13,6 +13,7 @@ resources:
   - metallb.yaml
   - metrics-server.yaml
   - prometheus-community.yaml
+  - rocketchat.yaml
   - rook-ceph.yaml
   - stakater.yaml
   - weaveworks-kured.yaml
