@@ -1,0 +1,72 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app navidrome
+  namespace: media
+  labels:
+    velero.io/schedule: weekly
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: kah-common-chart
+      version: 1.2.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+      interval: 15m
+  install:
+    createNamespace: true
+  values:
+    global:
+      nameOverride: *app
+    image:
+      repository: docker.io/deluan/navidrome
+      tag: 0.47.5
+    env:
+      TZ: "${TIMEZONE}"
+      ND_LOGLEVEL: "info"
+      ND_SCANSCHEDULE: "1h"
+    service:
+      main:
+        ports:
+          http:
+            port: 4533
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+        hosts:
+          - host: &host "navi.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                type: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: navidrome-tls
+    persistence:
+      config:
+        enabled: true
+        existingClaim: navidrome-config-v1
+        mountPath: /data
+      music:
+        enabled: true
+        type: nfs
+        server: "nas.${SECRET_DOMAIN}"
+        path: /zfsa/Media/Library/Music
+        mountPath: /music
+        readOnly: true
+    podAnnotations:
+      backup.velero.io/backup-volumes: navidrome-config-v1
+    resources:
+      requests:
+        cpu: 100m
+        memory: 250Mi
+      limits:
+        memory: 750Mi
