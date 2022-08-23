@@ -5,4 +5,3 @@ resources:
   - matrix-synapse
   #- mumble
   - namespace.yaml
-  - rocketchat
