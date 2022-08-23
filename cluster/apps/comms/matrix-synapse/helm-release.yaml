@@ -54,7 +54,7 @@ spec:
     config:
       trustedKeyServers:
         - server_name: ""
-      enableRegistration: false
+      enableRegistration: true
     workers:
       media_repository:
         enabled: false
