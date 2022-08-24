@@ -8,6 +8,7 @@ resources:
   - external-dns.yaml
   - fairwinds.yaml
   - gitea.yaml
+  - grafana.yaml
   - ingress-nginx.yaml
   - jetstack.yaml
   - k8s-at-home.yaml
