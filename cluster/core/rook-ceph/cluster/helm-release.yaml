@@ -30,8 +30,8 @@ spec:
       createPrometheusRules: true
     ingress:
       dashboard:
+        ingressClassName: "nginx"
         annotations:
-          kubernetes.io/ingress.class: "nginx"
           cert-manager.io/cluster-issuer: "letsencrypt-production"
         hosts:
           - host: &host "rook.${SECRET_DOMAIN}"
@@ -77,11 +77,11 @@ spec:
           - name: "k3s-worker-02"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fbc9"
-#    cephBlockPoolsVolumeSnapshotClass:
-#      enabled: true
-#      name: csi-rbdplugin-snapclass
-#      annotations:
-#        k10.kasten.io/is-snapshot-class: "true"
+    # cephBlockPoolsVolumeSnapshotClass:
+    #   enabled: true
+    #   name: csi-rbdplugin-snapclass
+    #   annotations:
+    #     velero.io/csi-volumesnapshot-class: "true"
     cephBlockPools:
       - name: ceph-blockpool
         spec:
