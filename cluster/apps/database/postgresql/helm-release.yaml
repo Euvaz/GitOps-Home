@@ -27,8 +27,11 @@ spec:
       initdb:
         scripts:
           init-synapse.sql: |
-            CREATE USER "synapse" WITH PASSWORD '${SECRET_SYNAPSE_DATABASE_PASSWORD}';
+            CREATE ROLE "synapse" WITH LOGIN PASSWORD '${SECRET_SYNAPSE_DATABASE_PASSWORD}';
             CREATE DATABASE synapse WITH OWNER 'synapse' ENCODING 'UTF8' LOCALE 'C' TEMPLATE template0;
+          init-gitea.sql : |
+            CREATE ROLE "gitea" WITH LOGIN PASSWORD '${SECRET_GITEA_DATABASE_PASSWORD}';
+            CREATE DATABASE gitea WITH OWNER 'gitea' TEMPLATE template0 ENCODING UTF8 LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';
     resources:
       requests:
         cpu: 15m
