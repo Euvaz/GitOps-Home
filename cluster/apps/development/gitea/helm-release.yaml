@@ -23,6 +23,7 @@ spec:
       repository: gitea/gitea
       tag: 1.17.1
       pullPolicy: IfNotPresent
+      rootless: true
     ingress:
       enabled: true
       className: "nginx"
