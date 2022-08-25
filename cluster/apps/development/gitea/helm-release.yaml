@@ -45,7 +45,7 @@ spec:
     gitea:
       admin:
         email: "gitea@${SECRET_DOMAIN}"
-        username: admin
+        username: gitea
         password: ${SECRET_GITEA_ADMIN_PASSWORD}
       config:
         APP_NAME: "Homelab Gitea"
