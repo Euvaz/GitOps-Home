@@ -8,6 +8,9 @@ metadata:
     velero.io/schedule: weekly
 spec:
   interval: 5m
+  dependsOn:
+    - name: mariadb
+      namespace: database
   chart:
     spec:
       chart: nextcloud
