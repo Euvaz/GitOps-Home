@@ -7,7 +7,7 @@ metadata:
   labels:
     velero.io/schedule: daily
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
       # renovate: registryUrl=https://dl.gitea.io/charts/
@@ -50,16 +50,16 @@ spec:
         APP_NAME: "Homelab Gitea"
         repository:
           DEFAULT_PRIVATE: public
-        database:
-          host: postgresql.database.svc.cluster.local
-          port: 5432
-          username: gitea
-          password: ${SECRET_GITEA_DATABASE_PASSWORD}
-          database: gitea
+        ui:
+          DEFAULT_THEME: arc-green
         server:
+          DOMAIN: "git.${SECRET_DOMAIN}"
           ROOT_URL: "https://git.${SECRET_DOMAIN}"
-          SSH_DOMAIN: ssh.git.${SECRET_DOMAIN}
-          SSH_PORT: 22
+          DISABLE_SSH: true
+          ENABLE_GZIP: true
+          LFS_START_SERVER: true
+        database:
+          DB_TYPE: sqlite3
         admin:
           DISABLE_REGULAR_ORG_CREATION: true
         security:
@@ -67,6 +67,8 @@ spec:
           PASSWORD_COMPLEXITY: "lower,upper,digit,spec"
         service:
           DISABLE_REGISTRATION: true
+    memcached:
+      enable: false
     postgresql:
       enabled: false
     podAnnotations:
