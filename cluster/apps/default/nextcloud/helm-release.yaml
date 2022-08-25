@@ -55,6 +55,7 @@ spec:
       enabled: true
     nextcloud:
       host: "cloud.${SECRET_DOMAIN}"
+      datadir: /srv
       extraVolumes:
         - name: nfs-data
           nfs:
