@@ -6,7 +6,7 @@ metadata:
 spec:
   storageClassName: *name
   capacity:
-    storage: 1Mi
+    storage: 1Tb
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
@@ -32,4 +32,4 @@ spec:
   storageClassName: *name
   resources:
     requests:
-      storage: 1Mi
+      storage: 1Tb
