@@ -8,6 +8,7 @@ spec:
     storage: 1Tb
   accessModes:
     - ReadWriteMany
+  storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: "nas.${SECRET_DOMAIN}"
@@ -28,6 +29,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
+  storageClassName: ""
   resources:
     requests:
       storage: 1Tb
