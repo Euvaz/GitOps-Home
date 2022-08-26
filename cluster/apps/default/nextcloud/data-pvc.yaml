@@ -4,7 +4,6 @@ kind: PersistentVolume
 metadata:
   name: nextcloud-data-v1
 spec:
-  storageClassName: ceph-block
   capacity:
     storage: 1Tb
   accessModes:
@@ -29,7 +28,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: ceph-block
   resources:
     requests:
       storage: 1Tb
