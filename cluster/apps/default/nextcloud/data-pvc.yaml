@@ -5,7 +5,7 @@ metadata:
   name: nextcloud-data-v1
 spec:
   capacity:
-    storage: 1Tb
+    storage: 1Ti
   accessModes:
     - ReadWriteMany
   storageClassName: ""
@@ -32,4 +32,4 @@ spec:
   storageClassName: ""
   resources:
     requests:
-      storage: 1Tb
+      storage: 1Ti
