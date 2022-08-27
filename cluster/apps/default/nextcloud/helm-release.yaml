@@ -42,9 +42,6 @@ spec:
     persistence:
       enabled: true
       existingClaim: nextcloud-config-v1
-      nextcloudData:
-        enabled: true
-        existingClaim: nextcloud-data-v1
     internalDatabase:
       enabled: false
     externalDatabase:
@@ -58,6 +55,14 @@ spec:
       enabled: true
     nextcloud:
       host: "cloud.${SECRET_DOMAIN}"
+      extraVolumes:
+        - name: nfs-data
+          nfs:
+            server: "nas.${SECRET_DOMAIN}"
+            path: /zfsa/Nextcloud
+      extraVolumeMounts:
+        - name: nfs-data
+          mountPath: /srv
       phpConfigs:
         uploadLimit.ini: |
           upload_max_filesize = 16G
