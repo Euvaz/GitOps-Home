@@ -63,7 +63,7 @@ spec:
         runAsUser: "33"
         runAsGroup: "33"
         runAsNonRoot: true
-      #  readOnlyRootFilesystem: true
+        readOnlyRootFilesystem: true
       phpConfigs:
         uploadLimit.ini: |
           upload_max_filesize = 16G
