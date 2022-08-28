@@ -23,7 +23,7 @@ spec:
     image:
       repository: mumblevoip/mumble-server
       pullPolicy: IfNotPresent
-      tag: v1.4.230
+      tag: v1.4.274
     env:
       TZ: "${TIMEZONE}"
       MUMBLE_SUPERUSER_PASSWORD: ${SECRET_MUMBLE_SUPERUSER_PASSWORD}
