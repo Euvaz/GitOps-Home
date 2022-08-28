@@ -58,6 +58,7 @@ spec:
       enabled: true
     nextcloud:
       host: "cloud.${SECRET_DOMAIN}"
+      datadir: /var/www/data
       phpConfigs:
         uploadLimit.ini: |
           upload_max_filesize = 16G
