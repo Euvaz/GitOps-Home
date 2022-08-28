@@ -14,7 +14,6 @@ spec:
         kind: HelmRepository
         name: kyverno
         namespace: flux-system
-      interval: 15m
   install:
     createNamespace: true
     remediation:
@@ -25,5 +24,16 @@ spec:
   values:
     installCRDs: false
     replicaCount: 3
+    extraArgs:
+      - --autogenInternals=false
+      - --clientRateLimitQPS=30
+      - --clientRateLimitBurst=60
     serviceMonitor:
       enabled: true
+    topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/instance: kyverno
