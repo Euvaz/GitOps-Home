@@ -42,9 +42,9 @@ spec:
     persistence:
       enabled: true
       existingClaim: nextcloud-config-v1
-      #nextcloudData:
-      #  enabled: true
-      #  existingClaim: nextcloud-data-v1
+      nextcloudData:
+        enabled: true
+        existingClaim: nextcloud-data-v1
     internalDatabase:
       enabled: false
     externalDatabase:
@@ -59,9 +59,6 @@ spec:
     nextcloud:
       host: "cloud.${SECRET_DOMAIN}"
       datadir: /var/www/data
-      extraVolumeMounts:
-        - name: nextcloud-data-v1
-          path: /var/www/data
       extraSecurityContext:
         runAsUser: "33"
         runAsGroup: "33"
