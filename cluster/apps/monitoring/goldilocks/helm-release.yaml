@@ -35,9 +35,10 @@ spec:
       replicaCount: 1
       ingress:
         enabled: true
-        ingressClassName: "nginx"
+        ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
           - host: &host "goldilocks.${SECRET_DOMAIN}"
             paths:

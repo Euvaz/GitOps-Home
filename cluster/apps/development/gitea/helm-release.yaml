@@ -26,10 +26,11 @@ spec:
       rootless: true
     ingress:
       enabled: true
-      className: "nginx"
+      className: "traefik"
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         external-dns/is-public: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
         - host: &host "git.${SECRET_DOMAIN}"
           paths:
