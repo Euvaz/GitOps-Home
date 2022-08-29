@@ -21,6 +21,7 @@ spec:
         any:
           - resources:
               kinds: [Pod]
+              namespaces: ["tigera-operator"]
               selector:
                 matchLabels:
                   job-name: "*"
