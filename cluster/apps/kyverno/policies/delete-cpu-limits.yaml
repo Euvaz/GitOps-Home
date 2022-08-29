@@ -20,8 +20,10 @@ spec:
       exclude:
         any:
           - resources:
+              namespaces:
+                - calico-system
+                - tigera-operator
               kinds: [Pod]
-              namespaces: ["tigera-operator"]
               selector:
                 matchLabels:
                   job-name: "*"
