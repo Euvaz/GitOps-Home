@@ -5,3 +5,11 @@ resources:
   - config-pvc.yaml
   - helm-release.yaml
   - secret.sops.yaml
+configMapGenerator:
+  - name: obsidian-couchdb-config-v1
+    files:
+      - config/config.ini
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    kustomize.toolkit.fuxcd.io/substitute: disabled
