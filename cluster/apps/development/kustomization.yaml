@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
   - gitea
   - namespace.yaml
-  - obsidian-couchdb
