@@ -53,9 +53,11 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "nginx"
+        ingressClassName: "traefik"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns.home.arpa/enabled: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
           - host: &host "obsidian-db.${SECRET_DOMAIN}"
             paths:
