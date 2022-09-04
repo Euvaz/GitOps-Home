@@ -22,12 +22,12 @@ spec:
             - |-
               shopt -s dotglob
               printf "\e[1;32m%-6s\e[m\n" "[01/04] Connect to repo ..."      && kopia repo connect filesystem --path=/snapshots --override-hostname=cluster --override-username=root
-              printf "\e[1;32m%-6s\e[m\n" "[02/04] Remove previous data ..." && rm -rf /data/${NAMESPACE}/${APP}/${INSTANCE}/*
-              printf "\e[1;32m%-6s\e[m\n" "[03/04] Restore snapshot ..."     && kopia snap restore "${SNAPSHOT}" /data/${NAMESPACE}/${APP}/${INSTANCE}
+              printf "\e[1;32m%-6s\e[m\n" "[02/04] Remove previous data ..." && rm -rf /data/${NAMESPACE}/${APP}/${VOLUME}/*
+              printf "\e[1;32m%-6s\e[m\n" "[03/04] Restore snapshot ..."     && kopia snap restore "${SNAPSHOT}" /data/${NAMESPACE}/${APP}/${VOLUME}
               printf "\e[1;32m%-6s\e[m\n" "[04/04] Disconnect from repo ..." && kopia repo disconnect
           volumeMounts:
             - name: ${APP}-data
-              mountPath: /data/${NAMESPACE}/${APP}/${INSTANCE}
+              mountPath: /data/${NAMESPACE}/${APP}/${VOLUME}
             - name: snapshots
               mountPath: /snapshots
           securityContext:
