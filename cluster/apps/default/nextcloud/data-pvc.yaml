@@ -15,7 +15,7 @@ spec:
     - nfsvers=4.1
   nfs:
     path: /zfsa/Nextcloud
-    server: 10.11.0.40
+    server: "nas.${SECRET_DOMAIN}"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
