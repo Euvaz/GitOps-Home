@@ -8,7 +8,7 @@ resources:
   - development
   - flux-system
   - kube-system
-  #- kyverno
+  - kyverno
   - media
   - monitoring
   - networking
