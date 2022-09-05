@@ -12,5 +12,6 @@ resources:
   - media
   - monitoring
   - networking
+  - storage
   - system-upgrade
   - velero
