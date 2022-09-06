@@ -48,9 +48,6 @@ spec:
               #- to: email
               #  from: email
               #  smarthost: smarthost
-              #  auth_username: email
-              #  auth_password: email_password
-              #  auth_identity: email
         inhibit_rules:
           - source_matchers:
               - severity = "critical"
@@ -192,15 +189,3 @@ spec:
       kind: Secret
       name: alert-manager
       valuesKey: smarthost
-    - targetPath: alertmanager.config.receivers.email_configs.auth_username
-      kind: Secret
-      name: alert-manager
-      valuesKey: email
-    - targetPath: alertmanager.config.receivers.email_configs.auth_password
-      kind: Secret
-      name: alert-manager
-      valuesKey: email_password
-    - targetPath: alertmanager.config.receivers.email_configs.auth_identity
-      kind: Secret
-      name: alert-manager
-      valuesKey: email
