@@ -48,6 +48,7 @@ spec:
               - to: &email ${SECRET_ALERT_EMAIL}
                 from: *email
                 smarthost: ${SECRET_ALERT_SMARTHOST}
+                require_tls: false
         inhibit_rules:
           - source_matchers:
               - severity = "critical"
