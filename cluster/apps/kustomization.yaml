@@ -14,4 +14,4 @@ resources:
   - networking
   - storage
   - system-upgrade
-  - velero
+  #- velero
