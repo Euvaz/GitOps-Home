@@ -44,10 +44,10 @@ spec:
           - name: "alerts"
             #webhook_configs:
             #  - url: ""
-            #email_configs:
-              #- to: email
-              #  from: email
-              #  smarthost: smarthost
+            email_configs:
+              - to: &email ${SECRET_ALERT_EMAIL}
+                from: *email
+                smarthost: ${SECRET_ALERT_SMARTHOST}
         inhibit_rules:
           - source_matchers:
               - severity = "critical"
@@ -176,16 +176,3 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
-  valuesFrom:
-    - targetPath: alertmanager.config.receivers.email_configs.to
-      kind: Secret
-      name: alert-manager
-      valuesKey: email
-    - targetPath: alertmanager.config.receivers.email_configs.from
-      kind: Secret
-      name: alert-manager
-      valuesKey: email
-    - targetPath: alertmanager.config.receivers.email_configs.smarthost
-      kind: Secret
-      name: alert-manager
-      valuesKey: smarthost
