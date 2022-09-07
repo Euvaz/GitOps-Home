@@ -45,7 +45,8 @@ spec:
             #webhook_configs:
             #  - url: ""
             email_configs:
-              - to: &email ${SECRET_ALERT_EMAIL}
+              - send_resolved: true
+                to: &email ${SECRET_ALERT_EMAIL}
                 from: *email
                 smarthost: ${SECRET_ALERT_SMARTHOST}
                 require_tls: false
