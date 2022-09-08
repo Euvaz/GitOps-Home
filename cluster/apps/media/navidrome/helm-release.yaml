@@ -19,8 +19,6 @@ spec:
   install:
     createNamespace: true
   values:
-    global:
-      nameOverride: *app
     image:
       repository: docker.io/deluan/navidrome
       tag: 0.47.5
