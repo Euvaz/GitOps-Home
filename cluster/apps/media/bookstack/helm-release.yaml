@@ -58,8 +58,6 @@ spec:
       backup.velero.io/backup-volumes: bookstack-config-v1
     resources:
       requests:
-        cpu: 15m
         memory: 105M
       limits:
-        cpu: 303m
         memory: 2417M
