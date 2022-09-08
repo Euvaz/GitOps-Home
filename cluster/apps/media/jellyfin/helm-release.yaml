@@ -32,9 +32,9 @@ spec:
         type: LoadBalancer
         loadBalancerIP: "${LB_JELLYFIN_IP}"
         externalTrafficPolicy: Local
-      ports:
-        http:
-          port: 8096
+        ports:
+          http:
+            port: 8096
     ingress:
       main:
         enabled: true
