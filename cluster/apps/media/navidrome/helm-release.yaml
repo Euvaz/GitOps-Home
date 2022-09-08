@@ -67,7 +67,6 @@ spec:
       backup.velero.io/backup-volumes: navidrome-config-v1
     resources:
       requests:
-        cpu: 100m
         memory: 250Mi
       limits:
         memory: 750Mi
