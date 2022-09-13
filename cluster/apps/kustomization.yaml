@@ -6,6 +6,7 @@ resources:
   - database
   - default
   - development
+  - download
   - flux-system
   - kube-system
   - kyverno
