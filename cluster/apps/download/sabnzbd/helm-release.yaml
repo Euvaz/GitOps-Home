@@ -35,9 +35,9 @@ spec:
         sabnzbd.default.svc.cluster,
         sabnzbd.default.svc.cluster.local,
         sabnzbd.${SECRET_DOMAIN}
-#    envFrom:
-#      - secretRef:
-#          name: *app
+    envFrom:
+      - secretRef:
+          name: *app
     service:
       main:
         ports:
