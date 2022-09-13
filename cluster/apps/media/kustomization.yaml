@@ -6,4 +6,5 @@ resources:
   - jellyfin
   - namespace.yaml
   - navidrome
+  - radarr
   - sonarr
