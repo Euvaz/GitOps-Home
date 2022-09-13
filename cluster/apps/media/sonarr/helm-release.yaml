@@ -29,7 +29,7 @@ spec:
       TZ: "${TIMEZONE}"
       SONARR__INSTANCE_NAME: Sonarr
       SONARR__PORT: &port 80
-      SONARR__APPLICATION_URL: &host "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
+      SONARR__APPLICATION_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
       SONARR__LOG_LEVEL: info
 #    envFrom:
 #      - secretRef:
@@ -48,7 +48,7 @@ spec:
           external-dns/is-public: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
-          - host: *host
+          - host: &host "sonarr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
