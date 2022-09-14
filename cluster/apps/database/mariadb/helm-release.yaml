@@ -23,10 +23,6 @@ spec:
       database: ""
       username: ""
       password: ""
-      service:
-        type: LoadBalancer
-        clusterIP: "${LB_MARIADB_IP}"
-        externalTrafficPolicy: Local
     primary:
       persistence:
         enabled: true
