@@ -40,6 +40,9 @@ spec:
           name: *app
     service:
       main:
+        type: LoadBalancer
+        loadBalancerIP: "${LB_SABNZBD_IP}"
+        externalTrafficPolicy: Local
         ports:
           http:
             port: *port
