@@ -37,14 +37,14 @@ spec:
       bittorrent:
         enabled: true
         type: LoadBalancer
-        externalIP: "${LB_QBITTORRENT_IP}"
+        loadBalancerIP: "${LB_QBITTORRENT_IP}"
+        externalTrafficPolicy: Local
         ports:
           bittorrent:
             enabled: true
             port: *port-bt
             protocol: TCP
             targetPort: *port-bt
-        externalTrafficPolicy: Local
     ingress:
       main:
         enabled: true
