@@ -8,4 +8,5 @@ resources:
   - metallb
   - namespace.yaml
   - traefik
+  - traefik-admin
   - unifi
