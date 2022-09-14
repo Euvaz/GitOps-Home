@@ -4,10 +4,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: &name jellyseerr-config-v1
   namespace: media
-  labels:
-    app.kubernetes.io/name: *name
-    app.kubernetes.io/instance: *name
-    snapshot.home.arpa/enabled: "true"
+#  labels:
+#    app.kubernetes.io/name: *name
+#    app.kubernetes.io/instance: *name
+#    snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
     - ReadWriteOnce
