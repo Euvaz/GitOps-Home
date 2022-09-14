@@ -42,6 +42,8 @@ spec:
         ports:
           http:
             port: *port
+          https:
+            port: 443
     ingress:
       main:
         enabled: true
