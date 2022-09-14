@@ -28,7 +28,7 @@ spec:
     env:
       TZ: "${TIMEZONE}"
       RADARR__INSTANCE_NAME: Radarr
-      RADARR__PORT: &port 80
+      RADARR__PORT: &port 443
       RADARR__APPLICATION_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
       RADARR__LOG_LEVEL: info
     envFrom:
@@ -42,6 +42,7 @@ spec:
         ports:
           http:
             port: *port
+            protocol: HTTPS
     ingress:
       main:
         enabled: true
