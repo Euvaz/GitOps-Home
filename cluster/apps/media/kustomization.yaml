@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - bookstack
   - jellyfin
+  - jellyseerr
   - namespace.yaml
   - navidrome
   - prowlarr
