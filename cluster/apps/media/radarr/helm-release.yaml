@@ -28,7 +28,7 @@ spec:
     env:
       TZ: "${TIMEZONE}"
       RADARR__INSTANCE_NAME: Radarr
-      RADARR__PORT: &port 443
+      RADARR__PORT: &port 80
       RADARR__APPLICATION_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
       RADARR__LOG_LEVEL: info
     envFrom:
@@ -40,7 +40,7 @@ spec:
         loadBalancerIP: "${LB_RADARR_IP}"
         externalTrafficPolicy: Local
         ports:
-          https:
+          http:
             port: *port
     ingress:
       main:
