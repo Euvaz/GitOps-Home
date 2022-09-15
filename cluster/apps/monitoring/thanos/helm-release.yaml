@@ -36,7 +36,6 @@ spec:
         sidecarsNamespace: monitoring
       ingress:
         enabled: true
-        hostname: &host "thanos.${SECRET_DOMAIN}"
         ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
