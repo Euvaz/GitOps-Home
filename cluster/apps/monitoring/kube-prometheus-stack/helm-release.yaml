@@ -180,7 +180,7 @@ spec:
               - *host
             secretName: thanos-sidecar-tls
       prometheusSpec:
-        replicas: 1
+        replicas: 3
         replicaExternalLabelName: "replica"
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
