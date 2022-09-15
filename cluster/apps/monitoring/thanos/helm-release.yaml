@@ -41,7 +41,15 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        tls: true
+        hosts:
+          - host: &host "thanos.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: thanos-tls
     queryFrontend:
       enabled: false
     bucketweb:
