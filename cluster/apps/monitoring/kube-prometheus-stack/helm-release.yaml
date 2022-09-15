@@ -161,6 +161,24 @@ spec:
           - hosts:
               - *host
             secretName: prometheus-tls
+      thanosService:
+        enabled: true
+      thanosServiceMonitor:
+        enabled: true
+      thanosIngress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+          - &host "thanos-sidecar.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - *host
+            secretName: thanos-sidecar-tls
       prometheusSpec:
         replicas: 1
         replicaExternalLabelName: "replica"
