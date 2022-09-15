@@ -5,5 +5,5 @@ resources:
   - goldilocks
   - kube-prometheus-stack
   - namespace.yaml
-  #- thanos
+  - thanos
   - vpa
