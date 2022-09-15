@@ -2,8 +2,4 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - goldilocks
-  - kube-prometheus-stack
-  - namespace.yaml
-  - thanos
-  - vpa
+  - helm-release.yaml
