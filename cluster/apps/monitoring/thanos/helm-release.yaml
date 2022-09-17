@@ -36,6 +36,7 @@ spec:
         sidecarsNamespace: monitoring
       ingress:
         enabled: true
+        hostname: ""
         ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
