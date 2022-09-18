@@ -5,6 +5,7 @@ resources:
   - bookstack
   - jellyfin
   - jellyseerr
+  - lidarr
   - namespace.yaml
   - navidrome
   - prowlarr
