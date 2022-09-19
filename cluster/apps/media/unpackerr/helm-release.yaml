@@ -27,12 +27,12 @@ spec:
       tag: 0.10.1@sha256:758cb8e96e9972ecedbfb5c136dc5c75dd0cf0d7ae6131867f0d27611773e86c
     env:
       TZ: "${TIMEZONE}"
-      UN_SONARR_0_URL: https://sonarr.${SECRET_DOMAIN}
-      UN_SONARR_0_PATHS_0: /complete/sonarr
-      UN_RADARR_0_URL: https://radarr.${SECRET_DOMAIN}
-      UN_RADARR_0_PATHS_0: /complete/radarr
       UN_LIDARR_0_URL: https://lidarr.${SECRET_DOMAIN}
       UN_LIDARR_0_PATHS_0: /complete/lidarr
+      UN_RADARR_0_URL: https://radarr.${SECRET_DOMAIN}
+      UN_RADARR_0_PATHS_0: /complete/radarr
+      UN_SONARR_0_URL: https://sonarr.${SECRET_DOMAIN}
+      UN_SONARR_0_PATHS_0: /complete/sonarr
     envFrom:
       - secretRef:
           name: *app
