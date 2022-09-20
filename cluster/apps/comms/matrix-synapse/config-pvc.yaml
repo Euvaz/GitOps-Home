@@ -4,10 +4,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: matrix-redis-v1
   namespace: comms
-  labels:
-    app.kubernetes.io/name: redis
-    app.kubernetes.io/instance: matrix-synapse
-    snapshot.home.arpa/enabled: "true"
+  #labels:
+  #  app.kubernetes.io/name: redis
+  #  app.kubernetes.io/instance: matrix-synapse
+  #  snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
     - ReadWriteOnce
