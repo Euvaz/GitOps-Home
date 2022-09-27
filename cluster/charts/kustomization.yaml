@@ -4,6 +4,7 @@ resources:
   - ananace.yaml
   - bitnami.yaml
   - bjw-s.yaml
+  - csi-driver-nfs.yaml
   - emberstack.yaml
   - external-dns.yaml
   - fairwinds.yaml
