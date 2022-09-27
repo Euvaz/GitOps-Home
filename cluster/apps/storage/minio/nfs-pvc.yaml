@@ -5,10 +5,11 @@ metadata:
   name: minio-nfs
 spec:
   capacity:
-    storage: 1Mi
+    storage: 1Ti
+  volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
-  storageClassName: minio-nfs
+  storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: "nas.${SECRET_DOMAIN}"
@@ -27,7 +28,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: minio-nfs
+  storageClassName: ""
   resources:
     requests:
-      storage: 1Mi
+      storage: 1Ti
