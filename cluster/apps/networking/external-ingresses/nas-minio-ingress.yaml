@@ -16,7 +16,7 @@ spec:
           paths:
             - backend:
                 service:
-                  name: web
+                  name: nas-minio
                   port: 9001
               path: /
               pathType: Prefix
@@ -25,7 +25,7 @@ spec:
           paths:
             - backend:
                 service:
-                  name: api
+                  name: nas-minio
                   port: 9000
               path: /
               pathType: Prefix
