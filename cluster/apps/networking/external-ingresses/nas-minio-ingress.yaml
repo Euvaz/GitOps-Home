@@ -45,11 +45,11 @@ spec:
   type: ClusterIP
   ports:
     - name: web
-      port: 9001
+      port: 80
       #targetPort: 9001
       protocol: TCP
     - name: api
-      port: 9000
+      port: 81
       #targetPort: 9000
       protocol: TCP
 ---
