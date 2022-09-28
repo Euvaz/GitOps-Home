@@ -45,12 +45,12 @@ spec:
   type: ClusterIP
   ports:
     - name: web
-      port: 80
-      targetPort: 9001
+      port: 9001
+      #targetPort: 9001
       protocol: TCP
     - name: api
-      port: 81
-      targetPort: 9000
+      port: 9000
+      #targetPort: 9000
       protocol: TCP
 ---
 apiVersion: v1
