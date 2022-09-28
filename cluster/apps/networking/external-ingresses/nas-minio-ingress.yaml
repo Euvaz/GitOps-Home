@@ -16,7 +16,8 @@ spec:
           - backend:
               service:
                name: nas-minio
-               port: 9001
+               port:
+                 number: 9001
             path: /
             pathType: Prefix
     - host: &host-api "s3.${SECRET_DOMAIN}"
@@ -25,7 +26,8 @@ spec:
           - backend:
               service:
                 name: nas-minio
-                port: 9000
+                port:
+                  number: 9000
             path: /
             pathType: Prefix
   tls:
