@@ -14,16 +14,18 @@ spec:
       http:
         paths:
           - backend:
-              serviceName: nas-minio
-              servicePort: 9001
+              service:
+               name: nas-minio
+               port: 9001
             path: /
             pathType: Prefix
     - host: &host-api "s3.${SECRET_DOMAIN}"
       http:
         paths:
           - backend:
-              serviceName: nas-minio
-              servicePort: 9000
+              service:
+                name: nas-minio
+                port: 9000
             path: /
             pathType: Prefix
   tls:
