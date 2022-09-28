@@ -45,10 +45,26 @@ spec:
   type: ClusterIP
   ports:
     - name: web
-      port: 9001
-      targetPort: http
+      port: 80
+      targetPort: 9001
       protocol: TCP
     - name: api
-      port: 9000
-      targetPort: http
+      port: 81
+      targetPort: 9000
       protocol: TCP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: nas-minio
+  namespace: networking
+subsets:
+  - addresses:
+    - ip: 10.11.0.40
+    ports:
+      - name: web
+        port: 9001
+        protocol: TCP
+      - name: api
+        port: 9000
+        protocol: TCP
