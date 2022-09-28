@@ -92,7 +92,7 @@ spec:
           external-dns/is-public: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
-        - "grafana.${SECRET_DOMAIN}"
+        - &host "grafana.${SECRET_DOMAIN}"
       tls:
         - hosts:
             - *host
