@@ -27,7 +27,7 @@ spec:
             - backend:
                 service:
                   name: nas-minio
-                  port: :
+                  port:
                     number: 9000
               path: /
               pathType: Prefix
