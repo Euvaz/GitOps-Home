@@ -1,0 +1,61 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nas-minio
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+spec:
+  ingressClassName: traefik
+  rules:
+    hosts:
+      - host: &host-console "minio.${SECRET_DOMAIN}"
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              port: 9001
+      - host: &host-api "s3.${SECRET_DOMAIN}"
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              port: 9000
+    tls:
+      - hosts:
+          - *host-console
+          - *host-api
+        secretName: minio-tls
+---
+apiversion: networking.k8s.io/v1
+kind: Service
+metadata:
+  name: nas-minio
+spec:
+  ports:
+    - name: web
+      port: 80
+      protocol: TCP
+      targetPort: 9001
+    - name: api
+      port: 80
+      protocol: TCP
+      targetPort: 9000
+  clusterIP: None
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Endpoints
+metedata:
+  name: nas-minio
+subsets:
+  - addresses:
+    - ip: 10.11.0.40
+    ports:
+      - name: web
+        port: 9001
+        protocol: TCP
+      - name: api
+        port: 9000
+        protocol: TCP
