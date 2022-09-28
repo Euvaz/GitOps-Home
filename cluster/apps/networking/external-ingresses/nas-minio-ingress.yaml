@@ -14,20 +14,16 @@ spec:
       http:
         paths:
           - backend:
-              service:
-                name: nas-minio
-                port: 
-                  number: 9001
+              serviceName: nas-minio
+              servicePort: 9001
             path: /
             pathType: Prefix
     - host: &host-api "s3.${SECRET_DOMAIN}"
       http:
         paths:
           - backend:
-              service:
-                name: nas-minio
-                port:
-                  number: 9000
+              serviceName: nas-minio
+              servicePort: 9000
             path: /
             pathType: Prefix
   tls:
@@ -42,13 +38,13 @@ metadata:
   name: nas-minio
   namespace: networking
 spec:
+  type: ClusterIP
   ports:
     - name: web
-      port: 80
-      protocol: TCP
+      port: 9001
       targetPort: 9001
-    - name: api
-      port: 81
       protocol: TCP
+    - name: api
+      port: 9000
       targetPort: 9000
-  type: ClusterIP
+      protocol: TCP
