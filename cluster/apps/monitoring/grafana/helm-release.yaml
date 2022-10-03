@@ -88,9 +88,9 @@ spec:
       enabled: true
       ingressClassName: "traefik"
       annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns/is-public: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns/is-public: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
         - &host "grafana.${SECRET_DOMAIN}"
       tls:
