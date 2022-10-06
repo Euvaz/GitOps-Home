@@ -35,6 +35,9 @@ spec:
       DB_DATABASE: "firefly"
       DB_USERNAME: "firefly"
       DB_PASSWORD: ${SECRET_FIREFLY_III_DATABASE_PASSWORD}
+    envFrom:
+      - secretRef:
+          name: *app
     service:
       main:
         ports:
