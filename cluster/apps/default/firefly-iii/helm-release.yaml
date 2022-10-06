@@ -29,11 +29,11 @@ spec:
       tag: version-5.7.1
     env:
       TZ: "${TIMEZONE}"
-      DB_CONNECTION: pgsql
+      DB_CONNECTION: "pgsql"
       DB_HOST: postgresql.database.svc.cluster.local
       DB_PORT: "5432"
-      DB_DATABASE: firefly-iii
-      DB_USERNAME: firefly-iii
+      DB_DATABASE: "firefly-iii"
+      DB_USERNAME: "firefly-iii"
       DB_PASSWORD: ${SECRET_FIREFLY_III_DATABASE_PASSWORD}
     service:
       main:
