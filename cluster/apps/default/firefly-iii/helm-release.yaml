@@ -29,6 +29,7 @@ spec:
       tag: version-5.7.1
     env:
       TZ: "${TIMEZONE}"
+      APP_URL: "https://cash.${SECRET_DOMAIN}"
       DB_CONNECTION: "pgsql"
       DB_HOST: postgresql.database.svc.cluster.local
       DB_PORT: "5432"
