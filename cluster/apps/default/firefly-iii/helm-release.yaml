@@ -45,8 +45,8 @@ spec:
 #      MAIL_PASSWORD: ""
 #      MAIL_ENCRYPTION: ""
       SEND_REGISTRATION_MAIL: false
-#      SEND_ERROR_MESSAGE: true
-#      SEND_LOGIN_NEW_IP_WARNING: true
+      SEND_ERROR_MESSAGE: false
+      SEND_LOGIN_NEW_IP_WARNING: false
     envFrom:
       - secretRef:
           name: *app
