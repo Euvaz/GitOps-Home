@@ -37,6 +37,16 @@ spec:
       DB_USERNAME: "firefly"
       DB_PASSWORD: ${SECRET_FIREFLY_III_DATABASE_PASSWORD}
       TRUSTED_PROXIES: "**"
+#      MAIL_MAILER: ""
+#      MAIL_HOST: ""
+#      MAIL_PORT: ""
+#      MAIL_FROM: ""
+#      MAIL_USERNAME: ""
+#      MAIL_PASSWORD: ""
+#      MAIL_ENCRYPTION: ""
+      SEND_REGISTRATION_MAIL: false
+#      SEND_ERROR_MESSAGE: true
+#      SEND_LOGIN_NEW_IP_WARNING: true
     envFrom:
       - secretRef:
           name: *app
