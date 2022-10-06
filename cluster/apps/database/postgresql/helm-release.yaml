@@ -33,8 +33,8 @@ spec:
             CREATE ROLE "gitea" WITH LOGIN PASSWORD '${SECRET_GITEA_DATABASE_PASSWORD}';
             CREATE DATABASE gitea WITH OWNER 'gitea' TEMPLATE template0 ENCODING 'UTF8' LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';
           init-firefly-iii.sql: |
-            CREATE ROLE "firefly-iii" WITH LOGIN PASSWORD '${SECRET_FIREFLY_III_DATABASE_PASSWORD}';
-            CREATE DATABASE "firefly-iii" WITH OWNER 'firefly-iii' ENCODING 'UTF8' TEMPLATE template0;
+            CREATE ROLE "firefly" WITH LOGIN PASSWORD '${SECRET_FIREFLY_III_DATABASE_PASSWORD}';
+            CREATE DATABASE "firefly" WITH OWNER 'firefly' ENCODING 'UTF8' TEMPLATE template0;
     resources:
       requests:
         cpu: 15m
