@@ -23,8 +23,8 @@ spec:
       retries: 5
   values:
     image:
-      repository: linuxserver/sonarr
-      tag: 4.0.0-v4
+      repository: ghcr.io/onedr0p/sonarr-develop
+      tag: 4.0.0.141@sha256:8f78f4e7dfbc30b911844b9da40db1e8492eaf802a0d2f0f44a93df17ffa1ace
     env:
       TZ: "${TIMEZONE}"
       SONARR__INSTANCE_NAME: Sonarr
