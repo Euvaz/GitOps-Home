@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: &app jellyseerr
+  name: jellyseerr
   namespace: media
 spec:
   interval: 15m
@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: docker.io/fallenbagel/jellyseerr
-      tag: 1.2.0
+      tag: 1.2.1
     env:
       TZ: "${TIMEZONE}"
       LOG_LEVEL: "info"
