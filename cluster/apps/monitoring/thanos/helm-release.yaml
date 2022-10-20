@@ -35,7 +35,8 @@ spec:
         sidecarsService: kube-prometheus-stack-thanos-discovery
         sidecarsNamespace: monitoring
         stores:
-          - "dnssrv+_grpc._tcp.kube-prometheus-stack-thanos-discovery.monitoring.svc.cluster.local"
+          - "dnssrv+_grpc._tcp.kube-prometheus-stack-thanos-discovery"
+          - "thanos-store.${SECRET_DOMAIN}:443"
       ingress:
         enabled: true
         hostname: "thanos.${SECRET_DOMAIN}"
