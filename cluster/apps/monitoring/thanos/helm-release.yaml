@@ -25,6 +25,10 @@ spec:
     - name: kube-prometheus-stack
       namespace: monitoring
   values:
+    objstoreConfig:
+      type: s3
+      config:
+        insecure: true
     query:
       enabled: true
       replicaCount: 3
@@ -59,4 +63,25 @@ spec:
       enabled: true
       serviceMonitor:
         enabled: true
-    existingObjstoreSecret: thanos-objstore
+    # existingObjstoreSecret: thanos-objstore
+  valuesFrom:
+    - targetPath: objstoreConfig.config.bucket
+      kind: ConfigMap
+      name: thanos-objstore
+      valuesKey: BUCKET
+    - targetPath: objstoreConfig.config.endpoint
+      kind: ConfigMap
+      name: thanos-objstore
+      valuesKey: ENDPOINT
+    - targetPath: objstoreConfig.config.region
+      kind: ConfigMap
+      name: thanos-objstore
+      valuesKey: REGION
+    - targetPath: objstoreConfig.config.access_key
+      kind: Secret
+      name: thanos-objstore
+      valuesKey: ACCESS_KEY
+    - targetPath: objstoreConfig.config.secret_key
+      kind: Secret
+      name: thanos-objstore
+      valuesKey: SECRET_KEY
