@@ -63,7 +63,6 @@ spec:
       enabled: true
       serviceMonitor:
         enabled: true
-    # existingObjstoreSecret: thanos-objstore
   valuesFrom:
     - targetPath: objstoreConfig.config.bucket
       kind: Secret
