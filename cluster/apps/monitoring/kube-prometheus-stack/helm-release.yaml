@@ -201,5 +201,5 @@ spec:
           image: "quay.io/thanos/thanos:v0.20.0"
           version: "v0.20.0"
           objectStorageConfig:
-            name: thanos-objstore
+            name: thanos-objstore-secret
             key: objstore.yml
