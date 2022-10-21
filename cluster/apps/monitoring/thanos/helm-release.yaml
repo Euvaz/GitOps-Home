@@ -28,7 +28,7 @@ spec:
     objstoreConfig:
       type: s3
       config:
-        insecure: false
+        insecure: true
     query:
       enabled: true
       replicaCount: 3
