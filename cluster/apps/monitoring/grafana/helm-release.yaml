@@ -29,7 +29,7 @@ spec:
     admin:
       existingSecret: grafana-admin
     envFromSecrets:
-      - name: grafana
+      - name: grafana-admin
     grafana.ini:
       server:
         root_url: "https://grafana.${SECRET_DOMAIN}"
