@@ -66,15 +66,15 @@ spec:
     # existingObjstoreSecret: thanos-objstore
   valuesFrom:
     - targetPath: objstoreConfig.config.bucket
-      kind: ConfigMap
+      kind: Secret
       name: thanos-objstore
       valuesKey: BUCKET
     - targetPath: objstoreConfig.config.endpoint
-      kind: ConfigMap
+      kind: Secret
       name: thanos-objstore
       valuesKey: ENDPOINT
     - targetPath: objstoreConfig.config.region
-      kind: ConfigMap
+      kind: Secret
       name: thanos-objstore
       valuesKey: REGION
     - targetPath: objstoreConfig.config.access_key
