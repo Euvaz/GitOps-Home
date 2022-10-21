@@ -21,16 +21,36 @@ spec:
   upgrade:
     remediation:
       retries: 5
-  dependsOn:
-    - name: postgresql
-      namespace: database
   values:
     replicas: 3
     admin:
       existingSecret: grafana-admin
-    envFromSecrets:
-      - name: grafana-admin
+      userKey: admin-user
+      passwordKey: admin-password
+    env:
+      GF_ANALYTICS_CHECK_FOR_UPDATES: false
+      GF_DATE_FORMATS_USE_BROWSER_LOCALE: true
+      GF_EXPLORE_ENABLED: true
+      GF_GRAFANA_NET_URL: https://grafana.net
+      GF_LOG_FILTERS: rendering:debug
+      GF_PANELS_DISABLE_SANITIZE_HTML: true
+      GF_PATHS_DATA: /var/lib/grafana/data
+      GF_PATHS_LOGS: /var/log/grafana
+      GF_PATHS_PLUGINS: /var/lib/grafana/plugins
+      GF_PATHS_PROVISIONING: /etc/grafana/provisioning
+      GF_SECURITY_ALLOW_EMBEDDING: true
+      GF_SECURITY_COOKIE_SAMESITE: grafana
+      GF_SERVER_ROOT_URL: "https://grafana.${SECRET_DOMAIN}"
     grafana.ini:
+      analytics:
+        check_for_updates: false
+      log:
+        mode: console
+      paths:
+        data: /var/lib/grafana/data
+        logs: /var/log/grafana
+        plugins: /var/lib/grafana/plugins
+        provisioning: /etc/grafana/provisioning
       server:
         root_url: "https://grafana.${SECRET_DOMAIN}"
     dashboardProviders:
@@ -56,17 +76,11 @@ spec:
             isDefault: true
     dashboards:
       default:
-        # Ref: https://grafana.com/grafana/dashboards/7845
-        zfs:
-          gnetId: 7845
-          revision: 4
+        node-exporter-full:
           datasource: Prometheus
-        # Ref: https://grafana.com/grafana/dashboards/13502
-        minio:
-          gnetId: 13502
-          revision: 10
-          datasource: Prometheus
+          url: https://grafana.com/api/dashboards/1860/revisions/22/download
     sidecar:
+      logLevel: INFO
       dashboards:
         enabled: true
         searchNamespace: ALL
