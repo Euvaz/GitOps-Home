@@ -59,7 +59,6 @@ spec:
       persistence:
         enabled: true
         size: 100Gi
-        storageClass: "ceph-block"
       resources:
         requests:
           cpu: 15m
@@ -71,7 +70,6 @@ spec:
       persistence:
         enabled: true
         size: 100Gi
-        storageClass: "ceph-block"
       resources:
         requests:
           cpu: 20m
