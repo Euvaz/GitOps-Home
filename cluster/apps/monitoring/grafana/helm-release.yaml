@@ -25,30 +25,28 @@ spec:
     replicas: 3
     admin:
       existingSecret: grafana-admin
-#      userKey: admin-user
-#      passwordKey: admin-password
 #    env:
 #      GF_EXPLORE_ENABLED: true
 #      GF_LOG_FILTERS: rendering:debug
 #      GF_PANELS_DISABLE_SANITIZE_HTML: true
 #      GF_SECURITY_ALLOW_EMBEDDING: true
 #      GF_SECURITY_COOKIE_SAMESITE: grafana
-#    grafana.ini:
+    grafana.ini:
 #      analytics:
 #        check_for_updates: false
 #      auth.basic:
 #        disable_login_form: false
-#      grafana_net:
-#        url: https://grafana.net
+      grafana_net:
+        url: https://grafana.net
 #      log:
 #        mode: console
 #      paths:
 #        data: /var/lib/grafana/data
-#       logs: /var/log/grafana
-#       plugins: /var/lib/grafana/plugins
-#       provisioning: /etc/grafana/provisioning
-#     server:
-#       root_url: "https://grafana.${SECRET_DOMAIN}"
+#        logs: /var/log/grafana
+#        plugins: /var/lib/grafana/plugins
+#        provisioning: /etc/grafana/provisioning
+#      server:
+#        root_url: "https://grafana.${SECRET_DOMAIN}"
 #    dashboardProviders:
 #      dashboardproviders.yaml:
 #        apiVersion: 1
