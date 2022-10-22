@@ -25,8 +25,8 @@ spec:
     replicas: 3
     admin:
       existingSecret: grafana-admin
-      userKey: admin-user
-      passwordKey: admin-password
+#      userKey: admin-user
+#      passwordKey: admin-password
 #    env:
 #      GF_EXPLORE_ENABLED: true
 #      GF_LOG_FILTERS: rendering:debug
