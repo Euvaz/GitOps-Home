@@ -88,13 +88,13 @@ spec:
       datasources:
         enabled: true
         searchNamespace: ALL
-#    plugins:
-#      - natel-discrete-panel
-#      - pr0ps-trackmap-panel
-#      - grafana-piechart-panel
-#      - vonage-status-panel
-#      - grafana-worldmap-panel
-#      - grafana-clock-panel
+    plugins:
+      - natel-discrete-panel
+      - pr0ps-trackmap-panel
+      - grafana-piechart-panel
+      - vonage-status-panel
+      - grafana-worldmap-panel
+      - grafana-clock-panel
     serviceMonitor:
       enabled: true
     ingress:
