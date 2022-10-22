@@ -35,13 +35,13 @@ spec:
     grafana.ini:
 #      analytics:
 #        check_for_updates: false
-#      auth.basic:
-#        disable_login_form: false
+      auth.basic:
+        enabled: true
+        disable_login_form: false
       grafana_net:
         url: "https://grafana.net"
       log:
         mode: console
-        filters: auth:debug
 #      paths:
 #        data: /var/lib/grafana/data
 #        logs: /var/log/grafana
@@ -90,8 +90,8 @@ spec:
 #      - vonage-status-panel
 #      - grafana-worldmap-panel
 #      - grafana-clock-panel
-#    serviceMonitor:
-#      enabled: true
+    serviceMonitor:
+      enabled: true
     ingress:
       enabled: true
       ingressClassName: "traefik"
@@ -105,8 +105,8 @@ spec:
         - hosts:
             - *host
           secretName: grafana-tls
-#   persistence:
-#      enabled: false
+    persistence:
+      enabled: false
 #    affinity:
 #      podAntiAffinity:
 #        preferredDuringSchedulingIgnoredDuringExecution:
