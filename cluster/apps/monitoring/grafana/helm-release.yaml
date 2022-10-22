@@ -25,8 +25,8 @@ spec:
     replicas: 3
     admin:
       existingSecret: grafana-admin
-    env:
-      GF_SERVER_ROOT_URL: "https://grafana.${SECRET_DOMAIN}"
+#    env:
+#      GF_SERVER_ROOT_URL: "https://grafana.${SECRET_DOMAIN}"
 #      GF_EXPLORE_ENABLED: true
 #      GF_LOG_FILTERS: rendering:debug
 #      GF_PANELS_DISABLE_SANITIZE_HTML: true
@@ -39,8 +39,9 @@ spec:
 #        disable_login_form: false
       grafana_net:
         url: "https://grafana.net"
-#      log:
-#        mode: console
+      log:
+        mode: console
+        filters: auth:debug
 #      paths:
 #        data: /var/lib/grafana/data
 #        logs: /var/log/grafana
