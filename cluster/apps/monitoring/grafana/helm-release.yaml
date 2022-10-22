@@ -23,75 +23,75 @@ spec:
       retries: 5
   values:
     replicas: 3
-    admin:
-      existingSecret: grafana-admin
-      userKey: admin-user
-      passwordKey: admin-password
-    env:
-      GF_EXPLORE_ENABLED: true
-      GF_LOG_FILTERS: rendering:debug
-      GF_PANELS_DISABLE_SANITIZE_HTML: true
-      GF_SECURITY_ALLOW_EMBEDDING: true
-      GF_SECURITY_COOKIE_SAMESITE: grafana
-    grafana.ini:
-      analytics:
-        check_for_updates: false
-      auth.basic:
-        disable_login_form: false
-      grafana_net:
-        url: https://grafana.net
-      log:
-        mode: console
-      paths:
-        data: /var/lib/grafana/data
-        logs: /var/log/grafana
-        plugins: /var/lib/grafana/plugins
-        provisioning: /etc/grafana/provisioning
-      server:
-        root_url: "https://grafana.${SECRET_DOMAIN}"
-    dashboardProviders:
-      dashboardproviders.yaml:
-        apiVersion: 1
-        providers:
-          - name: "default"
-            orgId: 1
-            folder: ""
-            type: file
-            disableDeletion: false
-            editable: true
-            options:
-              path: /var/lib/grafana/dashboards/default
-    datasources:
-      datasources.yaml:
-        apiVersion: 1
-        datasources:
-          - name: Prometheus
-            type: prometheus
-            access: proxy
-            url: http://thanos-query.monitoring.svc.cluster.local:9090
-            isDefault: true
-    dashboards:
-      default:
-        node-exporter-full:
-          datasource: Prometheus
-          url: https://grafana.com/api/dashboards/1860/revisions/22/download
-    sidecar:
-      logLevel: INFO
-      dashboards:
-        enabled: true
-        searchNamespace: ALL
-      datasources:
-        enabled: true
-        searchNamespace: ALL
-    plugins:
-      - natel-discrete-panel
-      - pr0ps-trackmap-panel
-      - grafana-piechart-panel
-      - vonage-status-panel
-      - grafana-worldmap-panel
-      - grafana-clock-panel
-    serviceMonitor:
-      enabled: true
+#    admin:
+#      existingSecret: grafana-admin
+#      userKey: admin-user
+#      passwordKey: admin-password
+#    env:
+#      GF_EXPLORE_ENABLED: true
+#      GF_LOG_FILTERS: rendering:debug
+#      GF_PANELS_DISABLE_SANITIZE_HTML: true
+#      GF_SECURITY_ALLOW_EMBEDDING: true
+#      GF_SECURITY_COOKIE_SAMESITE: grafana
+#    grafana.ini:
+#      analytics:
+#        check_for_updates: false
+#      auth.basic:
+#        disable_login_form: false
+#      grafana_net:
+#        url: https://grafana.net
+#      log:
+#        mode: console
+#      paths:
+#        data: /var/lib/grafana/data
+#       logs: /var/log/grafana
+#       plugins: /var/lib/grafana/plugins
+#       provisioning: /etc/grafana/provisioning
+#     server:
+#       root_url: "https://grafana.${SECRET_DOMAIN}"
+#    dashboardProviders:
+#      dashboardproviders.yaml:
+#        apiVersion: 1
+#        providers:
+#          - name: "default"
+#            orgId: 1
+#            folder: ""
+#            type: file
+#            disableDeletion: false
+#            editable: true
+#            options:
+#              path: /var/lib/grafana/dashboards/default
+#    datasources:
+#      datasources.yaml:
+#        apiVersion: 1
+#        datasources:
+#          - name: Prometheus
+#            type: prometheus
+#            access: proxy
+#            url: http://thanos-query.monitoring.svc.cluster.local:9090
+#            isDefault: true
+#    dashboards:
+#      default:
+#        node-exporter-full:
+#          datasource: Prometheus
+#          url: https://grafana.com/api/dashboards/1860/revisions/22/download
+#    sidecar:
+#      logLevel: INFO
+#      dashboards:
+#        enabled: true
+#        searchNamespace: ALL
+#      datasources:
+#        enabled: true
+#        searchNamespace: ALL
+#    plugins:
+#      - natel-discrete-panel
+#      - pr0ps-trackmap-panel
+#      - grafana-piechart-panel
+#      - vonage-status-panel
+#      - grafana-worldmap-panel
+#      - grafana-clock-panel
+#    serviceMonitor:
+#      enabled: true
     ingress:
       enabled: true
       ingressClassName: "traefik"
@@ -105,16 +105,16 @@ spec:
         - hosts:
             - *host
           secretName: grafana-tls
-    persistence:
-      enabled: false
-    affinity:
-      podAntiAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                  - key: app.kubernetes.io/name
-                    operator: In
-                    values: ["grafana"]
-              topologyKey: kubernetes.io/hostname
+#   persistence:
+#      enabled: false
+#    affinity:
+#      podAntiAffinity:
+#        preferredDuringSchedulingIgnoredDuringExecution:
+#          - weight: 100
+#            podAffinityTerm:
+#              labelSelector:
+#                matchExpressions:
+#                  - key: app.kubernetes.io/name
+#                    operator: In
+#                    values: ["grafana"]
+#              topologyKey: kubernetes.io/hostname
