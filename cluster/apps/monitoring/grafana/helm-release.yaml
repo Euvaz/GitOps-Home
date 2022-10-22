@@ -105,9 +105,7 @@ spec:
             - *host
           secretName: grafana-tls
     persistence:
-      enabled: true
-      size: 10Gi
-      storageClass: ceph-block
+      enabled: false
     affinity:
       podAntiAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
