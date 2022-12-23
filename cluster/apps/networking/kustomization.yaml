@@ -9,4 +9,4 @@ resources:
   - metallb
   - namespace.yaml
   - traefik
-  - unifi
+  #- unifi
