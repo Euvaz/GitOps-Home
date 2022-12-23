@@ -4,22 +4,21 @@ version: "3"
 vars:
   PROJECT_DIR:
     sh: "git rev-parse --show-toplevel"
-  CLUSTER_DIR: "{{.PROJECT_DIR}}/cluster"
-  ANSIBLE_DIR: "{{.PROJECT_DIR}}/provision/ansible"
-  TERRAFORM_DIR: "{{.PROJECT_DIR}}/provision/terraform"
+  KUBERNETES_DIR: "{{.PROJECT_DIR}}/kubernetes"
+  ANSIBLE_DIR: "{{.PROJECT_DIR}}/ansible"
+  TERRAFORM_DIR: "{{.PROJECT_DIR}}/terraform"
 
 dotenv: [".config.env"]
 
 env:
-  KUBECONFIG: "{{.PROJECT_DIR}}/provision/kubeconfig"
+  KUBECONFIG: "{{.PROJECT_DIR}}/kubeconfig"
 
 includes:
-  ansible: .taskfiles/AnsibleTasks.yaml
-  cluster: .taskfiles/ClusterTasks.yaml
-  precommit: .taskfiles/PrecommitTasks.yaml
-  snapshot: .taskfiles/SnapshotTasks.yaml
-  terraform: .taskfiles/TerraformTasks.yaml
-  sops: .taskfiles/SopsTasks.yaml
+  ansible: .taskfiles/AnsibleTasks.yml
+  cluster: .taskfiles/ClusterTasks.yml
+  precommit: .taskfiles/PrecommitTasks.yml
+  terraform: .taskfiles/TerraformTasks.yml
+  sops: .taskfiles/SopsTasks.yml
 
 tasks:
 
@@ -50,9 +49,9 @@ tasks:
         stern
         terraform
         tflint
+        weaveworks/tap/gitops
         yamllint
         yq
-
   verify:
     desc: Verify env settings
     cmds:
