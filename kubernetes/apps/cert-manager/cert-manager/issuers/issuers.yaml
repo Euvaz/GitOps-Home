@@ -1,0 +1,40 @@
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: "${SECRET_ROUTE53_EMAIL}"
+    privateKeySecretRef:
+      name: letsencrypt-production
+    solvers:
+      - dns01:
+          route53:
+            accessKeyID: "${SECRET_ROUTE53_ACCESS_KEY}"
+            region: us-east-1
+            secretAccessKeySecretRef:
+              name: cert-manager-secret
+              key: secret-access-key
+            hostedZoneID: Z02699697TWCV4M5O3U5
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: "${SECRET_ROUTE53_EMAIL}"
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    solvers:
+      - dns01:
+          route53:
+            accessKeyID: "${SECRET_ROUTE53_ACCESS_KEY}"
+            region: us-east-1
+            secretAccessKeySecretRef:
+              name: cert-manager-secret
+              key: secret-access-key
+            hostedZoneID: Z02699697TWCV4M5O3U5
