@@ -9,7 +9,7 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    - name: cluster-apps-rook-ceph-cluster
+    - name: cluster-apps-vpa-app
   path: ./kubernetes/apps/monitoring/goldilocks/app
   prune: true
   sourceRef:
