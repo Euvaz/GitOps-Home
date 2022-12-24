@@ -46,9 +46,9 @@ spec:
             #  - url: ""
             email_configs:
               - send_resolved: true
-                to: &email ${SECRET_ALERT_EMAIL}
-                from: *email
-                smarthost: ${SECRET_ALERT_SMARTHOST}
+                # to: ^valuesFrom^
+                # from: ^valuesFrom^
+                # smarthost: ^valuesFrom^
                 require_tls: false
         inhibit_rules:
           - source_matchers:
@@ -203,3 +203,16 @@ spec:
           objectStorageConfig:
             name: thanos-objstore-secret
             key: objstore.yml
+  valuesFrom:
+    - kind: Secret
+      name: kube-prometheus-stack
+      valuesKey: alert_email
+      targetPath: alertmanager.config.receivers.email_configs.to
+    - kind: Secret
+      name: kube-prometheus-stack
+      valuesKey: alert_email
+      targetPath: alertmanager.config.receivers.email_configs.from
+    - kind: Secret
+      name: kube-prometheus-stack
+      valuesKey: alert_smarthost
+      targetPath: alertmanager.config.receivers.email_configs.smarthost
