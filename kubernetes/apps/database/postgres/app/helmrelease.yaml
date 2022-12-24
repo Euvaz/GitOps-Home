@@ -18,8 +18,8 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    auth:
-      postgresPassword: "${SECRET_POSTGRESQL_ROOT_PASSWORD}"
+    # auth:
+    #   postgresPassword: ^valuesFrom^
     primary:
       persistence:
         enabled: true
@@ -47,3 +47,8 @@ spec:
         memory: 105M
     podAnnotations:
       backup.velero.io/backup-volumes: postgres-v1
+  valuesFrom:
+    - kind: Secret
+      name: postgres
+      valuesKey: postgresPassword
+      targetPath: auth.postgresPassword
