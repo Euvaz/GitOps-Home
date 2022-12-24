@@ -6,7 +6,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  #- goldilocks
+  - ./goldilocks/ks.yaml
   #- ./grafana/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
   - ./thanos/ks.yaml
