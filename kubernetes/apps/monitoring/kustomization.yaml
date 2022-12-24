@@ -9,5 +9,5 @@ resources:
   #- goldilocks
   #- grafana
   - ./kube-prometheus-stack/ks.yaml
-  #- ./thanos/ks.yaml
+  - ./thanos/ks.yaml
   #- vpa
