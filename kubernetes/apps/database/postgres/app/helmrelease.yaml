@@ -23,7 +23,7 @@ spec:
     primary:
       persistence:
         enabled: true
-        existingClaim: postgresql-v1
+        existingClaim: postgres-v1
       initdb:
         scripts:
           init-synapse.sql: |
@@ -46,4 +46,4 @@ spec:
         cpu: 15m
         memory: 105M
     podAnnotations:
-      backup.velero.io/backup-volumes: postgresql-v1
+      backup.velero.io/backup-volumes: postgres-v1
