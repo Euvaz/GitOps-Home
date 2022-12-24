@@ -9,6 +9,7 @@ Effectively, this GitHub repository is the heart of my cluser.
 ## Overview
 
 - [Repository structure](https://github.com/euvaz/gitops-home#-repository-structure)
+- [Rebuild counter](https://github.com/euvaz/gitops-home#-rebuild-counter-5)
 - [Thanks](https://github.com/euvaz/gitops-home#-thanks)
 
 ## 📂 Repository structure
@@ -24,6 +25,10 @@ cluster         # K3s cluster defined as code
 ├── core        # Crucial applications, namespaced directory tree, loaded before apps
 └── apps        # Regular applications, namespaced directory tree, loaded last
 ```
+
+## 💣 Rebuild counter: 5
+
+How many times I've had to nuke and re-build my cluster, either due to hardware failure or hasty updating.
 
 ## 🤝 Thanks
 
