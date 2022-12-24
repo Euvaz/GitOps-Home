@@ -8,6 +8,6 @@ resources:
   # Flux-Kustomizations
   #- goldilocks
   #- grafana
-  - ./kube-prometheus-stack
+  - ./kube-prometheus-stack/ks.yaml
   #- thanos
   #- vpa
