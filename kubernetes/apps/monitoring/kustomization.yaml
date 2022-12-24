@@ -7,7 +7,7 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   #- goldilocks
-  - ./grafana/ks.yaml
+  #- ./grafana/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
   - ./thanos/ks.yaml
   #- vpa
