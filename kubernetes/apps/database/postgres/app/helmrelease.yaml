@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: postgres
+  name: postgresql
   namespace: database
   labels:
     velero.io/schedule: daily
@@ -46,7 +46,7 @@ spec:
         cpu: 15m
         memory: 105M
     podAnnotations:
-      backup.velero.io/backup-volumes: postgres-v1
+      backup.velero.io/backup-volumes: postgresql-v1
   valuesFrom:
     - kind: Secret
       name: postgres
