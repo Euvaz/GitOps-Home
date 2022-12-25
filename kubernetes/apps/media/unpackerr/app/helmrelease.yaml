@@ -1,0 +1,70 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app unpackerr
+  namespace: media
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    image:
+      repository: ghcr.io/onedr0p/unpackerr
+      tag: 0.10.1@sha256:8409317ba9eab6d283e864bf511712b7fc414716790fb92efd81b8a4e4699aa2
+    env:
+      TZ: "${TIMEZONE}"
+      UN_LIDARR_0_URL: https://lidarr.${SECRET_DOMAIN}
+      UN_LIDARR_0_PATHS_0: /complete/lidarr
+      UN_RADARR_0_URL: https://radarr.${SECRET_DOMAIN}
+      UN_RADARR_0_PATHS_0: /complete/radarr
+      UN_SONARR_0_URL: https://sonarr.${SECRET_DOMAIN}
+      UN_SONARR_0_PATHS_0: /complete/sonarr
+    envFrom:
+      - secretRef:
+          name: *app
+    service:
+      main:
+        enabled: false
+    probes:
+      liveness:
+        enabled: false
+      readiness:
+        enabled: false
+      startup:
+        enabled: false
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+        - 100
+    persistence:
+      complete:
+        enabled: true
+        type: nfs
+        server: "nas.${SECRET_DOMAIN}"
+        path: /zfsa/Downloads/qbittorrent/complete
+        mountPath: /complete
+    podAnnotations:
+      secret.reloader.stakater.com/reload: *app
+    resources:
+      requests:
+        cpu: 10m
+        memory: 250Mi
+      limits:
+        memory: 1000Mi
