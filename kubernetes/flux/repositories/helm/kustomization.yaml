@@ -16,6 +16,7 @@ resources:
   - ./metallb.yaml
   - ./metrics-server.yaml
   - ./nfs-subdir-external-provisioner.yaml
+  - ./node-feature-discovery.yaml
   - ./prometheus-community.yaml
   - ./rook-ceph.yaml
   - ./stakater.yaml
