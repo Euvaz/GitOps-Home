@@ -19,10 +19,8 @@ spec:
       interval: 5m
   values:
     auth:
-      # rootPassword: ^secret^
       database: ""
       username: ""
-      password: ""
     primary:
       persistence:
         enabled: true
@@ -36,8 +34,3 @@ spec:
         memory: 105M
     podAnnotations:
       backup.velero.io/backup-volumes: mariadb-v1
-  valuesFrom:
-    - kind: Secret
-      name: mariadb
-      valuesKey: rootPassword
-      targetPath: auth.rootPassword
