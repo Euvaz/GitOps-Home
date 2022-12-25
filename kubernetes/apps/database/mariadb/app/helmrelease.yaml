@@ -20,6 +20,7 @@ spec:
   values:
     auth:
       # rootPassword: ^valuesFrom^
+      rootPassword: ${SECRET_MARIADB_ROOT_PASSWORD}
       database: ""
       username: ""
       password: ""
@@ -36,8 +37,8 @@ spec:
         memory: 105M
     podAnnotations:
       backup.velero.io/backup-volumes: mariadb-v1
-  valuesFrom:
-    - kind: Secret
-      name: mariadb
-      valuesKey: rootPassword
-      targetPath: auth.rootPassword
+#  valuesFrom:
+#    - kind: Secret
+#      name: mariadb
+#      valuesKey: rootPassword
+#      targetPath: auth.rootPassword
