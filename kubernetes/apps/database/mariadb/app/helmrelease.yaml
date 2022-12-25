@@ -36,8 +36,8 @@ spec:
         memory: 105M
     podAnnotations:
       backup.velero.io/backup-volumes: mariadb-v1
-#  valuesFrom:
-#    - kind: Secret
-#      name: mariadb
-#      valuesKey: mariadb-root-password
-#      targetPath: auth.rootPassword
+  valuesFrom:
+    - kind: Secret
+      name: mariadb
+      valuesKey: rootPassword
+      targetPath: auth.rootPassword
