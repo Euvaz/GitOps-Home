@@ -1,0 +1,89 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jellyfin
+  namespace: media
+  labels:
+    velero.io/schedule: weekly
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  values:
+    image:
+      repository: jellyfin/jellyfin
+      tag: 10.8.7
+    env:
+      TZ: "${TIMEZONE}"
+      JELLYFIN_CACHE_DIR: "/config/cache"
+    podSecurityContext:
+      supplementalGroups:
+        - 44
+        - 5600
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: "${LB_JELLYFIN_IP}"
+        externalTrafficPolicy: Local
+        ports:
+          http:
+            port: 8096
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+          - host: &host "jelly.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                type: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: jellyfin-tls
+    persistence:
+      config:
+        enabled: true
+        existingClaim: jellyfin-config-v1
+      media:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: "nas.${SECRET_DOMAIN}"
+            path: /zfsa/Media/
+        mountPath: /media
+        readOnly: true
+      transcode:
+        enabled: true
+        type: emptyDir
+        medium: Memory
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+                - key: feature.node.kubernetes.io/custom-intel-gpu
+                  operator: In
+                  values:
+                    - "true"
+    podAnnotations:
+      backup.velero.io/backup-volumes: jellyfin-config-v1
+    resources:
+      requests:
+        gpu.intel.com/i915: 1
+        memory: 105M
+      limits:
+        gpu.intel.com/i915: 1
+        memory: 6921M
