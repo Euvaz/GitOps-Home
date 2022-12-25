@@ -23,7 +23,7 @@ spec:
     primary:
       persistence:
         enabled: true
-        existingClaim: postgres-v1
+        existingClaim: postgresql-v1
       initdb:
         scripts:
           init-synapse.sql: |
