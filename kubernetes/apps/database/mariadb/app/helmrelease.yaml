@@ -39,5 +39,5 @@ spec:
   valuesFrom:
     - kind: Secret
       name: mariadb
-      valuesKey: rootPassword
+      valuesKey: mariadb-root-password
       targetPath: auth.rootPassword
