@@ -13,5 +13,5 @@ resources:
   - ./prowlarr/ks.yaml
   #- ./radarr/ks.yaml
   #- ./recyclarr/ks.yaml
-  #- ./sonarr/ks.yaml
+  - ./sonarr/ks.yaml
   #- ./unpackerr/ks.yaml
