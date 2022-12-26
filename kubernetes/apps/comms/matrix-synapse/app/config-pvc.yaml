@@ -5,9 +5,9 @@ metadata:
   name: matrix-redis-v1
   namespace: comms
   labels:
-#    app.kubernetes.io/name: redis
-#    app.kubernetes.io/instance: matrix-synapse
-#    snapshot.home.arpa/enabled: "true"
+    app.kubernetes.io/name: &name matrix-synapse
+    app.kubernetes.io/instance: *name
+    snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
     - ReadWriteOnce
