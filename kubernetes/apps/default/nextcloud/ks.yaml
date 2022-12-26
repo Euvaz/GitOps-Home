@@ -9,6 +9,7 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
+    - name: cluster-apps-mariadb-app
     - name: cluster-apps-rook-ceph-cluster
   path: ./kubernetes/apps/default/nextcloud/app
   prune: true
