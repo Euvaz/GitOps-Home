@@ -6,7 +6,14 @@ metadata:
   namespace: flux-system
 data:
   TIMEZONE: "America/Chicago"
+  #
   KUBE_VIP_ADDR: "10.11.0.254"
   METALLB_LB_RANGE: "10.11.0.210-10.11.0.220"
   METALLB_K8S_GATEWAY_ADDR: "10.11.0.210"
   METALLB_INGRESS_ADDR: "10.11.0.211"
+  #
+  LB_UNIFI_IP: 10.11.0.213
+  LB_QBITTORRENT_IP: 10.11.0.214
+  #
+  LB_JELLYFIN_IP: 10.11.1.2
+  LB_GITEA_IP: 10.11.1.3
