@@ -17,12 +17,12 @@ spec:
   install:
     createNamespace: true
     remediation:
-      retries: 5
+      retries: 3
   upgrade:
     remediation:
-      retries: 5
+      retries: 3
   values:
-    installCRDs: false
+    installCRDs: true
     replicaCount: 3
     serviceMonitor:
       enabled: true
