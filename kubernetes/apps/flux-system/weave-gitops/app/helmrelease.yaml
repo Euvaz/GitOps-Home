@@ -27,9 +27,11 @@ spec:
       username: admin
     ingress:
       enabled: true
-      className: nginx
+      className: "traefik"
       annotations:
-        hajimari.io/icon: "sawtooth-wave"
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns/is-public: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
       hosts:
         - host: &host "gitops.${SECRET_DOMAIN}"
           paths:
@@ -38,6 +40,7 @@ spec:
       tls:
         - hosts:
             - *host
+          secretName: gitops-tls
     networkPolicy:
       create: false
     metrics:
