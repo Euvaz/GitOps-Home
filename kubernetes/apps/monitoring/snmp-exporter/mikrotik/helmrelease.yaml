@@ -46,7 +46,7 @@ spec:
       params:
         - name: mikrotik-0
           module:
-            - dell
+            - mikrotik
           target: mikrotik-0
       path: /snmp
       scrapeTimeout: 10s
