@@ -9,7 +9,7 @@ data:
     dell:
       retries: 5
       timeout: 60s
-      version: 2
+      version: 1
       auth:
         community: public
       walk:
