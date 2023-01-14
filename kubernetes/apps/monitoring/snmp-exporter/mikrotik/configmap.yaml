@@ -405,7 +405,7 @@ data:
           type: DisplayString
       - name: ifphysaddress
         oid: 1.3.6.1.2.1.2.2.1.6
-        type: physaddress48
+        type: PhysAddress48
         help: the interface's address at its protocol sub-layer - 1.3.6.1.2.1.2.2.1.6
         indexes:
         - labelname: ifindex
@@ -1579,14 +1579,14 @@ data:
           type: DisplayString
       - name: ifrcvaddressaddress
         oid: 1.3.6.1.2.1.31.1.4.1.1
-        type: physaddress48
+        type: PhysAddress48
         help: an address for which the system will accept packets/frames on this entry's
           interface. - 1.3.6.1.2.1.31.1.4.1.1
         indexes:
         - labelname: ifindex
           type: gauge
         - labelname: ifrcvaddressaddress
-          type: physaddress48
+          type: PhysAddress48
         lookups:
         - labels:
           - ifindex
@@ -1602,7 +1602,7 @@ data:
         - labelname: ifindex
           type: gauge
         - labelname: ifrcvaddressaddress
-          type: physaddress48
+          type: PhysAddress48
         lookups:
         - labels:
           - ifindex
@@ -1626,7 +1626,7 @@ data:
         - labelname: ifindex
           type: gauge
         - labelname: ifrcvaddressaddress
-          type: physaddress48
+          type: PhysAddress48
         lookups:
         - labels:
           - ifindex
@@ -1684,7 +1684,7 @@ data:
           type: gauge
       - name: mtxrwlstatbssid
         oid: 1.3.6.1.4.1.14988.1.1.1.1.1.6
-        type: physaddress48
+        type: PhysAddress48
         help: ' - 1.3.6.1.4.1.14988.1.1.1.1.1.6'
         indexes:
         - labelname: mtxrwlstatindex
@@ -1719,11 +1719,11 @@ data:
           type: gauge
       - name: mtxrwlrtabaddr
         oid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
-        type: physaddress48
+        type: PhysAddress48
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.1'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1733,7 +1733,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.2'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1743,7 +1743,7 @@ data:
         help: dbm - 1.3.6.1.4.1.14988.1.1.1.2.1.3
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1753,7 +1753,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.4'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1763,7 +1763,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.5'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1773,7 +1773,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.6'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1783,7 +1783,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.7'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1793,7 +1793,7 @@ data:
         help: bits per second - 1.3.6.1.4.1.14988.1.1.1.2.1.8
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1803,7 +1803,7 @@ data:
         help: bits per second - 1.3.6.1.4.1.14988.1.1.1.2.1.9
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1813,7 +1813,7 @@ data:
         help: routeros version - 1.3.6.1.4.1.14988.1.1.1.2.1.10
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1823,7 +1823,7 @@ data:
         help: uptime - 1.3.6.1.4.1.14988.1.1.1.2.1.11
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1833,7 +1833,7 @@ data:
         help: measured in db, if value does not exist it is indicated with 0 - 1.3.6.1.4.1.14988.1.1.1.2.1.12
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1843,7 +1843,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.13'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1853,7 +1853,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.14'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1863,7 +1863,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.15'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1873,7 +1873,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.16'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1883,7 +1883,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.17'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1893,7 +1893,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.18'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1903,7 +1903,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.19'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1913,7 +1913,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.2.1.20'
         indexes:
         - labelname: mtxrwlrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlrtabiface
           type: gauge
@@ -1947,7 +1947,7 @@ data:
           type: gauge
       - name: mtxrwlapbssid
         oid: 1.3.6.1.4.1.14988.1.1.1.3.1.5
-        type: physaddress48
+        type: PhysAddress48
         help: ' - 1.3.6.1.4.1.14988.1.1.1.3.1.5'
         indexes:
         - labelname: mtxrwlapindex
@@ -2000,11 +2000,11 @@ data:
         help: wireless registration table entry count - 1.3.6.1.4.1.14988.1.1.1.4
       - name: mtxrwlcmrtabaddr
         oid: 1.3.6.1.4.1.14988.1.1.1.5.1.1
-        type: physaddress48
+        type: PhysAddress48
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.1'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2014,7 +2014,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.2'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2024,7 +2024,7 @@ data:
         help: uptime - 1.3.6.1.4.1.14988.1.1.1.5.1.3
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2034,7 +2034,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.4'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2044,7 +2044,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.5'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2054,7 +2054,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.6'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2064,7 +2064,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.7'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2074,7 +2074,7 @@ data:
         help: bits per second - 1.3.6.1.4.1.14988.1.1.1.5.1.8
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2084,7 +2084,7 @@ data:
         help: bits per second - 1.3.6.1.4.1.14988.1.1.1.5.1.9
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2094,7 +2094,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.10'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2104,7 +2104,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.11'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2114,7 +2114,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.12'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2124,7 +2124,7 @@ data:
         help: ' - 1.3.6.1.4.1.14988.1.1.1.5.1.13'
         indexes:
         - labelname: mtxrwlcmrtabaddr
-          type: physaddress48
+          type: PhysAddress48
           fixed_size: 6
         - labelname: mtxrwlcmrtabiface
           type: gauge
@@ -2205,7 +2205,7 @@ data:
           1: "true"
       - name: mtxrwl60gremote
         oid: 1.3.6.1.4.1.14988.1.1.1.8.1.5
-        type: physaddress48
+        type: PhysAddress48
         help: ' - 1.3.6.1.4.1.14988.1.1.1.8.1.5'
         indexes:
         - labelname: mtxrwl60gindex
@@ -2278,7 +2278,7 @@ data:
           1: "true"
       - name: mtxrwl60gstaremote
         oid: 1.3.6.1.4.1.14988.1.1.1.9.1.3
-        type: physaddress48
+        type: PhysAddress48
         help: ' - 1.3.6.1.4.1.14988.1.1.1.9.1.3'
         indexes:
         - labelname: mtxrwl60gstaindex
@@ -2702,7 +2702,7 @@ data:
           type: gauge
       - name: mtxrhotspotactiveusermac
         oid: 1.3.6.1.4.1.14988.1.1.5.1.1.6
-        type: physaddress48
+        type: PhysAddress48
         help: ' - 1.3.6.1.4.1.14988.1.1.5.1.1.6'
         indexes:
         - labelname: mtxrhotspotactiveuserindex
@@ -2920,7 +2920,7 @@ data:
           type: gauge
       - name: mtxrneighbormacaddress
         oid: 1.3.6.1.4.1.14988.1.1.11.1.1.3
-        type: physaddress48
+        type: PhysAddress48
         help: ' - 1.3.6.1.4.1.14988.1.1.11.1.1.3'
         indexes:
         - labelname: mtxrneighborindex
