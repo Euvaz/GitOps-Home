@@ -53,7 +53,7 @@ spec:
             - dell
           target: idrac.nas01.home.web
       path: /snmp
-      scrapeTimeout: 10s
+      scrapeTimeout: 15s
       relabelings:
         - sourceLabels: [__param_target]
           targetLabel: instance
