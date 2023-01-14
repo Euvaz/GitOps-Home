@@ -44,7 +44,7 @@ spec:
       enabled: true
       namespace: monitoring
       params:
-        - name: router
+        - name: mikrotik
           module:
             - mikrotik
           target: 10.0.0.1
