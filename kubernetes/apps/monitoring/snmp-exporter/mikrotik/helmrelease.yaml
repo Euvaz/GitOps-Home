@@ -44,12 +44,12 @@ spec:
       enabled: true
       namespace: monitoring
       params:
-        - name: mikrotik
+        - name: 10.0.0.1
           module:
             - mikrotik
           target: 10.0.0.1
       path: /snmp
-      scrapeTimeout: 60s
+      scrapeTimeout: 10s
       relabelings:
         - sourceLabels: [__param_target]
           targetLabel: instance
