@@ -44,10 +44,12 @@ spec:
       enabled: true
       namespace: monitoring
       params:
-        - name: dell-idrac-0
+        - name: dell-idrac
           module:
             - dell
-          target: dell-idrac-0
+          target:
+            - idrac.vhost01.home.web
+            - idrac.nas01.home.web
       path: /snmp
       scrapeTimeout: 10s
       relabelings:
