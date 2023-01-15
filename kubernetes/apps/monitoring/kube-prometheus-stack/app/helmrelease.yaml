@@ -181,7 +181,7 @@ spec:
             secretName: thanos-sidecar-tls
       prometheusSpec:
         replicas: 3
-        replicaExternalLabelName: "replica"
+        replicaExternalLabelName: "__replica__"
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
