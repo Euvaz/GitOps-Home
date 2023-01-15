@@ -48,10 +48,10 @@ spec:
           module:
             - mikrotik
           target: 10.0.0.1
-        - name: 10.0.0.2
-          module:
-            - mikrotik
-          target: 10.0.0.2
+#        - name: 10.0.0.2
+#          module:
+#            - mikrotik
+#          target: 10.0.0.2
       path: /snmp
       scrapeTimeout: 15s
       relabelings:
