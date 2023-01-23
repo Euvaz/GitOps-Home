@@ -26,6 +26,9 @@ spec:
         existingClaim: postgresql-v1
       initdb:
         scripts:
+          init-wikijs.sql: |
+            CREATE ROLE "wikijs" WITH LOGIN PASSWORD '${SECRET_WIKIJS_DATABASE_PASSWORD}';
+            CREATE DATABASE wikijs WITH OWNER 'wikijs' ENCODING 'UTF8' TEMPLATE template0;
           init-synapse.sql: |
             CREATE ROLE "synapse" WITH LOGIN PASSWORD '${SECRET_SYNAPSE_DATABASE_PASSWORD}';
             CREATE DATABASE synapse WITH OWNER 'synapse' ENCODING 'UTF8' LOCALE 'C' TEMPLATE template0;
