@@ -71,10 +71,10 @@ spec:
         storageClass: "ceph-block"
       resources:
         requests:
-          cpu: 49m
-          memory: 352M
+          cpu: 35m
+          memory: 549M
         limits:
-          memory: 352M
+          memory: 549M
     ruler:
       enabled: false
     metrics:
