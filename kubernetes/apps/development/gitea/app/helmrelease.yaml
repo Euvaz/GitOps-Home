@@ -21,7 +21,7 @@ spec:
   values:
     image:
       repository: gitea/gitea
-      tag: 1.17.4
+      tag: 1.18.4
       pullPolicy: IfNotPresent
       rootless: true
     ingress:
