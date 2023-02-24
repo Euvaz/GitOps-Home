@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ${APP}-restore-snapshot
+  name: ${APP}-${VOLUME}-restore-snapshot
   namespace: ${NAMESPACE}
 spec:
   ttlSecondsAfterFinished: 3600
@@ -26,14 +26,14 @@ spec:
               printf "\e[1;32m%-6s\e[m\n" "[03/04] Restore snapshot ..."     && kopia snap restore "${SNAPSHOT}" /data/${NAMESPACE}/${APP}/${VOLUME}
               printf "\e[1;32m%-6s\e[m\n" "[04/04] Disconnect from repo ..." && kopia repo disconnect
           volumeMounts:
-            - name: ${APP}-data
+            - name: data
               mountPath: /data/${NAMESPACE}/${APP}/${VOLUME}
             - name: snapshots
               mountPath: /snapshots
           securityContext:
             privileged: true
       volumes:
-        - name: ${APP}-data
+        - name: data
           persistentVolumeClaim:
             claimName: ${VOLUME}
         - name: snapshots
