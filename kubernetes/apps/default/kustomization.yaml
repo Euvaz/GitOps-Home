@@ -6,5 +6,4 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./echo-server/ks.yaml
-  - ./firefly-iii/ks.yaml
   - ./nextcloud/ks.yaml
