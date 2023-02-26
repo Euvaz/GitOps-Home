@@ -8,7 +8,7 @@ data:
   snmp.yaml: |
     mikrotik:
       retries: 5
-      timeout: 75s
+      timeout: 90s
       version: 1
       auth:
         community: public
