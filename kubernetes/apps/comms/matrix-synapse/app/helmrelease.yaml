@@ -38,7 +38,7 @@ spec:
   values:
     image:
       repository: matrixdotorg/synapse
-      tag: v1.78.0
+      tag: v1.79.0
     serverName: ${SECRET_DOMAIN}
     publicServerName: matrix.${SECRET_DOMAIN}
     wellknown:
