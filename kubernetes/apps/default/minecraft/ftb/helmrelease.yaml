@@ -17,7 +17,7 @@ spec:
       interval: 5m
   values:
     image: itzg/minecraft-server
-    imageTag: java8
+    imageTag: java8-multiarch
     resources:
       requests:
         memory: 6Gi
