@@ -6,4 +6,5 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./echo-server/ks.yaml
+  - ./minecraft/ks.yaml
   - ./nextcloud/ks.yaml
