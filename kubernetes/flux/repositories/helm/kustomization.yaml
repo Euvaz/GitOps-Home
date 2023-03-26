@@ -17,6 +17,7 @@ resources:
   - ./kyverno.yaml
   - ./metallb.yaml
   - ./metrics-server.yaml
+  - ./minecraft-server-charts.yaml
   - ./nextcloud.yaml
   - ./nfs-subdir-external-provisioner.yaml
   - ./node-feature-discovery.yaml
