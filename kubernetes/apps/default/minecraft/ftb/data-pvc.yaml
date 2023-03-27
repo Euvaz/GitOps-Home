@@ -5,8 +5,7 @@ metadata:
   name: minecraft-ftb-data-v1
   namespace: default
   labels:
-    app.kubernetes.io/name: &name minecraft-ftb
-    app.kubernetes.io/instance: *name
+    app: minecraft-ftb-minecraft
     snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
