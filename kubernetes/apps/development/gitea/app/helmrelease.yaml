@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: gitea
   namespace: development
-  labels:
-    velero.io/schedule: daily
 spec:
   interval: 15m
   chart:
@@ -77,5 +75,3 @@ spec:
       enable: false
     postgresql:
       enabled: false
-    podAnnotations:
-      backup.velero.io/backup-volumes: gitea-config-v1

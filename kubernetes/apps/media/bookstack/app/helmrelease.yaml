@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: bookstack
   namespace: media
-  labels:
-    velero.io/schedule: weekly
 spec:
   dependsOn:
     - name: mariadb
@@ -59,8 +57,6 @@ spec:
         enabled: true
         mountPath: /config
         existingClaim: bookstack-config-v1
-    podAnnotations:
-      backup.velero.io/backup-volumes: bookstack-config-v1
     resources:
       requests:
         memory: 105M

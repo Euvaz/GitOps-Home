@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: nextcloud
   namespace: default
-  labels:
-    velero.io/schedule: weekly
 spec:
   interval: 5m
   dependsOn:

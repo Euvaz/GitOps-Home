@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: mariadb
   namespace: database
-  labels:
-    velero.io/schedule: daily
 spec:
   interval: 5m
   chart:
@@ -32,5 +30,3 @@ spec:
         memory: 105M
       limits:
         memory: 105M
-    podAnnotations:
-      backup.velero.io/backup-volumes: mariadb-v1

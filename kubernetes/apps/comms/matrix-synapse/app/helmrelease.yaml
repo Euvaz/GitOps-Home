@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: matrix-synapse
   namespace: comms
-  labels:
-    velero.io/schedule: weekly
 spec:
   interval: 5m
   dependsOn:
@@ -91,5 +89,3 @@ spec:
     persistence:
       enabled: true
       existingClaim: matrix-redis-v1
-    podAnnotations:
-      backup.velero.io/backup-volumes: matrix-redis-v1

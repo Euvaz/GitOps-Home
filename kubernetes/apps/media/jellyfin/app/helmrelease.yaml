@@ -4,8 +4,6 @@ kind: HelmRelease
 metadata:
   name: jellyfin
   namespace: media
-  labels:
-    velero.io/schedule: weekly
 spec:
   interval: 5m
   chart:
@@ -78,8 +76,6 @@ spec:
                   operator: In
                   values:
                     - "true"
-    podAnnotations:
-      backup.velero.io/backup-volumes: jellyfin-config-v1
     resources:
       requests:
         gpu.intel.com/i915: 1
