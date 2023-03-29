@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: minecraft-ftb-restic
+    name: minecraft-ftb-restic-secret
     namespace: default
 stringData:
     RESTIC_REPOSITORY: '${SECRET_VOLSYNC_RESTIC_REPOSITORY}/minecraft-ftb'
