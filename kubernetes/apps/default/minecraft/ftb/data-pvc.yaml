@@ -4,9 +4,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: minecraft-ftb-data-v1
   namespace: default
-  labels:
-    app: minecraft-ftb-minecraft
-    snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
     - ReadWriteOnce
