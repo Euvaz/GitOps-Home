@@ -26,6 +26,7 @@ data:
   settings.yaml: |
     ---
     title: Dashboard
+    favicon: https://kubernetes.io/images/favicon.png
     theme: dark
     color: slate
     target: _self
