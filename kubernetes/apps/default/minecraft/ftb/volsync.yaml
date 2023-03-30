@@ -18,7 +18,7 @@ metadata:
 spec:
   sourcePVC: minecraft-ftb-data-v1
   trigger:
-    schedule: "*/5 * * * *"
+    schedule: "0 0 * * *"
   restic:
     copyMethod: Snapshot
     pruneIntervalDays: 10
