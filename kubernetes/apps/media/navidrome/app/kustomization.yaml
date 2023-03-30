@@ -6,3 +6,4 @@ namespace: media
 resources:
   - ./config-pvc.yaml
   - ./helmrelease.yaml
+  - ./volsync.yaml
