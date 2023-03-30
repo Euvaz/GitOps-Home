@@ -13,6 +13,13 @@ data:
     ---
   widgets.yaml: |
     ---
+    - search:
+        provider: [google, duckduckgo]
+        focus: false
+        target: _blank
+    - greeting:
+        text_size: xl
+        text: "Howdy!"
     - kubernetes:
         cluster:
           show: true
