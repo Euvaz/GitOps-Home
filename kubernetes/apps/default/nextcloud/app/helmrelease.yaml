@@ -31,7 +31,7 @@ spec:
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: "Nextcloud"
-        gethomepage.dev/group: "Default"
+        gethomepage.dev/group: "Public"
         gethomepage.dev/icon: "nextcloud"
         gethomepage.dev/description: "A safe home for all your data."
       hosts:

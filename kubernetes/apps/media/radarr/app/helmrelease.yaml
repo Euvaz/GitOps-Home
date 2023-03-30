@@ -47,6 +47,11 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Radarr"
+          gethomepage.dev/group: "Private"
+          gethomepage.dev/icon: "radarr"
+          gethomepage.dev/description: "A fork of Sonarr to work with movies à la Couchpotato."
         hosts:
           - host: &host "radarr.${SECRET_DOMAIN}"
             paths:

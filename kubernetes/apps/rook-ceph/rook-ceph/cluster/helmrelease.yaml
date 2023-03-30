@@ -34,6 +34,11 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Rook-Ceph"
+          gethomepage.dev/group: "Private"
+          gethomepage.dev/icon: "ceph"
+          gethomepage.dev/description: "Rook-Ceph Dashboard."
         host:
           name: &host "rook.${SECRET_DOMAIN}"
           path: /

@@ -61,12 +61,17 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Alertmanager"
+          gethomepage.dev/group: "Private"
+          gethomepage.dev/icon: "alertmanager"
+          gethomepage.dev/description: "Alertmanager handles alerts sent by client applications."
         hosts:
-          - &alertHost "alert-manager.${SECRET_DOMAIN}"
+          - &alertHost "alertmanager.${SECRET_DOMAIN}"
         tls:
           - hosts:
               - *alertHost
-            secretName: alert-manager-tls
+            secretName: alertmanager-tls
       alertmanagerSpec:
         replicas: 3
         podAntiAffinity: hard
@@ -153,6 +158,11 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Prometheus"
+          gethomepage.dev/group: "Private"
+          gethomepage.dev/icon: "prometheus"
+          gethomepage.dev/description: "The Prometheus monitoring system and time series database."
         hosts:
           - &prometheusHost "prometheus.${SECRET_DOMAIN}"
         tls:

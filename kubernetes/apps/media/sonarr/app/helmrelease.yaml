@@ -47,6 +47,11 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Sonarr"
+          gethomepage.dev/group: "Private"
+          gethomepage.dev/icon: "sonarr"
+          gethomepage.dev/description: "Smart PVR for newsgroup and bittorrent users."
         hosts:
           - host: &host "sonarr.${SECRET_DOMAIN}"
             paths:

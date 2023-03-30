@@ -51,8 +51,12 @@ spec:
         ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns/is-public: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "qBittorrent"
+          gethomepage.dev/group: "Private"
+          gethomepage.dev/icon: "qbittorrent"
+          gethomepage.dev/description: "qBittorrent BitTorrent client."
         hosts:
           - host: &host "qb.${SECRET_DOMAIN}"
             paths:

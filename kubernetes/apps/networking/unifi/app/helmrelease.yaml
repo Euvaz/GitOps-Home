@@ -71,6 +71,11 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Unifi"
+          gethomepage.dev/group: "Private"
+          gethomepage.dev/icon: "unificontroller"
+          gethomepage.dev/description: "Ubiqiti Network's Unifi Controller."
         hosts:
           - host: &host "unifi.${SECRET_DOMAIN}"
             paths:

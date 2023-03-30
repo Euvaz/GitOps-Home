@@ -45,6 +45,11 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Thanos"
+          gethomepage.dev/group: "Private"
+          gethomepage.dev/icon: "thanos"
+          gethomepage.dev/description: "Highly available Prometheus setup with long term storage capabilities."
         tls: true
     queryFrontend:
       enabled: true
