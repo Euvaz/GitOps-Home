@@ -42,6 +42,11 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Jellyseerr"
+          gethomepage.dev/group: "Media"
+          gethomepage.dev/icon: "jellyseerr"
+          gethomepage.dev/description: "Request management and media discovery tool."
         hosts:
           - host: &host "requests.${SECRET_DOMAIN}"
             paths:
