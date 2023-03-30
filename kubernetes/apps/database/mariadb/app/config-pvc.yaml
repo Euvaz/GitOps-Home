@@ -4,10 +4,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: mariadb-v1
   namespace: database
-  labels:
-    app.kubernetes.io/name: &name mariadb
-    app.kubernetes.io/instance: *name
-    snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
     - ReadWriteOnce

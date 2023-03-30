@@ -4,10 +4,6 @@ kind: PersistentVolumeClaim
 metadata:
   name: qbittorrent-config-v1
   namespace: download
-  labels:
-    app.kubernetes.io/name: &name qbittorrent
-    app.kubernetes.io/instance: *name
-    snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
     - ReadWriteOnce
