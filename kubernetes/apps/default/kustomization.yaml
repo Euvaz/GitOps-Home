@@ -7,5 +7,6 @@ resources:
   # Flux-Kustomizations
   - ./dashy/ks.yaml
   - ./echo-server/ks.yaml
+  - ./homepage/ks.yaml
   - ./minecraft/ks.yaml
   - ./nextcloud/ks.yaml

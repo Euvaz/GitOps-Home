@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homepage
+  namespace: default
+  annotations:
+    reloader.stakater.com/match: "true"
+data:
+  bookmarks.yaml: |
+    ---
+  services.yaml: |
+    ---
+  widgets.yaml: |
+    ---
+    - resources:
+        backend: kubernetes
+        expanded: true
+        cpu: true
+        memory: true
+  kubernetes.yaml: |
+    ---
+    mode: cluster
+  docker.yaml: |
+    ---
+  settings.yaml: |
+    ---
+    title: Dashboard
+    theme: dark
+    color: slate
+    target: _self
