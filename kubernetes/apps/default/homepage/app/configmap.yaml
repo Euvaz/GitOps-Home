@@ -13,11 +13,18 @@ data:
     ---
   widgets.yaml: |
     ---
-    - resources:
-        backend: kubernetes
-        expanded: true
-        cpu: true
-        memory: true
+    - kubernetes:
+        cluster:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
+          label: "K8s"
+        nodes:
+          show: true
+          cpu: true
+          memory: true
+          showLabel: true
   kubernetes.yaml: |
     ---
     mode: cluster
