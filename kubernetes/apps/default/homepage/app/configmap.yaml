@@ -42,5 +42,5 @@ data:
     title: Dashboard
     favicon: https://kubernetes.io/images/favicon.png
     theme: dark
-    color: slate
+    color: stone
     target: _self
