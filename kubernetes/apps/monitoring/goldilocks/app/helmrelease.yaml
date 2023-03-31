@@ -40,7 +40,7 @@ spec:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Goldilocks"
           gethomepage.dev/group: "Private"
-          gethomepage.dev/icon: "https://goldilocks.${SECRET_DOMAIN}/static/images/favicon.ico"
+          gethomepage.dev/icon: "https://raw.githubusercontent.com/FairwindsOps/goldilocks/master/pkg/dashboard/assets/images/favicon.ico"
           gethomepage.dev/description: "A utility to help identify a starting point for resource requests and limits."
         hosts:
           - host: &host "goldilocks.${SECRET_DOMAIN}"
