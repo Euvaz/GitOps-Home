@@ -16,6 +16,10 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    containerSecurityContext:
+      runAsUser: 0
+    diagnosticMode:
+      enabled: true
     # auth:
     #   postgresPassword: ^valuesFrom^
     primary:
