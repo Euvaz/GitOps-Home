@@ -18,8 +18,8 @@ spec:
   values:
     containerSecurityContext:
       runAsUser: 0
-    #diagnosticMode:
-    #  enabled: true
+    diagnosticMode:
+      enabled: true
     # auth:
     #   postgresPassword: ^valuesFrom^
     primary:
