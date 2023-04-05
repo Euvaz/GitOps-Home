@@ -14,16 +14,13 @@ Effectively, this GitHub repository is the heart of my cluser.
 
 ## 📂 Repository structure
 
-The Git repository contains the following directories under `cluster` and are ordered below by how Flux will apply them.
+The Git repository contains the following directories under `kubernetes`.
 
 ```
-cluster         # K3s cluster defined as code
-├── flux        # Flux, GitOps operator, loaded first
-├── crds        # Custom resources, loaded before core and apps
-├── charts      # Helm repositories, loaded before core and apps
-├── config      # Cluster configuration, loaded before core and apps
-├── core        # Crucial applications, namespaced directory tree, loaded before apps
-└── apps        # Regular applications, namespaced directory tree, loaded last
+kubernetes/     # Kubernetes cluster defined as code
+├── apps        # Regular applications, namespaced directory tree
+├── bootstrap   # Flux Installation
+└── flux        # Main flux configuration
 ```
 
 ## 💣 Rebuild counter: 5
