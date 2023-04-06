@@ -65,13 +65,13 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: "k3s-worker-00"
+          - name: "talos-sj9-rn7"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fbd9"
-          - name: "k3s-worker-01"
+          - name: "talos-iu0-ylf"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fb42"
-          - name: "k3s-worker-02"
+          - name: "talos-brp-8kj"
             devices:
               - name: "/dev/disk/by-id/wwn-0x500a0751e608fbc9"
     cephBlockPools:
