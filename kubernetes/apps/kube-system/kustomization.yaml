@@ -5,6 +5,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./cilium/ks.yaml
   - ./intel-gpu-plugin/ks.yaml
   #- ./kube-vip/ks.yaml
   - ./metrics-server/ks.yaml
