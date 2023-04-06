@@ -23,7 +23,7 @@ kubernetes/     # Kubernetes cluster defined as code
 └── flux        # Main flux configuration
 ```
 
-## 💣 Rebuild counter: 5
+## 💣 Rebuild counter: 6
 
 How many times I've had to nuke and re-build my cluster, either due to hardware failure or hasty updating.
 
