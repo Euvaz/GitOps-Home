@@ -1,0 +1,16 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kube-system
+helmCharts:
+  - name: cilium
+    repo: https://helm.cilium.io
+    version: 1.13.1
+    releaseName: cilium
+    namespace: kube-system
+    valuesFile: https://raw.githubusercontent.com/Euvaz/GitOps-Home/main/kubernetes/apps/kube-system/cilium/app/1.13.x.yaml
+commonAnnotations:
+  meta.helm.sh/release-name: cilium
+  meta.helm.sh/release-namespace: kube-system
+commonLabels:
+  app.kubernetes.io/managed-by: Helm
