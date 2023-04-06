@@ -6,4 +6,3 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./gitea/ks.yaml
-  - ./volsync-restore.yaml

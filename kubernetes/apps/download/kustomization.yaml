@@ -7,4 +7,3 @@ resources:
   # Flux-Kustomizations
   - ./qbittorrent/ks.yaml
   - ./sabnzbd/ks.yaml
-  - ./volsync-restore.yaml

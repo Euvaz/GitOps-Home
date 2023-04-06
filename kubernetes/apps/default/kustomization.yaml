@@ -9,4 +9,3 @@ resources:
   - ./homepage/ks.yaml
   - ./minecraft/ks.yaml
   - ./nextcloud/ks.yaml
-  - ./volsync-restore.yaml
