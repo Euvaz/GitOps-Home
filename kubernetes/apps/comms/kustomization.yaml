@@ -7,3 +7,4 @@ resources:
   # Flux-Kustomizations
   - ./matrix-synapse/ks.yaml
   #- ./mumble/ks.yaml
+  - ./volsync-restore.yaml

@@ -12,3 +12,4 @@ resources:
   - ./metallb/ks.yaml
   - ./traefik/ks.yaml
   - ./unifi/ks.yaml
+  - ./volsync-restore.yaml

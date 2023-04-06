@@ -1,0 +1,91 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: jellyfin-config-v1-dest
+  namespace: download
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: jellyfin-restic-secret
+    destinationPVC: jellyfin-config-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: jellyseerr-config-v1-dest
+  namespace: download
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: jellyseerr-restic-secret
+    destinationPVC: jellyseerr-config-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: lidarr-config-v1-dest
+  namespace: download
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: lidarr-restic-secret
+    destinationPVC: lidarr-config-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: navidrome-config-v1-dest
+  namespace: download
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: navidrome-restic-secret
+    destinationPVC: navidrome-config-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: prowlarr-config-v1-dest
+  namespace: download
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: prowlarr-restic-secret
+    destinationPVC: prowlarr-config-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: radarr-config-v1-dest
+  namespace: download
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: radarr-restic-secret
+    destinationPVC: radarr-config-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: sonarr-config-v1-dest
+  namespace: download
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: sonarr-restic-secret
+    destinationPVC: sonarr-config-v1
+    copyMethod: Direct

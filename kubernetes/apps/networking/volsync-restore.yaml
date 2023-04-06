@@ -1,0 +1,13 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: unifi-config-v1-dest
+  namespace: networking
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: unifi-restic-secret
+    destinationPVC: unifi-config-v1
+    copyMethod: Direct

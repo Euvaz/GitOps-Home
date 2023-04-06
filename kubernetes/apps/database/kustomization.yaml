@@ -7,3 +7,4 @@ resources:
   # Flux-Kustomizations
   - ./mariadb/ks.yaml
   - ./postgres/ks.yaml
+  - ./volsync-restore.yaml
