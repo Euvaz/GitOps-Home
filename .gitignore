@@ -2,6 +2,7 @@
 .DS_Store
 Thumbs.db
 # k8s
+talosconfig
 kubeconfig
 # vscode-sops
 .decrypted~*.yaml
