@@ -6,7 +6,7 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./intel-gpu-plugin/ks.yaml
-  - ./kube-vip/ks.yaml
+  #- ./kube-vip/ks.yaml
   - ./metrics-server/ks.yaml
   - ./node-feature-discovery/ks.yaml
   - ./reloader/ks.yaml
