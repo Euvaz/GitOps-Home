@@ -23,7 +23,7 @@ machine:
     # Used to provide additional options to the kubelet.
     kubelet:
         # The `image` field is an optional reference to an alternative kubelet image.
-        image: ghcr.io/siderolabs/kubelet:v1.26.1
+        image: ghcr.io/siderolabs/kubelet:v1.26.3
         # Enable container runtime default Seccomp profile.
         defaultRuntimeSeccompProfileEnabled: true
         # The `disableManifestsDirectory` field configures the kubelet to get static pod manifests from the /etc/kubernetes/manifests directory.
@@ -347,7 +347,7 @@ cluster:
             name: custom
             #     # URLs containing manifests to apply for the CNI.
             urls:
-                - https://raw.githubusercontent.com/bjw-s/home-ops/main/infrastructure/talos/cluster-0/cni/install.yaml
+                - https://raw.githubusercontent.com/Euvaz/GitOps-Home/main/kubernetes/apps/kube-system/cilium/app/1.13.x.yaml
     # The [bootstrap token](https://kubernetes.io/docs/reference/access-authn-authz/bootstrap-tokens/) used to join the cluster.
     token: ENC[AES256_GCM,data:dGu90s7QNviYYdgj1ehizGcoR2EtyNY=,iv:1PzhzOUpizmBW05gQr8hfAK0e2PF3lDY5rGry3gorh0=,tag:Dxff9zyBFUvAas12SRMDpg==,type:str]
     # A key used for the [encryption of secret data at rest](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/).
@@ -366,7 +366,7 @@ cluster:
     # API server specific configuration options.
     apiServer:
         # The container image used in the API server manifest.
-        image: registry.k8s.io/kube-apiserver:v1.26.1
+        image: registry.k8s.io/kube-apiserver:v1.26.3
         # Extra certificate subject alternative names for the API server's certificate.
         certSANs:
             - 10.11.0.254
@@ -401,17 +401,17 @@ cluster:
     # Controller manager server specific configuration options.
     controllerManager:
         # The container image used in the controller manager manifest.
-        image: registry.k8s.io/kube-controller-manager:v1.26.1
+        image: registry.k8s.io/kube-controller-manager:v1.26.3
     # Kube-proxy server-specific configuration options
     proxy:
         # The container image used in the kube-proxy manifest.
-        image: registry.k8s.io/kube-proxy:v1.26.1
+        image: registry.k8s.io/kube-proxy:v1.26.3
         # # Disable kube-proxy deployment on cluster bootstrap.
-        # disabled: false
+        disabled: true
     # Scheduler server specific configuration options.
     scheduler:
         # The container image used in the scheduler manifest.
-        image: registry.k8s.io/kube-scheduler:v1.26.1
+        image: registry.k8s.io/kube-scheduler:v1.26.3
     # Configures cluster member discovery.
     discovery:
         # Enable the cluster membership discovery feature.
@@ -493,8 +493,8 @@ sops:
             SUh6UlloK1lsQUdFRnpMN2MvZHBnQ00K+RK5XDYk501ZP7iFKbyBoagL2TaxrFTc
             cihQo8wwxy8bL2DvZkyHu4XQsvjsEIuh32uJFWADpAhs1yEx8i//xA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-04-06T00:37:59Z"
-    mac: ENC[AES256_GCM,data:vm5hkku0I29R8kE9NgIcTAX52DYv5PgPDuBX34QgXVzDihnDBEwoxs6E6RPa8b4zPNaebpE3A/fW1DgyJ4NP8XzMlMk6nzN1P937CP0fIptbesn9yJQribRteCbECMKnXsTEqc00LWIjQ5oNqwFFpK0A8ScGJN2V+WZ3kmsEZcg=,iv:+g3XS7E4Lqz/+ZFCI5OQFT7WF+RiWwiBW5ozibs5vbo=,tag:GxWWwcvwK/keIe2E5dUIAw==,type:str]
+    lastmodified: "2023-04-06T03:22:04Z"
+    mac: ENC[AES256_GCM,data:WAQESkONzhsjd1pb52eQwDQQVNZtjpnbQ0tNwFey0I/CuAAdj7nSxnWv01AQ2EXkZZuu9a5UoyA9x7MUQKkD20/TwOr7m7PZ6hQYi5iep2jasL1jrDqYdBULD+CrPJJpD+VwRU1SEQr2PrNZfq40g8m6CuDsntFOtXw1EA7O/6E=,iv:d0S2QMn3OwpjHAFXNm6AouzQGjS7mVcalkZAo8LR9fw=,tag:tHuWAPtdOhRENQ9MbtzfwQ==,type:str]
     pgp: []
     encrypted_regex: ((?i)(pass|secret($|[^N])|ca|crt|key|token|^data$|^stringData$))
     version: 3.7.3

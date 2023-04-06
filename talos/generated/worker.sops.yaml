@@ -23,7 +23,7 @@ machine:
     # Used to provide additional options to the kubelet.
     kubelet:
         # The `image` field is an optional reference to an alternative kubelet image.
-        image: ghcr.io/siderolabs/kubelet:v1.26.1
+        image: ghcr.io/siderolabs/kubelet:v1.26.3
         # Enable container runtime default Seccomp profile.
         defaultRuntimeSeccompProfileEnabled: true
         # The `disableManifestsDirectory` field configures the kubelet to get static pod manifests from the /etc/kubernetes/manifests directory.
@@ -149,7 +149,7 @@ machine:
         # Indicates if a bootloader should be installed.
         bootloader: true
         # Indicates if the installation disk should be wiped at installation time.
-        wipe: true
+        wipe: false
         # # Look up disk using disk attributes like model, size, serial and others.
         # diskSelector:
         #     size: 4GB # Disk size.
@@ -488,8 +488,8 @@ sops:
             L3lwVVl6K1UyQmhlY1dwWFl4dkZ2WncKT4obG/CyR0cfGex7K7wRwB57RkNwySPc
             r7ornuP1iD8cmlHsEto+0AN/wfZMfvQtDgnaycpa2x+GKrtpe78DdQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-04-06T01:21:25Z"
-    mac: ENC[AES256_GCM,data:5JAGe7Mc7+sJ0dpcDikKakrK5sJGoSwqr0RaKLnSvv0hVHDvd0xJBNJDQcwlAW32WqI95WSPhMtanWaow7eGhiTlPy25XsjxrEK9Q+L+iZ5i61sEf9Juw+8iwjGW2c367on8z8Uec3TTvxShZxoVR73poaQH46bTNH/3gggwFdw=,iv:DkFi21C/diu95WWksYBfhYrtlwTGF+PDkg3FFXE2pQM=,tag:BruJrS4qFg89i6ACKkiGZQ==,type:str]
+    lastmodified: "2023-04-06T03:22:44Z"
+    mac: ENC[AES256_GCM,data:jfLi2rgu9RdzaSDtuf0PiXUA1CJbPC2s9CwwrDvcinnHlEP3zcKIlmfsv3l/jQjFs1T1iFP0IN761JUac43LjzRy1yYsTA3QOTf5IjEqsk8oxqoYLokhkBvZTsGA2f1G0qZordkcFRdir71JrPRBx61AyILpfV95pruWX8en0tw=,iv:f8SxxOEFtGGXmYGT2h0Kk7wJSySDAIy6M4RPlD0xGVw=,tag:WzEGUioHRq5Fyx4MRmDQ5A==,type:str]
     pgp: []
     encrypted_regex: ((?i)(pass|secret($|[^N])|ca|crt|key|token|^data$|^stringData$))
     version: 3.7.3
