@@ -1,4 +1,5 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helmrelease_v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -15,16 +16,34 @@ spec:
         name: rook-ceph
         namespace: flux-system
   install:
+    timeout: 10m
+    replace: true
+    crds: CreateReplace
     createNamespace: true
     remediation:
       retries: 3
   upgrade:
     remediation:
+      remediateLastFailure: true
       retries: 3
+      strategy: rollback
+    cleanupOnFail: true
+    crds: CreateReplace
+  test:
+    enable: true
+  rollback:
+    recreate: true
+    force: true
+    cleanupOnFail: true
+  uninstall:
+    keepHistory: false
+  maxHistory: 3
   dependsOn:
     - name: rook-ceph-operator
       namespace: rook-ceph
   values:
+    toolbox:
+      enabled: false
     monitoring:
       enabled: true
       createPrometheusRules: true
@@ -54,8 +73,6 @@ spec:
       dataDirHostPath: /var/lib/rook
       network:
         provider: host
-      crashCollector:
-        disable: false
       dashboard:
         enabled: true
         urlPrefix: /
@@ -68,13 +85,13 @@ spec:
         nodes:
           - name: "talos-sj9-rn7"
             devices:
-              - name: "/dev/disk/by-id/wwn-0x500a0751e608fbd9"
+              - name: "/dev/disk/by-id/ata-CT1000MX500SSD1_2206E608FBD9"
           - name: "talos-iu0-ylf"
             devices:
-              - name: "/dev/disk/by-id/wwn-0x500a0751e608fb42"
+              - name: "/dev/disk/by-id/ata-CT1000MX500SSD1_2206E608FB42"
           - name: "talos-brp-8kj"
             devices:
-              - name: "/dev/disk/by-id/wwn-0x500a0751e608fbc9"
+              - name: "/dev/disk/by-id/ata-CT1000MX500SSD1_2206E608FBC9"
     cephBlockPools:
       - name: ceph-blockpool
         spec:
