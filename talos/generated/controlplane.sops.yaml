@@ -373,25 +373,25 @@ cluster:
         # Disable PodSecurityPolicy in the API server and default manifests.
         disablePodSecurityPolicy: true
         # Configure the API server admission plugins.
-        #admissionControl:
-        #    # Name is the name of the admission controller.
-        #    - name: PodSecurity
-        #      # Configuration is an embedded configuration object to be used as the plugin's
-        #      configuration:
-        #        apiVersion: pod-security.admission.config.k8s.io/v1alpha1
-        #        defaults:
-        #            audit: restricted
-        #            audit-version: latest
-        #            enforce: baseline
-        #            enforce-version: latest
-        #            warn: restricted
-        #            warn-version: latest
-        #        exemptions:
-        #            namespaces:
-        #                - kube-system
-        #            runtimeClasses: []
-        #            usernames: []
-        #        kind: PodSecurityConfiguration
+        admissionControl:
+            # Name is the name of the admission controller.
+            - name: PodSecurity
+              # Configuration is an embedded configuration object to be used as the plugin's
+              configuration:
+                apiVersion: pod-security.admission.config.k8s.io/v1alpha1
+                defaults:
+                    audit: restricted
+                    audit-version: latest
+                    enforce: baseline
+                    enforce-version: latest
+                    warn: restricted
+                    warn-version: latest
+                exemptions:
+                    namespaces:
+                        - kube-system
+                    runtimeClasses: []
+                    usernames: []
+                kind: PodSecurityConfiguration
         # Configure the API server audit policy.
         auditPolicy:
             apiVersion: audit.k8s.io/v1
@@ -493,8 +493,8 @@ sops:
             SUh6UlloK1lsQUdFRnpMN2MvZHBnQ00K+RK5XDYk501ZP7iFKbyBoagL2TaxrFTc
             cihQo8wwxy8bL2DvZkyHu4XQsvjsEIuh32uJFWADpAhs1yEx8i//xA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-04-06T15:18:30Z"
-    mac: ENC[AES256_GCM,data:gboJwWwftwaR2k0v7y4ZZOGD6wtBs2iPSwDuWYcDKxqq0odZGPwIAh/kCW4zZIdo7Ry2CteE7kKhRpV6+YVUOs7t03zjH0y9iFTLUzfWhwuxTghDl2ZZeTLl3K4DRxB3EtDkwOnISGoJdr9eoo/l/9bLZAe0aU9p+F6iKNdrxps=,iv:Lh4iLDIR2Ib3NHQ3cfzCzEYYoJMDjetfniNVEX8ruJ4=,tag:0raD9Hzl7sMgQE+F8hCGew==,type:str]
+    lastmodified: "2023-04-11T02:45:20Z"
+    mac: ENC[AES256_GCM,data:vNd66F0Lfh/CZJk76ALdYGJhNBJtPp4ppCs/n8ta5/gpWlvjNNnyFvrempgel09x8V6cW3HCpI9G04Rd5EV/TmXRB1sTfJ0QC1jPliStdm9QEtQlJgwzY6o5b12Daq+I9N9eD1SQKiXnC5OEZ+KpWxTtO98ACdlwO83qKJetCIs=,iv:JIhOFQ1hQDIYd6Wa8wEKFk0cuCmjEDSptBz/GBK4K5k=,tag:i0vcGZYSc1D1OmjRFYoHAQ==,type:str]
     pgp: []
     encrypted_regex: ((?i)(pass|secret($|[^N])|ca|crt|key|token|^data$|^stringData$))
     version: 3.7.3
