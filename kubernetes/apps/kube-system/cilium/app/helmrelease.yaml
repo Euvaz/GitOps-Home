@@ -12,7 +12,7 @@ spec:
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: cilium-chart
+        name: cilium
         namespace: flux-system
       # The HelmRelease version of Cilium MUST match the version installed via Talos to avoid collisions on cluster rebuilds
       version: 1.13.1

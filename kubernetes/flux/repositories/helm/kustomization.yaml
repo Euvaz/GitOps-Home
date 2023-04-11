@@ -6,6 +6,7 @@ resources:
   - ./backube.yaml
   - ./bitnami.yaml
   - ./bjw-s.yaml
+  - ./cilium.yaml
   - ./external-dns.yaml
   - ./fairwinds.yaml
   - ./gitea.yaml
