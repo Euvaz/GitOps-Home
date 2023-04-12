@@ -7,4 +7,4 @@ resources:
   - ./data-pvc.yaml
   - ./config-pvc.yaml
   - ./helmrelease.yaml
-  #- ./volsync.yaml
+  - ./volsync.yaml
