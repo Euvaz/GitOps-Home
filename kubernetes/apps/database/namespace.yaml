@@ -6,7 +6,5 @@ metadata:
   annotations:
     volsync.backube/privileged-movers: "true"
   labels:
-    pod-security.kubernetes.io/warn: privileged
-    pod-security.kubernetes.io/enforce: privileged
     goldilocks.fairwinds.com/enabled: "true"
     kustomize.toolkit.fluxcd.io/prune: disabled
