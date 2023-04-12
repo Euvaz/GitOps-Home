@@ -6,7 +6,7 @@ namespace: default
 resources:
   - ./data-pvc.yaml
   - ./helmrelease.yaml
-  - ./volsync.yaml
+  #- ./volsync.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: minecraft-ftb
