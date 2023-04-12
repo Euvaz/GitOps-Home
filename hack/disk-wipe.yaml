@@ -23,7 +23,7 @@ spec:
           dd if=/dev/zero of=$CEPH_DISK bs=1M count=100 oflag=direct;
           blkdiscard $CEPH_DISK;
           partprobe $CEPH_DISK;
-          rm -rf $ROOK_HOST_PATH
+          rm -rf $ROOK_HOST_PATH;
       volumeMounts:
         - name: host-var
           mountPath: /mnt/host_var
