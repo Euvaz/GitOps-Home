@@ -13,19 +13,26 @@ spec:
         privileged: true
       env:
         - name: CEPH_DISK
-          value: ${DISK}
+          value: /mnt/host_dev/sda
+        - name: ROOK_HOST_PATH
+          value: /mnt/host_var/lib/rook
       command: ["/bin/sh", "-c"]
       args:
         - apk add --no-cache sgdisk util-linux parted;
           sgdisk --zap-all $CEPH_DISK;
+          dd if=/dev/zero of=$CEPH_DISK bs=1M count=100 oflag=direct;
           blkdiscard $CEPH_DISK;
-          dd if=/dev/zero bs=1M count=100 oflag=direct of=$CEPH_DISK;
           partprobe $CEPH_DISK;
-          rm -rf /mnt/host_var/lib/rook
+          rm -rf $ROOK_HOST_PATH
       volumeMounts:
-        - mountPath: /mnt/host_var
-          name: host-var
+        - name: host-var
+          mountPath: /mnt/host_var
+        - name: host-dev
+          mountPath: /mnt/host_dev
   volumes:
     - name: host-var
       hostPath:
         path: /var
+    - name: host-dev
+      hostPath:
+        path: /dev
