@@ -19,6 +19,9 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    securityContext:
+      runAsUser: 0
+      privileged: true
     image:
       repository: nextcloud
       tag: 25.0.5
