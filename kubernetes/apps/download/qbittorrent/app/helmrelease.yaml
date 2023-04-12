@@ -23,6 +23,7 @@ spec:
       retries: 5
   values:
     securityContext:
+      runAsUser: 0
       privileged: true
     image:
       repository: ghcr.io/onedr0p/qbittorrent
