@@ -68,6 +68,7 @@ spec:
               - *host
             secretName: sabnzbd-tls
     podSecurityContext:
+      privileged: true
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
