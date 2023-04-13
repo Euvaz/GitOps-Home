@@ -448,7 +448,7 @@ cluster:
     # A list of urls that point to additional manifests.
     extraManifests:
         # Install the kubelet cert-approver manifests
-        - https://raw.githubusercontent.com/xUnholy/k8s-gitops/main/talos/integrations/cert-approver/kubelet-cert-approver.yaml
+        - https://raw.githubusercontent.com/Euvaz/GitOps-Home/main/talos/integrations/cert-approver/kubelet-cert-approver.yaml
         # Install kube prometheus stack CRDs prior to cluster bootstrap
         # Ref: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
         - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.60.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
@@ -501,8 +501,8 @@ sops:
             SUh6UlloK1lsQUdFRnpMN2MvZHBnQ00K+RK5XDYk501ZP7iFKbyBoagL2TaxrFTc
             cihQo8wwxy8bL2DvZkyHu4XQsvjsEIuh32uJFWADpAhs1yEx8i//xA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-04-13T00:42:12Z"
-    mac: ENC[AES256_GCM,data:9m/iZGQzX9/a4GORUeD7hViWbQ5z1MDlrYZ22ka0CNaazyyjWyHmbL2syM0WMQM6i1O419XdZhy5yjtUlRwSlx4wMFn0phzd2WJVL+iJNp+ggSv6K7OIuMjqaZRA62anDDAwA+jUR9jkSkgWkI3SvNpJ6XFOvGG3W75VF/EdLKs=,iv:JpUAQOAuzjbanwHuZc1EzcJybKsgwvQ79xKi2Izm/v8=,tag:mVQpHv3gchVd0x/bNaDWdQ==,type:str]
+    lastmodified: "2023-04-13T23:35:18Z"
+    mac: ENC[AES256_GCM,data:RXT7eISU21/QpphRsna5A5bXzYvL8AnoAcj3C3jT+QWZMnbtI+kBbvjVp1MKuzv5sffWNRXKfEIoZpJmS0eMQhQZTISQFu4mnZUCzHzi1Gm8XTxiBK2wAUzBwkoFfzPCxhJR4LfF0Pbnh5n+gMFxSRlukTx2jQv9O76ADTAvsvk=,iv:kHEp8Vr1CuLCKKRGn0a3clBxsIIY4x1+Mj59tLaNitw=,tag:3YexZr1ty9nG48wAte+ojQ==,type:str]
     pgp: []
     encrypted_regex: ((?i)(pass|secret($|[^N])|ca|crt|key|token|^data$|^stringData$))
     version: 3.7.3
