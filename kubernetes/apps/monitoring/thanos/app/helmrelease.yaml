@@ -86,6 +86,10 @@ spec:
       enabled: true
       serviceMonitor:
         enabled: true
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
   valuesFrom:
     - targetPath: objstoreConfig.config.bucket
       kind: Secret
