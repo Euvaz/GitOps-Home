@@ -22,6 +22,9 @@ spec:
     remediation:
       retries: 5
   values:
+    securityContext:
+      runAsUser: 0
+      privileged: true
     image:
       repository: ghcr.io/onedr0p/sabnzbd
       tag: 3.7.2@sha256:c493413f6f333b3e4dfba1f740fcec8601e4c50f79af864448dc42836ba7f932

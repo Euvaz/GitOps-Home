@@ -22,6 +22,9 @@ spec:
     remediation:
       retries: 5
   values:
+    securityContext:
+      runAsUser: 0
+      privileged: true
     image:
       repository: ghcr.io/onedr0p/qbittorrent
       tag: 4.4.3.1@sha256:cea2a1647727f49582ca3d517bc45d53d00abe211fc667c429020f042635ea34
