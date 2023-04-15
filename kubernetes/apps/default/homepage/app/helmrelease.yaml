@@ -42,9 +42,9 @@ spec:
               - path: /
                 pathType: Prefix
         tls:
-        - hosts:
-            - *host
-          secretName: homepage-tls
+          - hosts:
+              - *host
+            secretName: homepage-tls
     config:
       useExistingConfigMap: *app
     podAnnotations:
