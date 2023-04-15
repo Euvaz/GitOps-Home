@@ -1,6 +1,6 @@
 # K8s backed by Talos Linux and Flux
 
-[K8s](https://kubernetes.io/) cluster backed by [Talos Linux](https://www.talos.dev/) and [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
+[K8s](https://kubernetes.io/) cluster backed by [Talos Linux](https://www.talos.dev/), [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
 
 Powered by the [GitOps](https://www.weave.works/blog/what-is-gitops-really) tool [Flux](https://toolkit.fluxcd.io/). Utilizing [Flux](https://toolkit.fluxcd.io/guides/mozilla-sops/) SOPS integrations to utilize Age encrypted secrets within this public repository.
 
