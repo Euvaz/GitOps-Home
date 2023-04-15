@@ -40,8 +40,6 @@ spec:
         receivers:
           - name: "null"
           - name: "alerts"
-            #webhook_configs:
-            #  - url: ""
             email_configs:
               - send_resolved: true
                 to: &email ${SECRET_ALERT_EMAIL}
