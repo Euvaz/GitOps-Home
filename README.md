@@ -1,15 +1,15 @@
-# K3s backed by Flux
+# K8s backed by Talos Linux and Flux
 
-[K3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
+[K8s](https://kubernetes.io/) cluster backed by [Talos Linux](https://www.talos.dev/) and [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
 
-Powered by the [GitOps](https://www.weave.works/blog/what-is-gitops-really) tool [Flux](https://toolkit.fluxcd.io/). Utilizing [Ansible](https://github.com/ansible-collections/community.sops), [Terraform](https://github.com/carlpett/terraform-provider-sops) and [Flux](https://toolkit.fluxcd.io/guides/mozilla-sops/) SOPS integrations to utilize Age encrypted secrets within this public repository.
+Powered by the [GitOps](https://www.weave.works/blog/what-is-gitops-really) tool [Flux](https://toolkit.fluxcd.io/). Utilizing [Flux](https://toolkit.fluxcd.io/guides/mozilla-sops/) SOPS integrations to utilize Age encrypted secrets within this public repository.
 
 Effectively, this GitHub repository is the heart of my cluser.
 
 ## Overview
 
 - [Repository structure](https://github.com/euvaz/gitops-home#-repository-structure)
-- [Rebuild counter](https://github.com/euvaz/gitops-home#-rebuild-counter-5)
+- [Rebuild counter](https://github.com/euvaz/gitops-home#-rebuild-counter-6)
 - [Thanks](https://github.com/euvaz/gitops-home#-thanks)
 
 ## 📂 Repository structure
