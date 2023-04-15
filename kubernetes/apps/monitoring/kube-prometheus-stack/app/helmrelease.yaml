@@ -186,6 +186,8 @@ spec:
       prometheusSpec:
         replicas: 3
         replicaExternalLabelName: "__replica__"
+        enableFeatures:
+          - exemplar-storage
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
