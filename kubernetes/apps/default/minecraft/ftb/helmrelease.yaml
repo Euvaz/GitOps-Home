@@ -16,8 +16,9 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    image: itzg/minecraft-server
-    imageTag: java8-multiarch
+    image:
+      repository: itzg/minecraft-server
+      tag: java8-multiarch
     resources:
       requests:
         memory: 6Gi
