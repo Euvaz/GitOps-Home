@@ -135,11 +135,7 @@ spec:
         port: 10259
         targetPort: 10259
     kubeProxy:
-      enabled: true
-      endpoints:
-        - 10.11.0.50
-        - 10.11.0.51
-        - 10.11.0.52
+      enabled: false
     kubeEtcd:
       enabled: true
       endpoints:
