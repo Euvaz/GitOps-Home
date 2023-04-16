@@ -123,6 +123,7 @@ spec:
             regex: (apiserver_response_sizes_bucket|apiserver_watch_events_sizes_bucket)
             action: drop
     kubeControllerManager:
+      endpoints: [ "10.1.0.50", "10.11.0.51", "10.11.0.52" ]
       serviceMonitor:
         metricRelabelings:
           # Remove duplicate metrics
