@@ -132,6 +132,8 @@ spec:
             action: keep
     kubeProxy:
       enabled: false
+    kubeEtcd:
+      endpoints: [ "10.11.0.50", "10.11.0.51", "10.11.0.52" ]
     kubeScheduler:
       endpoints: [ "10.11.0.50", "10.11.0.51", "10.11.0.52" ]
       serviceMonitor:
