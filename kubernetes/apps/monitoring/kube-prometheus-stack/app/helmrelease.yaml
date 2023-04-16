@@ -87,7 +87,7 @@ spec:
         dashboards:
           multicluster:
             etcd:
-              enabled: false
+              enabled: true
     kubelet:
         metricRelabelings:
           - sourceLabels: ["__name__"]
