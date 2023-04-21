@@ -55,24 +55,24 @@ spec:
             enabled: true
       ui:
         ingress:
-        ingressClassName: "traefik"
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          gethomepage.dev/enabled: "true"
-          gethomepage.dev/name: "Hubble"
-          gethomepage.dev/group: "Private"
-          gethomepage.dev/icon: "cilium"
-          gethomepage.dev/description: "Network, Service & Security Observability for Kubernetes using eBPF."
-        hosts:
-          - host: &host "hubble.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                type: Prefix
-        tls:
-          - hosts:
-              - *host
-            secretName: hubble-tls
+          ingressClassName: "traefik"
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt-production"
+            traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: "Hubble"
+            gethomepage.dev/group: "Private"
+            gethomepage.dev/icon: "cilium"
+            gethomepage.dev/description: "Network, Service & Security Observability for Kubernetes using eBPF."
+          hosts:
+            - host: &host "hubble.${SECRET_DOMAIN}"
+              paths:
+                - path: /
+                  type: Prefix
+          tls:
+            - hosts:
+                - *host
+              secretName: hubble-tls
     prometheus:
       serviceMonitor:
         enabled: true
