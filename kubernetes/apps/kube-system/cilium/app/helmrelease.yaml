@@ -54,7 +54,6 @@ spec:
           serviceMonitor:
             enabled: true
       ui:
-        enabled: true
         ingress:
         ingressClassName: "traefik"
         annotations:
