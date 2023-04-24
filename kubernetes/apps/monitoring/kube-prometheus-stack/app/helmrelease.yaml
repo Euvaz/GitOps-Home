@@ -78,15 +78,15 @@ spec:
               - *thanosHost
             secretName: thanos-sidecar-tls
       prometheusSpec:
-        replicas: 1
-        priorityClassName: platform-cluster-critical
+        replicas: 3
+        # priorityClassName: platform-cluster-critical
         replicaExternalLabelName: "__replica__"
         enableFeatures:
           - exemplar-storage
         scrapeInterval: 1m
         secrets:
           - etcd-client-cert
-        podAntiAffinity: hard
+        # podAntiAffinity: hard
         resources:
           requests:
             memory: 4Gi
