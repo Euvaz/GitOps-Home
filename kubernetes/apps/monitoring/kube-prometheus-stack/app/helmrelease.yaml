@@ -41,6 +41,24 @@ spec:
           limits:
             memory: 50Mi
     prometheus:
+      ingress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Prometheus"
+          gethomepage.dev/group: "Private"
+          gethomepage.dev/icon: "prometheus"
+          gethomepage.dev/description: "The Prometheus monitoring system and time series database."
+        hosts:
+          - &prometheusHost "prometheus.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - *prometheusHost
+            secretName: prometheus-tls
       thanosService:
         enabled: true
       thanosServiceMonitor:
