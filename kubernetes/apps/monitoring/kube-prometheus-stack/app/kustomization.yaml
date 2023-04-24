@@ -5,4 +5,4 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - ./etcd-client-cert.sops.yaml
-  - ./helmrelease.yaml
+  # - ./helmrelease.yaml
