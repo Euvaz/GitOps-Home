@@ -180,6 +180,8 @@ spec:
         replicaExternalLabelName: "__replica__"
         enableFeatures:
           - exemplar-storage
+        secrets:
+          - etcd-client-cert
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
