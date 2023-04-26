@@ -36,13 +36,11 @@ jobs:
                 fromJSON('
                   [
                     "ACTION_ACTIONLINT",
-                    "ANSIBLE_ANSIBLE_LINT",
                     "COPYPASTE_JSCPD",
                     "KUBERNETES_KUBEVAL",
                     "MARKDOWN_MARKDOWNLINT",
                     "REPOSITORY_GIT_DIFF",
                     "REPOSITORY_SECRETLINT",
-                    "TERRAFORM_TERRAFORM_FMT",
                     "YAML_PRETTIER",
                     "YAML_YAMLLINT"
                   ]
@@ -50,9 +48,7 @@ jobs:
                 ','
               )
             }}
-          ANSIBLE_DIRECTORY: provision/ansible
-          ANSIBLE_ANSIBLE_LINT_CONFIG_FILE: .github/linters/.ansible-lint
-          KUBERNETES_DIRECTORY: cluster
+          KUBERNETES_DIRECTORY: kubernetes
           KUBERNETES_KUBEVAL_ARGUMENTS: --ignore-missing-schemas
           MARKDOWN_MARKDOWNLINT_CONFIG_FILE: .github/linters/.markdownlint.yaml
           MARKDOWN_MARKDOWNLINT_RULES_PATH: .github/
