@@ -6,3 +6,9 @@ resources:
   - ./config-pvc.yaml
   - ./helmrelease.yaml
   - ./volsync.yaml
+configMapGenerator:
+  - name: autobrr
+    files:
+      - config.toml=./config/config.toml
+generatorOptions:
+  disableNameSuffixHash: true

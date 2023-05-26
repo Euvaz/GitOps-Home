@@ -67,7 +67,7 @@ spec:
       config-file:
         enabled: true
         type: configMap
-        name: autobrr-configmap
+        name: autobrr
         mountPath: /config/config.toml
         subPath: config.toml
         readOnly: true
