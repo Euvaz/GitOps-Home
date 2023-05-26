@@ -9,6 +9,6 @@ resources:
 configMapGenerator:
   - name: autobrr-configmap
     files:
-      - config.toml=./config/config.toml
+      - config.toml=./configs/config.toml
 generatorOptions:
   disableNameSuffixHash: true
