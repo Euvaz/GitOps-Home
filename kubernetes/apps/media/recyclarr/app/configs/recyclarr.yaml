@@ -10,7 +10,7 @@
 
 sonarr:
   - base_url: http://sonarr.media.svc.cluster.local:80
-    api_key: {{ .SONARR_APIKEY }}
+    api_key: !env_var SONARR_APIKEY
     quality_definition: hybrid
     release_profiles:
       - trash_ids:
@@ -20,7 +20,7 @@ sonarr:
 
 radarr:
   - base_url: http://radarr.media.svc.cluster.local:80
-    api_key: {{ .RADARR_APIKEY}}
+    api_key: !env_var RADARR_APIKEY
     delete_old_custom_formats: true
     quality_definition:
       type: movie
