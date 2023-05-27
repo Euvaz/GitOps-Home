@@ -30,6 +30,9 @@ spec:
     envFrom:
       - secretRef:
           name: *app
+    service:
+      main:
+        enabled: false
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
