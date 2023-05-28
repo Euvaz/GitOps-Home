@@ -11,7 +11,7 @@ spec:
   dependsOn:
     - name: cluster-apps-postgres-app
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/development/gitea/app
+  path: ./kubernetes/apps/collaboration/gitea/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -20,7 +20,7 @@ spec:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
       name: gitea
-      namespace: development
+      namespace: collaboration
   interval: 30m
   retryInterval: 1m
   timeout: 3m

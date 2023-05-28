@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: gitea-config-v1
-  namespace: development
+  namespace: collaboration
 spec:
   accessModes:
     - ReadWriteOnce
