@@ -11,6 +11,22 @@ data:
     ---
   services.yaml: |
     ---
+    layout:
+      Media Management:
+        style: row
+        columns: 4
+      Collaboration:
+        style: row
+        columns: 4
+      Observability:
+        style: row
+        columns: 4
+      Media Automation:
+        style: row
+        columns: 4
+      Downloaders:
+        style: row
+        columns: 4
   widgets.yaml: |
     ---
     - search:
