@@ -9,7 +9,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
-  storageClassName: ceph-block
+  storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   mountOptions:
     - hard
@@ -26,7 +26,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: ceph-block
+  storageClassName: ""
   resources:
     requests:
       storage: 1Ti
