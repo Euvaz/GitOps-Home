@@ -88,10 +88,3 @@ spec:
             'overwriteprotocol' => 'https',
             'skeletondirectory' => '',
           );
-        # gitops.config.php: |-
-        #   <?php
-        #   $CONFIG = array (
-        #     'appstoreenabled' => true,
-        #     #'appstoreurl' => 'https://apps.nextcloud.com/api/v0',
-        #     'mail_domain' => '${SECRET_DOMAIN}',
-        #   );
