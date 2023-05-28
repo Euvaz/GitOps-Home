@@ -1,9 +1,9 @@
----
+#---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
   name: gitea-config-v1-dest
-  namespace: development
+  namespace: collaboration
 spec:
   trigger:
     manual: restore-once
@@ -16,7 +16,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
   name: nextcloud-config-v1-dest
-  namespace: default
+  namespace: collaboration
 spec:
   trigger:
     manual: restore-once
