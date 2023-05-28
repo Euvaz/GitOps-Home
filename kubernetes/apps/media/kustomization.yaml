@@ -16,4 +16,3 @@ resources:
   - ./recyclarr/ks.yaml
   - ./sonarr/ks.yaml
   - ./unpackerr/ks.yaml
-  - ./wikijs/ks.yaml
