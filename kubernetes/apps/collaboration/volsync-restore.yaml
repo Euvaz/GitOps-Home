@@ -1,0 +1,26 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: gitea-config-v1-dest
+  namespace: development
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: gitea-restic-secret
+    destinationPVC: gitea-config-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: nextcloud-config-v1-dest
+  namespace: default
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: nextcloud-restic-secret
+    destinationPVC: nextcloud-config-v1
+    copyMethod: Direct
