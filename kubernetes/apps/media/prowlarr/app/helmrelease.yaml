@@ -48,7 +48,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Prowlarr"
-          gethomepage.dev/group: "Private"
+          gethomepage.dev/group: "Media Automation"
           gethomepage.dev/icon: "prowlarr"
           gethomepage.dev/description: "An indexer manager/proxy to integrate with your various PVR apps."
         hosts:

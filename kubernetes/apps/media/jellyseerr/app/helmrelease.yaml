@@ -44,7 +44,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Jellyseerr"
-          gethomepage.dev/group: "Public"
+          gethomepage.dev/group: "Media Management"
           gethomepage.dev/icon: "jellyseerr"
           gethomepage.dev/description: "Request management and media discovery tool."
         hosts:

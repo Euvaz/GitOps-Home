@@ -63,7 +63,7 @@ spec:
             traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
             gethomepage.dev/enabled: "true"
             gethomepage.dev/name: "Hubble"
-            gethomepage.dev/group: "Private"
+            gethomepage.dev/group: "Observability"
             gethomepage.dev/icon: "cilium"
             gethomepage.dev/description: "Network, Service & Security Observability for Kubernetes using eBPF."
           hosts:

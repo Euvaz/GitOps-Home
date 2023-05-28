@@ -73,7 +73,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Unifi"
-          gethomepage.dev/group: "Private"
+          gethomepage.dev/group: "Observability"
           gethomepage.dev/icon: "unifi"
           gethomepage.dev/description: "Ubiqiti Network's Unifi Controller."
         hosts:

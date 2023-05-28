@@ -58,7 +58,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Sabnzbd"
-          gethomepage.dev/group: "Private"
+          gethomepage.dev/group: "Downloaders"
           gethomepage.dev/icon: "sabnzbd"
           gethomepage.dev/description: "The automated Usenet download tool."
         hosts:

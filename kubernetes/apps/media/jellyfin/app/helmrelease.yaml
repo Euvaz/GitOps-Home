@@ -43,7 +43,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Jellyfin"
-          gethomepage.dev/group: "Public"
+          gethomepage.dev/group: "Media Management"
           gethomepage.dev/icon: "jellyfin"
           gethomepage.dev/description: "Jellyfin enables you to collect, manage, and stream your media."
         hosts:

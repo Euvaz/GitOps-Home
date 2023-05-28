@@ -41,7 +41,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Autobrr"
-          gethomepage.dev/group: "Private"
+          gethomepage.dev/group: "Media Automation"
           gethomepage.dev/icon: "autobrr"
           gethomepage.dev/description: "The modern autodl-irssi replacement."
         hosts:

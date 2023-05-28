@@ -106,7 +106,7 @@ spec:
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: "Grafana"
-        gethomepage.dev/group: "Public"
+        gethomepage.dev/group: "Observability"
         gethomepage.dev/icon: "grafana"
         gethomepage.dev/description: "The open-source platform for monitoring and observability."
       hosts:

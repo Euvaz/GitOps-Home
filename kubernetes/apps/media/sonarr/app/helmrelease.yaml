@@ -49,7 +49,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Sonarr"
-          gethomepage.dev/group: "Private"
+          gethomepage.dev/group: "Media Automation"
           gethomepage.dev/icon: "sonarr"
           gethomepage.dev/description: "Smart PVR for newsgroup and bittorrent users."
         hosts:
