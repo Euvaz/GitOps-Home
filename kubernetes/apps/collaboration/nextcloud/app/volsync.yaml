@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: nextcloud-restic-secret
-    namespace: default
+    namespace: collaboration
 stringData:
     RESTIC_REPOSITORY: '${SECRET_VOLSYNC_RESTIC_REPOSITORY}/nextcloud'
     RESTIC_PASSWORD: '${SECRET_VOLSYNC_RESTIC_PASSWORD}'
@@ -14,7 +14,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: nextcloud
-  namespace: default
+  namespace: collaboration
 spec:
   sourcePVC: nextcloud-config-v1
   trigger:

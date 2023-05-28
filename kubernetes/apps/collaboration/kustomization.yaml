@@ -6,4 +6,5 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./gitea/ks.yaml
+  - ./nextcloud/ks.yaml
   - ./wikijs/ks.yaml
