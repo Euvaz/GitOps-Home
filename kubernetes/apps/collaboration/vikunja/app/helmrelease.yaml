@@ -1,0 +1,113 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vikunja
+  namespace: collaboration
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+      interval: 15m
+  values:
+    image:
+      repository: caddy
+      tag: "2.6.4-alpine"
+    sidecars:
+      frontend:
+        image: vikunja/frontend:0.20.5@sha256:5aad76d28c5dd8f5f5f4e6d5ba3459138676d37e5f79747f53ce64a52ba78b56
+        resources:
+          requests:
+            cpu: 10m
+            memory: 26Mi
+          limits:
+            memory: 28Mi
+      api:
+        image: vikunja/api:0.20.2@sha256:0e4e98299bc9f4be1bf32a928aa8572b1ea315e4429e440282c85dfe079f65db
+        env:
+          - name: VIKUNJA_SERVICE_TIMEZONE
+            value: "${TZ}"
+          - name: VIKUNJA_DATABASE_TYPE
+            value: "postgres"
+          - name: VIKUNJA_SERVICE_FRONTENDURL
+            value: "https://tasks.${SECRET_DOMAIN}"
+          - name: VIKUNJA_DATABASE_HOST
+            value: postgresql.database.svc.cluster.local
+          - name: VIKUNJA_DATABASE_USER
+            value: vikunja
+          - name: VIKUNJA_DATABASE_PASSWORD
+            value: ${SECRET_VIKUNJA_DATABASE_PASSWORD}
+          - name: VIKUNJA_DATABASE_DATABASE
+            value: vikunja
+        volumeMounts:
+          - name: files
+            mountPath: /app/vikunja/files
+          - name: config
+            mountPath: /app/vikunja/config.yaml
+            subPath: config.yaml
+            readOnly: true
+        resources:
+          requests:
+            cpu: 15m
+            memory: 24Mi
+          limits:
+            memory: 300Mi
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Vikunja"
+          gethomepage.dev/group: "Collaboration"
+          gethomepage.dev/icon: "https://vikunja.io/docs/favicon.ico"
+          gethomepage.dev/description: "The open-source, self-hostable to-do app."
+        hosts:
+          - host: &host "vikunja.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                type: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: vikunja-tls
+    persistence:
+      files:
+        enabled: true
+        existingClaim: vikunja-config-v1
+        mountpath: /app/vikunja/files
+      config:
+        enabled: true
+        type: custom
+        mountPath: "-"
+        volumeSpec:
+          configMap:
+            name: vikunja-configmap
+      caddy-config:
+        enabled: true
+        type: custom
+        mountPath: /etc/caddy/Caddyfile
+        subPath: Caddyfile
+        volumeSpec:
+          configMap:
+            name: vikunja-configmap
+    resources:
+      requests:
+        cpu: 5m
+        memory: 10Mi
+      limits:
+        memory: 100Mi
