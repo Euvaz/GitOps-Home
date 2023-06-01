@@ -30,3 +30,4 @@ resources:
   - ./stakater.yaml
   - ./traefik.yaml
   - ./weave-gitops.yaml
+  - ./wekan.yaml
