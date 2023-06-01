@@ -2,14 +2,15 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: cluster-apps-unifi-app
+  name: cluster-apps-wekan-app
   namespace: flux-system
   labels:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
+    - name: cluster-apps-postgres-app
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/networking/unifi/app
+  path: ./kubernetes/apps/collaboration/wekan/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -17,8 +18,8 @@ spec:
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
-      name: unifi
-      namespace: networking
+      name: wekan
+      namespace: collaboration
   interval: 30m
   retryInterval: 1m
   timeout: 3m
