@@ -28,6 +28,9 @@ spec:
         existingClaim: postgresql-v1
       initdb:
         scripts:
+          init-vikunja.sql: |
+            CREATE ROLE "vikunja" WITH LOGIN PASSWORD '$SECRET_VIKUNJA_DATABASE_PASSWORD';
+            CREATE DATABASE vikunja WITH OWNER 'vikunja' ENCODING 'UTF8' TEMPLATE template0;
           init-wikijs.sql: |
             CREATE ROLE "wikijs" WITH LOGIN PASSWORD '${SECRET_WIKIJS_DATABASE_PASSWORD}';
             CREATE DATABASE wikijs WITH OWNER 'wikijs' ENCODING 'UTF8' TEMPLATE template0;
