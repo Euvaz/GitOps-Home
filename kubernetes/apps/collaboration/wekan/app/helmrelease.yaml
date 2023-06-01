@@ -20,6 +20,15 @@ spec:
       repository: ghcr.io/wekan/wekan
       pullPolicy: IfNotPresent
       tag: "v6.93"
+    env:
+      - name: "MAIL_URL"
+        value: ""
+      - name: "RICHER_CARD_COMMENT_EDITOR"
+        value: "false"
+      - name: "CARD_OPENED_WEBHOOK_ENABLED"
+        value: "false"
+      - name: "BROWSER_POLICY_ENABLED"
+        value: "true"
     dbname: "wekan"
     endpoint: &host "wekan.${SECRET_DOMAIN}"
     ingress:
