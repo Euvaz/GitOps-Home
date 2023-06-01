@@ -23,28 +23,28 @@ spec:
     dbname: "wekan"
     service:
       port: 80
+    endpoint: &host "wekan.${SECRET_DOMAIN}"
     ingress:
-      main:
-        enabled: true
-        ingressClassName: "traefik"
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns/is-public: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-          gethomepage.dev/enabled: "true"
-          gethomepage.dev/name: "Wekan"
-          gethomepage.dev/group: "Collaboration"
-          gethomepage.dev/icon: "wekan"
-          gethomepage.dev/description: "Open-Source kanban."
-        hosts:
-          - host: &host "wekan.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                type: Prefix
-        tls:
-          - hosts:
-              - *host
-            secretName: wekan-tls
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "traefik"
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns/is-public: "true"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: "Wekan"
+        gethomepage.dev/group: "Collaboration"
+        gethomepage.dev/icon: "wekan"
+        gethomepage.dev/description: "Open-Source kanban."
+      hosts:
+        - host: *host
+          paths:
+            - path: /
+              type: Prefix
+      tls:
+        - hosts:
+            - *host
+          secretName: wekan-tls
     mongodb:
       persistence:
         existingClaim: wekan-config-v1
