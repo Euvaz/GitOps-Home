@@ -21,8 +21,6 @@ spec:
       pullPolicy: IfNotPresent
       tag: "v6.93"
     dbname: "wekan"
-    service:
-      port: 80
     endpoint: &host "wekan.${SECRET_DOMAIN}"
     ingress:
       enabled: true
