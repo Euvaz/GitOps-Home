@@ -37,10 +37,9 @@ spec:
         gethomepage.dev/icon: "wekan"
         gethomepage.dev/description: "Open-Source kanban."
       hosts:
-        - host: *host
-          paths:
-            - path: /
-              type: Prefix
+        - *host
+      path: /
+      pathType: Prefix
       tls:
         - hosts:
             - *host
