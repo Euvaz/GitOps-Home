@@ -1,0 +1,55 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: wekan
+  namespace: collaboration
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: wekan
+      version: 6.9.3
+      sourceRef:
+        kind: HelmRepository
+        name: wekan
+        namespace: flux-system
+      interval: 15m
+  values:
+    image:
+      repository: ghcr.io/wekan/wekan
+      pullPolicy: IfNotPresent
+      tag: "v6.93"
+    dbname: "wekan"
+    service:
+      port: 80
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Wekan"
+          gethomepage.dev/group: "Collaboration"
+          gethomepage.dev/icon: "wekan"
+          gethomepage.dev/description: "Open-Source kanban."
+        hosts:
+          - host: &host "wekan.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                type: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: wekan-tls
+    mongodb:
+      persistence:
+        existingClaim: wekan-config-v1
+    resources:
+      requests:
+        memory: 150M
+      limits:
+        memory: 2000M
