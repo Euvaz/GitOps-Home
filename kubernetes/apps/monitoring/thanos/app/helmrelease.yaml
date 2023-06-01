@@ -81,8 +81,8 @@ spec:
       enabled: false
     metrics:
       enabled: true
-      serviceMonitor:
-        enabled: true
+    serviceMonitor:
+      enabled: true
   valuesFrom:
     - kind: Secret
       name: thanos-objstore
