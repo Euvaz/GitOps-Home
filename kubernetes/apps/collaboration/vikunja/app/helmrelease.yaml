@@ -77,14 +77,14 @@ spec:
           gethomepage.dev/icon: "https://vikunja.io/docs/favicon.ico"
           gethomepage.dev/description: "The open-source, self-hostable to-do app."
         hosts:
-          - host: &host "vikunja.${SECRET_DOMAIN}"
+          - host: &host "tasks.${SECRET_DOMAIN}"
             paths:
               - path: /
                 type: Prefix
         tls:
           - hosts:
               - *host
-            secretName: vikunja-tls
+            secretName: tasks-tls
     persistence:
       files:
         enabled: true
