@@ -3,7 +3,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
   name: minecraft-ftb-data-v1-dest
-  namespace: default
+  namespace: gameserver
 spec:
   trigger:
     manual: restore-once

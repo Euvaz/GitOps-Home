@@ -10,7 +10,7 @@ spec:
   dependsOn:
     - name: cluster-apps-postgres-app
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/default/minecraft/ftb
+  path: ./kubernetes/apps/gameserver/minecraft/ftb
   prune: true
   sourceRef:
     kind: GitRepository
@@ -19,7 +19,7 @@ spec:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
       name: minecraft-ftb
-      namespace: default
+      namespace: gameserver
   interval: 30m
   retryInterval: 1m
   timeout: 3m

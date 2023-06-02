@@ -7,4 +7,3 @@ resources:
   # Flux-Kustomizations
   - ./echo-server/ks.yaml
   - ./homepage/ks.yaml
-  - ./minecraft/ks.yaml
