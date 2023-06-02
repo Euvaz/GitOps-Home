@@ -410,6 +410,8 @@ cluster:
     controllerManager:
         # The container image used in the controller manager manifest.
         image: registry.k8s.io/kube-controller-manager:v1.26.3
+        extraArgs:
+            bind-address: 0.0.0.0
     # Kube-proxy server-specific configuration options
     proxy:
         # The container image used in the kube-proxy manifest.
@@ -420,6 +422,8 @@ cluster:
     scheduler:
         # The container image used in the scheduler manifest.
         image: registry.k8s.io/kube-scheduler:v1.26.3
+        extraArgs:
+            bind-address: 0.0.0.0
     # Configures cluster member discovery.
     discovery:
         # Enable the cluster membership discovery feature.
@@ -445,6 +449,8 @@ cluster:
             #ENC[AES256_GCM,data:MybG9yU/WUXyFypa+HJHwAeyiQU1XLMCq0uDdYZyS6W1e7KGddlrVusP5qNX9cyolbgqEVDqqRHOy2OdqL+qB2XWIXdpdgYlJ+QE0fcLY/11DNLy051H5jA=,iv:y2f98JxT6RQoAbcXYTSF9D3hmYpE1fBKYqlk//xmjzM=,tag:8hAcsADCf8O5MtQx+yMRFA==,type:comment]
             #ENC[AES256_GCM,data:GxKCJwY3lJliBsxawE69D8Lerg==,iv:SnpAjcBFsSLEAhkpPUA8gfcn5Fd97qdx3tsxpjDtqXg=,tag:ts+oOIuKfOQfHxmb0RwzKA==,type:comment]
             #ENC[AES256_GCM,data:0Ll/v6JPnzLmr+gboG3xIO8=,iv:9SM5eBi2K/+laBd5aTdocM1LsCC2XoBRUkG2EPOpKpk=,tag:QHexsbjdPaJx3i2LYPCoKw==,type:comment]
+        extraArgs:
+            listen-metrics-urls: http://0.0.0.0:2381
     # A list of urls that point to additional manifests.
     extraManifests:
         # Install the kubelet cert-approver manifests
@@ -501,8 +507,8 @@ sops:
             SUh6UlloK1lsQUdFRnpMN2MvZHBnQ00K+RK5XDYk501ZP7iFKbyBoagL2TaxrFTc
             cihQo8wwxy8bL2DvZkyHu4XQsvjsEIuh32uJFWADpAhs1yEx8i//xA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-04-15T18:49:24Z"
-    mac: ENC[AES256_GCM,data:dAejc1exboTZA82nXzfwyoQh8UPc/wkkNN4QqcGY2ebHoBx10faj8j1olhkd4Cwa/ZxcEjTZ686TTNtcgZzi6j/iTIHHQEu20/CEekdrr9Dl50WU1CL+GqqzSGgHMKpCXBnt7qnFw86G/aNbxhML2CLvOuG/s8OVLwZg+O4ujBM=,iv:k+J/LKO+Wl9L/ILVNVeUBSyXYXYTK+k3EtwYncr3bAM=,tag:rXLOgBCYow/cnljPF7OTUg==,type:str]
+    lastmodified: "2023-06-02T16:11:56Z"
+    mac: ENC[AES256_GCM,data:bcTn/Gh0QK9vbvYH/w0cs/U632Ppm/ccsp27LqqXQTYbp/4Em5G41FphkSrkwJgbIYDhct+XoH3rgago6DcxsoW6YHyod1HOzdPL2G2Mmgmu02ZcAFc0j7/kdJLu/9W27tKUGDQv3qVLcLgl4+Fq3KIyBARvGvRQVznzbf/7kk4=,iv:oj13+4TInCy0GmwvXIbVFvke3smASPdZ6brbISbbSEQ=,tag:SEVBF+IpBMhlH+BIZ/Kfxw==,type:str]
     pgp: []
     encrypted_regex: ((?i)(pass|secret($|[^N])|ca|crt|key|token|^data$|^stringData$))
     version: 3.7.3
