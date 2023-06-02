@@ -31,10 +31,10 @@ spec:
         image: vikunja/frontend:0.20.5@sha256:5aad76d28c5dd8f5f5f4e6d5ba3459138676d37e5f79747f53ce64a52ba78b56
         resources:
           requests:
-            cpu: 10m
-            memory: 26Mi
+            cpu: 11m
+            memory: 35M
           limits:
-            memory: 28Mi
+            memory: 35M
       api:
         image: vikunja/api:0.20.2@sha256:0e4e98299bc9f4be1bf32a928aa8572b1ea315e4429e440282c85dfe079f65db
         env:
@@ -61,10 +61,10 @@ spec:
             readOnly: true
         resources:
           requests:
-            cpu: 15m
-            memory: 24Mi
+            cpu: 11m
+            memory: 443M
           limits:
-            memory: 300Mi
+            memory: 443M
     service:
       main:
         ports:
