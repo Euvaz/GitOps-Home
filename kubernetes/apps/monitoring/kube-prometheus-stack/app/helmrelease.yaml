@@ -79,7 +79,6 @@ spec:
             secretName: thanos-sidecar-tls
       prometheusSpec:
         replicas: 3
-        priorityClassName: platform-cluster-critical
         replicaExternalLabelName: "__replica__"
         enableFeatures:
           - exemplar-storage
