@@ -116,7 +116,7 @@ spec:
       configmap.reloader.stakater.com/reload: vikunja-configmap
     resources:
       requests:
-        cpu: 5m
-        memory: 10Mi
+        cpu: 11m
+        memory: 35Mi
       limits:
-        memory: 100Mi
+        memory: 35Mi
