@@ -167,15 +167,6 @@ spec:
               resources:
                 requests:
                   storage: 250Mi
-    kubeControllerManager:
-      endpoints: &controlplanes
-        - 10.11.0.50
-        - 10.11.0.51
-        - 10.11.0.52
-    kubeEtcd:
-      endpoints: *controlplanes
-    kubeScheduler:
-      endpoints: *controlplanes
     kube-state-metrics:
       collectors:
         - certificatesigningrequests
