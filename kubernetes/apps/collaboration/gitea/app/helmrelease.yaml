@@ -80,3 +80,9 @@ spec:
       enable: false
     postgresql:
       enabled: false
+    resources:
+      requests:
+        cpu: 15m
+        memory: 127M
+      limits:
+        memory: 127M
