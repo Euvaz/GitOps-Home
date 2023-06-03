@@ -44,6 +44,14 @@ spec:
           memory: 127M
         limits:
           memory: 127M
+    workers:
+      default:
+        resources:
+          requests:
+            cpu: 23m
+            memory: 105M
+          limits:
+            memory: 105M
     serverName: ${SECRET_DOMAIN}
     publicServerName: matrix.${SECRET_DOMAIN}
     wellknown:
