@@ -44,8 +44,8 @@ spec:
         enabled: true
         type: configMap
         name: *app
-        mountPath: /config/recyclarr.yaml
-        subPath: recyclarr.yaml
+        mountPath: /config/recyclarr.yml
+        subPath: recyclarr.yml
         readOnly: true
     podAnnotations:
       configmap.reloader.stakater.com/reload: *app
