@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: vikunja
+  name: &app vikunja
   namespace: collaboration
 spec:
   interval: 15m
@@ -40,6 +40,11 @@ spec:
         env:
           - name: VIKUNJA_SERVICE_TIMEZONE
             value: "${TIMEZONE}"
+          - name: VIKUNJA_SERVICE_JWTSECRET
+            valueFrom:
+              secretKeyRef:
+                name: *app
+                key: VIKUNJA_SERVICE_JWTSECRET
           - name: VIKUNJA_DATABASE_TYPE
             value: "postgres"
           - name: VIKUNJA_SERVICE_FRONTENDURL
