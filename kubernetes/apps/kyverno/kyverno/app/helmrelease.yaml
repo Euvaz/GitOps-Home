@@ -29,15 +29,15 @@ spec:
     backgroundController:
       resources:
         requests:
-          cpu: 15m
-          memory: 105M
+          cpu: 35m
+          limits: 226M
         limits:
-          memory: 105M
+          limits: 226M
     cleanupJobs:
-      admissionreports:
+      admissionReports:
         resources:
           requests:
-            cpu: 35m
-            limits: 226M
+            cpu: 15m
+            memory: 105M
           limits:
-            limits: 226M
+            memory: 105M
