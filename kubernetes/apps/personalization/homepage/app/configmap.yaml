@@ -57,6 +57,9 @@ data:
       Media Automation:
         style: column
         columns: 1
+      Security:
+        style: row
+        columns: 2
       Downloaders:
         style: row
         columns: 2
