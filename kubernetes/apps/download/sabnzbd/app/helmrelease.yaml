@@ -27,7 +27,7 @@ spec:
       privileged: true
     image:
       repository: ghcr.io/onedr0p/sabnzbd
-      tag: 3.7.2@sha256:cbc7bdb5c70c75dc07eb7c2f967dfb74c48c4cf2531c28e81cff8d72f76cfc8c
+      tag: 4.0.1@sha256:3d24a7e4219f2d362a530edb2e5c1df73dfec01fcae38a7400e216453900c2ae
     env:
       TZ: "${TIMEZONE}"
       SABNZBD__PORT: &port 80
