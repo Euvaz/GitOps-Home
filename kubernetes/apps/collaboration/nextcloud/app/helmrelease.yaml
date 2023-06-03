@@ -88,3 +88,9 @@ spec:
             'overwriteprotocol' => 'https',
             'skeletondirectory' => '',
           );
+    resources:
+      requests:
+        cpu: 15m
+        memory: 3862M
+      limits:
+        memory: 3862M
