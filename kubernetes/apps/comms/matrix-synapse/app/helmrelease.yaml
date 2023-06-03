@@ -43,6 +43,12 @@ spec:
       enabled: true
       server: { "m.server": "matrix.${SECRET_DOMAIN}:443" }
       client: { "m.homeserver": "https://matrix.${SECRET_DOMAIN}" }
+      resources:
+        requests:
+          cpu: 15m
+          memory: 105M
+        limits:
+          memory: 105M
     wkHosts:
       - ${SECRET_DOMAIN}
     config:
@@ -83,6 +89,12 @@ spec:
       auth:
         enabled: true
         password: ${SECRET_MATRIX_REDIS_PASSWORD}
+      resources:
+        requests:
+          cpu: 23m
+          memory: 105M
+        limits:
+          memory: 105M
     signingkey:
       job:
         enabled: false
