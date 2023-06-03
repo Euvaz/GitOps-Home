@@ -50,7 +50,7 @@ spec:
       config-file:
         enabled: true
         type: configMap
-        name: recyclarr-configmap
+        name: *app
         mountPath: /config/recyclarr.yaml
         subPath: recyclarr.yaml
         readOnly: true
