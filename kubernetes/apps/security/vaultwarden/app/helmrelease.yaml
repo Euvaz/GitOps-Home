@@ -1,0 +1,102 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app vaultwarden
+  namespace: security
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    image:
+      repository: vaultwarden/server
+      tag: 1.28.1-alpine@sha256:808a6fa45719b6b394cf0b6384c526be42a2e431b3be8516c67e9b40e886f7c5
+    env:
+      TZ: "${TIMEZONE}"
+      DOMAIN: "https://vault.${SECRET_DOMAIN}"
+      DATA_FOLDER: "config"
+      SIGNUPS_ALLOWED: false
+      WEBSOCKET_ENABLED: true
+      WEBSOCKET_ADDRESS: 0.0.0.0
+      WEBSOCKET_PORT: &websocket-port 3012
+    envFrom:
+      - secretRef:
+          name: *app
+    service:
+      main:
+        ports:
+          http:
+            port: 80
+          websocket:
+            enabled: true
+            port: *websocket-port
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Vaultwarden"
+          gethomepage.dev/group: "Security"
+          gethomepage.dev/icon: "vaultwarden"
+          gethomepage.dev/description: "Open Source Password Manager."
+        hosts:
+          - host: &host "vault.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+              - path: /notifications/hub
+                pathType: Prefix
+                service:
+                  port: *websocket-port
+              - path: /notifications/hub/negotiate
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: vault-tls
+      admin:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+          - host: *host
+            paths:
+              - path: /admin
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: vault-tls
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+        - 100
+    persistence:
+      config:
+        enabled: true
+        existingClaim: vaultwarden-config-v1
+    podAnnotations:
+      secret.reloader.stakater.com/reload: *app
