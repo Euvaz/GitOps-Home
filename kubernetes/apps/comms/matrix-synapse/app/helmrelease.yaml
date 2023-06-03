@@ -63,16 +63,6 @@ spec:
         - server_name: ""
       enableRegistration: false
       registrationSharedSecret: "${SECRET_MATRIX_REGISTRATION_TOKEN}"
-    workers:
-      media_repository:
-        enabled: false
-      default:
-        resources:
-          requests:
-            cpu: 23m
-            memory: 105M
-          limits:
-            memory: 105M
     extraConfig:
       suppress_key_server_warning: true
       enable_registration_without_verification: true
