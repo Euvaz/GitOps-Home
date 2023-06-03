@@ -24,9 +24,9 @@ spec:
       persistence:
         enabled: true
         existingClaim: mariadb-v1
-    resources:
-      requests:
-        cpu: 15m
-        memory: 105M
-      limits:
-        memory: 105M
+      resources:
+        requests:
+          cpu: 15m
+          memory: 184M
+        limits:
+          memory: 184M
