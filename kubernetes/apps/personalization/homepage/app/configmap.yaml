@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: homepage
-  namespace: default
+  namespace: personalization
   annotations:
     reloader.stakater.com/match: "true"
 data:
