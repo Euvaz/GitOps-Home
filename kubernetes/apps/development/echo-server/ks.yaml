@@ -7,7 +7,7 @@ metadata:
   labels:
     substitution.flux.home.arpa/enabled: "true"
 spec:
-  path: ./kubernetes/apps/default/echo-server/app
+  path: ./kubernetes/apps/development/echo-server/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -16,7 +16,7 @@ spec:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
       name: echo-server
-      namespace: default
+      namespace: development
   interval: 30m
   retryInterval: 1m
   timeout: 3m
