@@ -51,7 +51,7 @@ spec:
       configmap.reloader.stakater.com/reload: *app
     resources:
       requests:
-        cpu: 35m
-        memory: 184Mi
+        cpu: 15m
+        memory: 145M
       limits:
-        memory: 184Mi
+        memory: 145M
