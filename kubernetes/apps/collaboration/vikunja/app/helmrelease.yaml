@@ -61,10 +61,10 @@ spec:
             readOnly: true
         resources:
           requests:
-            cpu: 11m
-            memory: 443M
+            cpu: 10m
+            memory: 183M
           limits:
-            memory: 443M
+            memory: 1037M
     service:
       main:
         ports:
@@ -116,7 +116,7 @@ spec:
       configmap.reloader.stakater.com/reload: vikunja-configmap
     resources:
       requests:
-        cpu: 11m
+        cpu: 10m
         memory: 35M
       limits:
-        memory: 35M
+        memory: 37M
