@@ -49,14 +49,14 @@ data:
         style: row
         columns: 4
       Collaboration:
-        style: column
-        columns: 1
+        style: row
+        columns: 2
       Observability:
-        style: row
-        columns: 2
-      Media Automation:
-        style: row
-        columns: 2
-      Downloaders:
         style: column
         columns: 1
+      Media Automation:
+        style: column
+        columns: 1
+      Downloaders:
+        style: row
+        columns: 2
