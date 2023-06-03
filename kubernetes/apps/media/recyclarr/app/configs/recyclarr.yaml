@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
 radarr:
   radarr:
-    base_url: http://radarr.media.svc.cluster.local:80
+    base_url: http://radarr.media.svc.cluster.local
     api_key:  !env_var RADARR_APIKEY
 
     quality_definition:
@@ -63,7 +63,7 @@ radarr:
           - name: HD Bluray + WEB
             score: 0
   radarr-anime:
-    base_url: http://radarr.media.svc.cluster.local:80
+    base_url: http://radarr.media.svc.cluster.local
     api_key: !env_var RADARR_APIKEY
 
     quality_definition:
@@ -146,7 +146,7 @@ radarr:
             score: -10000  # adjust as desired
 sonarr:
   sonarr:
-    base_url: http://sonarr.media.svc.cluster.local:80
+    base_url: http://sonarr.media.svc.cluster.local
     api_key: !env_var SONARR_APIKEY
 
     quality_definition:
@@ -195,7 +195,7 @@ sonarr:
         quality_profiles:
           - name: WEB-1080p
   sonarr-anime:
-    base_url: http://sonarr.media.svc.cluster.local:80
+    base_url: http://sonarr.media.svc.cluster.local
     api_key: !env_var SONARR_APIKEY
 
     quality_definition:
