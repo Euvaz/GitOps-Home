@@ -68,7 +68,7 @@ spec:
       configmap.reloader.stakater.com/reload: autobrr-configmap
     resources:
       requests:
-        cpu: 10m
-        memory: 250Mi
+        cpu: 15m
+        memory: 105M
       limits:
-        memory: 500Mi
+        memory: 105M
