@@ -63,6 +63,12 @@ spec:
       database: nextcloud
     metrics:
       enabled: true
+      resources:
+        requests:
+          cpu: 15m
+          memory: 105M
+        limits:
+          memory: 105M
     nextcloud:
       host: "cloud.${SECRET_DOMAIN}"
       datadir: /var/www/data
@@ -91,6 +97,6 @@ spec:
     resources:
       requests:
         cpu: 15m
-        memory: 3862M
+        memory: 1239M
       limits:
-        memory: 3862M
+        memory: 4524M
