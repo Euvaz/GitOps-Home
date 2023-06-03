@@ -65,7 +65,7 @@ spec:
         subPath: config.toml
         readOnly: true
     podAnnotations:
-      configmap.reloader.stakater.com/reload: autobrr-configmap
+      configmap.reloader.stakater.com/reload: *app
     resources:
       requests:
         cpu: 15m
