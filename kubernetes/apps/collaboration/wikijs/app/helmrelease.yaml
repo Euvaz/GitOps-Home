@@ -61,6 +61,7 @@ spec:
             secretName: wikijs-tls
     resources:
       requests:
-        memory: 150M
+        cpu: 15m
+        memory: 204M
       limits:
-        memory: 2000M
+        memory: 204M
