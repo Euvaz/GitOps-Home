@@ -267,66 +267,66 @@ machine:
           #     https_proxy: http://DOMAIN\USERNAME:PASSWORD@SERVER:PORT/
           # # Used to configure the machine's time settings.
           # # Example configuration for cloudflare ntp server.
-          # time:
-          #     disabled: false # Indicates if the time service is disabled for the machine.
-          #     # Specifies time (NTP) servers to use for setting the system time.
-          #     servers:
-          #         - time.cloudflare.com
-          #     bootTimeout: 2m0s # Specifies the timeout when the node time is considered to be in sync unlocking the boot sequence.
-          # # Used to configure the machine's sysctls.
-          # # MachineSysctls usage example.
-          # sysctls:
-          #     kernel.domainname: talos.dev
-          #     net.ipv4.ip_forward: "0"
-          # # Used to configure the machine's sysfs.
-          # # MachineSysfs usage example.
-          # sysfs:
-          #     devices.system.cpu.cpu0.cpufreq.scaling_governor: performance
-          # # Machine system disk encryption configuration.
-          # systemDiskEncryption:
-          #     # Ephemeral partition encryption.
-          #     ephemeral:
-          #         provider: luks2 # Encryption provider to use for the encryption.
-          #         # Defines the encryption keys generation and storage method.
-          #         keys:
-          #             - # Deterministically generated key from the node UUID and PartitionLabel.
-          #               nodeID: {}
-          #               slot: 0 # Key slot number for LUKS2 encryption.
-          #         
-          #         # # Cipher kind to use for the encryption. Depends on the encryption provider.
-          #         # cipher: aes-xts-plain64
-          #         # # Defines the encryption sector size.
-          #         # blockSize: 4096
-          #         # # Additional --perf parameters for the LUKS2 encryption.
-          #         # options:
-          #         #     - no_read_workqueue
-          #         #     - no_write_workqueue
-          # # Configures the udev system.
-          # udev:
-          #     # List of udev rules to apply to the udev system
-          #     rules:
-          #         - SUBSYSTEM=="drm", KERNEL=="renderD*", GROUP="44", MODE="0660"
-          # # Configures the logging system.
-          # logging:
-          #     # Logging destination.
-          #     destinations:
-          #         - endpoint: tcp://1.2.3.4:12345 # Where to send logs. Supported protocols are "tcp" and "udp".
-          #           format: json_lines # Logs format.
-          # # Configures the kernel.
-          # kernel:
-          #     # Kernel modules to load.
-          #     modules:
-          #         - name: brtfs # Module name.
-          # # Configures the seccomp profiles for the machine.
-          # seccompProfiles:
-          #     - name: audit.json # The `name` field is used to provide the file name of the seccomp profile.
-          #       # The `value` field is used to provide the seccomp profile.
-          #       value:
-          #         defaultAction: SCMP_ACT_LOG
-          # # Configures the node labels for the machine.
-          # # node labels example.
-          # nodeLabels:
-          #     exampleLabel: exampleLabelValue
+    time:
+        #     disabled: false # Indicates if the time service is disabled for the machine.
+        #     # Specifies time (NTP) servers to use for setting the system time.
+        servers:
+            - 10.11.0.1
+            #     bootTimeout: 2m0s # Specifies the timeout when the node time is considered to be in sync unlocking the boot sequence.
+            # # Used to configure the machine's sysctls.
+            # # MachineSysctls usage example.
+            # sysctls:
+            #     kernel.domainname: talos.dev
+            #     net.ipv4.ip_forward: "0"
+            # # Used to configure the machine's sysfs.
+            # # MachineSysfs usage example.
+            # sysfs:
+            #     devices.system.cpu.cpu0.cpufreq.scaling_governor: performance
+            # # Machine system disk encryption configuration.
+            # systemDiskEncryption:
+            #     # Ephemeral partition encryption.
+            #     ephemeral:
+            #         provider: luks2 # Encryption provider to use for the encryption.
+            #         # Defines the encryption keys generation and storage method.
+            #         keys:
+            #             - # Deterministically generated key from the node UUID and PartitionLabel.
+            #               nodeID: {}
+            #               slot: 0 # Key slot number for LUKS2 encryption.
+            #         
+            #         # # Cipher kind to use for the encryption. Depends on the encryption provider.
+            #         # cipher: aes-xts-plain64
+            #         # # Defines the encryption sector size.
+            #         # blockSize: 4096
+            #         # # Additional --perf parameters for the LUKS2 encryption.
+            #         # options:
+            #         #     - no_read_workqueue
+            #         #     - no_write_workqueue
+            # # Configures the udev system.
+            # udev:
+            #     # List of udev rules to apply to the udev system
+            #     rules:
+            #         - SUBSYSTEM=="drm", KERNEL=="renderD*", GROUP="44", MODE="0660"
+            # # Configures the logging system.
+            # logging:
+            #     # Logging destination.
+            #     destinations:
+            #         - endpoint: tcp://1.2.3.4:12345 # Where to send logs. Supported protocols are "tcp" and "udp".
+            #           format: json_lines # Logs format.
+            # # Configures the kernel.
+            # kernel:
+            #     # Kernel modules to load.
+            #     modules:
+            #         - name: brtfs # Module name.
+            # # Configures the seccomp profiles for the machine.
+            # seccompProfiles:
+            #     - name: audit.json # The `name` field is used to provide the file name of the seccomp profile.
+            #       # The `value` field is used to provide the seccomp profile.
+            #       value:
+            #         defaultAction: SCMP_ACT_LOG
+            # # Configures the node labels for the machine.
+            # # node labels example.
+            # nodeLabels:
+            #     exampleLabel: exampleLabelValue
 # Provides cluster specific configuration options.
 cluster:
     # Globally unique identifier for this cluster (base64 encoded random 32 bytes).
@@ -507,8 +507,8 @@ sops:
             SUh6UlloK1lsQUdFRnpMN2MvZHBnQ00K+RK5XDYk501ZP7iFKbyBoagL2TaxrFTc
             cihQo8wwxy8bL2DvZkyHu4XQsvjsEIuh32uJFWADpAhs1yEx8i//xA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-06-02T16:11:56Z"
-    mac: ENC[AES256_GCM,data:bcTn/Gh0QK9vbvYH/w0cs/U632Ppm/ccsp27LqqXQTYbp/4Em5G41FphkSrkwJgbIYDhct+XoH3rgago6DcxsoW6YHyod1HOzdPL2G2Mmgmu02ZcAFc0j7/kdJLu/9W27tKUGDQv3qVLcLgl4+Fq3KIyBARvGvRQVznzbf/7kk4=,iv:oj13+4TInCy0GmwvXIbVFvke3smASPdZ6brbISbbSEQ=,tag:SEVBF+IpBMhlH+BIZ/Kfxw==,type:str]
+    lastmodified: "2023-06-04T03:11:14Z"
+    mac: ENC[AES256_GCM,data:PMlw0HeBU6EjHxN4IxZSplR2YPGKOsqdbxAwwrtNNt/hO3rHN8BUZO2HeO35d2aD02u6hymADwpdDrknaB0fdGhxYm3CLYT2DliNQbAmhUcKMN0w3foKVuEq3iKzcfC000ROi8SIqKYlD+W4NeOsBZbygYv1xoTwbK3Hebtlxmg=,iv:zYtzs/3VIPyv7KTIfXb4k8iuiyKi0c0U9E3SDR/B1o4=,tag:GNPSpIHjLpyUFgOUxmy4HQ==,type:str]
     pgp: []
     encrypted_regex: ((?i)(pass|secret($|[^N])|ca|crt|key|token|^data$|^stringData$))
     version: 3.7.3

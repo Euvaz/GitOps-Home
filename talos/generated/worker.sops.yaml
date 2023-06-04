@@ -213,6 +213,9 @@ machine:
               address = "0.0.0.0:11234"
           path: /etc/cri/conf.d/20-customization.part
           op: create
+    time:
+        servers:
+            - 10.11.0.1
 # Provides cluster specific configuration options.
 cluster:
     # # Provides machine specific control plane configuration options.
@@ -497,8 +500,8 @@ sops:
             L3lwVVl6K1UyQmhlY1dwWFl4dkZ2WncKT4obG/CyR0cfGex7K7wRwB57RkNwySPc
             r7ornuP1iD8cmlHsEto+0AN/wfZMfvQtDgnaycpa2x+GKrtpe78DdQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-04-13T00:49:19Z"
-    mac: ENC[AES256_GCM,data:Bny3cT90IU+gbIratyZJhWPEZ5XAZjY3J9Yza0JVTQc+YklY59W4AeJBYn0WDiqYcSn5BdvahUIq92eVcfsryQdZT89Sqxmd0ZDTh7Gx9WLACxIDIpxmOqqR3lq7YLYvdWhJbsytAgB3K1/llJxNWEX8AgbNdnH1676Z4pnbaSA=,iv:5sCc5AuyIt5KI1xh432qlk9M7fAgiod30PlmmE2DVLE=,tag:cdG9nIo/GVr5cFJQAQq1YA==,type:str]
+    lastmodified: "2023-06-04T03:14:34Z"
+    mac: ENC[AES256_GCM,data:Fm648W6XJmOPYPaVRp2MJw4PqsMeGFEKNcOERagu2IIyv6lpS97mc+2gdI+60y1a39PSMPJGIxiziRAnT9p+kMI1j2ywSJ1XKrn76ARpISzFyryoG6ALYXlJO5WK5xqykSSaeVF7m+/pULj0O+8BoRsfOhUUiXT6tn2XsVUhKvU=,iv:HKyr4JB+j783ieWukFFUwBUj1cs9iPZYpNX1rJUql9w=,tag:CyUdsfwdWiCem7WIWks42Q==,type:str]
     pgp: []
     encrypted_regex: ((?i)(pass|secret($|[^N])|ca|crt|key|token|^data$|^stringData$))
     version: 3.7.3
