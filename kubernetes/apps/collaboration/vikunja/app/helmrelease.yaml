@@ -69,7 +69,7 @@ spec:
             cpu: 10m
             memory: 183M
           limits:
-            memory: 1037M
+            memory: 1269M
     service:
       main:
         ports:
@@ -124,4 +124,4 @@ spec:
         cpu: 10m
         memory: 35M
       limits:
-        memory: 37M
+        memory: 240M
