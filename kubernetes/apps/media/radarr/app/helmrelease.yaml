@@ -31,6 +31,7 @@ spec:
       RADARR__PORT: &port 80
       RADARR__APPLICATION_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
       RADARR__LOG_LEVEL: info
+      RADARR__API_KEY: ${SECRET_RADARR_APIKEY}
     envFrom:
       - secretRef:
           name: *app
@@ -54,7 +55,7 @@ spec:
           gethomepage.dev/description: "A fork of Sonarr to work with movies à la Couchpotato."
           gethomepage.dev/widget.type: "radarr"
           gethomepage.dev/widget.url: "http://radarr.media.svc.cluster.local"
-          gethomepage.dev/widget.key: "${RADARR__API_KEY}"
+          gethomepage.dev/widget.key: "${SECRET_RADARR_APIKEY}"
         hosts:
           - host: &host "radarr.${SECRET_DOMAIN}"
             paths:
