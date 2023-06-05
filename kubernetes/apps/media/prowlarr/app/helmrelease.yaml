@@ -73,6 +73,6 @@ spec:
     resources:
       requests:
         cpu: 15m
-        memory: 1G
+        memory: 411M
       limits:
-        memory: 1G
+        memory: 1030M
