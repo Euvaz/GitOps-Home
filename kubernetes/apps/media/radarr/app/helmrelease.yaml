@@ -29,7 +29,7 @@ spec:
       TZ: "${TIMEZONE}"
       RADARR__INSTANCE_NAME: Radarr
       RADARR__PORT: &port 80
-      RADARR__APPLICATION_URL: &appurl "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
+      RADARR__APPLICATION_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
       RADARR__LOG_LEVEL: info
     envFrom:
       - secretRef:
@@ -53,7 +53,7 @@ spec:
           gethomepage.dev/icon: "radarr"
           gethomepage.dev/description: "A fork of Sonarr to work with movies à la Couchpotato."
           gethomepage.dev/widget.type: "radarr"
-          gethomepage.dev/widget.url: *appurl
+          gethomepage.dev/widget.url: radarr.media.svc.cluster.local
           gethomepage.dev/widget.key: ${RADARR__API_KEY}
         hosts:
           - host: &host "radarr.${SECRET_DOMAIN}"
