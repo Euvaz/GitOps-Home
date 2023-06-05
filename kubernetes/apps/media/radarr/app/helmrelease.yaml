@@ -52,9 +52,8 @@ spec:
           gethomepage.dev/group: "Media Automation"
           gethomepage.dev/icon: "radarr"
           gethomepage.dev/description: "A fork of Sonarr to work with movies à la Couchpotato."
-          gethomepage.dev/type: "radarr"
-          gethomepage.dev/fields: [ "wanted", "missing", "queued", "movies" ]
-          gethomepage.dev/key: ${RADARR__API_KEY}
+          gethomepage.dev/widget.type: "radarr"
+          gethomepage.dev/widget.key: ${RADARR__API_KEY}
         hosts:
           - host: &host "radarr.${SECRET_DOMAIN}"
             paths:
