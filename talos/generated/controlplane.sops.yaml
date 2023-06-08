@@ -457,14 +457,15 @@ cluster:
         - https://raw.githubusercontent.com/Euvaz/GitOps-Home/main/talos/integrations/cert-approver/kubelet-cert-approver.yaml
         # Install kube prometheus stack CRDs prior to cluster bootstrap
         # Ref: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.1/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.1/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.1/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.1/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.1/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.63.1/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
+        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
+        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
+        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
+        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml
+        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml
+        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
+        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
+        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
+        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
     #   - https://www.example.com/manifest1.yaml
     #   - https://www.example.com/manifest2.yaml
     # A list of inline Kubernetes manifests.
@@ -507,8 +508,8 @@ sops:
             SUh6UlloK1lsQUdFRnpMN2MvZHBnQ00K+RK5XDYk501ZP7iFKbyBoagL2TaxrFTc
             cihQo8wwxy8bL2DvZkyHu4XQsvjsEIuh32uJFWADpAhs1yEx8i//xA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-06-04T03:11:14Z"
-    mac: ENC[AES256_GCM,data:PMlw0HeBU6EjHxN4IxZSplR2YPGKOsqdbxAwwrtNNt/hO3rHN8BUZO2HeO35d2aD02u6hymADwpdDrknaB0fdGhxYm3CLYT2DliNQbAmhUcKMN0w3foKVuEq3iKzcfC000ROi8SIqKYlD+W4NeOsBZbygYv1xoTwbK3Hebtlxmg=,iv:zYtzs/3VIPyv7KTIfXb4k8iuiyKi0c0U9E3SDR/B1o4=,tag:GNPSpIHjLpyUFgOUxmy4HQ==,type:str]
+    lastmodified: "2023-06-08T01:04:54Z"
+    mac: ENC[AES256_GCM,data:0I76tjrkHOCyPH4TaB7UtW+UBVA7vwNF1cc+fApS3hdhwwAxyNkTSX6sMZsstKfYIGSO/o4Lr76vE5XHXPVqkdSidq4ELwXfxva6a8DCC+SxaYXy7jU0PQ2lMeE12mMnWap5Ay1BhD8dt2FL+A3jn6zqGdNMDyIIPjgiLje54+w=,iv:IJmlHj8P6NNHHrNkKkEz0xU5kCQExWihoD9A5AjL+nQ=,tag:+YpyHUTj7hbhmpB8SaehRQ==,type:str]
     pgp: []
     encrypted_regex: ((?i)(pass|secret($|[^N])|ca|crt|key|token|^data$|^stringData$))
     version: 3.7.3
