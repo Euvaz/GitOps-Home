@@ -101,7 +101,7 @@ spec:
       files:
         enabled: true
         existingClaim: vikunja-config-v1
-        mountpath: /app/vikunja/files
+        mountPath: /app/vikunja/files
       config:
         enabled: true
         type: custom
