@@ -16,13 +16,13 @@ spec:
         namespace: flux-system
       interval: 15m
   values:
-    initContainers:
-      permission-fix:
-        image: busybox
-        command: ["sh", "-c", "chown -R 1000:1000 /files"]
-        volumeMounts:
-          - name: files
-            mountPath: /files
+    # initContainers:
+    #  permission-fix:
+    #    image: busybox
+    #    command: ["sh", "-c", "chown -R 1000:1000 /files"]
+    #    volumeMounts:
+    #      - name: files
+    #        mountPath: /files
     image:
       repository: caddy
       tag: "2.6.4-alpine"
