@@ -63,7 +63,7 @@ spec:
           - name: config
             mountPath: /app/vikunja/config.yaml
             subPath: config.yaml
-            readOnly: true
+            readOnly: false
         resources:
           requests:
             cpu: 10m
