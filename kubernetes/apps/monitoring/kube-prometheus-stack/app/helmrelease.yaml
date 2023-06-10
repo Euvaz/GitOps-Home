@@ -177,35 +177,7 @@ spec:
     kubeScheduler:
       endpoints: *controlplanes
     kube-state-metrics:
-      collectors:
-        - certificatesigningrequests
-        - configmaps
-        - cronjobs
-        - daemonsets
-        - deployments
-        - endpoints
-        - horizontalpodautoscalers
-        - ingresses
-        - jobs
-        - leases
-        - limitranges
-        - mutatingwebhookconfigurations
-        - namespaces
-        - networkpolicies
-        - nodes
-        - persistentvolumeclaims
-        - persistentvolumes
-        - poddisruptionbudgets
-        - pods
-        - replicasets
-        - replicationcontrollers
-        - resourcequotas
-        - secrets
-        - services
-        - statefulsets
-        - storageclasses
-        - validatingwebhookconfigurations
-        - verticalpodautoscalers
-        - volumeattachments
+      verticalPodAutoscaler:
+        enabled: false
     kubeProxy:
       enabled: false
