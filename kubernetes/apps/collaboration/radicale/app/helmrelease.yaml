@@ -56,7 +56,7 @@ spec:
         readOnly: true
       data:
         enabled: true
-        existClaim: radicale-data-v1
+        existingClaim: radicale-data-v1
         mountPath: /data
       auth:
         enabled: true
