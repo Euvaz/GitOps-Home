@@ -7,5 +7,6 @@ resources:
   # Flux-Kustomizations
   - ./gitea/ks.yaml
   - ./nextcloud/ks.yaml
+  - ./radicale/ks.yaml
   - ./vikunja/ks.yaml
   - ./wikijs/ks.yaml
