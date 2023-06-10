@@ -176,10 +176,5 @@ spec:
       endpoints: *controlplanes
     kubeScheduler:
       endpoints: *controlplanes
-    kube-state-metrics:
-      verticalPodAutoscaler:
-        enabled: false
-      collectors:
-        - verticalpodautoscalers
     kubeProxy:
       enabled: false
