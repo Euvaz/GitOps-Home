@@ -6,7 +6,7 @@ resources:
   - ./helmrelease.yaml
   - ./data-pvc.yaml
   - ./secret.sops.yaml
-  # - ./volsync.yaml
+  - ./volsync.yaml
 configMapGenerator:
   - name: radicale
     files:
