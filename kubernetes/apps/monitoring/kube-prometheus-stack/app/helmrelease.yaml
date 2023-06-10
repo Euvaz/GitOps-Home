@@ -179,5 +179,7 @@ spec:
     kube-state-metrics:
       verticalPodAutoscaler:
         enabled: false
+      collectors:
+        - verticalpodautoscalers
     kubeProxy:
       enabled: false
