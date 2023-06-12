@@ -16,6 +16,9 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    livenessProbe:
+        initialDelaySeconds: 60
+        periodSeconds: 10
     readinessProbe:
         initialDelaySeconds: 60
         periodSeconds: 10
