@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: itzg/minecraft-server
-      tag: java8-multiarch
+      tag: java8-multiarch@sha256:11a8ac29987b1bde6caf720f60669c462a92b5a6d7445ff63ae7ba3f844e1711
     minecraftServer:
       eula: "TRUE"
       version: "1.12.2"
