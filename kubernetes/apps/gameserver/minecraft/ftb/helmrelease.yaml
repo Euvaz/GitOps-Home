@@ -17,9 +17,19 @@ spec:
       interval: 5m
   values:
     livenessProbe:
+        command:
+          - mc-monitor
+          - status
+          - --host
+          - localhost
         initialDelaySeconds: 60
         periodSeconds: 10
     readinessProbe:
+        command:
+          - mc-monitor
+          - status
+          - --host
+          - localhost
         initialDelaySeconds: 60
         periodSeconds: 10
     image:
