@@ -38,7 +38,7 @@ spec:
         existingClaim: minecraft-ftb-data-v1
     resources:
       requests:
-        cpu: 1737m
-        memory: 4507M
+        cpu: 34m
+        memory: 4506M
       limits:
-        memory: 4507M
+        memory: 5279M
