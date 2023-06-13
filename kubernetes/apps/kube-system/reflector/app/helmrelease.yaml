@@ -25,7 +25,7 @@ spec:
   values:
     image:
       repository: emberstack/kubernetes-reflector
-      tag: 7.0.173@sha256:f47fdfa9fd23ccd204e9755e7d18d7687198a530d5e9bec6c604b908f7d47d70
+      tag: 7.0.178@sha256:971ace109b6a2ee2cdf2770ee8da41153da31818aa1f0a9d64f872f0aeff3acd
     configuration:
       logging:
         minimumLevel: Information
