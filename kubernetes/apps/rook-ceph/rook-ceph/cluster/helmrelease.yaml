@@ -54,7 +54,7 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Ceph"
-          gethomepage.dev/group: "Observability"
+          gethomepage.dev/group: "Storage"
           gethomepage.dev/icon: "ceph"
           gethomepage.dev/description: "Ceph Dashboard."
         host:
