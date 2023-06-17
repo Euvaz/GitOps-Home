@@ -9,7 +9,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/name: "MinIO"
-    gethomepage.dev/group: "Collaboration"
+    gethomepage.dev/group: "Storage"
     gethomepage.dev/icon: "minio"
     gethomepage.dev/description: "High Performance, Kubernetes Native Object Storage."
 spec:
