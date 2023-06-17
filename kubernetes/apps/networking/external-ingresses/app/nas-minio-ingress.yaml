@@ -2,11 +2,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nas-minio
+  name: nas-minio-console
   namespace: networking
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
     traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "MinIO"
+    gethomepage.dev/group: "Collaboration"
+    gethomepage.dev/icon: "minio"
+    gethomepage.dev/description: "High Performance, Kubernetes Native Object Storage."
 spec:
   ingressClassName: traefik
   rules:
@@ -20,6 +25,22 @@ spec:
                  number: 9001
             path: /
             pathType: Prefix
+  tls:
+    - hosts:
+        - *host-console
+      secretName: minio-console-tls
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nas-minio-api
+  namespace: networking
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+spec:
+  ingressClassName: traefik
+  rules:
     - host: &host-api "s3.${SECRET_DOMAIN}"
       http:
         paths:
@@ -32,9 +53,8 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - *host-console
         - *host-api
-      secretName: minio-tls
+      secretName: minio-api-tls
 ---
 apiVersion: v1
 kind: Service
