@@ -63,3 +63,6 @@ data:
       Downloaders:
         style: row
         columns: 2
+      Storage:
+        style: row
+        columns: 2
