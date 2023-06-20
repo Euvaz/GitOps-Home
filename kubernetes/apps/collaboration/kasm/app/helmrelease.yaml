@@ -57,6 +57,8 @@ spec:
           - hosts:
               - *host
             secretName: kasm-tls
+    podSecurityContext:
+      privileged: true
     persistence:
       config:
         enabled: true
