@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: linuxserver/kasm
-      tag: 1.13.0@sha256:7932b4468805e971f2ab9f5df633dd45f7e54762adcea79cbc1124666a2d5627
+      tag: 1.120.20221218@sha256:6f40f6c999fa626b8e68371298d0a7870b8bbd1696df4cbcb87352e681f7f7cd
     env:
       TZ: "${TIMEZONE}"
       KASM_PORT: &port 80
