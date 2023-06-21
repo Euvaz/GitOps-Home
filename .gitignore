@@ -1,22 +1,3 @@
-# Trash
-.DS_Store
-Thumbs.db
 # k8s
 talosconfig
 kubeconfig
-# vscode-sops
-.decrypted~*.yaml
-.config.env
-*.agekey
-*.pub
-*.key
-github-deploy-key*
-# Ansible
-xanmanning.k3s*
-# Terraform
-.terraform
-.terraform.tfstate*
-terraform.tfstate*
-megalinter-reports
-# Private
-.private
