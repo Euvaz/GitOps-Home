@@ -1,0 +1,81 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: keycloak
+  namespace: security
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: keycloakx
+      version: 2.2.1
+      sourceRef:
+        kind: HelmRepository
+        name: codecentric
+        namespace: flux-system
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    image:
+      repository: quay.io/keycloak/keycloak
+      tag: 21.1.1
+      digest: sha256:8ebb3930c41e8a066c4246eaf351ac09cdc984e11b1f607d6ff4ce10d69dc808
+    extraEnv:
+      - name: TZ
+        value: "${TIMEZONE}"
+      - name: JAVA_OPTS_APPEND
+        value: "-Djgroups.dns.query=keycloak-headless"
+      - name: KC_PROXY
+        value: "edge"
+      - name: KC_HTTP_ENABLED
+        value: "true"
+      - name: KC_HOSTNAME
+        value: "id.${SECRET_DOMAIN}"
+      - name: KC_HOSTNAME_STRICT
+        value: "true"
+      - name: KC_HOSTNAME_STRICT_HTTPS
+        value: "true"
+      - name: KC_LOG_LEVEL
+        value: "org.keycloak.events:DEBUG,org.infinispan:INFO,org.jgroups:INFO"
+      - name: KEYCLOAK_ADMIN
+        value: "admin"
+      - name: KEYCLOAK_ADMIN_PASSWORD
+        value: "${SECRET_KEYCLOAK_ADMIN_PASSWORD}"
+    extraVolumes: |-
+      - name: objectstore
+        emptyDir:
+          sizeLimit: 100Mi
+      - name: quarkusproperties
+        secret:
+          secretName: keycloak-quarkusproperties
+          defaultMode: 0777
+    extraVolumeMounts: |-
+      - mountPath: /ObjectStore
+        name: objectstore
+      - name: quarkusproperties
+        mountPath: /opt/keycloak/conf/quarkus.properties
+        subPath: quarkus.properties
+    secrets:
+      quarkusproperties:
+        stringData:
+          quarkus.properties: |-
+            quarkus.transaction-manager.enable-recovery=true
+    ingress:
+      enabled: true
+    database:
+      vendor: postgres
+      hostname: postgresql.database.svc.cluster.local
+      port: 5432
+      database: keycloak
+      username: keycloak
+      password: ${SECRET_KEYCLOAK_DATABASE_PASSWORD}
+    proxy:
+      enabled: false
+    prometheusRule:
+      enabled: true
