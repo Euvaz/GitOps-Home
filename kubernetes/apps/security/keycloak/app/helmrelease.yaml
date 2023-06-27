@@ -68,6 +68,24 @@ spec:
             quarkus.transaction-manager.enable-recovery=true
     ingress:
       enabled: true
+      ingressClassName: "traefik"
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: "Keycloak"
+        gethomepage.dev/group: "Security"
+        gethomepage.dev/icon: "keycloak"
+        gethomepage.dev/description: "Open Source Identity and Access Management."
+      hosts:
+        - host: &host "id.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              type: Prefix
+      tls:
+        - hosts:
+            - *host
+          secretName: id-tls
     database:
       vendor: postgres
       hostname: postgresql.database.svc.cluster.local
