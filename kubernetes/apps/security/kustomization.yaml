@@ -5,5 +5,5 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./keycloak.ks.yaml
+  - ./keycloak/ks.yaml
   - ./vaultwarden/ks.yaml
