@@ -26,7 +26,7 @@ spec:
       repository: quay.io/keycloak/keycloak
       tag: 21.1.1
       digest: sha256:8ebb3930c41e8a066c4246eaf351ac09cdc984e11b1f607d6ff4ce10d69dc808
-    extraEnv:
+    extraEnv: |-
       - name: TZ
         value: "${TIMEZONE}"
       - name: JAVA_OPTS_APPEND
