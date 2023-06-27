@@ -47,25 +47,6 @@ spec:
         value: "admin"
       - name: KEYCLOAK_ADMIN_PASSWORD
         value: "${SECRET_KEYCLOAK_ADMIN_PASSWORD}"
-    extraVolumes: |-
-      - name: objectstore
-        emptyDir:
-          sizeLimit: 100Mi
-      - name: quarkusproperties
-        secret:
-          secretName: keycloak-quarkusproperties
-          defaultMode: 0777
-    extraVolumeMounts: |-
-      - mountPath: /ObjectStore
-        name: objectstore
-      - name: quarkusproperties
-        mountPath: /opt/keycloak/conf/quarkus.properties
-        subPath: quarkus.properties
-    secrets:
-      quarkusproperties:
-        stringData:
-          quarkus.properties: |-
-            quarkus.transaction-manager.enable-recovery=true
     ingress:
       enabled: true
       ingressClassName: "traefik"
