@@ -56,8 +56,8 @@ spec:
         port: 5432
     redis:
       enabled: true
-    envValueFrom:
-      AUTHENTIK_SECRET_KEY:
-        secretKeyRef:
-          name: *app
-          key: SECRET_KEY
+    valuesFrom:
+      - kind: Secret
+        targetPath: authentik.secret_key
+        valuesKey: SECRET_KEY
+        name: *app
