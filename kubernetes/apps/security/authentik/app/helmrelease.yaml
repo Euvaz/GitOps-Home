@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: authentik
+  name: &app authentik
   namespace: security
 spec:
   interval: 15m
@@ -56,3 +56,8 @@ spec:
         port: 5432
     redis:
       enabled: true
+    envValueFrom:
+      AUTHENTIK_SECRET_KEY:
+        secretKeyRef:
+          name: *app
+          key: SECRET_KEY
