@@ -47,7 +47,7 @@ spec:
             - *host
           secretName: auth-tls
     authentik:
-      log_level: debug
+      # log_level: info
       secret_key: ${SECRET_AUTHENTIK_SECRET_KEY}
       postgresql:
         host: postgresql.database.svc.cluster.local
