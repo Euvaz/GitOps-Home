@@ -7,7 +7,6 @@ resources:
   - ./bitnami.yaml
   - ./bjw-s.yaml
   - ./cilium.yaml
-  - ./codecentric.yaml
   - ./emberstack.yaml
   - ./external-dns.yaml
   - ./fairwinds.yaml
