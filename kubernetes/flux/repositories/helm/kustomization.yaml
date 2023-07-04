@@ -9,6 +9,7 @@ resources:
   - ./bitnami.yaml
   - ./bjw-s.yaml
   - ./cilium.yaml
+  - ./cloudnative-pg.yaml
   - ./emberstack.yaml
   - ./external-dns.yaml
   - ./fairwinds.yaml
