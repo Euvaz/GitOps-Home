@@ -5,8 +5,6 @@ metadata:
   name: cluster-apps-cloudnative-pg
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: cluster-apps-rook-ceph-cluster
   path: ./kubernetes/apps/database/cloudnative-pg/app
   prune: true
   sourceRef:
@@ -20,22 +18,22 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 3m
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: cluster-apps-cloudnative-pg-cluster
-  namespace: flux-system
-spec:
-  dependsOn:
-    - name: cluster-apps-cloudnative-pg
-    - name: cluster-apps-local-path-provisioner
-  path: ./kubernetes/apps/database/cloudnative-pg/cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: home-kubernetes
-  wait: true
-  interval: 30m
-  retryInterval: 1m
-  timeout: 3m
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: cluster-apps-cloudnative-pg-cluster
+#   namespace: flux-system
+# spec:
+#   dependsOn:
+#     - name: cluster-apps-cloudnative-pg
+#     - name: cluster-apps-local-path-provisioner
+#   path: ./kubernetes/apps/database/cloudnative-pg/cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: home-kubernetes
+#   wait: true
+#   interval: 30m
+#   retryInterval: 1m
+#   timeout: 3m
