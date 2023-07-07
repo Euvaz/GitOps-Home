@@ -22,6 +22,10 @@ spec:
     remediation:
       retries: 5
   values:
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      privileged: true
     crds:
       create: true
     config:
