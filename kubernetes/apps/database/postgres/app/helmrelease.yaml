@@ -54,6 +54,6 @@ spec:
           memory: 226M
   valuesFrom:
     - kind: Secret
-      name: postgres
+      name: postgresql
       valuesKey: postgresPassword
       targetPath: auth.postgresPassword

@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: Secret
 metadata:
-    name: postgres-restic-secret
+    name: postgresql-restic-secret
     namespace: database
 stringData:
-    RESTIC_REPOSITORY: '${SECRET_VOLSYNC_RESTIC_REPOSITORY}/postgres'
+    RESTIC_REPOSITORY: '${SECRET_VOLSYNC_RESTIC_REPOSITORY}/postgresql'
     RESTIC_PASSWORD: '${SECRET_VOLSYNC_RESTIC_PASSWORD}'
     AWS_ACCESS_KEY_ID: '${SECRET_VOLSYNC_AWS_ACCESS_KEY_ID}'
     AWS_SECRET_ACCESS_KEY: '${SECRET_VOLSYNC_AWS_SECRET_ACCESS_KEY}'
@@ -13,16 +13,16 @@ stringData:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
-  name: postgres
+  name: postgresql
   namespace: database
 spec:
-  sourcePVC: postgresql-v1
+  sourcePVC: postgresqlql-v1
   trigger:
     schedule: "0 0 * * *"
   restic:
     copyMethod: Snapshot
     pruneIntervalDays: 10
-    repository: postgres-restic-secret
+    repository: postgresql-restic-secret
     cacheCapacity: 2Gi
     volumeSnapshotClassName: csi-ceph-blockpool
     storageClassName: ceph-block
