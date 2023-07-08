@@ -53,6 +53,7 @@ spec:
             secretName: goldilocks-tls
       resources:
         requests:
+          cpu: 35m
           memory: 105M
         limits:
           memory: 105M
