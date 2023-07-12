@@ -22,6 +22,9 @@ spec:
     remediation:
       retries: 5
   values:
+    image:
+      repository: ghcr.io/cloudnative-pg/cloudnative-pg-testing
+      tag: dev-1354-21@sha256:648f4fd9b4d8a35e1f727d0ccd257379fe28fb8a356e36da5df079ea52549860
     securityContext:
       runAsUser: 0
       runAsGroup: 0
