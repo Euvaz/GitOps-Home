@@ -1,0 +1,55 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: PostgresCluster
+metadata:
+  name: pgo-cluster
+  namespace: database
+spec:
+  postgresVersion: 14
+  patroni:
+  dynamicConfiguration:
+    synchronous_mode: true
+    postgresql:
+      synchronous_commit: "on"
+      pg_hba:
+        - hostnossl all all 10.244.0.0/16 md5
+        - hostssl all all all md5
+  instances:
+    - name: instance
+      dataVolumeClaimSpec:
+        storageClassName: ceph-block
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 2Gi
+      walVolumeClaimSpec:
+        storageClassName: ceph-block
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+  users:
+    - name: zipline
+      databases:
+        - zipline
+  # backups:
+  #   pgbackrest:
+  #     global:
+  #       repo1-retention-full: "14"
+  #       repo1-retention-full-type: time
+  #       archive-push-queue-max: 4GiB
+  #     repos:
+  #       - name: repo1
+  #         schedules:
+  #           full: 0 1 * * 0
+  #           incremental: 0 1 * * 1-6
+  #         volume:
+  #           volumeClaimSpec:
+  #             accessModes:
+  #               - ReadWriteMany
+  #             resources:
+  #               requests:
+  #                 storage: 5Gi
+  #             storageClassName: nfs-provisioner

@@ -5,6 +5,8 @@ metadata:
   name: cluster-apps-pg-operator-app
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-rook-ceph-app
   path: ./kubernetes/apps/database/pg-operator/app
   prune: true
   sourceRef:
@@ -14,6 +16,28 @@ spec:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
       name: pg-operator
+      namespace: database
+  interval: 30m
+  retryInterval: 1m
+  timeout: 3m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: cluster-apps-pg-operator-cluster
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cluster-apps-pg-operator-app
+  path: ./kubernetes/apps/database/pg-operator/cluster
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: pg-operator-cluster
       namespace: database
   interval: 30m
   retryInterval: 1m
