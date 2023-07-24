@@ -7,3 +7,5 @@ metadata:
 spec:
   interval: 1h
   url: oci://registry.developers.crunchydata.com/crunchydata/pgo
+  ref:
+    tag: latest
