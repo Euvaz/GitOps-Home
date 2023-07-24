@@ -8,4 +8,4 @@ spec:
   interval: 1h
   url: oci://registry.developers.crunchydata.com/crunchydata/pgo
   ref:
-    tag: latest
+    tag: 5.4.0
