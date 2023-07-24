@@ -25,7 +25,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    replicaCount: 2
+    replicaCount: 3
     helperImage:
       repository: public.ecr.aws/docker/library/busybox
       tag: latest
