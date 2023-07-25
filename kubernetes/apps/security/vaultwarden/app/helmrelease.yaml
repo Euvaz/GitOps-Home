@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: vaultwarden/server
-      tag: 1.28.1-alpine@sha256:808a6fa45719b6b394cf0b6384c526be42a2e431b3be8516c67e9b40e886f7c5
+      tag: 1.29.0-alpine@sha256:cce11ce6269ef83e9dc4493a19d60ba34dd3740eadd58ec6de9024ecac1534ff
     env:
       TZ: "${TIMEZONE}"
       DOMAIN: "https://vault.${SECRET_DOMAIN}"
