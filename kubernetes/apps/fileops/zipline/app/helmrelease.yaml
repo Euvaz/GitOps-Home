@@ -21,22 +21,22 @@ spec:
       tag: 3.7.1@sha256:43324155e0bb2236f91b7031dd782b5e7be0e0d67977c4b4f71155abb9c42aa4
     env:
       TZ: "${TIMEZONE}"
-      DATASOURCE_TYPE: "s3"
-      DATASOURCE_S3_ACCESS_KEY_ID:
-        valueFrom:
-          secretKeyRef:
-            name: *app
-            key: AWS_ACCESS_KEY_ID
-      DATASOURCE_S3_SECRET_ACCESS_KEY:
-        valueFrom:
-          secretKeyRef:
-            name: *app
-            key: AWS_SECRET_ACCESS_KEY
-      DATASOURCE_S3_ENDPOINT: "s3.${SECRET_DOMAIN}"
-      DATASOURCE_S3_BUCKET: "zipline"
-      DATASOURCE_S3_FORCE_S3_PATH: "true"
-      DATASOURCE_S3_REGION: "us-east-1"
-      DATASOURCE_S3_USE_SSL: "true"
+      # DATASOURCE_TYPE: "s3"
+      # DATASOURCE_S3_ACCESS_KEY_ID:
+      #   valueFrom:
+      #     secretKeyRef:
+      #       name: *app
+      #       key: AWS_ACCESS_KEY_ID
+      # DATASOURCE_S3_SECRET_ACCESS_KEY:
+      #   valueFrom:
+      #     secretKeyRef:
+      #       name: *app
+      #       key: AWS_SECRET_ACCESS_KEY
+      # DATASOURCE_S3_ENDPOINT: "s3.${SECRET_DOMAIN}"
+      # DATASOURCE_S3_BUCKET: "zipline"
+      # DATASOURCE_S3_FORCE_S3_PATH: "true"
+      # DATASOURCE_S3_REGION: "us-east-1"
+      # DATASOURCE_S3_USE_SSL: "true"
       CORE_RETURN_HTTPS: "true"
       CORE_SECRET:
         valueFrom:
