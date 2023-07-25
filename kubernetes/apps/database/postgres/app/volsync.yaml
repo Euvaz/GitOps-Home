@@ -16,7 +16,7 @@ metadata:
   name: postgresql
   namespace: database
 spec:
-  sourcePVC: postgresqlql-v1
+  sourcePVC: postgresql-v1
   trigger:
     schedule: "0 0 * * *"
   restic:
