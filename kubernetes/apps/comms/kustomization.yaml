@@ -6,4 +6,3 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./matrix-synapse/ks.yaml
-  #- ./mumble/ks.yaml
