@@ -9,7 +9,6 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-postgres-app
-    - name: cluster-apps-rook-ceph-cluster
   path: ./kubernetes/apps/monitoring/grafana/app
   prune: true
   sourceRef:
