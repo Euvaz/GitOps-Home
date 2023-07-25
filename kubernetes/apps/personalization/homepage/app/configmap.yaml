@@ -48,9 +48,12 @@ data:
       Media Management:
         style: row
         columns: 4
-      Collaboration:
+      FileOps:
         style: row
         columns: 2
+      Collaboration:
+        style: row
+        columns: 4
       Observability:
         style: column
         columns: 1
