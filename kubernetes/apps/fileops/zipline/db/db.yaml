@@ -48,6 +48,6 @@ spec:
             full: 0 1 * * 0
             incremental: 0 1 * * 1-6
           s3:
-            bucket: pgo-cluster
+            bucket: pgo-cluster/zipline
             endpoint: s3.${SECRET_DOMAIN}
             region: us-east-1
