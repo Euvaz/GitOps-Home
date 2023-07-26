@@ -33,24 +33,23 @@ spec:
       GF_PANELS_DISABLE_SANITIZE_HTML: true
       GF_SECURITY_ALLOW_EMBEDDING: true
       GF_SECURITY_COOKIE_SAMESITE: grafana
-    envValueFrom:
-      - name: GF_DATABASE_HOST
+      GF_DATABASE_HOST:
         valueFrom:
           secretKeyRef:
             name: pgo-cluster-grafana-pguser-grafana
             key: host
-      - name: GF_DATABASE_NAME
+      GF_DATABASE_NAME:
         valueFrom:
           secretKeyRef:
             name: pgo-cluster-grafana-pguser-grafana
             key: dbname
-      - name: GF_DATABASE_USER
-        valuefrom:
+      GF_DATABASE_USER:
+        valueFrom:
           secretkeyref:
             name: pgo-cluster-grafana-pguser-grafana
             key: user
-      - name: GF_DATABASE_PASSWORD
-        valuefrom:
+      GF_DATABASE_PASSWORD:
+        valueFrom:
           secretkeyref:
             name: pgo-cluster-grafana-pguser-grafana
             key: password
