@@ -28,9 +28,6 @@ spec:
         existingClaim: postgresql-v1
       initdb:
         scripts:
-          init-authentik.sql: |
-            CREATE ROLE "authentik" WITH LOGIN PASSWORD '${SECRET_AUTHENTIK_DATABASE_PASSWORD}';
-            CREATE DATABASE authentik WITH OWNER 'authentik' ENCODING 'UTF8' TEMPLATE template0;
           init-vikunja.sql: |
             CREATE ROLE "vikunja" WITH LOGIN PASSWORD '${SECRET_VIKUNJA_DATABASE_PASSWORD}';
             CREATE DATABASE vikunja WITH OWNER 'vikunja' ENCODING 'UTF8' TEMPLATE template0;
