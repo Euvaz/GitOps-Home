@@ -43,11 +43,11 @@ spec:
           name: pgo-cluster-grafana-pguser-grafana
           key: dbname
       GF_DATABASE_USER:
-        secretkeyref:
+        secretKeyRef:
           name: pgo-cluster-grafana-pguser-grafana
           key: user
       GF_DATABASE_PASSWORD:
-        secretkeyref:
+        secretKeyRef:
           name: pgo-cluster-grafana-pguser-grafana
           key: password
     grafana.ini:
