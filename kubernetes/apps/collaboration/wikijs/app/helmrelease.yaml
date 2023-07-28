@@ -27,11 +27,6 @@ spec:
       TZ: ${TIMEZONE}
       APP_URL: "https://docs.${SECRET_DOMAIN}"
       DB_TYPE: postgres
-      # DB_HOST: postgresql.database.svc.cluster.local
-      # DB_PORT: 5432
-      # DB_NAME: wikijs
-      # DB_USER: wikijs
-      # DB_PASS: ${SECRET_WIKIJS_DATABASE_PASSWORD}
       DB_HOST:
         valueFrom:
           secretKeyRef:
