@@ -28,19 +28,16 @@ spec:
         existingClaim: postgresql-v1
       initdb:
         scripts:
-          init-vikunja.sql: |
+          init-vikunja.sql: | # TODO: Migrate to PGO
             CREATE ROLE "vikunja" WITH LOGIN PASSWORD '${SECRET_VIKUNJA_DATABASE_PASSWORD}';
             CREATE DATABASE vikunja WITH OWNER 'vikunja' ENCODING 'UTF8' TEMPLATE template0;
-          init-wikijs.sql: |
+          init-wikijs.sql: | # TODO: Migrate to PGO
             CREATE ROLE "wikijs" WITH LOGIN PASSWORD '${SECRET_WIKIJS_DATABASE_PASSWORD}';
             CREATE DATABASE wikijs WITH OWNER 'wikijs' ENCODING 'UTF8' TEMPLATE template0;
-          init-synapse.sql: |
+          init-synapse.sql: | # TODO: Migrate to PGO
             CREATE ROLE "synapse" WITH LOGIN PASSWORD '${SECRET_SYNAPSE_DATABASE_PASSWORD}';
             CREATE DATABASE synapse WITH OWNER 'synapse' ENCODING 'UTF8' LOCALE 'C' TEMPLATE template0;
-          init-grafana.sql: |
-            CREATE ROLE "grafana" WITH LOGIN PASSWORD '${SECRET_GRAFANA_DATABASE_PASSWORD}';
-            CREATE DATABASE grafana WITH OWNER 'grafana' ENCODING 'UTF8' TEMPLATE template0;
-          init-gitea.sql: |
+          init-gitea.sql: | # TODO: Migrate to PGO
             CREATE ROLE "gitea" WITH LOGIN PASSWORD '${SECRET_GITEA_DATABASE_PASSWORD}';
             CREATE DATABASE gitea WITH OWNER 'gitea' TEMPLATE template0 ENCODING 'UTF8' LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';
       resources:
