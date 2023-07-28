@@ -44,8 +44,8 @@ spec:
       repos:
         - name: repo1
           schedules:
-            full: 0 1 * * 0
-            incremental: 0 1 * * 1-6
+            full: 0 0 * * 0
+            incremental: 0 */6 * * 1-6
           s3:
             bucket: pgo-cluster/wikijs
             endpoint: s3.${SECRET_DOMAIN}
