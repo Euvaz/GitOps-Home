@@ -18,10 +18,6 @@ spec:
   values:
     containerSecurityContext:
       runAsUser: 0
-    #diagnosticMode:
-    #  enabled: true
-    # auth:
-    #   postgresPassword: ^valuesFrom^
     primary:
       persistence:
         enabled: true
