@@ -27,11 +27,36 @@ spec:
       TZ: ${TIMEZONE}
       APP_URL: "https://docs.${SECRET_DOMAIN}"
       DB_TYPE: postgres
-      DB_HOST: postgresql.database.svc.cluster.local
-      DB_PORT: 5432
-      DB_NAME: wikijs
-      DB_USER: wikijs
-      DB_PASS: ${SECRET_WIKIJS_DATABASE_PASSWORD}
+      # DB_HOST: postgresql.database.svc.cluster.local
+      # DB_PORT: 5432
+      # DB_NAME: wikijs
+      # DB_USER: wikijs
+      # DB_PASS: ${SECRET_WIKIJS_DATABASE_PASSWORD}
+      DB_HOST:
+        valueFrom:
+          secretKeyRef:
+            name: pgo-cluster-wikijs-pguser-wikijs
+            key: host
+      DB_PORT:
+        valueFrom:
+          secretKeyRef:
+            name: pgo-cluster-wikijs-pguser-wikijs
+            key: port
+      DB_NAME:
+        valueFrom:
+          secretKeyRef:
+            name: pgo-cluster-wikijs-pguser-wikijs
+            key: dbname
+      DB_USER:
+        valueFrom:
+          secretKeyRef:
+            name: pgo-cluster-wikijs-pguser-wikijs
+            key: user
+      DB_PASS:
+        valueFrom:
+          secretKeyRef:
+            name: pgo-cluster-wikijs-pguser-wikijs
+            key: password
     service:
       main:
         ports:
