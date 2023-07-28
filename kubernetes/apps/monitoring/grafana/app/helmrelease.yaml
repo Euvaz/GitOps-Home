@@ -43,20 +43,17 @@ spec:
       #     name: pgo-cluster-grafana-pguser-grafana
       #     key: host
       GF_DATABASE_NAME:
-        valueFrom:
-          secretKeyRef:
-            name: pgo-cluster-grafana-pguser-grafana
-            key: dbname
+        secretKeyRef:
+          name: pgo-cluster-grafana-pguser-grafana
+          key: dbname
       GF_DATABASE_USER:
-        valueFrom:
-          secretKeyRef:
-            name: pgo-cluster-grafana-pguser-grafana
-            key: user
+        secretKeyRef:
+          name: pgo-cluster-grafana-pguser-grafana
+          key: user
       GF_DATABASE_PASSWORD:
-        valueFrom:
-          secretKeyRef:
-            name: pgo-cluster-grafana-pguser-grafana
-            key: password
+        secretKeyRef:
+          name: pgo-cluster-grafana-pguser-grafana
+          key: password
     grafana.ini:
       analytics:
         check_for_updates: false
