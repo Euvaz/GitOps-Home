@@ -27,9 +27,6 @@ spec:
           init-vikunja.sql: | # TODO: Migrate to PGO
             CREATE ROLE "vikunja" WITH LOGIN PASSWORD '${SECRET_VIKUNJA_DATABASE_PASSWORD}';
             CREATE DATABASE vikunja WITH OWNER 'vikunja' ENCODING 'UTF8' TEMPLATE template0;
-          init-wikijs.sql: | # TODO: Migrate to PGO
-            CREATE ROLE "wikijs" WITH LOGIN PASSWORD '${SECRET_WIKIJS_DATABASE_PASSWORD}';
-            CREATE DATABASE wikijs WITH OWNER 'wikijs' ENCODING 'UTF8' TEMPLATE template0;
           init-synapse.sql: | # TODO: Migrate to PGO
             CREATE ROLE "synapse" WITH LOGIN PASSWORD '${SECRET_SYNAPSE_DATABASE_PASSWORD}';
             CREATE DATABASE synapse WITH OWNER 'synapse' ENCODING 'UTF8' LOCALE 'C' TEMPLATE template0;
