@@ -29,7 +29,7 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 5Gi
+            storage: 8Gi
   users:
     - name: grafana
       databases:
