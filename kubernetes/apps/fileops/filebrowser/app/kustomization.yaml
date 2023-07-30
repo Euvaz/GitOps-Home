@@ -5,6 +5,7 @@ namespace: fileops
 resources:
   - ./config-pvc.yaml
   - ./helmrelease.yaml
+  - ./volsync.yaml
 configMapGenerator:
   - name: filebrowser
     files:
