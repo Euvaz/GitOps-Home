@@ -34,9 +34,9 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Filebrowser"
-          gethomepage.dev/group: "fileops"
+          gethomepage.dev/group: "FileOps"
           gethomepage.dev/icon: "filebrowser"
-          gethomepage.dev/description: "."
+          gethomepage.dev/description: "Web File Browser."
         hosts:
           - host: &host "files.${SECRET_DOMAIN}"
             paths:
