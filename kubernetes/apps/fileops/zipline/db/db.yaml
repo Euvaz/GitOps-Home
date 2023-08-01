@@ -29,7 +29,7 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 8Gi
+            storage: 10Gi
   users:
     - name: zipline
       databases:
