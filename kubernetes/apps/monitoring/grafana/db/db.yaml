@@ -44,8 +44,7 @@ spec:
       repos:
         - name: repo1
           schedules:
-            full: 0 0 * * 0
-            incremental: 0 */6 * * 1-6
+            full: 0 */6 * * *
           s3:
             bucket: pgo-cluster/grafana
             endpoint: s3.${SECRET_DOMAIN}
