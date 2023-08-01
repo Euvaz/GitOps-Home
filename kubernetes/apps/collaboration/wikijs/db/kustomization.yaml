@@ -4,4 +4,3 @@ kind: Kustomization
 namespace: collaboration
 resources:
   - ./db.yaml
-  # - ./secret.yaml
