@@ -30,27 +30,27 @@ spec:
       DB_HOST:
         valueFrom:
           secretKeyRef:
-            name: pgo-cluster-wikijs-pguser-wikijs
+            name: pg-cluster-wikijs-pguser-wikijs
             key: host
       DB_PORT:
         valueFrom:
           secretKeyRef:
-            name: pgo-cluster-wikijs-pguser-wikijs
+            name: pg-cluster-wikijs-pguser-wikijs
             key: port
       DB_NAME:
         valueFrom:
           secretKeyRef:
-            name: pgo-cluster-wikijs-pguser-wikijs
+            name: pg-cluster-wikijs-pguser-wikijs
             key: dbname
       DB_USER:
         valueFrom:
           secretKeyRef:
-            name: pgo-cluster-wikijs-pguser-wikijs
+            name: pg-cluster-wikijs-pguser-wikijs
             key: user
       DB_PASS:
         valueFrom:
           secretKeyRef:
-            name: pgo-cluster-wikijs-pguser-wikijs
+            name: pg-cluster-wikijs-pguser-wikijs
             key: password
     service:
       main:

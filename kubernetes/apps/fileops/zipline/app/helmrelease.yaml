@@ -46,7 +46,7 @@ spec:
       CORE_DATABASE_URL:
         valueFrom:
           secretKeyRef:
-            name: pgo-cluster-zipline-pguser-zipline
+            name: pg-cluster-zipline-pguser-zipline
             key: uri
       CORE_HOST: 0.0.0.0
       CORE_PORT: 3000

@@ -28,7 +28,7 @@ spec:
     env:
       GF_DATABASE_TYPE: postgres
       GF_DATABASE_SSL_MODE: disable
-      GF_DATABASE_HOST: pgo-cluster-grafana-primary.monitoring.svc:5432
+      GF_DATABASE_HOST: pg-cluster-grafana-primary.monitoring.svc:5432
       GF_EXPLORE_ENABLED: true
       GF_LOG_FILTERS: rendering:debug
       GF_PANELS_DISABLE_SANITIZE_HTML: true
@@ -37,15 +37,15 @@ spec:
     envValueFrom:
       GF_DATABASE_NAME:
         secretKeyRef:
-          name: pgo-cluster-grafana-pguser-grafana
+          name: pg-cluster-grafana-pguser-grafana
           key: dbname
       GF_DATABASE_USER:
         secretKeyRef:
-          name: pgo-cluster-grafana-pguser-grafana
+          name: pg-cluster-grafana-pguser-grafana
           key: user
       GF_DATABASE_PASSWORD:
         secretKeyRef:
-          name: pgo-cluster-grafana-pguser-grafana
+          name: pg-cluster-grafana-pguser-grafana
           key: password
     grafana.ini:
       analytics:
