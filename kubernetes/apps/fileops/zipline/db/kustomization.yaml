@@ -4,4 +4,3 @@ kind: Kustomization
 namespace: fileops
 resources:
   - ./db.yaml
-  - ./secret.yaml
