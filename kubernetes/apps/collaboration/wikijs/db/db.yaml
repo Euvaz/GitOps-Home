@@ -36,6 +36,10 @@ spec:
         - wikijs
   backups:
     pgbackrest:
+      manual:
+        repoName: repo1
+        options:
+        - --type=full
       global:
         repo1-retention-full: "14"
         repo1-retention-full-type: time
@@ -46,6 +50,6 @@ spec:
           schedules:
             full: 0 */6 * * *
           s3:
-            bucket: pgo-cluster/wikijs
+            bucket: pgo-cluster
             endpoint: s3.${SECRET_DOMAIN}
             region: us-east-1
