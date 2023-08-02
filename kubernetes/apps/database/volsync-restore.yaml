@@ -2,19 +2,6 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: mariadb-v1-dest
-  namespace: database
-spec:
-  trigger:
-    manual: restore-once
-  restic:
-    repository: mariadb-restic-secret
-    destinationPVC: mariadb-v1
-    copyMethod: Direct
----
-apiVersion: volsync.backube/v1alpha1
-kind: ReplicationDestination
-metadata:
   name: postgresql-v1-dest
   namespace: database
 spec:

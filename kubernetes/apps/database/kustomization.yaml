@@ -5,6 +5,5 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./mariadb/ks.yaml
   - ./pg-operator/ks.yaml
   - ./postgres/ks.yaml
