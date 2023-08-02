@@ -4,3 +4,9 @@ kind: Kustomization
 namespace: comms
 resources:
   - ./db.yaml
+configMapGenerator:
+  - name: pg-cluster-synapse-pgha-config
+    files:
+      - postgres-ha.yaml=./configs/postgres-ha.yaml
+generatorOptions:
+  disableNameSuffixHash: true
