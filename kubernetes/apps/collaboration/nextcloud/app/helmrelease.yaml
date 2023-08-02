@@ -61,12 +61,6 @@ spec:
         passwordKey: password
         hostKey: host
         databaseKey: dbname
-      # enabled: true
-      # type: mysql
-      # host: mariadb.database.svc.cluster.local:3306
-      # user: nextcloud
-      # password: ${SECRET_NEXTCLOUD_DATABASE_PASSWORD}
-      # database: nextcloud
     metrics:
       enabled: true
       resources:
