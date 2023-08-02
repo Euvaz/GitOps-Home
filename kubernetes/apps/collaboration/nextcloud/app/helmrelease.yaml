@@ -6,9 +6,6 @@ metadata:
   namespace: collaboration
 spec:
   interval: 5m
-  dependsOn:
-    - name: mariadb
-      namespace: database
   chart:
     spec:
       chart: nextcloud
@@ -56,11 +53,20 @@ spec:
       enabled: false
     externalDatabase:
       enabled: true
-      type: mysql
-      host: mariadb.database.svc.cluster.local:3306
-      user: nextcloud
-      password: ${SECRET_NEXTCLOUD_DATABASE_PASSWORD}
-      database: nextcloud
+      type: postgresql
+      existingSecret:
+        enabled: true
+        secretName: pgo-cluster-nextcloud-pguser-nextcloud
+        usernameKey: user
+        passwordKey: password
+        hostKey: host
+        databaseKey: dbname
+      # enabled: true
+      # type: mysql
+      # host: mariadb.database.svc.cluster.local:3306
+      # user: nextcloud
+      # password: ${SECRET_NEXTCLOUD_DATABASE_PASSWORD}
+      # database: nextcloud
     metrics:
       enabled: true
       resources:
