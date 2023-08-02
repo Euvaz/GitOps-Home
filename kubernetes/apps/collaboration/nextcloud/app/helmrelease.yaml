@@ -56,7 +56,7 @@ spec:
       type: postgresql
       existingSecret:
         enabled: true
-        secretName: pgo-cluster-nextcloud-pguser-nextcloud
+        secretName: pg-cluster-nextcloud-pguser-nextcloud
         usernameKey: user
         passwordKey: password
         hostKey: host
