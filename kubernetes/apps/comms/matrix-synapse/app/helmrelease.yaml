@@ -83,14 +83,14 @@ spec:
     postgresql:
       enabled: false
     externalPostgresql:
-      host: pg-cluster-synapse-primary.comms.svc
-      existingSecret: pg-cluster-synapse-pguser-synapse
-      existingSecretPasswordKey: password
-      # host: postgresql.database.svc.cluster.local
-      # port: 5432
-      # username: synapse
-      # password: ${SECRET_SYNAPSE_DATABASE_PASSWORD}
-      # database: synapse
+      # host: pg-cluster-synapse-primary.comms.svc # TODO: Correct Locale
+      # existingSecret: pg-cluster-synapse-pguser-synapse
+      # existingSecretPasswordKey: password
+      host: postgresql.database.svc.cluster.local
+      port: 5432
+      username: synapse
+      password: ${SECRET_SYNAPSE_DATABASE_PASSWORD}
+      database: synapse
     redis:
       auth:
         password: ${SECRET_MATRIX_REDIS_PASSWORD}
