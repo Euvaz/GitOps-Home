@@ -36,7 +36,7 @@ spec:
   values:
     image:
       repository: matrixdotorg/synapse
-      tag: v1.88.0
+      tag: v1.89.0
     synapse:
       resources:
         requests:
