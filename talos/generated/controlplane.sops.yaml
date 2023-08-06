@@ -353,7 +353,7 @@ cluster:
         cni:
             # Name of CNI to use.
             name: custom
-            #     # URLs containing manifests to apply for the CNI.
+            # URLs containing manifests to apply for the CNI.
             urls:
                 - https://raw.githubusercontent.com/Euvaz/GitOps-Home/main/kubernetes/apps/kube-system/cilium/app/1.13.x.yaml
     # The [bootstrap token](https://kubernetes.io/docs/reference/access-authn-authz/bootstrap-tokens/) used to join the cluster.
@@ -508,8 +508,8 @@ sops:
             SUh6UlloK1lsQUdFRnpMN2MvZHBnQ00K+RK5XDYk501ZP7iFKbyBoagL2TaxrFTc
             cihQo8wwxy8bL2DvZkyHu4XQsvjsEIuh32uJFWADpAhs1yEx8i//xA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-07-07T23:31:01Z"
-    mac: ENC[AES256_GCM,data:wu2eXeSkKYKZtOsBViO1uu2V+7TD9KcHY5BLG56q+Py+msjLqDCnfJP2aLSVMFaCF87VHa4ma9d8unDM/nKcACIj8SYMbkDO6K8rt718JuF9ldPsWiUfTs+IsNOVSb43YRCH6+nJpT51f2/Tzhl3ImTHqVAtewd8P5TmKFMQnB8=,iv:MbM9ISfx8IP9M8YfN2+L7wMKyFysalkmqJGXCm1pEkk=,tag:Bf7b/8E0CEwya9ZEcSyyTg==,type:str]
+    lastmodified: "2023-08-05T18:01:53Z"
+    mac: ENC[AES256_GCM,data:qVqYQDJ0UpKaRy5no1f7FD0mz3z2neSYmerRv2a8zPo3FE3dg7Y5P6m8bZ7ec2Xm9zMD/5mipIDHsgahGs6jsGKKAQhcSnb4qbsDYERArGxhHHWJVrwSdrK38C8ZTxntA69ZT9fPhqwe0l7eDpLA0YzGuy8P/Svgt+Bf3MReSHM=,iv:BnBBeNRFW0FGBHj/6Vx3OOz0ZzecO80z+beJ7DN+O/U=,tag:KA+NxIyGh8keaeZ32Lakng==,type:str]
     pgp: []
     encrypted_regex: ((?i)(pass|secret($|[^N])|ca|crt|key|token|^data$|^stringData$))
     version: 3.7.3
