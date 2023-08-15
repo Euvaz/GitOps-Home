@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: caddy
-      tag: 2.7.2-alpine@sha256:e9906c7864e06628e2933acdc2e269509289e14b630c9691344d583fa16a0588
+      tag: 2.7.2-alpine@sha256:fa4988bd8dc2df962ba39a1621de3d0aad2c725fbdec99f3ae81f704e818943e
     sidecars:
       frontend:
         image: vikunja/frontend:0.21.0@sha256:fdd4582979beee4a6bef2d4d8e3744809b82ab2e198d708a829d7189a0ad9882
