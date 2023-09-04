@@ -74,9 +74,9 @@ spec:
       resources:
         requests:
           cpu: 15m
-          memory: 866M
+          memory: 1556M
         limits:
-          memory: 1168M
+          memory: 1671M
     ruler:
       enabled: false
     metrics:
