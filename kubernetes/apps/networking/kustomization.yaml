@@ -7,7 +7,6 @@ resources:
   # Flux-Kustomizations
   #- ./external-dns/ks.yaml
   - ./external-ingresses/ks.yaml
-  #- ./ingress-nginx/ks.yaml
   - ./k8s-gateway/ks.yaml
   - ./metallb/ks.yaml
   - ./traefik/ks.yaml
