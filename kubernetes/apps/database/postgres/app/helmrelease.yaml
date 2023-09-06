@@ -22,11 +22,6 @@ spec:
       persistence:
         enabled: true
         existingClaim: postgresql-v1
-      initdb:
-        scripts:
-          init-synapse.sql: | # TODO: Migrate to PGO
-            CREATE ROLE "synapse" WITH LOGIN PASSWORD '${SECRET_SYNAPSE_DATABASE_PASSWORD}';
-            CREATE DATABASE synapse WITH OWNER 'synapse' ENCODING 'UTF8' LOCALE 'C' TEMPLATE template0;
       resources:
         requests:
           cpu: 15m
