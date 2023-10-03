@@ -62,9 +62,9 @@ spec:
       resources:
         requests:
           cpu: 15m
-          memory: 352M
+          memory: 549M
         limits:
-          memory: 352M
+          memory: 549M
     storegateway:
       enabled: true
       persistence:
