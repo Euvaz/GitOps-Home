@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: vpa
-      version: 3.0.1
+      version: 2.5.1
       sourceRef:
         kind: HelmRepository
         name: fairwinds
@@ -32,6 +32,6 @@ spec:
     resources:
       requests:
         cpu: 15m
-        memory: 352M
+        memory: 105M
       limits:
-        memory: 352M
+        memory: 105M
