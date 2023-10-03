@@ -11,16 +11,3 @@ spec:
     repository: qbittorrent-restic-secret
     destinationPVC: qbittorrent-config-v1
     copyMethod: Direct
----
-apiVersion: volsync.backube/v1alpha1
-kind: ReplicationDestination
-metadata:
-  name: sabnzbd-config-v1-dest
-  namespace: download
-spec:
-  trigger:
-    manual: restore-once
-  restic:
-    repository: sabnzbd-restic-secret
-    destinationPVC: sabnzbd-config-v1
-    copyMethod: Direct
