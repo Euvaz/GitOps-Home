@@ -23,7 +23,7 @@ spec:
       retries: 5
   values:
     image:
-      repository: ghcr.io/benphelps/homepage
+      repository: ghcr.io/gethomepage/homepage
       tag: v0.7.1
     enableRbac: true
     env:
