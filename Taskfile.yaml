@@ -12,9 +12,8 @@ env:
   KUBECONFIG: "{{.PROJECT_DIR}}/kubeconfig"
 
 includes:
-  cluster: .taskfiles/ClusterTasks.yml
-  precommit: .taskfiles/PrecommitTasks.yml
-  sops: .taskfiles/SopsTasks.yml
+  cluster: .taskfiles/ClusterTasks.yaml
+  precommit: .taskfiles/PrecommitTasks.yaml
 
 tasks:
 
