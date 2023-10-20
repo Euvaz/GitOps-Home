@@ -34,7 +34,7 @@ spec:
       periodSeconds: 10
     image:
       repository: itzg/minecraft-server
-      tag: java8-multiarch@sha256:658b878455fbf989ce11662034962e7f0d8ce0571fb04d9c63e07421764c7614
+      tag: java8-multiarch@sha256:968a7ab0fd74649c09d08b27eafdde7a762cc8a9df3c82da57cf0c225ade3ad0
     minecraftServer:
       eula: "TRUE"
       version: "1.12.2"
