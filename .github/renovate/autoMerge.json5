@@ -5,7 +5,6 @@
       "matchManagers": ["github-actions"],
       "automerge": true,
       "automergeType": "branch",
-      "requiredStatusChecks": null,
       "matchUpdateTypes": ["minor", "patch"],
     },
     {
@@ -13,7 +12,6 @@
       "matchManagers": ["pre-commit"],
       "automerge": true,
       "automergeType": "branch",
-      "requiredStatusChecks": null,
       "matchUpdateTypes": ["minor", "patch"],
     },
     {
@@ -21,7 +19,6 @@
       "matchDatasources": ["docker"],
       "automerge": true,
       "automergeType": "branch",
-      "requiredStatusChecks": null,
       "matchUpdateTypes": ["minor", "patch"],
     },
     {
@@ -29,7 +26,6 @@
       "matchDatasources": ["helm"],
       "automerge": true,
       "automergeType": "branch",
-      "requiredStatusChecks": null,
       "matchUpdateTypes": ["minor", "patch"],
     },
     {
@@ -37,7 +33,6 @@
       "matchManagers": ["flux"],
       "automerge": true,
       "automergeType": "branch",
-      "requiredStatusChecks": null,
       "matchUpdateTypes": ["patch"],
     },
   ]
