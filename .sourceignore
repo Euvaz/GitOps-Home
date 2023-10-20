@@ -2,16 +2,11 @@
 .github/
 .taskfiles/
 .vscode/
-provision/
-tmpl/
-.config.sample.env
 .envrc
 .gitattributes
 .gitignore
 .pre-commit-config.yaml
 .sops.yaml
-ansible.cfg
-configure
 LICENSE
 README.md
-Taskfile.yml
+Taskfile.yaml
