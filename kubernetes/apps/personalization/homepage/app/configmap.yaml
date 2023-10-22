@@ -48,12 +48,15 @@ data:
       Media Management:
         style: row
         columns: 4
-      FileOps:
-        style: row
-        columns: 2
       Collaboration:
         style: row
         columns: 4
+      Professional:
+        style: column
+        columns: 1
+      FileOps:
+        style: column
+        columns: 1
       Observability:
         style: column
         columns: 1
@@ -61,11 +64,11 @@ data:
         style: column
         columns: 1
       Security:
-        style: row
-        columns: 2
+        style: column
+        columns: 1
       Downloaders:
-        style: row
-        columns: 2
+        style: column
+        columns: 1
       Storage:
         style: row
         columns: 2
