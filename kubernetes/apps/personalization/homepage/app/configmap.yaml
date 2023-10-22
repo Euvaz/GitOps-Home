@@ -52,8 +52,8 @@ data:
         style: row
         columns: 4
       Professional:
-        style: column
-        columns: 1
+        style: row
+        columns: 2
       FileOps:
         style: column
         columns: 1
