@@ -1,0 +1,60 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: bloghugo
+  namespace: professional
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.0.3
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+      interval: 15m
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: ghcr.io/euvaz/bloghugo
+              tag: v0.1.1@sha256:84d6010bff23d83b33deba28dc611d580a2daeb61c2387cc4d9e69ad03c26f0c
+    env:
+      TZ: "${TIMEZONE}"
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+    ingress:
+      main:
+        enabled: true
+        className: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          # gethomepage.dev/enabled: "true"
+          # gethomepage.dev/name: "BlogHugo"
+          # gethomepage.dev/group: "Professional"
+          # gethomepage.dev/icon: "hugo"
+          # gethomepage.dev/description: ""
+        hosts:
+          - host: &host "blog.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: blog-tls
+    resources:
+      requests:
+        cpu: 5m
+        memory: 100M
+      limits:
+        memory: 100M
