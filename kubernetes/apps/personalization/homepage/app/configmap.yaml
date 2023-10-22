@@ -55,8 +55,8 @@ data:
         style: row
         columns: 2
       FileOps:
-        style: column
-        columns: 1
+        style: row
+        columns: 2
       Observability:
         style: column
         columns: 1
