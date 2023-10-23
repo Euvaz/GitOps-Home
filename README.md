@@ -8,9 +8,9 @@ Effectively, this GitHub repository is the heart of my cluser.
 
 ## Overview
 
-- [Repository structure](https://github.com/euvaz/gitops-home#-repository-structure)
-- [Rebuild counter](https://github.com/euvaz/gitops-home#-rebuild-counter-6)
-- [Thanks](https://github.com/euvaz/gitops-home#-thanks)
+- [Repository structure](#-repository-structure)
+- [Rebuild counter](#-rebuild-counter-6)
+- [Thanks](#-thanks)
 
 ## 📂 Repository structure
 
