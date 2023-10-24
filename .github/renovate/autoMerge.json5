@@ -39,6 +39,6 @@
       "ignoreTests": true,
       "automergeType": "branch",
       "matchUpdateTypes": ["patch"],
-    },
+    }
   ]
 }
