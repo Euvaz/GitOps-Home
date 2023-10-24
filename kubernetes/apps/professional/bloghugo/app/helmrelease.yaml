@@ -22,7 +22,7 @@ spec:
           main:
             image:
               repository: ghcr.io/euvaz/bloghugo
-              tag: v0.1.1@sha256:84d6010bff23d83b33deba28dc611d580a2daeb61c2387cc4d9e69ad03c26f0c
+              tag: v0.1.2@sha256:6a40a36e502687ab29bed731b283ba57111e7c9debf05590915c328048880e12
     env:
       TZ: "${TIMEZONE}"
     service:
