@@ -8,7 +8,7 @@ helmCharts:
     version: 1.14.3
     releaseName: cilium
     namespace: kube-system
-    valuesFile: https://raw.githubusercontent.com/Euvaz/GitOps-Home/main/kubernetes/apps/kube-system/cilium/app/1.14.x.yaml
+    valuesFile: ../../../kubernetes/apps/kube-system/cilium/app/1.14.x.yaml
 commonAnnotations:
   meta.helm.sh/release-name: cilium
   meta.helm.sh/release-namespace: kube-system
