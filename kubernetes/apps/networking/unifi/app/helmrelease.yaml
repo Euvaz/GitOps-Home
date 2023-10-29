@@ -8,28 +8,90 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: unifi
-      version: 5.1.2
+      chart: app-template
+      version: 2.0.3
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home
+        name: bjw-s
         namespace: flux-system
       interval: 15m
   values:
-    image:
-      repository: jacobalberty/unifi
-      tag: v7.5.176
-    env:
-      TZ: "${TIMEZONE}"
+    defaultPodOptions:
+      securityContext:
+        runAsUser: 999
+        runAsGroup: 999
+        fsGroup: 999
+        fsGroupChangePolicy: "OnRootMismatch"
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: jacobalberty/unifi
+              tag: v7.5.176
+            probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+              startup:
+                enabled: false
+            env:
+              TZ: "${TIMEZONE}"
+              RUNAS_UID0: "false"
+              UNIFI_UID: "999"
+              UNIFI_GID: "999"
+              UNIFI_STDOUT: "true"
+              JVM_INIT_HEAP_SIZE:
+              JVM_MAX_HEAP_SIZE: 1024M
+            resources:
+              requests:
+                memory: 750Mi
+              limits:
+                memory: 1000Mi
     service:
       main:
         type: LoadBalancer
+        annotations:
+          traefik.ingress.kubernetes.io/service.serversscheme: "https"
         loadBalancerIP: "${LB_UNIFI_IP}"
         externalTrafficPolicy: Local
+        ports:
+          http:
+            port: 8443
+            protocol: HTTPS
+          controller:
+            enabled: true
+            port: 8080
+            protocol: TCP
+          portal-http:
+            enabled: false
+            port: 8880
+            protocol: HTTP
+          portal-https:
+            enabled: false
+            port: 8843
+            protocol: HTTPS
+          speedtest:
+            enabled: true
+            port: 6789
+            protocol: TCP
+          stun:
+            enabled: true
+            port: 3478
+            protocol: UDP
+          syslog:
+            enabled: true
+            port: 5514
+            protocol: UDP
+          discovery:
+            enabled: true
+            port: 10001
+            protocol: UDP
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
+        className: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
@@ -43,6 +105,9 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
@@ -51,8 +116,3 @@ spec:
       data:
         enabled: true
         existingClaim: unifi-config-v1
-    resources:
-      requests:
-        memory: 750Mi
-      limits:
-        memory: 1000Mi
