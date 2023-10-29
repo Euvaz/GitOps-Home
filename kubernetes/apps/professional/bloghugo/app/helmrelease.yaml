@@ -23,8 +23,14 @@ spec:
             image:
               repository: ghcr.io/euvaz/bloghugo
               tag: v0.1.2@sha256:6a40a36e502687ab29bed731b283ba57111e7c9debf05590915c328048880e12
-    env:
-      TZ: "${TIMEZONE}"
+            env:
+              TZ: "${TIMEZONE}"
+            resources:
+              requests:
+                cpu: 5m
+                memory: 100M
+              limits:
+                memory: 100M
     service:
       main:
         ports:
@@ -55,9 +61,3 @@ spec:
           - hosts:
               - *host
             secretName: blog-tls
-    resources:
-      requests:
-        cpu: 5m
-        memory: 100M
-      limits:
-        memory: 100M
