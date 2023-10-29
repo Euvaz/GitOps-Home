@@ -32,6 +32,11 @@ spec:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         external-dns/is-public: "true"
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: "Weave GitOps"
+        gethomepage.dev/group: "Observability"
+        gethomepage.dev/icon: "https://www.weave.works/assets/favicon/favicon_300px.png"
+        gethomepage.dev/description: "Open source developer platform."
       hosts:
         - host: &host "gitops.${SECRET_DOMAIN}"
           paths:
