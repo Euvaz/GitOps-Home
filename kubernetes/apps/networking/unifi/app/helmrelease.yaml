@@ -29,13 +29,6 @@ spec:
             image:
               repository: jacobalberty/unifi
               tag: v7.5.176
-            probes:
-              liveness:
-                enabled: false
-              readiness:
-                enabled: false
-              startup:
-                enabled: false
             env:
               TZ: "${TIMEZONE}"
               RUNAS_UID0: "false"
@@ -116,3 +109,5 @@ spec:
       data:
         enabled: true
         existingClaim: unifi-config-v1
+        globalMounts:
+          - path: /unifi
