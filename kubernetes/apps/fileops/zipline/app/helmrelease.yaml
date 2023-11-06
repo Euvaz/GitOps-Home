@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: ghcr.io/diced/zipline
-      tag: 3.7.4@sha256:000d61f694d002d94a46b089b4d2617a72fe2cba3c1388ad149233e654625fe3
+      tag: 3.7.5@sha256:b488b7bc4c6902f95faf04a5649c2d5ad6895b42a73dc6bbf0a3a070591e7e1c
     env:
       TZ: "${TIMEZONE}"
       DATASOURCE_TYPE: "s3"
