@@ -39,9 +39,9 @@ spec:
               JVM_MAX_HEAP_SIZE: 1024M
             resources:
               requests:
-                memory: 750Mi
+                memory: 979M
               limits:
-                memory: 1000Mi
+                memory: 1095M
     service:
       main:
         type: LoadBalancer
