@@ -83,8 +83,6 @@ spec:
         enableFeatures:
           - exemplar-storage
         scrapeInterval: 1m
-        secrets:
-          - etcd-client-cert
         podAntiAffinity: hard
         resources:
           requests:
