@@ -2715,7 +2715,7 @@ clustermesh:
       image:
         override: ~
         repository: "quay.io/cilium/kvstoremesh"
-        tag: "v1.14.3"
+        tag: "v1.14.4"
         # kvstoremesh-digest
         digest: ""
         useDigest: false
