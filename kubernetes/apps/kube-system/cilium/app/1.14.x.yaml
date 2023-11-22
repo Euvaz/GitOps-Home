@@ -3120,7 +3120,7 @@ authentication:
           skipKubeletVerification: true
         server:
           # -- SPIRE server image
-          image: ghcr.io/spiffe/spire-server:1.8.4@sha256:bf79e0a921f8b8aa92602f7ea335616e72f7e91f939848e7ccc52d5bddfe96a1
+          image: ghcr.io/spiffe/spire-server:1.8.5@sha256:28269265882048dcf0fed32fe47663cd98613727210b8d1a55618826f9bf5428
           # -- SPIRE server service account
           serviceAccount:
             create: true
