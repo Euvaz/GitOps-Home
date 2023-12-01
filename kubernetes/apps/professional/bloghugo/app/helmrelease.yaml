@@ -50,7 +50,7 @@ spec:
           gethomepage.dev/icon: "hugo"
           gethomepage.dev/description: "Self-Host Blog."
         hosts:
-          - host: &host "blog.${SECRET_DOMAIN}"
+          - host: &host "blog.virgil.rodeo"
             paths:
               - path: /
                 pathType: Prefix
