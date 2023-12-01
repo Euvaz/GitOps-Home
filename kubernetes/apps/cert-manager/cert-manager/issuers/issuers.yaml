@@ -17,7 +17,7 @@ spec:
             secretAccessKeySecretRef:
               name: cert-manager-secret
               key: secret-access-key
-            hostedZoneID: Z02699697TWCV4M5O3U5
+            # hostedZoneID: Z02699697TWCV4M5O3U5
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -37,4 +37,4 @@ spec:
             secretAccessKeySecretRef:
               name: cert-manager-secret
               key: secret-access-key
-            hostedZoneID: Z02699697TWCV4M5O3U5
+            # hostedZoneID: Z02699697TWCV4M5O3U5
