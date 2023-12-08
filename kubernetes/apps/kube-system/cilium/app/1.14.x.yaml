@@ -3107,7 +3107,7 @@ authentication:
         # SPIRE agent configuration
         agent:
           # -- SPIRE agent image
-          image: ghcr.io/spiffe/spire-agent:1.8.5@sha256:99405637647968245ff9fe215f8bd2bd0ea9807be9725f8bf19fe1b21471e52b
+          image: ghcr.io/spiffe/spire-agent:1.8.6@sha256:d894dbb18443e433d3fcc081fec665cf01b6a3689e709434242b6d65d333ffdc
           # -- SPIRE agent service account
           serviceAccount:
             create: true
