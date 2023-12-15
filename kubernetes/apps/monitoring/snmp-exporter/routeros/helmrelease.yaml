@@ -45,14 +45,14 @@ spec:
       params:
         - name: 10.0.0.1
           module:
-            - mikrotik
+            - routeros
           target: 10.0.0.1
         - name: 10.0.0.2
           module:
-            - mikrotik
+            - routeros
           target: 10.0.0.2
       path: /snmp
-      scrapeTimeout: 30s
+      scrapeTimeout: 45s
       relabelings:
         - sourceLabels: [__param_target]
           targetLabel: instance

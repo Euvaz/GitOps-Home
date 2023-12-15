@@ -6,7 +6,7 @@ metadata:
   namespace: monitoring
 data:
   snmp.yaml: |
-    mikrotik:
+    routeros:
       retries: 5
       timeout: 90s
       version: 1
