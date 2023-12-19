@@ -21,7 +21,7 @@ spec:
       tag: 2.7.6-alpine@sha256:eabac2898cf9fc7dc94d3fb03ac84c9c923aa6cc6f04874937d2f525e0d2f006
     sidecars:
       frontend:
-        image: vikunja/frontend:0.21.0@sha256:fdd4582979beee4a6bef2d4d8e3744809b82ab2e198d708a829d7189a0ad9882
+        image: vikunja/frontend:0.22.0@sha256:f603ef35acfe030d34752bc3d84e45a234152110345edf8cf2939db986e900b1
         env:
           - name: VIKUNJA_ALLOW_ICON_CHANGES
             value: "false"
