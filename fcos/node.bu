@@ -1,0 +1,104 @@
+---
+variant: fcos
+version: 1.5.0
+passwd:
+  users:
+    - # Add Default User
+      name: cherub
+      groups: ["wheel", "sudo"]
+      ssh_authorized_keys:
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPPnYyB/d6LqIT62ApUvRcawtdHS3fA4AtqwjMsQh/6I user@personal-laptop
+systemd:
+  units:
+    - # Install K3s Dependencies
+      name: "rpm-ostree-install-k3s-dependencies.service"
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Install k3s dependencies
+        Wants=network-online.target
+        After=network-online.target
+        Before=zincati.service
+        ConditionPathExists=|!/usr/bin/kubectl
+        ConditionPathExists=|!/usr/share/selinux/packages/k3s.pp
+
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes kubectl k3s-selinux
+
+        [Install]
+        WantedBy=multi-user.target
+storage:
+  disks:
+    - # Primary Disk
+      device: /dev/disk/by-id/coreos-boot-disk # Utilize Disk Device OS was Booted From
+      wipe_table: false
+      partitions:
+      - # Specify Root Partition
+        label: root
+        number: 4
+        size_mib: 8192
+        resize: true
+      - # Specify Data Partition
+        label: var
+        size_mib: 0
+  filesystems:
+    - # Data Partition
+      device: /dev/disk/by-partlabel/var
+      path: /var
+      format: xfs
+      with_mount_unit: true # Mount filesystem in the real root
+  files:
+    - # Add Kubernetes Repository
+      path: /etc/yum.repos.d/kubernetes.repo
+      mode: 0644
+      contents:
+        inline: |
+          [kubernetes]
+          name=Kubernetes
+          baseurl=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/
+          enabled=1
+          gpgcheck=1
+          gpgkey=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/repodata/repomd.xml.key
+    - # Add Rancher Repository
+      path: /etc/yum.repos.d/rancher-k3s-common.repo
+      mode: 0644
+      contents:
+        inline: |
+          [rancher-k3s-common-stable]
+          name=Rancher K3s Common (stable)
+          baseurl=https://rpm.rancher.io/k3s/stable/common/coreos/noarch
+          enabled=1
+          gpgcheck=1
+          repo_gpgcheck=0
+          gpgkey=https://rpm.rancher.io/public.key
+    - # Grab K3s Binary
+      path: /usr/local/bin/k3s
+      overwrite: true
+      mode: 0755
+      contents:
+        source: "https://github.com/k3s-io/k3s/releases/download/v1.26.5%2Bk3s1/k3s"
+        verification:
+          hash: "sha256-1f18ea583eaf8b9ffb325dc077a9b49a9c250d179e6c24a03105aeda825e87f1"
+    - # Define Kubelet Configuration
+      path: /etc/rancher/k3s/kubelet.config
+      mode: 0644
+      contents:
+        inline: |
+          apiVersion: kubelet.config.k8s.io/v1beta1
+          kind: KubeletConfiguration
+          shutdownGracePeriod: 60s
+          shutdownGracePeriodCriticalPods: 10s
+    - # Define Periodic Updates for Sat-Sun @ 23:30 CST
+      path: /etc/zincati/config.d/55-updates-strategy.toml
+      contents:
+        inline: |
+          [updates]
+          strategy = "periodic"
+          [updates.periodic]
+          time_zone = "America/Chicago"
+          [[updates.periodic.window]]
+          days = [ "Saturday", "Sunday" ]
+          start_time = "23:30"
+          length_minutes = 60
