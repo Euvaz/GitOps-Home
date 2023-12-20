@@ -102,3 +102,10 @@ storage:
           days = [ "Saturday", "Sunday" ]
           start_time = "23:30"
           length_minutes = 60
+    - # Define SSH Configuration
+      path: /etc/ssh/sshd_config
+      contents:
+        inline: |
+          Include /etc/ssh/sshd_config.d/*.conf
+          Port 26147
+          AuthorizedKeysFile .ssh/authorized_keys
