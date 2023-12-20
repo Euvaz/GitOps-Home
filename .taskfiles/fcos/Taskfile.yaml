@@ -30,8 +30,6 @@ tasks:
   download:
     desc: Download Fedora CoreOS ISO
     dir: ./fcos/
-    sources:
-      - ./fedora-coreos.iso
     cmds:
       - mv $(coreos-installer download --format iso --decompress) fedora-coreos.iso
   build:
