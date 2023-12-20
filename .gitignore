@@ -1,3 +1,7 @@
-# k8s
+# Fedora CoreOS
+fcos/*.ign
+fcos/*.iso
+
+# Kubernetes
 talosconfig
 kubeconfig
