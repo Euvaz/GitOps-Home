@@ -1,0 +1,22 @@
+---
+kubernetes:
+  vars:
+    ansible_user: cherub
+    ansible_ssh_port: 22
+  children:
+    controlplanes:
+      hosts:
+        k8s-cp-1:
+          ansible_host: 10.11.0.50
+        k8s-cp-2:
+          ansible_host: 10.11.0.51
+        k8s-cp-3:
+          ansible_host: 10.11.0.52
+    workers:
+      hosts:
+        k8s-w-1:
+          ansible_host: 10.11.0.53
+        k8s-w-2:
+          ansible_host: 10.11.0.54
+        k8s-w-3:
+          ansible_host: 10.11.0.55
