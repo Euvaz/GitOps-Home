@@ -5,3 +5,6 @@ fcos/*.iso
 # Kubernetes
 talosconfig
 kubeconfig
+
+# Task
+.task/*
