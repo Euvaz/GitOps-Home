@@ -24,6 +24,9 @@ systemd:
         Type=oneshot
         RemainAfterExit=yes
         ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes python3
+
+        [Install]
+        WantedBy=multi-user.target
     - # Install K3s Dependencies
       name: "rpm-ostree-install-k3s-dependencies.service"
       enabled: true
