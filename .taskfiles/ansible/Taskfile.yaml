@@ -18,4 +18,4 @@ tasks:
   uptime:
     desc: Provide host uptimes
     cmds:
-      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/hosts.yaml --one-line --module-name "uptime"
+      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/hosts.yaml --one-line --args "uptime"
