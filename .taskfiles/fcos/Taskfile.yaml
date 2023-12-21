@@ -37,6 +37,7 @@ tasks:
     summary: |
       Args:
         ignition: Ignition file
+        disk: Installation disk
         iso: Output ISO file
     deps:
       - ignition-verify
@@ -45,7 +46,7 @@ tasks:
       - |
         coreos-installer iso customize \
           --dest-ignition {{.ignition}} \
-          --dest-device /dev/sda \
+          --dest-device {{.disk}} \
           --output {{.iso}} \
           ./fcos/fedora-coreos.iso
   clean:
