@@ -34,7 +34,6 @@ systemd:
         [Unit]
         Description=Install k3s dependencies
         Wants=network-online.target
-        After=network-online.target
         Before=zincati.service
         ConditionPathExists=|!/usr/share/selinux/packages/k3s.pp
 
