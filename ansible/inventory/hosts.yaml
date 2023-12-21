@@ -1,7 +1,7 @@
 ---
 kubernetes:
   vars:
-    ansible_user: cherub
+    ansible_user: seraph
     ansible_ssh_port: 22
   children:
     controlplanes:
