@@ -4,7 +4,7 @@ version: 1.5.0
 passwd:
   users:
     - # Add Default User
-      name: cherub
+      name: seraph
       groups: ["wheel", "sudo"]
       ssh_authorized_keys:
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPPnYyB/d6LqIT62ApUvRcawtdHS3fA4AtqwjMsQh/6I user@personal-laptop
@@ -19,13 +19,12 @@ systemd:
         Wants=network-online.target
         After=network-online.target
         Before=zincati.service
-        ConditionPathExists=|!/usr/bin/kubectl
         ConditionPathExists=|!/usr/share/selinux/packages/k3s.pp
 
         [Service]
         Type=oneshot
         RemainAfterExit=yes
-        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes kubectl k3s-selinux
+        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes k3s-selinux
 
         [Install]
         WantedBy=multi-user.target
@@ -50,18 +49,7 @@ storage:
       format: xfs
       with_mount_unit: true # Mount filesystem in the real root
   files:
-    - # Add Kubernetes Repository
-      path: /etc/yum.repos.d/kubernetes.repo
-      mode: 0644
-      contents:
-        inline: |
-          [kubernetes]
-          name=Kubernetes
-          baseurl=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/
-          enabled=1
-          gpgcheck=1
-          gpgkey=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/repodata/repomd.xml.key
-    - # Add Rancher Repository
+    - # Add Rancher Repository for "k3s-selinux"
       path: /etc/yum.repos.d/rancher-k3s-common.repo
       mode: 0644
       contents:
@@ -102,10 +90,3 @@ storage:
           days = [ "Saturday", "Sunday" ]
           start_time = "23:30"
           length_minutes = 60
-    - # Define SSH Configuration
-      path: /etc/ssh/sshd_config
-      contents:
-        inline: |
-          Include /etc/ssh/sshd_config.d/*.conf
-          Port 26147
-          AuthorizedKeysFile .ssh/authorized_keys
