@@ -10,37 +10,21 @@ passwd:
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPPnYyB/d6LqIT62ApUvRcawtdHS3fA4AtqwjMsQh/6I user@personal-laptop
 systemd:
   units:
-    - # Install Python
-      name: "rpm-ostree-install-python.service"
+    - # Install Dependencies
+      name: "rpm-ostree-install-dependencies.service"
       enabled: true
       contents: |
         [Unit]
-        Description=Install Python
+        Description=Install Dependencies
         Wants=network-online.target
         Before=zincati.service
         ConditionPathExists=|!/usr/bin/python
-
-        [Service]
-        Type=oneshot
-        RemainAfterExit=yes
-        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes python3
-
-        [Install]
-        WantedBy=multi-user.target
-    - # Install K3s Dependencies
-      name: "rpm-ostree-install-k3s-dependencies.service"
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Install k3s dependencies
-        Wants=network-online.target
-        Before=zincati.service
         ConditionPathExists=|!/usr/share/selinux/packages/k3s.pp
 
         [Service]
         Type=oneshot
         RemainAfterExit=yes
-        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes k3s-selinux
+        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes python3 k3s-selinux
 
         [Install]
         WantedBy=multi-user.target
