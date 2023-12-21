@@ -10,6 +10,20 @@ passwd:
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPPnYyB/d6LqIT62ApUvRcawtdHS3fA4AtqwjMsQh/6I user@personal-laptop
 systemd:
   units:
+    - # Install Python
+      name: "rpm-ostree-install-python.service"
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Install Python
+        Wants=network-online.target
+        Before=zincati.service
+        ConditionPathExists=|!/usr/bin/python
+
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes python3
     - # Install K3s Dependencies
       name: "rpm-ostree-install-k3s-dependencies.service"
       enabled: true

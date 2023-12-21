@@ -3,6 +3,10 @@
 version: "3"
 
 tasks:
+  prepare:
+    desc: Prepare hosts for Kubernetes
+    cmds:
+      - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/hosts.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-prepare.yaml
   list:
     desc: List all hosts
     cmds:
