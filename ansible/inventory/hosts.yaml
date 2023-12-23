@@ -5,18 +5,22 @@ kubernetes:
     ansible_ssh_port: 22
   children:
     controlplanes:
-      hosts:
-        k8s-cp-01:
-          ansible_host: 10.11.0.50
-        k8s-cp-02:
-          ansible_host: 10.11.0.51
-        k8s-cp-03:
-          ansible_host: 10.11.0.52
     workers:
-      hosts:
-        k8s-w-01:
-          ansible_host: 10.11.0.53
-        k8s-w-02:
-          ansible_host: 10.11.0.54
-        k8s-w-03:
-          ansible_host: 10.11.0.55
+
+controlplanes:
+  hosts:
+    k8s-cp-01:
+      ansible_host: 10.11.0.50
+    k8s-cp-02:
+      ansible_host: 10.11.0.51
+    k8s-cp-03:
+      ansible_host: 10.11.0.52
+
+workers:
+  hosts:
+    k8s-w-01:
+      ansible_host: 10.11.0.53
+    k8s-w-02:
+      ansible_host: 10.11.0.54
+    k8s-w-03:
+      ansible_host: 10.11.0.55
