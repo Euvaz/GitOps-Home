@@ -132,12 +132,14 @@ spec:
       vikunja-config:
         enabled: true
         type: configMap
+        name: *app
         globalMounts:
           - path: /etc/vikunja/config.yaml
             subPath: config.yaml
       caddy-config:
         enabled: true
         type: configMap
+        name: *app
         globalMounts:
           - path: /etc/caddy/Caddyfile
             subPath: Caddyfile
