@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.1
+      version: 2.4.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -22,20 +22,32 @@ spec:
     remediation:
       retries: 5
   values:
-    image:
-      repository: vaultwarden/server
-      tag: 1.30.1-alpine@sha256:f68ffb194610ddbe5b8e01cdff9a0da2093d70f82e837e1bdc62bc99b076d6ab
-    env:
-      TZ: "${TIMEZONE}"
-      DOMAIN: "https://vault.${SECRET_DOMAIN}"
-      DATA_FOLDER: "config"
-      SIGNUPS_ALLOWED: false
-      WEBSOCKET_ENABLED: true
-      WEBSOCKET_ADDRESS: 0.0.0.0
-      WEBSOCKET_PORT: &websocket-port 3012
-    envFrom:
-      - secretRef:
-          name: *app
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: vaultwarden/server
+              tag: 1.30.1-alpine@sha256:f68ffb194610ddbe5b8e01cdff9a0da2093d70f82e837e1bdc62bc99b076d6ab
+            env:
+              TZ: "${TIMEZONE}"
+              DOMAIN: "https://vault.${SECRET_DOMAIN}"
+              DATA_FOLDER: "config"
+              SIGNUPS_ALLOWED: false
+              WEBSOCKET_ENABLED: true
+              WEBSOCKET_ADDRESS: 0.0.0.0
+              WEBSOCKET_PORT: &websocket-port 3012
+            envFrom:
+              - secretRef:
+                  name: *app
+            podSecurityContext:
+              runAsUser: 568
+              runAsGroup: 568
+              fsGroup: 568
+              fsGroupChangePolicy: "OnRootMismatch"
+              supplementalGroups:
+                - 100
+            # TODO: Add resources.requests and resources.limits
     service:
       main:
         ports:
@@ -47,7 +59,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
+        className: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
@@ -62,19 +74,26 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+                service:
+                  name: main
+                  port: http
               - path: /notifications/hub
                 pathType: Prefix
                 service:
-                  port: *websocket-port
+                  name: main
+                  port: websocket
               - path: /notifications/hub/negotiate
                 pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
             secretName: vault-tls
       admin:
         enabled: true
-        ingressClassName: "traefik"
+        className: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
@@ -83,17 +102,13 @@ spec:
             paths:
               - path: /admin
                 pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
             secretName: vault-tls
-    podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
-      fsGroupChangePolicy: "OnRootMismatch"
-      supplementalGroups:
-        - 100
     persistence:
       config:
         enabled: true
