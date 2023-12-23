@@ -6,16 +6,16 @@ tasks:
   prepare:
     desc: Prepare hosts for Kubernetes
     cmds:
-      - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/hosts.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-prepare.yaml
+      - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-prepare.yaml
   list:
     desc: List all hosts
     cmds:
-      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/hosts.yaml --list-hosts
+      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml --list-hosts
   ping:
     desc: Ping all hosts
     cmds:
-      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/hosts.yaml --one-line --module-name "ping"
+      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml --one-line --module-name "ping"
   uptime:
     desc: Provide host uptimes
     cmds:
-      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/hosts.yaml --one-line --args "uptime"
+      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml --one-line --args "uptime"
