@@ -9,34 +9,22 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 2.4.0
+      version: 1.5.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
   values:
-    controllers:
-      main:
-        containers:
-          main:
-            image:
-              repository: jellyfin/jellyfin
-              tag: 10.8.13
-            env:
-              TZ: "${TIMEZONE}"
-              JELLYFIN_CACHE_DIR: "/config/cache"
-            securityContext:
-              supplementalGroups:
-                - 44
-                - 5600
-            resources:
-              requests:
-                gpu.intel.com/i915: 1
-                cpu: 23m
-                memory: 7486M
-              limits:
-                gpu.intel.com/i915: 1
-                memory: 7486M
+    image:
+      repository: jellyfin/jellyfin
+      tag: 10.8.13
+    env:
+      TZ: "${TIMEZONE}"
+      JELLYFIN_CACHE_DIR: "/config/cache"
+    podSecurityContext:
+      supplementalGroups:
+        - 44
+        - 5600
     service:
       main:
         type: LoadBalancer
@@ -48,7 +36,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: "traefik"
+        ingressClassName: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
@@ -63,9 +51,6 @@ spec:
             paths:
               - path: /
                 type: Prefix
-                service:
-                  name: main
-                  port: http
         tls:
           - hosts:
               - *host
@@ -74,8 +59,7 @@ spec:
       config:
         enabled: true
         existingClaim: jellyfin-config-v1
-        globalMounts:
-        - path: /config
+        mountPath: /config
       media:
         enabled: true
         type: custom
@@ -83,8 +67,7 @@ spec:
           nfs:
             server: "nas.${SECRET_DOMAIN}"
             path: /zfsa/Media/
-        globalMounts:
-          - path: /media
+        mountPath: /media
         readOnly: true
       transcode:
         enabled: true
@@ -99,3 +82,11 @@ spec:
                   operator: In
                   values:
                     - "true"
+    resources:
+      requests:
+        gpu.intel.com/i915: 1
+        cpu: 23m
+        memory: 7486M
+      limits:
+        gpu.intel.com/i915: 1
+        memory: 7486M
