@@ -9,46 +9,56 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.1
+      version: 2.4.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
       interval: 15m
   values:
-    image:
-      repository: ghcr.io/requarks/wiki
-      pullPolicy: IfNotPresent
-      tag: "2.5.300"
-    env:
-      TZ: ${TIMEZONE}
-      APP_URL: "https://docs.${SECRET_DOMAIN}"
-      DB_TYPE: postgres
-      DB_HOST:
-        valueFrom:
-          secretKeyRef:
-            name: pg-cluster-wikijs-pguser-wikijs
-            key: host
-      DB_PORT:
-        valueFrom:
-          secretKeyRef:
-            name: pg-cluster-wikijs-pguser-wikijs
-            key: port
-      DB_NAME:
-        valueFrom:
-          secretKeyRef:
-            name: pg-cluster-wikijs-pguser-wikijs
-            key: dbname
-      DB_USER:
-        valueFrom:
-          secretKeyRef:
-            name: pg-cluster-wikijs-pguser-wikijs
-            key: user
-      DB_PASS:
-        valueFrom:
-          secretKeyRef:
-            name: pg-cluster-wikijs-pguser-wikijs
-            key: password
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: ghcr.io/requarks/wiki
+              pullPolicy: IfNotPresent
+              tag: "2.5.300"
+            env:
+              TZ: ${TIMEZONE}
+              APP_URL: "https://docs.${SECRET_DOMAIN}"
+              DB_TYPE: postgres
+              DB_HOST:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-wikijs-pguser-wikijs
+                    key: host
+              DB_PORT:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-wikijs-pguser-wikijs
+                    key: port
+              DB_NAME:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-wikijs-pguser-wikijs
+                    key: dbname
+              DB_USER:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-wikijs-pguser-wikijs
+                    key: user
+              DB_PASS:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-wikijs-pguser-wikijs
+                    key: password
+            resources:
+              requests:
+                cpu: 15m
+                memory: 381M
+              limits:
+                memory: 381M
     service:
       main:
         ports:
@@ -57,7 +67,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
+        className: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
@@ -71,14 +81,11 @@ spec:
           - host: &host "info.${SECRET_DOMAIN}"
             paths:
               - path: /
-                type: Prefix
+                pathType: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
             secretName: wikijs-tls
-    resources:
-      requests:
-        cpu: 15m
-        memory: 381M
-      limits:
-        memory: 381M
