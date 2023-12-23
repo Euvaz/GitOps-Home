@@ -69,12 +69,12 @@ spec:
         enabled: true
         existingClaim: navidrome-config-v1
         globalMounts:
-        - path: /data
+          - path: /data
       music:
         enabled: true
         type: nfs
         server: "nas.${SECRET_DOMAIN}"
         path: /zfsa/Media/Library/Music
         globalMounts:
-        - path: /music
-          readOnly: true
+          - path: /music
+            readOnly: true
