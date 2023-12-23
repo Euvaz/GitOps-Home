@@ -9,22 +9,34 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 1.5.1
+      version: 2.4.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
   values:
-    image:
-      repository: jellyfin/jellyfin
-      tag: 10.8.13
-    env:
-      TZ: "${TIMEZONE}"
-      JELLYFIN_CACHE_DIR: "/config/cache"
-    podSecurityContext:
-      supplementalGroups:
-        - 44
-        - 5600
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: jellyfin/jellyfin
+              tag: 10.8.13@sha256:05a9734d7e83086b957c5b7a16cbb5a60b5bb8d113ffb953e57547359dd05140
+            env:
+              TZ: "${TIMEZONE}"
+              JELLYFIN_CACHE_DIR: "/config/cache"
+            securityContext:
+              supplementalGroups:
+                - 44
+                - 5600
+            resources:
+              requests:
+                gpu.intel.com/i915: 1
+                cpu: 23m
+                memory: 7486M
+              limits:
+                gpu.intel.com/i915: 1
+                memory: 7486M
     service:
       main:
         type: LoadBalancer
@@ -36,7 +48,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
+        className: "traefik"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
@@ -51,6 +63,9 @@ spec:
             paths:
               - path: /
                 type: Prefix
+                service:
+                  name: main
+                  port: http
         tls:
           - hosts:
               - *host
@@ -59,16 +74,16 @@ spec:
       config:
         enabled: true
         existingClaim: jellyfin-config-v1
-        mountPath: /config
+        globalMounts:
+          - path: /config
       media:
         enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: "nas.${SECRET_DOMAIN}"
-            path: /zfsa/Media/
-        mountPath: /media
-        readOnly: true
+        type: nfs
+        server: "nas.${SECRET_DOMAIN}"
+        path: /zfsa/Media/
+        globalMounts:
+          - path: /media
+            readOnly: true
       transcode:
         enabled: true
         type: emptyDir
@@ -82,11 +97,3 @@ spec:
                   operator: In
                   values:
                     - "true"
-    resources:
-      requests:
-        gpu.intel.com/i915: 1
-        cpu: 23m
-        memory: 7486M
-      limits:
-        gpu.intel.com/i915: 1
-        memory: 7486M
