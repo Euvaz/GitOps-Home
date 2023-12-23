@@ -17,7 +17,7 @@ images:
   - name: fluxcd/source-controller
     newName: ghcr.io/fluxcd/source-controller
 patches:
-  - patch: |-
+  - patch: |
       $patch: delete
       apiVersion: networking.k8s.io/v1
       kind: NetworkPolicy
@@ -25,15 +25,4 @@ patches:
         name: not-used
     target:
       group: networking.k8s.io
-      version: v1
       kind: NetworkPolicy
-  - patch: |
-      - op: add
-        path: /spec/template/spec/containers/0/args/-
-        value: --concurrent=20
-      - op: add
-        path: /spec/template/spec/containers/0/args/-
-        value: --requeue-dependency=5s
-    target:
-      kind: Deployment
-      name: "(kustomize-controller|helm-controller|source-controller)"
