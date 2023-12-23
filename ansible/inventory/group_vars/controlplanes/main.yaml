@@ -1,0 +1,8 @@
+---
+k3s_control_node: true
+k3s_server:
+  disable: ["flannel", "local-storage", "metrics-server", "servicelb", "traefik"]
+  docker: false
+  node-ip: "{{ ansible_host }}"
+  tls-san: ["{{ kube_vip_address }}"]
+  write-kubeconfig-mode: "0644"
