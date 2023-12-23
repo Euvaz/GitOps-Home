@@ -53,7 +53,7 @@ spec:
           http:
             port: *port
       bittorrent:
-        enabled: true
+        controller: main
         type: LoadBalancer
         loadBalancerIP: "${LB_QBITTORRENT_IP}"
         externalTrafficPolicy: Local
