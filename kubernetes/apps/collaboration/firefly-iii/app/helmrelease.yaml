@@ -1,0 +1,104 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: &app firefly-iii
+  namespace: collaboration
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 2.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    createNamespace: true
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: fireflyiii/core
+              tag: version-6.1.0@sha256:08cd7ca54bb35b16de450ddcb7d5eacba82536d4bb41e03a2071bcc0cec09d85
+            env:
+              TZ: "${TIMEZONE}"
+              APP_URL: "https://cash.${SECRET_DOMAIN}"
+              DB_CONNECTION: "pgsql"
+              DB_HOST:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-firefly-iii-pguser-firefly-iii
+                    key: host
+              DB_PORT:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-firefly-iii-pguser-firefly-iii
+                    key: port
+              DB_DATABASE:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-firefly-iii-pguser-firefly-iii
+                    key: dbname
+              DB_USERNAME:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-firefly-iii-pguser-firefly-iii
+                    key: user
+              DB_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: pg-cluster-firefly-iii-pguser-firefly-iii
+                    key: password
+              TRUSTED_PROXIES: "**"
+              SEND_REGISTRATION_MAIL: false
+              SEND_ERROR_MESSAGE: false
+              SEND_LOGIN_NEW_IP_WARNING: false
+            envFrom:
+              - secretRef:
+                  name: *app
+            resources:
+              requests:
+                cpu: 100m
+                memory: 150Mi
+              limits:
+                memory: 1000Mi
+    service:
+      main:
+        ports:
+          http:
+            port: 8080
+    ingress:
+      main:
+        enabled: true
+        className: "traefik"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+          traefik.ingress.kubernetes.io/routerkubernetes/apps/collaboration/wikijs/db/kustomization.yaml.entrypoints: "websecure"
+        hosts:
+          - host: &host "cash.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+                service:
+                  name: main
+                  port: http
+            
+        tls:
+          - hosts:
+              - *host
+            secretName: firefly-iii-tls
+    persistence:
+      config:
+        enabled: true
+        existingClaim: firefly-iii-config-v1
+        mountPath: /var/www/html/firefly-iii/storage/upload
