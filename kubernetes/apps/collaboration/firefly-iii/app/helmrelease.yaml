@@ -83,7 +83,7 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
-          traefik.ingress.kubernetes.io/routerkubernetes/apps/collaboration/wikijs/db/kustomization.yaml.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
           - host: &host "cash.${SECRET_DOMAIN}"
             paths:
@@ -101,4 +101,5 @@ spec:
       config:
         enabled: true
         existingClaim: firefly-iii-config-v1
-        mountPath: /var/www/html/firefly-iii/storage/upload
+        globalMounts:
+          - path: /var/www/html/firefly-iii/storage/upload
