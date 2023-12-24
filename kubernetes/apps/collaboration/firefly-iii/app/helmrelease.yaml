@@ -102,6 +102,11 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Firefly III"
+          gethomepage.dev/group: "Collaboration"
+          gethomepage.dev/icon: "firefly"
+          gethomepage.dev/description: "A free and open source personal finance manager."
         hosts:
           - host: &host "cash.${SECRET_DOMAIN}"
             paths:
