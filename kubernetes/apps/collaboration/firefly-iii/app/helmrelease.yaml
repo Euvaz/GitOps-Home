@@ -71,6 +71,24 @@ spec:
                 memory: 150Mi
               limits:
                 memory: 1000Mi
+          cronjob:
+            image:
+              repository: alpine
+              tag: 3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48
+            command:
+              - sh
+            args:
+              - -c
+              - >-
+                echo "0 */3 * * * wget -qO- http://firefly-iii:8080/api/v1/cron/$(STATIC_CRON_TOKEN)"
+                | crontab -
+                && crond -f -L /dev/stdout
+            env:
+              - name: STATIC_CRON_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: *app
+                    key: STATIC_CRON_TOKEN
     service:
       main:
         ports:
