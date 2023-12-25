@@ -19,5 +19,5 @@ k3s_server:
   pause-image: registry.k8s.io/pause:3.9
   secrets-encryption: true
   service-cidr: 10.96.0.0/12
-  tls-san: ["{{ kube_vip_address }}"]
+  tls-san: ["{{ k3s_registration_address }}"]
   write-kubeconfig-mode: "0644"
