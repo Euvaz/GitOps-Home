@@ -19,12 +19,11 @@ systemd:
         Wants=network-online.target
         Before=zincati.service
         ConditionPathExists=|!/usr/bin/python
-        ConditionPathExists=|!/usr/share/selinux/packages/k3s.pp
 
         [Service]
         Type=oneshot
         RemainAfterExit=yes
-        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes python3 k3s-selinux
+        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes python3
 
         [Install]
         WantedBy=multi-user.target
@@ -49,35 +48,6 @@ storage:
       format: xfs
       with_mount_unit: true # Mount filesystem in the real root
   files:
-    - # Add Rancher Repository for "k3s-selinux"
-      path: /etc/yum.repos.d/rancher-k3s-common.repo
-      mode: 0644
-      contents:
-        inline: |
-          [rancher-k3s-common-stable]
-          name=Rancher K3s Common (stable)
-          baseurl=https://rpm.rancher.io/k3s/stable/common/coreos/noarch
-          enabled=1
-          gpgcheck=1
-          repo_gpgcheck=0
-          gpgkey=https://rpm.rancher.io/public.key
-    - # Grab K3s Binary
-      path: /usr/local/bin/k3s
-      overwrite: true
-      mode: 0755
-      contents:
-        source: "https://github.com/k3s-io/k3s/releases/download/v1.26.5%2Bk3s1/k3s"
-        verification:
-          hash: "sha256-1f18ea583eaf8b9ffb325dc077a9b49a9c250d179e6c24a03105aeda825e87f1"
-    - # Define Kubelet Configuration
-      path: /etc/rancher/k3s/kubelet.config
-      mode: 0644
-      contents:
-        inline: |
-          apiVersion: kubelet.config.k8s.io/v1beta1
-          kind: KubeletConfiguration
-          shutdownGracePeriod: 60s
-          shutdownGracePeriodCriticalPods: 10s
     - # Define Periodic Updates for Sat-Sun @ 23:30 CST
       path: /etc/zincati/config.d/55-updates-strategy.toml
       contents:
