@@ -23,7 +23,7 @@ systemd:
         [Service]
         Type=oneshot
         RemainAfterExit=yes
-        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes python3
+        ExecStart=rpm-ostree install --apply-live --allow-inactive --assumeyes python3 python3-kubernetes
 
         [Install]
         WantedBy=multi-user.target
