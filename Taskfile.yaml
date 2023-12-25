@@ -4,7 +4,7 @@ version: "3"
 
 vars:
   ANSIBLE_DIR: "{{.ROOT_DIR}}/ansible"
-  ENV: "{{.ENV | default \"stage\"}}"
+  ENV: "{{.ENV | default 'stage'}}"
   KUBERNETES_DIR: "{{.ROOT_DIR}}/kubernetes"
 
 env:
