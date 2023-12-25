@@ -7,6 +7,10 @@ tasks:
     desc: Prepare hosts for Kubernetes
     cmds:
       - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-prepare.yaml
+  install:
+    desc: Install Kubernetes on Hosts
+    cmds:
+      - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-installation.yaml
   list:
     desc: List all hosts
     cmds:
