@@ -7,6 +7,7 @@
         name: coredns
         kind: HelmChart
         namespace: kube-system
+      register: coredns_helmchart
     - name: CoreDNS | Await Coredns Rollout
       when: coredns_helmchart.resources | count > 0
       kubernetes.core.k8s_info:
