@@ -1,0 +1,6 @@
+[Unit]
+Description=Stale Containers
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/k3s crictl rmi --prune
