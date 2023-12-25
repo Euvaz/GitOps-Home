@@ -11,6 +11,10 @@ tasks:
     desc: Install Kubernetes on Hosts
     cmds:
       - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-installation.yaml
+  nuke:
+    desc: Uninstall Kubernetes from Hosts
+    cmds:
+      - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-nuke.yaml
   list:
     desc: List all hosts
     cmds:
