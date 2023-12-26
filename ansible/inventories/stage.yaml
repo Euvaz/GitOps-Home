@@ -3,8 +3,11 @@ kubernetes:
   vars:
     ansible_user: seraph
     ansible_ssh_port: 22
+    k3s_use_unsupported_config: true
   children:
     kubernetes_main:
+      vars:
+        k3s_registration_address: 192.168.122.254
       children:
         kubernetes_main_controlplanes:
         kubernetes_main_workers:
