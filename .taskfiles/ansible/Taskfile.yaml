@@ -3,18 +3,6 @@
 version: "3"
 
 tasks:
-  prepare:
-    desc: Prepare hosts for Kubernetes
-    cmds:
-      - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-prepare.yaml
-  install:
-    desc: Install Kubernetes on Hosts
-    cmds:
-      - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-installation.yaml
-  nuke:
-    desc: Uninstall Kubernetes from Hosts
-    cmds:
-      - ansible-playbook --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml {{.ANSIBLE_DIR}}/playbooks/cluster-nuke.yaml
   list:
     desc: List all hosts
     cmds:
@@ -27,3 +15,6 @@ tasks:
     desc: Provide host uptimes
     cmds:
       - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml --one-line --args "uptime"
+
+includes:
+  cluster: cluster/Taskfile.yaml
