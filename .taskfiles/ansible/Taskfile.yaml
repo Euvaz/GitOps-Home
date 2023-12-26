@@ -6,15 +6,15 @@ tasks:
   list:
     desc: List all hosts
     cmds:
-      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml --list-hosts
+      - ansible all --inventory {{.ANSIBLE_DIR}}/inventories/{{.ENV}}.yaml --list-hosts
   ping:
     desc: Ping all hosts
     cmds:
-      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml --one-line --module-name "ping"
+      - ansible all --inventory {{.ANSIBLE_DIR}}/inventories/{{.ENV}}.yaml --one-line --module-name "ping"
   uptime:
     desc: Provide host uptimes
     cmds:
-      - ansible all --inventory {{.ANSIBLE_DIR}}/inventory/{{.ENV}}.yaml --one-line --args "uptime"
+      - ansible all --inventory {{.ANSIBLE_DIR}}/inventories/{{.ENV}}.yaml --one-line --args "uptime"
 
 includes:
   cluster: cluster/Taskfile.yaml
