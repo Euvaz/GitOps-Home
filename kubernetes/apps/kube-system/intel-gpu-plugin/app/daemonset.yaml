@@ -49,12 +49,3 @@ spec:
           hostPath:
             path: /sys/class/drm
             type: Directory
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: feature.node.kubernetes.io/custom-intel-gpu
-                    operator: In
-                    values:
-                      - "true"
