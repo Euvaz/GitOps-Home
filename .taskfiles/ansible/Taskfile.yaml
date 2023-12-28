@@ -2,6 +2,9 @@
 ---
 version: "3"
 
+env:
+    ANSIBLE_ROLES_PATH: "{{.ANSIBLE_DIR}}}}/roles"
+
 tasks:
   list:
     desc: List all hosts
