@@ -47,18 +47,9 @@ spec:
               - vendor
               - device
           custom:
-            - name: zwave
-              matchOn:
-                - usbId:
-                    class: ["02"]
-                    vendor: ["0658"]
-                    device: ["0200"]
             - name: intel-gpu
-              matchOn:
-                - pciId:
-                    class: ["0300"]
-                    vendor: ["8086"]
-            - name: coral-tpu
-              matchOn:
-                - usbId:
-                    vendor: ["1a6e", "18d1"]
+              matchFeatures:
+                - feature: pci.device
+                  matchExpressions:
+                    class: {op: In, value: ["0300"]}
+                    vendor: {op: In, value: ["8086"]}
