@@ -20,9 +20,9 @@ k3s_server_manifests_urls:
     filename: custom-prometheus-servicemonitors.yaml
 # /var/lib/rancher/k3s/server/manifests
 k3s_server_manifests_templates:
-  - custom-cilium-helmchart.yaml.j2
-  - custom-cilium-l2.yaml.j2
-  - custom-coredns-helmchart.yaml.j2
+  - ../roles/cluster-common/templates/custom-cilium-helmchart.yaml.j2
+  - ../roles/cluster-common/templates/custom-cilium-l2.yaml.j2
+  - ../roles/cluster-common/templates/custom-coredns-helmchart.yaml.j2
 # /var/lib/rancher/k3s/agent/pod-manifests
 k3s_server_pod_manifests_templates:
-  - kube-vip-static-pod.yaml.j2
+  - ../roles/cluster-common/templates/kube-vip-static-pod.yaml.j2
