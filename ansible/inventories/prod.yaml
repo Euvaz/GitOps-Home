@@ -13,18 +13,18 @@ kubernetes:
 
 kubernetes_main_controlplanes:
   hosts:
-    k8s-main-cp-01:
+    k8s-main-cp-01-prod:
       ansible_host: 10.11.0.50
-    k8s-main-cp-02:
+    k8s-main-cp-02-prod:
       ansible_host: 10.11.0.51
-    k8s-main-cp-03:
+    k8s-main-cp-03-prod:
       ansible_host: 10.11.0.52
 
 kubernetes_main_workers:
   hosts:
-    k8s-main-w-01:
+    k8s-main-w-01-prod:
       ansible_host: 10.11.0.53
-    k8s-main-w-02:
+    k8s-main-w-02-prod:
       ansible_host: 10.11.0.54
-    k8s-main-w-03:
+    k8s-main-w-03-prod:
       ansible_host: 10.11.0.55

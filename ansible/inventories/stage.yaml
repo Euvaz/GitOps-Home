@@ -14,9 +14,9 @@ kubernetes:
   
 kubernetes_main_controlplanes:
   hosts:
-    k8s-main-cp-01-dev:
+    k8s-main-cp-01-stage:
       ansible_host: 192.168.122.174
 kubernetes_main_workers:
   hosts:
-    k8s-main-w-01-dev:
+    k8s-main-w-01-stage:
       ansible_host: 192.168.122.99
