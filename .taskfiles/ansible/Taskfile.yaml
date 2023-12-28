@@ -3,7 +3,7 @@
 version: "3"
 
 env:
-    ANSIBLE_ROLES_PATH: "{{.ANSIBLE_DIR}}}}/roles"
+    ANSIBLE_ROLES_PATH: "{{.ANSIBLE_DIR}}/roles"
 
 tasks:
   list:
