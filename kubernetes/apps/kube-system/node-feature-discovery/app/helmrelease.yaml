@@ -20,13 +20,7 @@ spec:
   upgrade:
     crds: CreateReplace
   values:
-    nodeFeatureRule:
-      createCRD: true
     worker:
-      annotations:
-        configmap.reloader.stakater.com/reload: node-feature-discovery-worker-conf
-      nodeSelector:
-        node-role.kubernetes.io/worker: "true"
       config:
         core:
           sources:
@@ -47,7 +41,9 @@ spec:
               - vendor
               - device
           custom:
-            - name: intel-gpu
+            - name: "intel-gpu"
+              labels:
+                "intel.feature.node.kubernetes.io/gpu": "true"
               matchFeatures:
                 - feature: pci.device
                   matchExpressions:
