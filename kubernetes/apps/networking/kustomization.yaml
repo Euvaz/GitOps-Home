@@ -8,6 +8,5 @@ resources:
   #- ./external-dns/ks.yaml
   - ./external-ingresses/ks.yaml
   - ./k8s-gateway/ks.yaml
-  - ./metallb/ks.yaml
   - ./traefik/ks.yaml
   - ./unifi/ks.yaml
