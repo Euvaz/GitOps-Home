@@ -34,7 +34,6 @@ spec:
         ingressClassName: "external"
         annotations:
           external-dns/is-public: "true"
-          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
           - host: &host "home.${SECRET_DOMAIN}"
             paths:
