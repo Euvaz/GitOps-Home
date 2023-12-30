@@ -5,8 +5,6 @@ metadata:
   name: nas-minio-console
   namespace: networking
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-production"
-    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/name: "MinIO"
     gethomepage.dev/group: "Storage"
@@ -35,9 +33,6 @@ kind: Ingress
 metadata:
   name: nas-minio-api
   namespace: networking
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-production"
-    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
 spec:
   ingressClassName: traefik
   rules:

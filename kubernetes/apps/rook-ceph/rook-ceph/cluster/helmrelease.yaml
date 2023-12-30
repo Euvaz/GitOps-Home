@@ -48,10 +48,8 @@ spec:
       createPrometheusRules: true
     ingress:
       dashboard:
-        ingressClassName: "traefik"
+        ingressClassName: "internal"
         annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Ceph"
           gethomepage.dev/group: "Storage"

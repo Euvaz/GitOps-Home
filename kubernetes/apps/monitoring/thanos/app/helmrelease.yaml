@@ -38,10 +38,8 @@ spec:
       ingress:
         enabled: true
         hostname: "thanos.${SECRET_DOMAIN}"
-        ingressClassName: "traefik"
+        ingressClassName: "internal"
         annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Thanos"
           gethomepage.dev/group: "Observability"

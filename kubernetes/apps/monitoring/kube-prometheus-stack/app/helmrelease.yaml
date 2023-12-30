@@ -44,10 +44,8 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "traefik"
+        ingressClassName: "internal"
         annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Prometheus"
           gethomepage.dev/group: "Observability"
@@ -66,11 +64,7 @@ spec:
       thanosIngress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "traefik"
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns/is-public: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        ingressClassName: "internal"
         hosts:
           - &thanosHost "thanos-sidecar.${SECRET_DOMAIN}"
         tls:
@@ -140,10 +134,8 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "traefik"
+        ingressClassName: "internal"
         annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Alertmanager"
           gethomepage.dev/group: "Observability"

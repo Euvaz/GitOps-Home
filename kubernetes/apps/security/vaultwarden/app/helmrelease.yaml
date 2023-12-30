@@ -59,11 +59,9 @@ spec:
     ingress:
       main:
         enabled: true
-        className: "traefik"
+        className: "external"
         annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Vaultwarden"
           gethomepage.dev/group: "Security"
@@ -93,10 +91,7 @@ spec:
             secretName: vault-tls
       admin:
         enabled: true
-        className: "traefik"
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        className: "external"
         hosts:
           - host: *host
             paths:
