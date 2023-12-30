@@ -100,6 +100,7 @@ spec:
         className: "traefik"
         annotations:
           external-dns/is-public: "true"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Firefly III"
           gethomepage.dev/group: "Collaboration"
