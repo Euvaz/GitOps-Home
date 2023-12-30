@@ -33,7 +33,6 @@ spec:
         enabled: true
         ingressClassName: "external"
         annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
         hosts:
           - host: &host "home.scialytic.services"
