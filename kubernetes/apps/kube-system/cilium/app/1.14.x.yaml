@@ -36,13 +36,25 @@ imagePullSecrets:
 # @default -- `"~/.kube/config"`
 # kubeConfigPath: ""
 # -- (string) Kubernetes service host
-k8sServiceHost: 192.168.50.200
+k8sServiceHost: "10.11.0.254"
 # -- (string) Kubernetes service port
-k8sServicePort: 6443
+k8sServicePort: "6443"
+
+# -- Configure the client side rate limit for the agent and operator
+#
+# If the amount of requests to the Kubernetes API server exceeds the configured
+# rate limit, the agent and operator will start to throttle requests by delaying
+# them until there is budget or the request times out.
+k8sClientRateLimit:
+  # -- The sustained request rate in requests per second.
+  qps: 5
+  # -- The burst request rate in requests per second.
+  # The rate limiter will allow short bursts with a higher rate.
+  burst: 10
 
 cluster:
   # -- Name of the cluster. Only required for Cluster Mesh and mutual authentication with SPIRE.
-  name: talos-default
+  name: kubernetes-home
   # -- (int) Unique ID of the cluster. Must be unique across all connected
   # clusters and in the range of 1 to 255. Only required for Cluster Mesh,
   # may be 0 if Cluster Mesh is not used.
@@ -125,15 +137,17 @@ agent: true
 name: cilium
 
 # -- Roll out cilium agent pods automatically when configmap is updated.
-rollOutCiliumPods: true
+rollOutCiliumPods: false
 
 # -- Agent container image.
 image:
   override: ~
   repository: "quay.io/cilium/cilium"
+  tag: "v1.14.5"
   pullPolicy: "IfNotPresent"
   # cilium-digest
-  useDigest: true
+  digest: ""
+  useDigest: false
 
 # -- Affinity for cilium-agent.
 affinity:
@@ -158,7 +172,7 @@ tolerations:
   #   effect: "NoSchedule|PreferNoSchedule|NoExecute(1.6 only)"
 
 # -- The priority class to use for cilium-agent.
-priorityClassName: "system-node-critical"
+priorityClassName: ""
 
 # -- DNS policy for Cilium agent pods.
 # Ref: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy
@@ -317,7 +331,7 @@ aksbyocni:
 autoDirectNodeRoutes: true
 
 # -- Annotate k8s node upon initialization with Cilium's metadata.
-annotateK8sNode: true
+annotateK8sNode: false
 
 azure:
   # -- Enable Azure integration.
@@ -464,7 +478,7 @@ bpf:
 
   # -- (bool) Enable native IP masquerade support in eBPF
   # @default -- `false`
-  masquerade: true
+  masquerade: ~
 
   # -- (bool) Configure whether direct routing mode should route traffic via
   # host stack (true) or directly and more efficiently out of BPF (false) if
@@ -512,7 +526,7 @@ cni:
   # if you're removing Cilium from the cluster. Disable this to prevent the CNI
   # configuration file from being removed during agent upgrade, which can cause
   # nodes to go unmanageable.
-  uninstall: false
+  uninstall: true
 
   # -- Configure chaining on top of other CNI plugins. Possible values:
   #  - none
@@ -533,7 +547,7 @@ cni:
   # node, renaming all non-Cilium CNI configurations to `*.cilium_bak`.
   # This ensures no Pods can be scheduled using other CNI plugins during Cilium
   # agent downtime.
-  exclusive: false
+  exclusive: true
 
   # -- Configure the log file for CNI logging with retention policy of 7 days.
   # Disable CNI file logging by setting this field to empty explicitly.
@@ -584,7 +598,7 @@ containerRuntime:
   # Supported values:
   # - crio
   # - none
-  integration: none
+  integration: containerd
 
 # -- (string) Configure timeout in which Cilium will exit if CRDs are not available
 # @default -- `"5m"`
@@ -656,7 +670,7 @@ enableK8sEventHandover: false
 # enableK8sEndpointSlice: true
 
 # -- Enable CiliumEndpointSlice feature.
-enableCiliumEndpointSlice: true
+enableCiliumEndpointSlice: false
 
 envoyConfig:
   # -- Enable CiliumEnvoyConfig CRD
@@ -674,7 +688,7 @@ envoyConfig:
 ingressController:
   # -- Enable cilium ingress controller
   # This will automatically set enable-envoy-config as well.
-  enabled: true
+  enabled: false
 
   # -- Set cilium ingress controller to be the default ingress controller
   # This will let cilium ingress controller route entries without ingress class set
@@ -720,8 +734,7 @@ ingressController:
     # -- Labels to be added for the shared LB service
     labels: {}
     # -- Annotations to be added for the shared LB service
-    annotations:
-      metallb.universe.tf/loadBalancerIPs: 192.168.50.195
+    annotations: {}
     # -- Service type for the shared LB service
     type: LoadBalancer
     # -- Configure a specific nodePort for insecure HTTP traffic on the shared LB service
@@ -838,7 +851,7 @@ eni:
   # -- Enable Elastic Network Interface (ENI) integration.
   enabled: false
   # -- Update ENI Adapter limits from the EC2 API
-  updateEC2AdapterLimitViaAPI: true
+  updateEC2AdapterLimitViaAPI: false
   # -- Release IPs not used from the ENI
   awsReleaseExcessIPs: false
   # -- Enable ENI prefix delegation
@@ -893,7 +906,7 @@ healthPort: 9879
 # -- Configure the host firewall.
 hostFirewall:
   # -- Enables the enforcement of host policies in the eBPF datapath.
-  enabled: true
+  enabled: false
 
 hostPort:
   # -- Enable hostPort service support.
@@ -915,6 +928,8 @@ certgen:
   image:
     override: ~
     repository: "quay.io/cilium/certgen"
+    tag: "v0.1.9"
+    digest: "sha256:89a0847753686444daabde9474b48340993bd19c7bea66a46e45b2974b82041f"
     useDigest: true
     pullPolicy: "IfNotPresent"
   # -- Seconds after which the completed job pod will be deleted
@@ -969,14 +984,7 @@ hubble:
     #
     #   --set metrics.enabled="{dns:query;ignoreAAAA,drop,tcp,flow,icmp,http}"
     #
-    enabled:
-      - dns:query;ignoreAAAA,
-      - drop
-      - tcp
-      - flow
-      - http
-      - icmp
-      - port-distribution
+    enabled: {dns,drop,tcp,flow,port-distribution,icmp,httpV2:exemplars=true;labelsContext=source_ip\,source_namespace\,source_workload\,destination_ip\,destination_namespace\,destination_workload\,traffic_direction}
 
     # -- Enables exporting hubble metrics in OpenMetrics format.
     enableOpenMetrics: true
@@ -1007,11 +1015,12 @@ hubble:
     # grafana can import dashboards based on the label and value
     # ref: https://github.com/grafana/helm-charts/tree/main/charts/grafana#sidecar-for-dashboards
     dashboards:
-      enabled: false
+      enabled: true
       label: grafana_dashboard
       namespace: ~
       labelValue: "1"
-      annotations: {}
+      annotations:
+        grafana_folder: Cilium
 
   # -- Unix domain socket path to listen to when Hubble is enabled.
   socketPath: /var/run/cilium/hubble.sock
@@ -1097,7 +1106,10 @@ hubble:
     image:
       override: ~
       repository: "quay.io/cilium/hubble-relay"
-      useDigest: true
+      tag: "v1.14.5"
+       # hubble-relay-digest
+      digest: ""
+      useDigest: false
       pullPolicy: "IfNotPresent"
 
     # -- Specifies the resources for the hubble-relay pods
@@ -1151,7 +1163,7 @@ hubble:
       maxUnavailable: 1
 
     # -- The priority class to use for hubble-relay
-    priorityClassName: "system-node-critical"
+    priorityClassName: ""
 
     # -- Configure termination grace period for hubble relay Deployment.
     terminationGracePeriodSeconds: 1
@@ -1316,6 +1328,8 @@ hubble:
       image:
         override: ~
         repository: "quay.io/cilium/hubble-ui-backend"
+        tag: "v0.12.2"
+        digest: "sha256:8a79a1aad4fc9c2aa2b3e4379af0af872a89fcec9d99e117188190671c66fc2e"
         useDigest: true
         pullPolicy: "IfNotPresent"
 
@@ -1345,6 +1359,8 @@ hubble:
       image:
         override: ~
         repository: "quay.io/cilium/hubble-ui"
+        tag: "v0.12.2"
+        digest: "sha256:1c876cfa1d5e35bc91e1025c9314f922041592a88b03313c22c1f97a5d2ba88f"
         useDigest: true
         pullPolicy: "IfNotPresent"
 
@@ -1412,7 +1428,7 @@ hubble:
     tolerations: []
 
     # -- The priority class to use for hubble-ui
-    priorityClassName: "system-node-critical"
+    priorityClassName: ""
 
     # -- hubble-ui update strategy.
     updateStrategy:
@@ -1476,7 +1492,7 @@ ipam:
   ciliumNodeUpdateRate: "15s"
   operator:
     # -- IPv4 CIDR list range to delegate to individual nodes for IPAM.
-    clusterPoolIPv4PodCIDRList: ["10.0.0.0/8"]
+    clusterPoolIPv4PodCIDRList: ["10.244.0.0/16"]
     # -- IPv4 CIDR mask size to delegate to individual nodes for IPAM.
     clusterPoolIPv4MaskSize: 24
     # -- IPv6 CIDR list range to delegate to individual nodes for IPAM.
@@ -1648,7 +1664,7 @@ vtep:
 # direct routing and the Kubernetes CIDR is included in the native routing CIDR,
 # the user must configure the routes to reach pods, either manually or by
 # setting the auto-direct-node-routes flag.
-ipv4NativeRoutingCIDR: "10.0.0.0/8"
+ipv4NativeRoutingCIDR: "10.244.0.0/16"
 
 # -- (string) Allows to explicitly specify the IPv6 CIDR for native routing.
 # When specified, Cilium assumes networking for this CIDR is preconfigured and
@@ -1828,9 +1844,9 @@ envoy:
   image:
     override: ~
     repository: "quay.io/cilium/cilium-envoy"
-    tag: "v1.25.9-f039e2bd380b7eef2f2feea5750676bb36133699"
+    tag: "v1.25.9-e198a2824d309024cb91fb6a984445e73033291d"
     pullPolicy: "IfNotPresent"
-    digest: "sha256:023d09eeb8a44ae99b489f4af7ffed8b8b54f19a532e0bc6ab4c1e4b31acaab1"
+    digest: "sha256:52541e1726041b050c5d475b3c527ca4b8da487a0bbb0309f72247e8127af0ec"
     useDigest: true
 
   # -- Additional containers added to the cilium Envoy DaemonSet.
@@ -2110,11 +2126,13 @@ etcd:
   image:
     override: ~
     repository: "quay.io/cilium/cilium-etcd-operator"
+    tag: "v2.0.7"
+    digest: "sha256:04b8327f7f992693c2cb483b999041ed8f92efc8e14f2a5f3ab95574a65ea2dc"
     useDigest: true
     pullPolicy: "IfNotPresent"
 
   # -- The priority class to use for cilium-etcd-operator
-  priorityClassName: "system-node-critical"
+  priorityClassName: ""
 
   # -- Additional cilium-etcd-operator container arguments.
   extraArgs: []
@@ -2213,8 +2231,16 @@ operator:
   image:
     override: ~
     repository: "quay.io/cilium/operator"
+    tag: "v1.14.5"
+    # operator-generic-digest
+    genericDigest: ""
+    # operator-azure-digest
+    azureDigest: ""
+    # operator-aws-digest
+    awsDigest: ""
     # operator-alibabacloud-digest
-    useDigest: true
+    alibabacloudDigest: ""
+    useDigest: false
     pullPolicy: "IfNotPresent"
     suffix: ""
 
@@ -2222,7 +2248,7 @@ operator:
   replicas: 2
 
   # -- The priority class to use for cilium-operator
-  priorityClassName: "system-node-critical"
+  priorityClassName: ""
 
   # -- DNS policy for Cilium operator pods.
   # Ref: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy
@@ -2407,7 +2433,7 @@ nodeinit:
     pullPolicy: "IfNotPresent"
 
   # -- The priority class to use for the nodeinit pod.
-  priorityClassName: "system-node-critical"
+  priorityClassName: ""
 
   # -- node-init update strategy
   updateStrategy:
@@ -2642,8 +2668,10 @@ clustermesh:
     image:
       override: ~
       repository: "quay.io/cilium/clustermesh-apiserver"
+      tag: "v1.14.5"
       # clustermesh-apiserver-digest
-      useDigest: true
+      digest: ""
+      useDigest: false
       pullPolicy: "IfNotPresent"
 
     etcd:
@@ -2651,6 +2679,8 @@ clustermesh:
       image:
         override: ~
         repository: "quay.io/coreos/etcd"
+        tag: "v3.5.11"
+        digest: "sha256:795d8660c48c439a7c3764c2330ed9222ab5db5bb524d8d0607cac76f7ba82a3"
         useDigest: true
         pullPolicy: "IfNotPresent"
 
@@ -2829,9 +2859,26 @@ clustermesh:
         maxUnavailable: 1
 
     # -- The priority class to use for clustermesh-apiserver
-    priorityClassName: "system-node-critical"
+    priorityClassName: ""
 
     tls:
+      # -- Configure the clustermesh authentication mode.
+      # Supported values:
+      # - legacy:     All clusters access remote clustermesh instances with the same
+      #               username (i.e., remote). The "remote" certificate must be
+      #               generated with CN=remote if provided manually.
+      # - migration:  Intermediate mode required to upgrade from legacy to cluster
+      #               (and vice versa) with no disruption. Specifically, it enables
+      #               the creation of the per-cluster usernames, while still using
+      #               the common one for authentication. The "remote" certificate must
+      #               be generated with CN=remote if provided manually (same as legacy).
+      # - cluster:    Each cluster accesses remote etcd instances with a username
+      #               depending on the local cluster name (i.e., remote-<cluster-name>).
+      #               The "remote" certificate must be generated with CN=remote-<cluster-name>
+      #               if provided manually. Cluster mode is meaningful only when the same
+      #               CA is shared across all clusters part of the mesh.
+      authMode: legacy
+
       # -- Configure automatic TLS certificates generation.
       # A Kubernetes CronJob is used the generate any
       # certificates not provided by the user at installation
@@ -3060,7 +3107,7 @@ authentication:
         # SPIRE agent configuration
         agent:
           # -- SPIRE agent image
-          image: ghcr.io/spiffe/spire-agent:1.6.3@sha256:8eef9857bf223181ecef10d9bbcd2f7838f3689e9bd2445bede35066a732e823
+          image: ghcr.io/spiffe/spire-agent:1.8.7@sha256:dc83e448e1ce8a6c37b9989679426deae409f0a159257f014797698648c4486e
           # -- SPIRE agent service account
           serviceAccount:
             create: true
@@ -3073,7 +3120,7 @@ authentication:
           skipKubeletVerification: true
         server:
           # -- SPIRE server image
-          image: ghcr.io/spiffe/spire-server:1.6.3@sha256:f4bc49fb0bd1d817a6c46204cc7ce943c73fb0a5496a78e0e4dc20c9a816ad7f
+          image: ghcr.io/spiffe/spire-server:1.8.7@sha256:ce3d81259b090eb1863d9f3caa106ecca418b19832d7e876abbe9be57cb4f0e7
           # -- SPIRE server service account
           serviceAccount:
             create: true
