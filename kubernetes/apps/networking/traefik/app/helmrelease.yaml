@@ -52,7 +52,7 @@ spec:
       - "--metrics.prometheus.entryPoint=metrics"
       - "--entryPoints.websecure.forwardedHeaders.trustedIPs=10.0.0.0/8,192.168.0.0/16,172.16.0.0/12,fe80::/10"
     additionalArguments:
-      - "--providers.kubernetesingress.ingressendpoint.ip=${METALLB_INGRESS_ADDR}"
+      - "--providers.kubernetesingress.ingressendpoint.ip=10.11.0.211"
       - "--providers.kubernetesingress.allowexternalnameservices=true"
       - "--providers.kubernetescrd.allowexternalnameservices=true"
     ports:
