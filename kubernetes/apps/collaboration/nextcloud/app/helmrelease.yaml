@@ -24,7 +24,7 @@ spec:
       tag: 28.0.1
     ingress:
       enabled: true
-      ingressClassName: "external"
+      className: "external"
       annotations:
         external-dns/is-public: "true"
         gethomepage.dev/enabled: "true"
