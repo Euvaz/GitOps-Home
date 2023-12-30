@@ -27,7 +27,7 @@ spec:
       username: admin
     ingress:
       enabled: true
-      className: "internal"
+      className: "external"
       annotations:
         gethomepage.dev/enabled: "true"
         gethomepage.dev/name: "Weave GitOps"

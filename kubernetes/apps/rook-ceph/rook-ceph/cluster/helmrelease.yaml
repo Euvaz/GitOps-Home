@@ -48,7 +48,7 @@ spec:
       createPrometheusRules: true
     ingress:
       dashboard:
-        ingressClassName: "internal"
+        ingressClassName: "external"
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Ceph"
