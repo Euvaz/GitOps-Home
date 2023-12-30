@@ -33,7 +33,9 @@ spec:
         enabled: true
         ingressClassName: "external"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
         hosts:
           - host: &host "home.${SECRET_DOMAIN}"
             paths:
