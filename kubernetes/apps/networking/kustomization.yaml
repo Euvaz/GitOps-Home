@@ -9,3 +9,4 @@ resources:
   - ./external-ingresses/ks.yaml
   # - ./nginx/ks.yaml
   - ./unifi/ks.yaml
+  - ./traefik/ks.yaml
