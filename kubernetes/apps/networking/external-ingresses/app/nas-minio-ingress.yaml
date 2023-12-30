@@ -11,16 +11,16 @@ metadata:
     gethomepage.dev/icon: "minio"
     gethomepage.dev/description: "High Performance, Kubernetes Native Object Storage."
 spec:
-  ingressClassName: traefik
+  ingressClassName: "internal"
   rules:
     - host: &host-console "minio.${SECRET_DOMAIN}"
       http:
         paths:
           - backend:
               service:
-               name: nas-minio
-               port:
-                 number: 9001
+                name: nas-minio
+                port:
+                  number: 9001
             path: /
             pathType: Prefix
   tls:
@@ -34,7 +34,7 @@ metadata:
   name: nas-minio-api
   namespace: networking
 spec:
-  ingressClassName: traefik
+  ingressClassName: "internal"
   rules:
     - host: &host-api "s3.${SECRET_DOMAIN}"
       http:
