@@ -59,7 +59,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: "external"
+        className: "internal"
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Radarr"

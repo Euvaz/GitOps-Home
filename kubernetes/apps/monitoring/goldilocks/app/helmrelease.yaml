@@ -33,7 +33,7 @@ spec:
       replicaCount: 1
       ingress:
         enabled: true
-        ingressClassName: "external"
+        ingressClassName: "internal"
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Goldilocks"

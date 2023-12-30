@@ -38,7 +38,7 @@ spec:
       ingress:
         enabled: true
         hostname: "thanos.${SECRET_DOMAIN}"
-        ingressClassName: "external"
+        ingressClassName: "internal"
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Thanos"

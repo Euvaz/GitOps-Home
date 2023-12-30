@@ -67,7 +67,7 @@ spec:
         enabled: true
         ingress:
           enabled: true
-          className: "external"
+          className: "internal"
           annotations:
             gethomepage.dev/enabled: "true"
             gethomepage.dev/name: "Hubble"

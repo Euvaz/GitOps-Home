@@ -44,7 +44,7 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "external"
+        ingressClassName: "internal"
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Prometheus"
@@ -64,7 +64,7 @@ spec:
       thanosIngress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "external"
+        ingressClassName: "internal"
         hosts:
           - &thanosHost "thanos-sidecar.${SECRET_DOMAIN}"
         tls:
@@ -134,7 +134,7 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "external"
+        ingressClassName: "internal"
         annotations:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Alertmanager"
