@@ -10,8 +10,6 @@ spec:
   dependsOn:
     - name: cluster-apps-cert-manager
     - name: cluster-apps-cert-manager-issuers
-    - name: cluster-apps-metallb
-    - name: cluster-apps-metallb-config
   path: ./kubernetes/apps/networking/traefik/app
   prune: true
   sourceRef:
