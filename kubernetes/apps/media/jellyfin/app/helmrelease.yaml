@@ -60,7 +60,7 @@ spec:
           - host: &host "jelly.${SECRET_DOMAIN}"
             paths:
               - path: /
-                type: Prefix
+                pathType: Prefix
                 service:
                   name: main
                   port: http
