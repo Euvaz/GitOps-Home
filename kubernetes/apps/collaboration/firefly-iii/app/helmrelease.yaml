@@ -97,7 +97,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: "external"
+        className: "traefik"
         annotations:
           external-dns/is-public: "true"
           gethomepage.dev/enabled: "true"
