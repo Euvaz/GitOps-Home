@@ -39,11 +39,10 @@ spec:
     ingress:
       main:
         enabled: true
-        className: "traefik"
+        className: "external"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "BlogHugo"
           gethomepage.dev/group: "Professional"
