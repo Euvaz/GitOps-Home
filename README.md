@@ -9,7 +9,7 @@ Effectively, this GitHub repository is the heart of my cluser.
 ## Overview
 
 - [Repository structure](#-repository-structure)
-- [Rebuild counter](#-rebuild-counter-6)
+- [Rebuild counter](#-rebuild-counter-7)
 - [Thanks](#-thanks)
 
 ## 📂 Repository structure
@@ -23,7 +23,7 @@ kubernetes/     # Kubernetes cluster defined as code
 └── flux        # Main flux configuration
 ```
 
-## 💣 Rebuild counter: 6
+## 💣 Rebuild counter: 7
 
 How many times I've had to nuke and re-build my cluster, either due to hardware failure or hasty updating.
 
