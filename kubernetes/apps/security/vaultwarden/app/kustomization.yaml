@@ -4,6 +4,6 @@ kind: Kustomization
 namespace: security
 resources:
   - ./config-pvc.yaml
-  - ./helmrelease.yaml
+  # - ./helmrelease.yaml
   - ./secret.sops.yaml
   - ./volsync.yaml
