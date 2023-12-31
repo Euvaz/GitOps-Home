@@ -7,14 +7,15 @@ kubernetes:
     kubernetes_main:
       vars:
         k3s_registration_address: 10.11.0.254
+        k3s_use_unsupported_config: true
       children:
         kubernetes_main_controlplanes:
         kubernetes_main_workers:
 
 kubernetes_main_controlplanes:
   hosts:
-    k8s-main-cp-01-prod:
-      ansible_host: 10.11.0.50
+    # k8s-main-cp-01-prod:
+    #   ansible_host: 10.11.0.50
     k8s-main-cp-02-prod:
       ansible_host: 10.11.0.51
     k8s-main-cp-03-prod:
