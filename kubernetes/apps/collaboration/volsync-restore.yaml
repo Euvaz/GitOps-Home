@@ -1,16 +1,3 @@
-#---
-apiVersion: volsync.backube/v1alpha1
-kind: ReplicationDestination
-metadata:
-  name: gitea-config-v1-dest
-  namespace: collaboration
-spec:
-  trigger:
-    manual: restore-once
-  restic:
-    repository: gitea-restic-secret
-    destinationPVC: gitea-config-v1
-    copyMethod: Direct
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
@@ -23,4 +10,30 @@ spec:
   restic:
     repository: nextcloud-restic-secret
     destinationPVC: nextcloud-config-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: radicale-data-v1-dest
+  namespace: collaboration
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: radicale-restic-secret
+    destinationPVC: radicale-data-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: vikunja-config-v1-dest
+  namespace: collaboration
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: vikunja-restic-secret
+    destinationPVC: vikunja-config-v1
     copyMethod: Direct
