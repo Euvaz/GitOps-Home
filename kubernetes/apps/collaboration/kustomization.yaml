@@ -7,6 +7,6 @@ resources:
   # Flux-Kustomizations
   # - ./firefly-iii/ks.yaml
   # - ./nextcloud/ks.yaml
-  # - ./radicale/ks.yaml
+  - ./radicale/ks.yaml
   # - ./vikunja/ks.yaml
   # - ./wikijs/ks.yaml
