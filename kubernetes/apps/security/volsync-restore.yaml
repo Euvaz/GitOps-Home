@@ -3,7 +3,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
   name: vaultwarden-config-v1-dest
-  namespace: networking
+  namespace: security
 spec:
   trigger:
     manual: restore-once
