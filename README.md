@@ -10,7 +10,6 @@ Effectively, this GitHub repository is the heart of my cluser.
 
 - [Repository structure](#-repository-structure)
 - [Rebuild counter](#-rebuild-counter-10)
-- [Thanks](#-thanks)
 
 ## 📂 Repository structure
 
@@ -26,8 +25,3 @@ kubernetes/     # Kubernetes cluster defined as code
 ## 💣 Rebuild counter: 10
 
 How many times I've had to nuke and re-build my cluster, either due to hardware failure or hasty updating.
-
-## 🤝 Thanks
-
-I sincerely appreciate all the past, present, and future guidance and advice from those who helped make this possible.
-I would also like to thank those that contributed to the projects being used within this repository.
