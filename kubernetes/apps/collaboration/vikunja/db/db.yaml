@@ -37,11 +37,11 @@ spec:
   backups:
     pgbackrest:
       restore:
-        enabled: false
+        enabled: true
         repoName: repo1
         options:
           - --type=time
-          - --target="2023-12-30 00:02:59+00"
+          - --target="2023-12-29 12:02:47+00"
       global:
         archive-push-queue-max: 4GiB
         repo1-path: /pgbackrest/collaboration/vikunja/repo1
