@@ -83,6 +83,10 @@ spec:
       config:
         enabled: true
         existingClaim: lidarr-config-v1
+        advancedMounts:
+          main:
+            main:
+              - path: /config
       downloads:
         enabled: true
         type: nfs
