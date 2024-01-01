@@ -56,8 +56,9 @@ spec:
     ingress:
       main:
         enabled: true
-        className: "internal"
+        className: "traefik"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Prowlarr"
           gethomepage.dev/group: "Media Automation"
