@@ -42,7 +42,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: "traefik"
+        className: "external"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
