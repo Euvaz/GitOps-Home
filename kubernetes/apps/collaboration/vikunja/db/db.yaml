@@ -40,8 +40,8 @@ spec:
         enabled: true
         repoName: repo1
         options:
-          - --type=time
-          - --target="2023-12-29 17:50:00+00"
+          - --type=name
+          - --target="20231229-180002F"
       global:
         archive-push-queue-max: 4GiB
         repo1-path: /pgbackrest/collaboration/vikunja/repo1
