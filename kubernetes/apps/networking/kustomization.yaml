@@ -7,6 +7,6 @@ resources:
   # Flux-Kustomizations
   - ./external-dns/ks.yaml
   - ./external-ingresses/ks.yaml
-  # - ./nginx/ks.yaml
+  - ./nginx/ks.yaml
   - ./unifi/ks.yaml
-  - ./traefik/ks.yaml
+  # - ./traefik/ks.yaml
