@@ -31,11 +31,10 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "traefik"
+        ingressClassName: "external"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
           - host: &host "home.scialytic.services"
             paths:
