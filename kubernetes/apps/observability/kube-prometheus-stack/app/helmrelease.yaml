@@ -1,0 +1,170 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: observability
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 52.1.0
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: flux-system
+      interval: 5m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    cleanPrometheusOperatorObjectNames: true
+    grafana:
+      enabled: false
+      forceDeployDashboards: true
+      sidecar:
+        dashboards:
+          multicluster:
+            etcd:
+              enabled: true
+    prometheusOperator:
+      prometheusConfigReloader:
+        resources:
+          requests:
+            cpu: 5m
+            memory: 24Mi
+          limits:
+            memory: 50Mi
+    prometheus:
+      ingress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: "internal"
+        annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Prometheus"
+          gethomepage.dev/group: "Observability"
+          gethomepage.dev/icon: "prometheus"
+          gethomepage.dev/description: "The Prometheus monitoring system and time series database."
+        hosts:
+          - &prometheusHost "prometheus.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - *prometheusHost
+            secretName: prometheus-tls
+      thanosService:
+        enabled: true
+      thanosServiceMonitor:
+        enabled: true
+      thanosIngress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: "internal"
+        hosts:
+          - &thanosHost "thanos-sidecar.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - *thanosHost
+            secretName: thanos-sidecar-tls
+      prometheusSpec:
+        replicas: 3
+        replicaExternalLabelName: "__replica__"
+        enableFeatures:
+          - exemplar-storage
+        scrapeInterval: 1m
+        podAntiAffinity: hard
+        resources:
+          requests:
+            memory: 4Gi
+            cpu: 1000m
+          limits:
+            memory: 6294M
+        thanos:
+          image: "quay.io/thanos/thanos@sha256:3e5c47dd3a0bfc6c595036c1c49c7ca95979a89c1fb93ee4cdee3bf5d296f944"
+          objectStorageConfig:
+            existingSecret:
+              name: thanos-objstore-secret
+              key: objstore.yml
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 10m
+            limits:
+              memory: 160Mi
+        ruleSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
+        probeSelectorNilUsesHelmValues: false
+        enableAdminAPI: true
+        walCompression: true
+    alertmanager:
+      config:
+        global:
+          resolve_timeout: 5m
+        route:
+          group_by: ["alertname", "job"]
+          group_wait: 30s
+          group_interval: 5m
+          repeat_interval: 6h
+          receiver: "alerts"
+          routes:
+            - receiver: "null"
+              matchers:
+                - alertname =~ "InfoInhibitor|Watchdog"
+        receivers:
+          - name: "null"
+          - name: "alerts"
+            email_configs:
+              - send_resolved: true
+                to: &email ${SECRET_ALERT_EMAIL}
+                from: *email
+                smarthost: ${SECRET_ALERT_SMARTHOST}
+                require_tls: false
+        inhibit_rules:
+          - source_matchers:
+              - severity = "critical"
+            target_matchers:
+              - severity = "warning"
+            equal: ["alertname", "namespace"]
+      ingress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: "internal"
+        annotations:
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Alertmanager"
+          gethomepage.dev/group: "Observability"
+          gethomepage.dev/icon: "alertmanager"
+          gethomepage.dev/description: "Alertmanager handles alerts sent by client applications."
+        hosts:
+          - &alertHost "alertmanager.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - *alertHost
+            secretName: alertmanager-tls
+      alertmanagerSpec:
+        replicas: 3
+        podAntiAffinity: hard
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: "ceph-block"
+              resources:
+                requests:
+                  storage: 250Mi
+    kubeControllerManager:
+      endpoints: &controlplanes
+        - 10.11.0.50
+        - 10.11.0.51
+        - 10.11.0.52
+    kubeEtcd:
+      endpoints: *controlplanes
+    kubeScheduler:
+      endpoints: *controlplanes
+    kubeProxy:
+      enabled: false
