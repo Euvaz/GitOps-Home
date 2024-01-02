@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: scialytic-services
+  namespace: network
+spec:
+  secretName: scialytic-services-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: scialytic.services
+  dnsNames:
+    - scialytic.services
+    - "*.scialytic.services"
