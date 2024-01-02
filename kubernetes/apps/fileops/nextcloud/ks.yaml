@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-pg-operator-app
-  path: ./kubernetes/apps/collaboration/nextcloud/db
+  path: ./kubernetes/apps/fileops/nextcloud/db
   prune: true
   sourceRef:
     kind: GitRepository
@@ -29,7 +29,7 @@ spec:
   dependsOn:
     - name: cluster-apps-nextcloud-db
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/collaboration/nextcloud/app
+  path: ./kubernetes/apps/fileops/nextcloud/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -38,7 +38,7 @@ spec:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
       name: nextcloud
-      namespace: collaboration
+      namespace: fileops
   interval: 30m
   retryInterval: 1m
   timeout: 3m

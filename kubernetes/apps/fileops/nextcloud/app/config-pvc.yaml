@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: nextcloud-config-v1
-  namespace: collaboration
+  namespace: fileops
 spec:
   accessModes:
     - ReadWriteOnce
