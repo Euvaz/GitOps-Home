@@ -69,8 +69,6 @@ spec:
           namespace: *namespace
           namespaceSelector:
             any: true
-      extraArgs:
-        default-ssl-certificate: "network/scialytic-services-tls"
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
