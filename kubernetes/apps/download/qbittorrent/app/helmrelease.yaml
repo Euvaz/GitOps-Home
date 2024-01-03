@@ -24,6 +24,14 @@ spec:
   values:
     controllers:
       main:
+        pod:
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
+            fsGroup: 568
+            fsGroupChangePolicy: "OnRootMismatch"
+            supplementalGroups:
+              - 100
         containers:
           main:
             image:
@@ -39,13 +47,6 @@ spec:
                 memory: 2678M
               limits:
                 memory: 3887M
-            securityContext:
-              runAsUser: 568
-              runAsGroup: 568
-              fsGroup: 568
-              fsGroupChangePolicy: "OnRootMismatch"
-              supplementalGroups:
-                - 100
     service:
       main:
         ports:
