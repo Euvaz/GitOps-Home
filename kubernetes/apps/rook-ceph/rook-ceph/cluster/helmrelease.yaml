@@ -50,6 +50,7 @@ spec:
       dashboard:
         ingressClassName: "internal"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Ceph"
           gethomepage.dev/group: "Storage"
