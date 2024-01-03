@@ -35,6 +35,7 @@ spec:
         enabled: true
         ingressClassName: "internal"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Goldilocks"
           gethomepage.dev/group: "Observability"
