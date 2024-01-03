@@ -68,6 +68,7 @@ spec:
         enabled: true
         className: "internal"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "qBittorrent"
           gethomepage.dev/group: "Downloaders"
