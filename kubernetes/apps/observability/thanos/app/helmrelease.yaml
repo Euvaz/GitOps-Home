@@ -40,6 +40,7 @@ spec:
         hostname: "thanos.${SECRET_DOMAIN}"
         ingressClassName: "internal"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Thanos"
           gethomepage.dev/group: "Observability"
