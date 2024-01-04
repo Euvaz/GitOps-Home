@@ -85,6 +85,7 @@ spec:
         className: "internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
+          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Unifi"
           gethomepage.dev/group: "Observability"
