@@ -40,8 +40,6 @@ spec:
         enabled: true
         repoName: repo1
         options:
-          - --type=full
-          # - --target="2023-12-29 18:30:00+00"
           - --set="20231229-180002F"
       global:
         archive-push-queue-max: 4GiB
