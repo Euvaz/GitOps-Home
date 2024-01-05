@@ -8,4 +8,4 @@ resources:
   - ./firefly-iii/ks.yaml
   - ./radicale/ks.yaml
   - ./vikunja/ks.yaml
-  # - ./wikijs/ks.yaml
+  - ./wikijs/ks.yaml
