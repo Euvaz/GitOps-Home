@@ -5,5 +5,5 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./nextcloud/ks.yaml
+  # - ./nextcloud/ks.yaml
   - ./zipline/ks.yaml
