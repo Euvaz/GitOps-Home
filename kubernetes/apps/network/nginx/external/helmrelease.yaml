@@ -30,7 +30,7 @@ spec:
       replicaCount: 1
       service:
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: "external.${SECRET_DOMAIN}"
+          external-dns.alpha.kubernetes.io/hostname: "external.scialytic.services"
           io.cilium/lb-ipam-ips: "10.11.0.211"
         externalTrafficPolicy: Cluster
       ingressClassResource:
