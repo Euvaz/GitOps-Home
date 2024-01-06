@@ -56,12 +56,11 @@ spec:
         - hosts:
             - *host
           secretName: nextcloud-tls
-    persistence:
+    nginx:
       enabled: true
-      existingClaim: nextcloud-config-v1
-      nextcloudData:
-        enabled: true
-        existingClaim: nextcloud-data-v1
+      image:
+        repository: nginx
+        tag: 1.25-alpine@sha256:a59278fd22a9d411121e190b8cec8aa57b306aa3332459197777583beb728f59
     internalDatabase:
       enabled: false
     externalDatabase:
@@ -107,6 +106,12 @@ spec:
             'overwriteprotocol' => 'https',
             'skeletondirectory' => '',
           );
+    persistence:
+      enabled: true
+      existingClaim: nextcloud-config-v1
+      nextcloudData:
+        enabled: true
+        existingClaim: nextcloud-data-v1
     resources:
       requests:
         cpu: 15m
