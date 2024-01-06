@@ -16,13 +16,6 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    # securityContext:
-    #   runAsUser: 0
-    #   privileged: true
-    livenessProbe: &probes
-      enabled: false
-    readinessProbe: *probes
-    startupProbe: *probes
     image:
       repository: nextcloud
       tag: 28.0.1-fpm-alpine@sha256:25d2a8a794e003e9c909f70b8516e87ff6d8cca6fddc1cd79fcc8475e1e3b78d
