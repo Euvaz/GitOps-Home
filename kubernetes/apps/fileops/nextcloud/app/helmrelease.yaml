@@ -19,6 +19,10 @@ spec:
     # securityContext:
     #   runAsUser: 0
     #   privileged: true
+    livenessProbe: &probes
+      enabled: false
+    readinessProbe: *probes
+    startupProbe: *probes
     image:
       repository: nextcloud
       tag: 28.0.1-fpm-alpine@sha256:25d2a8a794e003e9c909f70b8516e87ff6d8cca6fddc1cd79fcc8475e1e3b78d
@@ -61,6 +65,8 @@ spec:
       image:
         repository: nginx
         tag: 1.25-alpine@sha256:a59278fd22a9d411121e190b8cec8aa57b306aa3332459197777583beb728f59
+    cronjob:
+      enabled: true
     internalDatabase:
       enabled: false
     externalDatabase:
