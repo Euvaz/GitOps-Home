@@ -21,7 +21,7 @@ spec:
       privileged: true
     image:
       repository: nextcloud
-      tag: 28.0.1
+      tag: 28.0.1-fpm-alpine@sha256:25d2a8a794e003e9c909f70b8516e87ff6d8cca6fddc1cd79fcc8475e1e3b78d
     ingress:
       enabled: true
       className: "external"
