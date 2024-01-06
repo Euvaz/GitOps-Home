@@ -6,7 +6,10 @@ metadata:
   namespace: network
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      chunked_transfer_encoding off;
     nginx.ingress.kubernetes.io/proxy-body-size: 0
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
     nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/name: "MinIO"
