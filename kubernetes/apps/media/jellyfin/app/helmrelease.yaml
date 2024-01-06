@@ -17,6 +17,11 @@ spec:
   values:
     controllers:
       main:
+        pod:
+          securityContext:
+            supplementalGroups:
+              - 44
+              - 5600
         containers:
           main:
             image:
@@ -25,10 +30,6 @@ spec:
             env:
               TZ: "${TIMEZONE}"
               JELLYFIN_CACHE_DIR: "/config/cache"
-            securityContext:
-              supplementalGroups:
-                - 44
-                - 5600
             resources:
               requests:
                 gpu.intel.com/i915: 1
