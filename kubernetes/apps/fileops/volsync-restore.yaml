@@ -3,7 +3,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
   name: nextcloud-config-v1-dest
-  namespace: collaboration
+  namespace: fileops
 spec:
   trigger:
     manual: restore-once
