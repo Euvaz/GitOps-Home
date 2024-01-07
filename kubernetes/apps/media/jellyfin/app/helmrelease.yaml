@@ -41,8 +41,9 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: "${LB_JELLYFIN_IP}"
         externalTrafficPolicy: Local
+        annotations:
+          io.cilium/lb-ipam-ips: "${LB_JELLYFIN_IP}"
         ports:
           http:
             port: 8096
