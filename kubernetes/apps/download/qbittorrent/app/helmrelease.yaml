@@ -55,8 +55,9 @@ spec:
       bittorrent:
         controller: main
         type: LoadBalancer
-        loadBalancerIP: "${LB_QBITTORRENT_IP}"
         externalTrafficPolicy: Local
+        annotations:
+          io.cilium/lb-ipam-ips: "${LB_QBITTORRENT_IP}"
         ports:
           bittorrent:
             enabled: true
