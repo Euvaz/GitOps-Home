@@ -46,8 +46,6 @@ spec:
       main:
         type: LoadBalancer
         externalTrafficPolicy: Local
-        annotations:
-          io.cilium/lb-ipam-ips: "${LB_UNIFI_IP}"
         ports:
           http:
             port: 8443
