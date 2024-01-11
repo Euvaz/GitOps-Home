@@ -109,11 +109,12 @@ spec:
         className: "internal"
         hosts:
           - host: *host
-            paths: /inform
-            pathType: Prefix
-            service:
-              name: main
-              port: controller
+            paths:
+              - path: /inform
+                pathType: Prefix
+                service:
+                  name: main
+                  port: controller
     persistence:
       data:
         enabled: true
