@@ -93,7 +93,7 @@ spec:
             secretName: vault-tls
       admin:
         enabled: true
-        className: "external"
+        className: "internal"
         hosts:
           - host: *host
             paths:
