@@ -100,21 +100,15 @@ spec:
                 service:
                   name: main
                   port: http
-        tls:
-          - hosts:
-              - *host
-            secretName: unifi-controller-tls
-      controller:
-        enabled: true
-        className: "internal"
-        hosts:
-          - host: *host
-            paths:
               - path: /inform
                 pathType: Prefix
                 service:
                   name: main
                   port: controller
+        tls:
+          - hosts:
+              - *host
+            secretName: unifi-controller-tls
     persistence:
       data:
         enabled: true
