@@ -104,6 +104,16 @@ spec:
           - hosts:
               - *host
             secretName: unifi-controller-tls
+      controller:
+        enabled: true
+        className: "internal"
+        hosts:
+          - host: *host
+            paths: /inform
+            pathType: Prefix
+            service:
+              name: main
+              port: controller
     persistence:
       data:
         enabled: true
