@@ -73,7 +73,7 @@ spec:
           frontend:
             image:
               repository: vikunja/frontend
-              tag: 0.22.0@sha256:f603ef35acfe030d34752bc3d84e45a234152110345edf8cf2939db986e900b1
+              tag: 0.22.1@sha256:f0223d441997fe29c377d0b476dc4bb2fc091b44b9c24d76b1b88c213df520c5
             env:
               - name: VIKUNJA_ALLOW_ICON_CHANGES
                 value: "false"
