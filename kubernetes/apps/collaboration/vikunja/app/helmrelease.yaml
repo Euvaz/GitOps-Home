@@ -20,7 +20,7 @@ spec:
       main:
         containers:
           main:
-            image: 
+            image:
               repository: vikunja/api
               tag: 0.22.1@sha256:c9415431e6235229302bb8f9ee6660b74c24859d1e8adbc4a3e25bd418604b57
             env:
