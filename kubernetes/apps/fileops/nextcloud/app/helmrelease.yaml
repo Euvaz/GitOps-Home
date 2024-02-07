@@ -57,7 +57,7 @@ spec:
       enabled: true
       image:
         repository: nginx
-        tag: 1.25-alpine@sha256:a59278fd22a9d411121e190b8cec8aa57b306aa3332459197777583beb728f59
+        tag: 1.25-alpine@sha256:f2802c2a9d09c7aa3ace27445dfc5656ff24355da28e7b958074a0111e3fc076
     cronjob:
       enabled: true
     internalDatabase:
