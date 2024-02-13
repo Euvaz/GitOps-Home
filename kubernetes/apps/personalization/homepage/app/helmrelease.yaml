@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: ghcr.io/gethomepage/homepage
-      tag: v0.8.7
+      tag: v0.8.8
     enableRbac: true
     env:
       TZ: "${TIMEZONE}"
