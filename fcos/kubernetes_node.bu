@@ -7,7 +7,7 @@ passwd:
       name: seraph
       groups: ["wheel", "sudo"]
       ssh_authorized_keys:
-        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPPnYyB/d6LqIT62ApUvRcawtdHS3fA4AtqwjMsQh/6I user@personal-laptop
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINTrngjWKF3qPIKGKqDonDgwAPSWmjxmRVp7n89e4cdO virgil@virgil.rodeo
 systemd:
   units:
     - # Install Dependencies
