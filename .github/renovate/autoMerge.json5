@@ -17,22 +17,6 @@
       "matchUpdateTypes": ["minor", "patch"],
     },
     {
-      "description": "Auto Merge Docker Image",
-      "matchDatasources": ["docker"],
-      "automerge": true,
-      "ignoreTests": true,
-      "automergeType": "branch",
-      "matchUpdateTypes": ["minor", "patch"],
-    },
-    {
-      "description": "Auto Merge Helm",
-      "matchDatasources": ["helm"],
-      "automerge": true,
-      "ignoreTests": true,
-      "automergeType": "branch",
-      "matchUpdateTypes": ["minor", "patch"],
-    },
-    {
       "description": "Auto Merge Flux",
       "matchManagers": ["flux"],
       "automerge": true,
