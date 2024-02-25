@@ -8,7 +8,6 @@
     ":semanticCommits",
     ":automergeDigest",
     ":automergeBranch",
-    "github>Euvaz/GitOps-Home//.github/renovate/autoMerge.json5",
     "github>Euvaz/GitOps-Home//.github/renovate/commitMessage.json5",
     "github>Euvaz/GitOps-Home//.github/renovate/labels.json5",
     "github>Euvaz/GitOps-Home//.github/renovate/semanticCommits.json5",
