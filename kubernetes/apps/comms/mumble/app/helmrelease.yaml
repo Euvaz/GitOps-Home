@@ -43,8 +43,7 @@ spec:
         annotations:
           io.cilium/lb-ipam-ips: "${LB_MUMBLE_IP}"
         ports:
-          tcp:
-            enabled: true
+          http:
             port: 64738
             protocol: TCP
           udp:
@@ -65,7 +64,7 @@ spec:
                 type: Prefix
                 service:
                   name: main
-                  port: tcp
+                  port: http
               - path: /
                 type: Prefix
                 service:
