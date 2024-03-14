@@ -72,7 +72,7 @@ spec:
           - host: &host "mumble.${SECRET_DOMAIN}"
             paths:
               - path: /
-                type: Prefix
+                pathType: Prefix
                 service:
                   name: main
                   port: http
