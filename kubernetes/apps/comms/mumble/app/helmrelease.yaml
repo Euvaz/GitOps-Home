@@ -26,7 +26,7 @@ spec:
           main:
             image:
               repository: mumblevoip/mumble-server
-              tag: v1.4.287@sha256:dd6cbd5dc981dc0433edebd7f9aee220431d23600b9ef7109dbe24b0feae6ad1
+              tag: v1.4.287-4@sha256:dd6cbd5dc981dc0433edebd7f9aee220431d23600b9ef7109dbe24b0feae6ad1
             env:
               - name: TZ
                 value: "${TIMEZONE}"
