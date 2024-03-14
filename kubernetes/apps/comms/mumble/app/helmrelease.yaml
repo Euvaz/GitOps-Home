@@ -39,7 +39,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        externalTrafficPolicy: local
+        externalTrafficPolicy: Local
         annotations:
           io.cilium/lb-ipam-ips: "${LB_MUMBLE_IP}"
         ports:
