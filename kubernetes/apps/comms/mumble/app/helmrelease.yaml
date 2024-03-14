@@ -48,6 +48,7 @@ spec:
             port: 64738
       mumble:
         enabled: true
+        controller: main
         type: LoadBalancer
         externalTrafficPolicy: Local
         annotations:
