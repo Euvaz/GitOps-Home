@@ -43,14 +43,17 @@ spec:
             # TODO: Add resources.{requests,limits}
     service:
       main:
+        ports:
+          http:
+            port: 64738
+      app:
         enabled: true
+        controller: main
         type: LoadBalancer
         externalTrafficPolicy: Local
         annotations:
           io.cilium/lb-ipam-ips: "${LB_MUMBLE_IP}"
         ports:
-          http:
-            port: 64738
           tcp:
             enabled: true
             port: 64738
