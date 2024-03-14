@@ -50,12 +50,10 @@ spec:
         ports:
           http:
             port: 64738
-            targetPort: 64738
             protocol: TCP
           udp:
             enabled: true
             port: 64738
-            targetPort: 64738
             protocol: UDP
     ingress:
       main:
