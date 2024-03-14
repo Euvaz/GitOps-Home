@@ -5,3 +5,4 @@ namespace: comms
 resources:
   - ./config-pvc.yaml
   - ./helmrelease.yaml
+  - ./secret.sops.yaml
