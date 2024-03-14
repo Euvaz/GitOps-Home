@@ -65,7 +65,12 @@ spec:
                 type: Prefix
                 service:
                   name: main
-                  port: http
+                  port: tcp
+              - path: /
+                type: Prefix
+                service:
+                  name: main
+                  port: udp
         tls:
           - hosts:
               - *host
