@@ -51,13 +51,13 @@ spec:
         ports:
           http:
             enabled: false
-          tcp:
+          control:
             enabled: true
             primary: true
             port: 64738
             targetPort: 64738
             protocol: TCP
-          udp:
+          voice:
             enabled: true
             port: 64738
             targetPort: 64738
@@ -76,7 +76,7 @@ spec:
                 pathType: Prefix
                 service:
                   name: main
-                  port: tcp
+                  port: control
         tls:
           - hosts:
               - *host
