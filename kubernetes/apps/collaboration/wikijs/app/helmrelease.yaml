@@ -69,6 +69,7 @@ spec:
         enabled: true
         className: "external"
         annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Wiki.js"
