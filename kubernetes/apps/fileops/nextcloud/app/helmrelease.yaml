@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: nextcloud
-      tag: 28.0.3-fpm-alpine@sha256:1cb0b97412404dfbbd0fa5e2c0f74bb00452afb627520b1f90045b8617aff805
+      tag: 28.0.3-fpm-alpine@sha256:0e2edb26be9a34715380c0981ff155c3d565ef557f94df01ccf17169d608e2c1
     ingress:
       enabled: true
       className: "external"
