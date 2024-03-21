@@ -14,7 +14,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: mumble
-  namespace: media
+  namespace: comms
 spec:
   sourcePVC: mumble-config-v1
   trigger:
