@@ -5,4 +5,5 @@ namespace: gameserver
 resources:
   - ./data-pvc.yaml
   - ./helmrelease.yaml
+  - ./secret.sops.yaml
   - ./volsync.yaml
