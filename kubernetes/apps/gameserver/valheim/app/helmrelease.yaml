@@ -53,17 +53,17 @@ spec:
             enabled: true
             primary: true
             port: 2456
-            # targetPort: 2456
+            targetPort: 2456
             protocol: UDP
           auth:
             enabled: true
             port: 2457
-            # targetPort: 2457
+            targetPort: 2457
             protocol: UDP
           voip:
             enabled: true
             port: 2458
-            # targetPort: 2458
+            targetPort: 2458
             protocol: UDP
     persistence:
       config:
