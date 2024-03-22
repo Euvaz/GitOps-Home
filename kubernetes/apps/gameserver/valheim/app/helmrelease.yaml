@@ -23,9 +23,12 @@ spec:
               repository: mbround18/valheim
               tag: 2.4.1@sha256:383e9c1228bcb5e6ec83af9c7fdf4916f783c302f890ec790a73d3d362e32fc1
             probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
               startup:
                 enabled: false
-                type: UDP
             env:
               - name: NAME
                 value: "Blackwater"
