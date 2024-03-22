@@ -22,6 +22,9 @@ spec:
             image:
               repository: mbround18/valheim
               tag: 2.4.1@sha256:383e9c1228bcb5e6ec83af9c7fdf4916f783c302f890ec790a73d3d362e32fc1
+            probes:
+              startup:
+                type: UDP
             env:
               - name: NAME
                 value: "Blackwater"
@@ -50,17 +53,17 @@ spec:
             enabled: true
             primary: true
             port: 2456
-            targetPort: 2456
+            # targetPort: 2456
             protocol: UDP
           auth:
             enabled: true
             port: 2457
-            targetPort: 2457
+            # targetPort: 2457
             protocol: UDP
           voip:
             enabled: true
             port: 2458
-            targetPort: 2458
+            # targetPort: 2458
             protocol: UDP
     persistence:
       config:
