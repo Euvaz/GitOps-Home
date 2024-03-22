@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
-  name: valheim
+  name: &app valheim
   namespace: gameserver
 spec:
   interval: 5m
