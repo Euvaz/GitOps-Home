@@ -33,12 +33,12 @@ spec:
                 memory: 100M
     service:
       main:
+        controller: main
         ports:
           http:
             port: 80
     ingress:
       main:
-        enabled: true
         className: "external"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -52,9 +52,8 @@ spec:
           - host: &host "blog.virgil.rodeo"
             paths:
               - path: /
-                pathType: Prefix
                 service:
-                  name: main
+                  identifier: main
                   port: http
         tls:
           - hosts:
