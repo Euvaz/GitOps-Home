@@ -57,7 +57,6 @@ spec:
               UPLOADER_DEFAULT_FORMAT: "NAME"
               WEBSITE_TITLE: "File Server"
               WEBSITE_SHOW_FILES_PER_USER: "false"
-              # WEBSITE_SHOW_VERSION: "false" # TODO: Investigate why setting to "false" causes an error
               WEBSITE_DISABLE_MEDIA_PREVIEW: "true"
             resources:
               requests:
