@@ -52,7 +52,7 @@ spec:
           io.cilium/lb-ipam-ips: "${LB_VALHEIM_IP}"
         ports:
           http:
-            enabled: false
+            port: 80
           gameplay:
             enabled: true
             primary: true
@@ -71,7 +71,6 @@ spec:
             protocol: UDP
     persistence:
       config:
-        enabled: true
         existingClaim: valheim-data-v1
         globalMounts:
           - path: /valheim/
