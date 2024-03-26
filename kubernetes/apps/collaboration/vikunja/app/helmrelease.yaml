@@ -55,15 +55,6 @@ spec:
                   secretKeyRef:
                     name: pg-cluster-vikunja-pguser-vikunja
                     key: dbname
-            volumeMounts:
-              - name: files
-                globalMounts:
-                  - path: /app/vikunja/files
-              - name: config
-                globalMounts:
-                  - path: /app/vikunja/config.yaml
-                    subPath: config.yaml
-                    readOnly: true
             resources:
               requests:
                 cpu: 10m
