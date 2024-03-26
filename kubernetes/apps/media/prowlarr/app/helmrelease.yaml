@@ -15,7 +15,6 @@ spec:
         name: bjw-s
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
       retries: 5
   upgrade:
@@ -51,12 +50,12 @@ spec:
                 memory: 1030M
     service:
       main:
+        controller: main
         ports:
           http:
             port: *port
     ingress:
       main:
-        enabled: true
         className: "internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -69,9 +68,8 @@ spec:
           - host: &host "prowlarr.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
                 service:
-                  name: main
+                  identifier: main
                   port: http
         tls:
           - hosts:
@@ -79,7 +77,6 @@ spec:
             secretName: prowlarr-tls
     persistence:
       config:
-        enabled: true
         existingClaim: prowlarr-config-v1
     podAnnotations:
       secret.reloader.stakater.com/reload: *app
