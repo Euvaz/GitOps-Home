@@ -42,13 +42,12 @@ spec:
                 memory: 105M
     service:
       main:
+        controller: main
         enabled: false
     persistence:
       config:
-        enabled: true
         existingClaim: recyclarr-config-v1
       config-file:
-        enabled: true
         type: configMap
         name: *app
         globalMounts:
