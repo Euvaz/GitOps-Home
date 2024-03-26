@@ -52,12 +52,12 @@ spec:
                 memory: 105M
     service:
       main:
+        controller: main
         ports:
           http:
             port: *port
     ingress:
       main:
-        enabled: true
         className: "external"
         annotations:
           external-dns/is-public: "true"
@@ -67,9 +67,8 @@ spec:
           - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
                 service:
-                  name: main
+                  identifier: main
                   port: http
         tls:
           - hosts:
