@@ -44,6 +44,7 @@ spec:
                 memory: 1095M
     service:
       main:
+        controller: main
         ports:
           http:
             port: 8443
@@ -78,7 +79,6 @@ spec:
             protocol: UDP
     ingress:
       main:
-        enabled: true
         className: "internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -92,9 +92,8 @@ spec:
           - host: &host "unifi.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
                 service:
-                  name: main
+                  identifier: main
                   port: http
         tls:
           - hosts:
@@ -102,7 +101,6 @@ spec:
             secretName: unifi-controller-tls
     persistence:
       data:
-        enabled: true
         existingClaim: unifi-config-v1
         globalMounts:
           - path: /unifi
