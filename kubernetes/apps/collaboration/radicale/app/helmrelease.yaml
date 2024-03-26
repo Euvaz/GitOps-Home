@@ -31,12 +31,12 @@ spec:
                 memory: 105M
     service:
       main:
+        controller: main
         ports:
           http:
             port: 5232
     ingress:
       main:
-        enabled: true
         className: "external"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -50,9 +50,8 @@ spec:
           - host: &host "radicale.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
                 service:
-                  name: main
+                  identifier: main
                   port: http
         tls:
           - hosts:
@@ -60,7 +59,6 @@ spec:
             secretName: radicale-tls
     persistence:
       config:
-        enabled: true
         type: configMap
         name: *app
         globalMounts:
@@ -68,12 +66,10 @@ spec:
             subPath: config.cfg
             readOnly: true
       data:
-        enabled: true
         existingClaim: radicale-data-v1
         globalMounts:
           - path: /data
       auth:
-        enabled: true
         type: secret
         name: *app
         globalMounts:
