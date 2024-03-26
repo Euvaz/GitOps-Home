@@ -36,10 +36,6 @@ spec:
                   secretKeyRef:
                     name: *app
                     key: MUMBLE_SUPERUSER_PASSWORD
-            volumeMounts:
-              - name: config
-                globalMounts:
-                  - path: /data/
             resources:
               requests:
                 cpu: 15m
@@ -54,8 +50,11 @@ spec:
         annotations:
           io.cilium/lb-ipam-ips: "${LB_MUMBLE_IP}"
         ports:
+          http:
+            enabled: false
           control:
             enabled: true
+            primary: true
             port: 64738
             targetPort: 64738
             protocol: TCP
