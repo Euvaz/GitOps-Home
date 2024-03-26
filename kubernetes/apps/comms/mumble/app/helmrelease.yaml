@@ -51,7 +51,7 @@ spec:
           io.cilium/lb-ipam-ips: "${LB_MUMBLE_IP}"
         ports:
           http:
-            enabled: false
+            port: 80
           control:
             enabled: true
             primary: true
