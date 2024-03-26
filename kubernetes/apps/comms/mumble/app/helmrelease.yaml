@@ -40,7 +40,12 @@ spec:
               - name: config
                 globalMounts:
                   - path: /data/
-            # TODO: Add resources.{requests,limits}
+            resources:
+              requests:
+                cpu: 15m
+                memory: 105M
+              limits:
+                memory: 105M
     service:
       main:
         controller: main
