@@ -54,12 +54,12 @@ spec:
                 memory: 2000M
     service:
       main:
+        controller: main
         ports:
           http:
             port: *port
     ingress:
       main:
-        enabled: true
         className: "internal"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
@@ -72,9 +72,8 @@ spec:
           - host: &host "radarr.${SECRET_DOMAIN}"
             paths:
               - path: /
-                pathType: Prefix
                 service:
-                  name: main
+                  identifier: main
                   port: http
         tls:
           - hosts:
@@ -82,17 +81,14 @@ spec:
             secretName: radarr-tls
     persistence:
       config:
-        enabled: true
         existingClaim: radarr-config-v1
       downloads:
-        enabled: true
         type: nfs
         server: "nas.${SECRET_DOMAIN}"
         path: /zfsa/Downloads
         globalMounts:
           - path: /downloads
       media:
-        enabled: true
         type: nfs
         server: "nas.${SECRET_DOMAIN}"
         path: /zfsa/Media
