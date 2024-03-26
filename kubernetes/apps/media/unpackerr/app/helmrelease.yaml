@@ -15,7 +15,6 @@ spec:
         name: bjw-s
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
       retries: 5
   upgrade:
@@ -63,10 +62,10 @@ spec:
                 memory: 2000M
     service:
       main:
+        controller: main
         enabled: false
     persistence:
       complete:
-        enabled: true
         type: nfs
         server: "nas.${SECRET_DOMAIN}"
         path: /zfsa/Downloads/qbittorrent/complete
