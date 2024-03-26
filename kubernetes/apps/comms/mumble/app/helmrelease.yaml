@@ -54,11 +54,8 @@ spec:
         annotations:
           io.cilium/lb-ipam-ips: "${LB_MUMBLE_IP}"
         ports:
-          http:
-            enabled: false
           control:
             enabled: true
-            primary: true
             port: 64738
             targetPort: 64738
             protocol: TCP
@@ -69,7 +66,6 @@ spec:
             protocol: UDP
     persistence:
       config:
-        enabled: true
         existingClaim: mumble-config-v1
         globalMounts:
           - path: /data/
