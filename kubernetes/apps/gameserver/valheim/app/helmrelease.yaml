@@ -77,9 +77,9 @@ spec:
             targetPort: 2458
             protocol: UDP
     persistence:
-      config:
+      data:
         existingClaim: valheim-data-v1
         globalMounts:
-          - path: /valheim/
+          - path: /home/steam/valheim/
     podAnnotations:
       secret.reloader.stakater.com/reload: *app
