@@ -122,4 +122,4 @@ spec:
       config:
         existingClaim: firefly-iii-config-v1
         globalMounts:
-          - path: /var/www/html/firefly-iii/storage/upload
+          - path: /var/www/html/storage/upload
