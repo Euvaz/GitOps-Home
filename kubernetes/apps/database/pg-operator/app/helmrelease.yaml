@@ -7,16 +7,15 @@ spec:
   interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: pgo
       version: 5.5.1
       sourceRef:
         kind: HelmRepository
         name: crunchydata
         namespace: flux-system
-      interval: 15m
   install:
     crds: CreateReplace
-    createNamespace: true
     remediation:
       retries: 5
   upgrade:

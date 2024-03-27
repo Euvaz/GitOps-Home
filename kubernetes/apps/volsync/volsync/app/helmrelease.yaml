@@ -8,6 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: volsync
       version: 0.9.0
       sourceRef:
@@ -16,13 +17,12 @@ spec:
         namespace: flux-system
   maxHistory: 3
   install:
-    createNamespace: true
     remediation:
-      retries: 3
+      retries: 5
   upgrade:
     cleanupOnFail: true
     remediation:
-      retries: 3
+      retries: 5
   uninstall:
     keepHistory: false
   values:

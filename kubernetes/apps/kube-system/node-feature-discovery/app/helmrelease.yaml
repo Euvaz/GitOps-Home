@@ -5,9 +5,10 @@ metadata:
   name: node-feature-discovery
   namespace: kube-system
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: node-feature-discovery
       version: 0.15.3
       sourceRef:
@@ -15,10 +16,13 @@ spec:
         name: node-feature-discovery
         namespace: flux-system
   install:
-    createNamespace: true
     crds: CreateReplace
+    remediation:
+      retries: 5
   upgrade:
     crds: CreateReplace
+    remediation:
+      retries: 5
   values:
     worker:
       config:

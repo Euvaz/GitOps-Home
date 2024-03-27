@@ -5,9 +5,10 @@ metadata:
   name: jellyfin
   namespace: media
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: app-template
       version: 3.0.4
       sourceRef:

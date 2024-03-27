@@ -8,6 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: cert-manager
       version: v1.14.4
       sourceRef:
@@ -15,7 +16,6 @@ spec:
         name: jetstack
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
       retries: 3
   upgrade:

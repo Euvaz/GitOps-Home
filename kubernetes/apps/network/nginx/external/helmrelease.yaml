@@ -5,23 +5,23 @@ metadata:
   name: nginx-external
   namespace: &namespace network
 spec:
-  interval: 30m
+  interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: ingress-nginx
       version: 4.10.0
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
         namespace: flux-system
-  maxHistory: 2
   install:
     remediation:
-      retries: 3
+      retries: 5
   upgrade:
     cleanupOnFail: true
     remediation:
-      retries: 3
+      retries: 5
   uninstall:
     keepHistory: false
   values:

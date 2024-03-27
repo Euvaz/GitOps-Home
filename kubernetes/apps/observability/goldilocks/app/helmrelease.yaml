@@ -5,18 +5,17 @@ metadata:
   name: goldilocks
   namespace: observability
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: goldilocks
       version: 8.0.1
       sourceRef:
         kind: HelmRepository
         name: fairwinds
         namespace: flux-system
-      interval: 5m
   install:
-    createNamespace: true
     remediation:
       retries: 5
   upgrade:

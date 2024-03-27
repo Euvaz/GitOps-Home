@@ -8,6 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: app-template
       version: 3.0.4
       sourceRef:
@@ -15,7 +16,6 @@ spec:
         name: bjw-s
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
       retries: 3
   upgrade:

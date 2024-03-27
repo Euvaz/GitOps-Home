@@ -8,6 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: homepage
       version: 1.2.3
       sourceRef:
@@ -15,7 +16,6 @@ spec:
         name: jameswynn
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
       retries: 5
   upgrade:

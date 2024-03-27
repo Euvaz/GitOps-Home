@@ -8,6 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: thanos
       version: 12.23.2
       sourceRef:
@@ -15,7 +16,6 @@ spec:
         name: bitnami
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
       retries: 5
   upgrade:

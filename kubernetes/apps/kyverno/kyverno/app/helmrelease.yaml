@@ -8,6 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: kyverno
       version: 3.1.4
       sourceRef:
@@ -15,12 +16,11 @@ spec:
         name: kyverno
         namespace: flux-system
   install:
-    createNamespace: true
     remediation:
-      retries: 3
+      retries: 5
   upgrade:
     remediation:
-      retries: 3
+      retries: 5
   values:
     installCRDs: true
     replicaCount: 3
