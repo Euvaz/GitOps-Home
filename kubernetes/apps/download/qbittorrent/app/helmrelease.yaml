@@ -49,6 +49,7 @@ spec:
                 memory: 3887M
     service:
       main:
+        nameOverride: "{{ .Release.Name }}"
         controller: main
         ports:
           http:
