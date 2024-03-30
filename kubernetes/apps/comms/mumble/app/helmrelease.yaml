@@ -52,7 +52,7 @@ spec:
       main:
         controller: main
         type: LoadBalancer
-        # externalTrafficPolicy: Local # TODO: Investigate why setting "externalTrafficPolicy: Local" causes closed ports and timeouts
+        externalTrafficPolicy: Local
         annotations:
           io.cilium/lb-ipam-ips: "${LB_MUMBLE_IP}"
         ports:
