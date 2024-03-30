@@ -55,6 +55,12 @@ spec:
                 value: "${TIMEZONE}"
               - name: PUBLIC
                 value: 0
+            resources:
+              requests:
+                cpu: 441m
+                memory: 2539M
+              limits:
+                memory: 2871M
     service:
       main:
         controller: main
