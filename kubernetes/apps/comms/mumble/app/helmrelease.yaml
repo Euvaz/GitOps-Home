@@ -60,7 +60,6 @@ spec:
             port: 80
           control:
             enabled: true
-            primary: true
             port: 64738
             targetPort: 64738
             protocol: TCP
