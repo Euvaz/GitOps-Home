@@ -10,7 +10,7 @@ spec:
     spec:
       interval: 15m
       chart: kube-prometheus-stack
-      version: 57.1.1
+      version: 58.7.2
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
