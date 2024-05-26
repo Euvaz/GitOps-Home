@@ -5,7 +5,6 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./firefly-iii/ks.yaml
   - ./radicale/ks.yaml
   - ./vikunja/ks.yaml
   - ./wikijs/ks.yaml

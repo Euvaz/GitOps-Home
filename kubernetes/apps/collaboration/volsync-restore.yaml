@@ -2,19 +2,6 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: firefly-iii-config-v1-dest
-  namespace: collaboration
-spec:
-  trigger:
-    manual: restore-once
-  restic:
-    repository: firefly-iii-restic-secret
-    destinationPVC: firefly-iii-config-v1
-    copyMethod: Direct
----
-apiVersion: volsync.backube/v1alpha1
-kind: ReplicationDestination
-metadata:
   name: radicale-data-v1-dest
   namespace: collaboration
 spec:
