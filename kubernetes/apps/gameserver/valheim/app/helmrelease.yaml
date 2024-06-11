@@ -33,7 +33,7 @@ spec:
           main:
             image:
               repository: mbround18/valheim
-              tag: 2.4.1@sha256:383e9c1228bcb5e6ec83af9c7fdf4916f783c302f890ec790a73d3d362e32fc1
+              tag: 3.0.1@sha256:08d9a81c74ca48af8456e1bce2e88bcf57a43f823f74f008b6cdc674834c9795
             probes:
               liveness:
                 enabled: false
