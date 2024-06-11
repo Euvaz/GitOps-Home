@@ -10,7 +10,7 @@ spec:
     spec:
       interval: 15m
       chart: nextcloud
-      version: 4.6.4
+      version: 4.6.11
       sourceRef:
         kind: HelmRepository
         name: nextcloud
