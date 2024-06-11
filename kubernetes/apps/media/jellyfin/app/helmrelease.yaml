@@ -33,7 +33,7 @@ spec:
           main:
             image:
               repository: jellyfin/jellyfin
-              tag: 10.8.13@sha256:05a9734d7e83086b957c5b7a16cbb5a60b5bb8d113ffb953e57547359dd05140
+              tag: 10.9.6@sha256:918f993047ad43e6f240f78bc83734f6478c673d73cbebd50fdc8802ab05e6a1
             env:
               TZ: "${TIMEZONE}"
               JELLYFIN_CACHE_DIR: "/config/cache"
