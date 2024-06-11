@@ -35,10 +35,10 @@ spec:
       enabled: true
       params:
         - name: edge-router-01
-          module: [ ... ]
+          module: [...]
           target: 10.0.0.1
         - name: distribution-switch-01
-          module: [ ... ]
+          module: [...]
           target: 10.0.0.2
       path: /snmp
       scrapeTimeout: 45s
