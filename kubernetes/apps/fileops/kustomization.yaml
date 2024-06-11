@@ -6,4 +6,3 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./nextcloud/ks.yaml
-  - ./zipline/ks.yaml
