@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-pg-operator-app
-  path: ./kubernetes/apps/collaboration/vikunja/db
+  path: ./cluster/service/kubernetes/apps/collaboration/vikunja/db
   prune: true
   sourceRef:
     kind: GitRepository
@@ -29,7 +29,7 @@ spec:
   dependsOn:
     - name: cluster-apps-vikunja-db
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/collaboration/vikunja/app
+  path: ./cluster/service/kubernetes/apps/collaboration/vikunja/app
   prune: true
   sourceRef:
     kind: GitRepository

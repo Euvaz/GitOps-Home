@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/security/vaultwarden/app
+  path: ./cluster/service/kubernetes/apps/security/vaultwarden/app
   prune: true
   sourceRef:
     kind: GitRepository

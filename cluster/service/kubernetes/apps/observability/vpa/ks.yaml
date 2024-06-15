@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/observability/vpa/app
+  path: ./cluster/service/kubernetes/apps/observability/vpa/app
   prune: true
   sourceRef:
     kind: GitRepository

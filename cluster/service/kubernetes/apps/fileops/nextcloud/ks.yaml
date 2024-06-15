@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-pg-operator-app
-  path: ./kubernetes/apps/fileops/nextcloud/db
+  path: ./cluster/service/kubernetes/apps/fileops/nextcloud/db
   prune: true
   sourceRef:
     kind: GitRepository
@@ -29,7 +29,7 @@ spec:
   dependsOn:
     - name: cluster-apps-nextcloud-db
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/fileops/nextcloud/app
+  path: ./cluster/service/kubernetes/apps/fileops/nextcloud/app
   prune: true
   sourceRef:
     kind: GitRepository

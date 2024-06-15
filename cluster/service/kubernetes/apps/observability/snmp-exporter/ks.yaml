@@ -7,7 +7,7 @@ metadata:
   labels:
     substitution.flux.home.arpa/enabled: "true"
 spec:
-  path: ./kubernetes/apps/observability/snmp-exporter/app
+  path: ./cluster/service/kubernetes/apps/observability/snmp-exporter/app
   prune: true
   sourceRef:
     kind: GitRepository

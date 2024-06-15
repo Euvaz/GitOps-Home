@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/media/recyclarr/app
+  path: ./cluster/service/kubernetes/apps/media/recyclarr/app
   prune: true
   sourceRef:
     kind: GitRepository

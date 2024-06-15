@@ -9,7 +9,7 @@ metadata:
 spec:
   #dependsOn:
   #  - name: cluster-apps-kube-prometheus-stack-app # TODO: Investigate race conditions
-  path: ./kubernetes/apps/observability/thanos/app
+  path: ./cluster/service/kubernetes/apps/observability/thanos/app
   prune: true
   sourceRef:
     kind: GitRepository

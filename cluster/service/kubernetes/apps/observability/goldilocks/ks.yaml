@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-vpa-app
-  path: ./kubernetes/apps/observability/goldilocks/app
+  path: ./cluster/service/kubernetes/apps/observability/goldilocks/app
   prune: true
   sourceRef:
     kind: GitRepository

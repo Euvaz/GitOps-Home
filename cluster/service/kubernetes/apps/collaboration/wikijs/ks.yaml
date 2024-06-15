@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-pg-operator-app
-  path: ./kubernetes/apps/collaboration/wikijs/db
+  path: ./cluster/service/kubernetes/apps/collaboration/wikijs/db
   prune: true
   sourceRef:
     kind: GitRepository
@@ -28,7 +28,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-wikijs-db
-  path: ./kubernetes/apps/collaboration/wikijs/app
+  path: ./cluster/service/kubernetes/apps/collaboration/wikijs/app
   prune: true
   sourceRef:
     kind: GitRepository

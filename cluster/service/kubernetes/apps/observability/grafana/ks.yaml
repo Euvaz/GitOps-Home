@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-pg-operator-app
-  path: ./kubernetes/apps/observability/grafana/db
+  path: ./cluster/service/kubernetes/apps/observability/grafana/db
   prune: true
   sourceRef:
     kind: GitRepository
@@ -28,7 +28,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-grafana-db
-  path: ./kubernetes/apps/observability/grafana/app
+  path: ./cluster/service/kubernetes/apps/observability/grafana/app
   prune: true
   sourceRef:
     kind: GitRepository

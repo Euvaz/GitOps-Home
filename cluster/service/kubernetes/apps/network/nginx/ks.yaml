@@ -9,7 +9,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/network/nginx/external
+  path: ./cluster/service/kubernetes/apps/network/nginx/external
   prune: true
   sourceRef:
     kind: GitRepository
@@ -29,7 +29,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/network/nginx/internal
+  path: ./cluster/service/kubernetes/apps/network/nginx/internal
   prune: true
   sourceRef:
     kind: GitRepository

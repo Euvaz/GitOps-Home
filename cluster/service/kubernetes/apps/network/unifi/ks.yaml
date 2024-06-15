@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
-  path: ./kubernetes/apps/network/unifi/app
+  path: ./cluster/service/kubernetes/apps/network/unifi/app
   prune: true
   sourceRef:
     kind: GitRepository
