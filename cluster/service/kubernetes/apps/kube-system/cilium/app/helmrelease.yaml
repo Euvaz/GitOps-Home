@@ -22,8 +22,6 @@ spec:
     cleanupOnFail: true
     remediation:
       retries: 5
-  uninstall:
-    keepHistory: false
   valuesFrom:
     - kind: ConfigMap
       name: cilium-helm-values

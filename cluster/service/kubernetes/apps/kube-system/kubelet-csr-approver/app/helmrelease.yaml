@@ -22,7 +22,6 @@ spec:
     cleanupOnFail: true
     remediation:
       retries: 5
-      strategy: rollback
   valuesFrom:
     - kind: ConfigMap
       name: kubelet-csr-approver-helm-values
