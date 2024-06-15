@@ -38,7 +38,7 @@ cluster:
     secret: ENC[AES256_GCM,data:GnnrmADbI5HGb5H76spswUWFpVDkvIP3gqdiwAfiGgM2hSWwhkYxLVaqqZY=,iv:AgK4SCfOoYIYMvhltWQflpEr/3aLGqNl6vE6Ksv9POY=,tag:7lTUoACN1m2cgWVAPL4ocA==,type:str]
     controlPlane:
         endpoint: https://10.11.0.254:6443
-    clusterName: application-cluster
+    clusterName: service
     network:
         dnsDomain: cluster.local
         podSubnets:
@@ -131,8 +131,8 @@ sops:
             ZE5Bd1NweG5DYlZWUzNTUDE5NkROaFEKbJEuG/SzBVfBKYiFDQhTOg9g2/Th/gUV
             zuW/kmkQ9Tm3lcBOm7eAIBGRppm3qPaPqhEML1Yzvs90UMS5jwl2bw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-15T02:59:22Z"
-    mac: ENC[AES256_GCM,data:DYcbwR3KNlddB0lKOAMvWpnjZBvfP9jTpVbEAzcUfG3onMsrHPwvykh0KRxRyvGt85c3zxjqCYsYtJOpCrqdMlfS9mcbp32rwGnw1ti38pJCOuysLiw++r0/ITY5ajBJgJbl4oVfiXY7n1bhLDtupTfQH7/2Sl3jkcPn1a/CmEU=,iv:z7FdY99t1FFkVCU6jgoTHGtPZVzWbOAoXmoRNCW5zY4=,tag:7+urJ08wUhTW789jo0Kzcw==,type:str]
+    lastmodified: "2024-06-15T03:22:01Z"
+    mac: ENC[AES256_GCM,data:nkV238RDdjCmzQMVmA1BzGQMO5DOfaBjcV9+ltNQw3fHluoqmWzVIwBceu06sk92qQfRcDUjJ0YpGWF61CW4BztRR9uU+TOnRWkZom2c1+Btv4DYj3W0PztiVSwzayukg8WgqctM+xt+AGn64WNBIJWloRNThaoEKksnLCeoX4o=,iv:UHBasOef+t0v2WrFLqi8EXhhFozMzXLGdNBinq1k5K4=,tag:s76wx7Y3k+UMQQVq/piUjA==,type:str]
     pgp: []
     encrypted_regex: secrets?|crt|key|token|serviceAccount
     version: 3.8.1
