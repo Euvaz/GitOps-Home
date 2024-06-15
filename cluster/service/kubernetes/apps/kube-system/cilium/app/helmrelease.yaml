@@ -24,23 +24,10 @@ spec:
       retries: 5
   uninstall:
     keepHistory: false
+  valuesFrom:
+    - kind: ConfigMap
+      name: cilium-helm-values
   values:
-    autoDirectNodeRoutes: true
-    bandwidthManager:
-      enabled: true
-      bbr: true
-    bpf:
-      masquerade: true
-    bgp:
-      enabled: false
-    cluster:
-      name: kubernetes
-      id: 1
-    containerRuntime:
-      integration: containerd
-      socketPath: /var/run/k3s/containerd/containerd.sock
-    endpointRoutes:
-      enabled: true
     hubble:
       enabled: true
       metrics:
@@ -83,24 +70,7 @@ spec:
                 - *host
               secretName: hubble-tls
         rollOutPods: true
-    ipam:
-      mode: kubernetes
-    ipv4NativeRoutingCIDR: 10.244.0.0/16
-    k8sServiceHost: 10.11.0.254
-    k8sServicePort: 6443
-    kubeProxyReplacement: true
-    kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
-    l2announcements:
-      enabled: true
-      leaseDuration: 120s
-      leaseRenewDeadline: 60s
-      leaseRetryPeriod: 1s
-    loadBalancer:
-      algorithm: maglev
-      mode: dsr
-    localRedirectPolicy: true
     operator:
-      rollOutPods: true
       prometheus:
         enabled: true
         serviceMonitor:
@@ -118,26 +88,3 @@ spec:
       enabled: true
       annotations:
         grafana_folder: Cilium
-    rollOutCiliumPods: true
-    securityContext:
-      privileged: true
-    routingMode: native
-  postRenderers:
-    - kustomize:
-        patches:
-          - target:
-              version: v1
-              kind: ServiceMonitor
-              name: cilium-agent
-            patch: |
-              - op: add
-                path: /metadata/annotations/helm.toolkit.fluxcd.io~1driftDetection
-                value: disabled
-          - target:
-              version: v1
-              kind: ServiceMonitor
-              name: cilium-operator
-            patch: |
-              - op: add
-                path: /metadata/annotations/helm.toolkit.fluxcd.io~1driftDetection
-                value: disabled
