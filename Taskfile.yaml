@@ -12,5 +12,4 @@ env:
 
 includes:
   ansible: .taskfiles/ansible/Taskfile.yaml
-  fcos: .taskfiles/fcos/Taskfile.yaml
   kubernetes: .taskfiles/kubernetes/Taskfile.yaml
