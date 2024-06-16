@@ -46,9 +46,7 @@ cluster:
         serviceSubnets:
             - 10.96.0.0/12
         cni:
-            name: custom
-            urls:
-                - https://raw.githubusercontent.com/Euvaz/GitOps-Home/main/talos/integrations/cilium/cilium.yaml
+            name: none
     token: ENC[AES256_GCM,data:3UmRmGJihZ5h23ekaLhulkwNUvEM2T0=,iv:9IqycKQM9FgQdiZZD05WUgPIb+U5i42I9t0y7HT7Lgg=,tag:DHziFTAXJg69gYgA5UC08w==,type:str]
     secretboxEncryptionSecret: ENC[AES256_GCM,data:RSQh9dpoyvjX7g7Xa0gxuyehsvtjVjJlNmSsUCNDV/FISUjgtMFwJQ3QaWk=,iv:PcY50M8mjwW5jwMtPKLp9zIEN0aQ3FaAbv57qNsOgQg=,tag:fA7v8vk49zLHcWupwnYczw==,type:str]
     ca:
@@ -103,19 +101,6 @@ cluster:
         ca:
             crt: ENC[AES256_GCM,data:+qzfFskLL3GrBt9NUrSqhed2au2nM+TPuzqa6R1mXSgLe0RHDz+cjIS2oaAFj8YzYsS4czOXG+1C2/eTzMSEkJAxet64Evu/UwKrcWOa1NrygdHQpbyjU9tUqeBcS9LrZ5Gl5jSuLsp8gM3s5nIL32dlORdyt07idGYmBuKjdwJhkxzShQhhwdolBMyVGhdXR3OJp5RYkjWz6LtI8RdpKgRzpp2Db9RnrjtAfbkwvCk7K+NH5crYxCXKXHYLY563QnGT/8RD6EMo5dQJgkjGJzHFS6WtOIbgNISXUWWHPB0YK5MXvfWP367mbHDS5TWqzoc58U07xuuuMEUT/hSiIMQCJ55O0QCW/b+7OV7zdqv6xl9P83zfc16TkRVUXo8lqilPrgQEtUkHgQ15DDfZV9hXtbGlIvnWjBCNliYENXpx4d7cfHr5iLoV2ejPmhB8JRud/EFpCxiGRd30YV9XFqv30nwhoobM4VDPNy9CcsNY8G86pt4DKc9eqIO3gE9fkOKqyzFpTZ9YYm1c1FJR1jWpvDAzKGM4qgkhDLkzLMp8ta7tV3HsvnBHzKhEKzZmjuiyYHJwFQKcprCZ2KxSLO9jeVJtXCXzgoN2L9lo+P6Zy2ABgIoriV+tdZ+Yo+AsZDx6bcK5z+HAAgLPiIk92E0Q3Y2ZkpbMD5vRhvbNr0VDmAoMvDjwu+9QSdUpb/KQhVM7MgkIB0gK4mLwzMyo322H5LVnoKFviTDR2RpfKZj5Gow7HLzUpq/gMRcz0D1PEnnYUbhxBNz2QThvHO5IC14pTsunjutorLY7vBSchYxbed+VylFf9VCRTt0FtsEx9dcLR2rTQ+MG9D6642orrd0e1/oBXK8wxiTeboRAtLm1KURJBgVRfwWGEVxYz5vaNnhuATCvlBAfq/p9WmWSQ0ey4mlj21hmLcGyTcnMN5IhbP0osdhWblfM2z9N9h0WVG2m6PB1nVJI+GpGOUIRCWjvObpuDGVIAsY4O6II68/D8VJLLkWc2NJOtWobvfTo,iv:P4v2Rhvd1BzIi2cLiBcpOyk0Mt2INXhH4EoAP18qPbo=,tag:VRZBXWxJKl4I/dzMGy6Rww==,type:str]
             key: ENC[AES256_GCM,data:ZhoAUaw+3kfqTaV0JUyx05CdZsxcpxlzrvBa08V51GkNv2bLQb9mbv0LatV84YkiVjiTOLet4eNRX+u+u5dBlkn9d8ZKbIFx5qDNS65NzGFKPyGfW9fjAi8OYlyBjY6NcgSVgkcSH9UdxqcBJCPeJxUbxyGuqJjCxEUseEIXXmzHwtqhSv9dH9/rv/APfynrHHLHcBY7bGfJMBItmnK6ZCzsVN8jstLOYdRvEkQMx5/JY+ZMWlwIvSV2LFKtlVXqMjxSE3mEMbPe4fTleGhIrerosb1sFvKaVQo48xpiilS2tShm7ooF6v3kY5VqpUhb+HcJEdltoQQlY6FjFjKDnbxxjETFoB0voRoUOTJ8lb1vDmlwXniiA7CNmODD2FJXXwfU37ZFts97MyzbMDwzpg==,iv:wSynVwodwZKwnatXaQl+BBpgZYnAAwWV0tOlw1kNCJg=,tag:jICT3x9HxJbSq5h9Q0LHbw==,type:str]
-    extraManifests:
-        # Install kube prometheus stack CRDs prior to cluster bootstrap
-        # Ref: https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
-        - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
-    inlineManifests: []
 sops:
     kms: []
     gcp_kms: []
@@ -131,8 +116,8 @@ sops:
             ZE5Bd1NweG5DYlZWUzNTUDE5NkROaFEKbJEuG/SzBVfBKYiFDQhTOg9g2/Th/gUV
             zuW/kmkQ9Tm3lcBOm7eAIBGRppm3qPaPqhEML1Yzvs90UMS5jwl2bw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-15T03:22:01Z"
-    mac: ENC[AES256_GCM,data:nkV238RDdjCmzQMVmA1BzGQMO5DOfaBjcV9+ltNQw3fHluoqmWzVIwBceu06sk92qQfRcDUjJ0YpGWF61CW4BztRR9uU+TOnRWkZom2c1+Btv4DYj3W0PztiVSwzayukg8WgqctM+xt+AGn64WNBIJWloRNThaoEKksnLCeoX4o=,iv:UHBasOef+t0v2WrFLqi8EXhhFozMzXLGdNBinq1k5K4=,tag:s76wx7Y3k+UMQQVq/piUjA==,type:str]
+    lastmodified: "2024-06-16T01:52:37Z"
+    mac: ENC[AES256_GCM,data:yh9X12vKLa1qr9XlV27VcZ8YFvTfRnC4exSZSRhGBMYZGwRpCdtFcQ61QzgT8kDRWdzznmRkdtza1SIbB8LrJlRs03Rni2ieiYONEwQ7eXZkHZH4SbFcCVyATEbLgPU5dwgEAEZbd0hG39PaO0D0IKi1BvsLNWZDNrBcmkeeZOU=,iv:08N9NNEuaJ0r6TiJFksr8FJhSJLPgdmtB06OUSn3iMk=,tag:m2xtwegYY9RRnTksmQO3zA==,type:str]
     pgp: []
     encrypted_regex: secrets?|crt|key|token|serviceAccount
     version: 3.8.1
