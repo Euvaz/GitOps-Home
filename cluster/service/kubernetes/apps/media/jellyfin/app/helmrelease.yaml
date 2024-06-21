@@ -36,7 +36,6 @@ spec:
               tag: 10.9.6@sha256:918f993047ad43e6f240f78bc83734f6478c673d73cbebd50fdc8802ab05e6a1
             env:
               TZ: "${TIMEZONE}"
-              JELLYFIN_CACHE_DIR: "/config/cache"
             resources:
               requests:
                 gpu.intel.com/i915: 1
@@ -82,6 +81,10 @@ spec:
         existingClaim: jellyfin-config-v1
         globalMounts:
           - path: /config
+      cache:
+        type: emptyDir
+        globalMounts:
+          - path: /cache
       media:
         type: nfs
         server: "nas.${SECRET_DOMAIN}"
@@ -91,4 +94,3 @@ spec:
             readOnly: true
       transcode:
         type: emptyDir
-        medium: Memory
