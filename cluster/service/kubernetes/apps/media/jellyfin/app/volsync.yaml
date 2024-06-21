@@ -23,7 +23,7 @@ spec:
     copyMethod: Snapshot
     pruneIntervalDays: 10
     repository: jellyfin-restic-secret
-    cacheCapacity: 10Gi
+    cacheCapacity: 11Gi
     volumeSnapshotClassName: csi-ceph-blockpool
     storageClassName: ceph-block
     moverSecurityContext:
