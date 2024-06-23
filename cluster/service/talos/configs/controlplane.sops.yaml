@@ -19,7 +19,7 @@ machine:
               vip:
                 ip: 10.11.0.254
     install:
-        disk: /dev/sda
+        disk: /dev/nvme0n1
         image: ghcr.io/siderolabs/installer:v1.7.5
         wipe: false
     registries: {}
@@ -116,8 +116,8 @@ sops:
             ZE5Bd1NweG5DYlZWUzNTUDE5NkROaFEKbJEuG/SzBVfBKYiFDQhTOg9g2/Th/gUV
             zuW/kmkQ9Tm3lcBOm7eAIBGRppm3qPaPqhEML1Yzvs90UMS5jwl2bw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-21T20:48:57Z"
-    mac: ENC[AES256_GCM,data:Og80PCrmuGXup+zDy6fVeSBTCZ6UTu4GVVLNzIKa5qG/Z1VCyDlSf6rGnMtrI75LF1Ch9MvfFfQArIDh5qpC6UsgDb/pTZawU888zsQpU056vcG/BUx3paPz+KaoP29LDoCXUUSI4/IfE6mbxEpzcwdrijhy401VBk6DOk3ElMI=,iv:1l6/SMB5CnKAvvHI5WQw7HYm2zBmBfedXbUd0fvbdVc=,tag:+uglZ229tAGNIrBtseGTZw==,type:str]
+    lastmodified: "2024-06-23T07:14:36Z"
+    mac: ENC[AES256_GCM,data:Q78PSZe2gltU3iqswmtPtDCQ3RDO6E9vbbxRCb7OyAXcHBjkKmisYHivZV7qDVEqI4oU/nySy0MAwo/txhSsuJMYTKRbvI2ICQVFUiaWKXG4XlKnVyZBIi+QrxV3+rHKYCGx/c/fiuUtGAtius4/+eEoTwqBLXdCFRTksNsj0iw=,iv:rqIrAKabHnI2p8vqNbiK7hjamLmLbyyUohRG0/7w3aw=,tag:KwD8VrNO7VrDen3//uWbuQ==,type:str]
     pgp: []
     encrypted_regex: secrets?|crt|key|token|serviceAccount
     version: 3.8.1
