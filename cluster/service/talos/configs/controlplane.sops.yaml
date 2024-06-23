@@ -7,7 +7,9 @@ machine:
     ca:
         crt: ENC[AES256_GCM,data:zkdzVVf3PXBrd09TyZLRk+FBJEJH37e8eh4CGH05/HROSGbaLlcZ5Oij2JCZvOhyKZCrgteBkVQv8Hwp27f8O2tyM/48BE+gnB9f7JEstG0cX+2K4qmNIR2y7KsIzRlTcHjSwMbUlT9aGUy1CDcmKGH21XHx6ZCfOKyuwevei0OSVw7qiYrF+wxrtXNun1SEPKvItZntqbOQSuUOUtXIVxstKgwVqEjIRlUhYfQ8FCBx39YX6nKFDVu4MTnYSgyriHi9tQrPYRxKz7gEDUsP2JUQFO5Dv9ZMA3x1gIgMVeMi6ELlW4loURLrz8Eec5iQ54NU794/Le37RnTuW9HUPged/ay7WHoU06lA97pciv30JfuLgbwePkSeI/pEHiTFvXWJUivR/4XqC1qoelYi6/uJJjY9ClfEvLyXftnz4W/mo7Ya3BcckgG5PIRuGZyrLjNvBVrNtrUzswE8jwUYzIubE+q7b7/df27EwW8GwKc5gnnbOGRp2J6FoCOv0ZtfzXViK/ma5NULs0njm9UZq/fnqcBbComksQ5lF+xaxkRTt/4gDUO60cgf1t8mNDIkKyVImbBxuf8FkCJHtUtlr9MFy2JyNXrhQb0vnQlVNjv+7Yq+W8aOog5VHcljes8KnrhZMegXtE9oXBV1HQyYtO5MbE7U7F45QukQ4YVF8k75Vf/ekoZz4IVSOLtvuDkrEvF0nApTyIt24U71oI4k9Xw0psYjRPlK8MpYp5ifXByYFceqBkqxtT3ljId/iVAQQGZCwTVhSh2TYDu6emZErARNwKAjWX0F4CBFoOUHHCe9Th46+gLbPVvEeY1RlKmvEbw0nTdhLlR6jw2cVKJTXxJtOgUf/y4rIkPteW4fwgjzEPUV,iv:Mmgp/I7LMHgj/sexLctooqGYwf7y1Iwce50T4zJryR8=,tag:Rko9hgKuOze9bTZ9nE85ig==,type:str]
         key: ENC[AES256_GCM,data:DMcpTSLHLU7UPTWM/oO9cZQroFNghgjltquab0hb2fmsc4VEiY26OVfWmsN+KJnLkL7RpfJhATPnneUkIfWxRK0Du+VZuZh80qxmfVbEGPxMKqVMG6bVKNCda+7SdWtlJjppQqudmqG5jlF7XxJVd9zgW2Zj+6uxIXrG83gpQZw/G/Oto9q8JnumaSLIhGQhtIpAC8qI58XZ/5MhlDt70ca+JhnKxAxpfdKAiM2VMxEJBIca,iv:hYi0jrulO6U0ODbDc7DpQc9VpiUsz6Ah+fd2LUApbpQ=,tag:TzcYnBKKDHTeK2F6swi5Yg==,type:str]
-    certSANs: []
+    certSANs:
+        - 127.0.0.1
+        - 10.11.0.254
     kubelet:
         image: ghcr.io/siderolabs/kubelet:v1.30.1
         defaultRuntimeSeccompProfileEnabled: true
@@ -22,7 +24,6 @@ machine:
         disk: /dev/nvme0n1
         image: ghcr.io/siderolabs/installer:v1.7.5
         wipe: false
-    registries: {}
     features:
         rbac: true
         stableHostname: true
@@ -126,8 +127,8 @@ sops:
             ZE5Bd1NweG5DYlZWUzNTUDE5NkROaFEKbJEuG/SzBVfBKYiFDQhTOg9g2/Th/gUV
             zuW/kmkQ9Tm3lcBOm7eAIBGRppm3qPaPqhEML1Yzvs90UMS5jwl2bw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-23T10:51:48Z"
-    mac: ENC[AES256_GCM,data:WCU9BARloqNm4kPHgLBM8n3WE5NK4XTzMhAp5YTBSSiVozQBpQvK7yIsPI925QL71qLW7Rqd2w5cv4skPsKaPumqr8ufab3kjJthygomYFWLLG7GoI+NOUaLtRNUP9ov/CGDU8DbODvk+jydhNQDGQPHIuk1cEPKmVEU0g5IYcA=,iv:VtYm279opjl8ED5KR6cjW4szH6JLbng6o/SnXTuwzXU=,tag:ar8rfIZuKUFn1f79acq5hQ==,type:str]
+    lastmodified: "2024-06-23T10:57:40Z"
+    mac: ENC[AES256_GCM,data:aD4pNUNvCFpRbN5KidYWrvBBNKbKlEPEor/z5nxnpHnc7qT270mtTPr/NhnX1IHnMqBhSimBVeyvmvbpOL8CQ4s7Sf2ag6afJCatD1gWwjhr6OM/vZibuwDYq82EG8A2o5EvnP29unBSTK5/XIDbjpb3wzEaM1MzMOX729ui7jA=,iv:J0xEIDP9ql2GRnHdoo0ALXSOMV738ggtJWn+YDqni+Q=,tag:lNifmgZKP7oEQJHrv4hhUg==,type:str]
     pgp: []
     encrypted_regex: secrets?|crt|key|token|serviceAccount
     version: 3.8.1
