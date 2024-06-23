@@ -17,16 +17,3 @@ spec:
   nfs:
     path: /zfsa/Nextcloud
     server: "nas.${SECRET_DOMAIN}"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: nextcloud-data-v1
-  namespace: fileops
-spec:
-  accessModes:
-    - ReadWriteMany
-  storageClassName: ""
-  resources:
-    requests:
-      storage: 1Ti

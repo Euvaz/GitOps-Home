@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: collaboration
 resources:
   - ./helmrelease.yaml
-  - ./data-pvc.yaml
+  - ./pvc.yaml
   - ./secret.sops.yaml
   - ./volsync.yaml
 configMapGenerator:
