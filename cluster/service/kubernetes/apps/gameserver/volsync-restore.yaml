@@ -1,0 +1,13 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: valeim-data-v1-dest
+  namespace: gameserver
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: nextcloud-restic-secret
+    destinationPVC: valeim-data-v1
+    copyMethod: Direct
