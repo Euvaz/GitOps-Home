@@ -60,6 +60,7 @@ cluster:
     apiServer:
         image: registry.k8s.io/kube-apiserver:v1.30.1
         certSANs:
+            - 127.0.0.1
             - 10.11.0.254
         disablePodSecurityPolicy: true
         admissionControl:
@@ -118,8 +119,8 @@ sops:
             ZE5Bd1NweG5DYlZWUzNTUDE5NkROaFEKbJEuG/SzBVfBKYiFDQhTOg9g2/Th/gUV
             zuW/kmkQ9Tm3lcBOm7eAIBGRppm3qPaPqhEML1Yzvs90UMS5jwl2bw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-23T10:45:23Z"
-    mac: ENC[AES256_GCM,data:9KUcWWAonMOtAYFP0TrytetMiYeM4NX1vK5XqpLGX6AJnLE0rbiCb8gH3Yx7QAYE2AdyC77mEQ8GjXt/OdCTzN56koPPOG0Zi8Au3UYmslQaB+A4wrndmisezTHypsekmpWNl7VPpPlK0Na/wXM29gRArvZbOBAY5X8cGFSfIUw=,iv:VHqUndXEMWgOYyHnRGXPuc2+RcmpfsK46VD1lIx/IxE=,tag:153lFjgrSGHbfbqpT+Z5sg==,type:str]
+    lastmodified: "2024-06-23T10:47:05Z"
+    mac: ENC[AES256_GCM,data:ZrH0VVFS2TJg+qOeYeG7vzY6X8nGeMmZqpVqtYi32CC+sRDfINh8TZU8MEledFuh8gu7QhUWPSB3YZbV/iTQGHlT3GxuupL1VZaunHDJR2z1rzBrinqh6Q3Wx/635YCv3Qxjfctly2VyQgsf+xJqYVwjpcOshERT2Oh7NTfTYhU=,iv:zQo5DAwBWxLbg5RkiIDY0HaqSG2GSJGXyFuK5eWEVUE=,tag:65JwYctOz49Ps2fKSrBRvg==,type:str]
     pgp: []
     encrypted_regex: secrets?|crt|key|token|serviceAccount
     version: 3.8.1
