@@ -80,6 +80,19 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
+  name: recyclarr-config-v1-dest
+  namespace: media
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: recyclarr-restic-secret
+    destinationPVC: recyclarr-config-v1
+    copyMethod: Direct
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
   name: sonarr-config-v1-dest
   namespace: media
 spec:
