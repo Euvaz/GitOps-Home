@@ -12,7 +12,7 @@ cgroup:
   hostRoot: /sys/fs/cgroup
 cluster:
   id: 1
-  name: kubernetes
+  name: service
 enableRuntimeDeviceDetection: true
 endpointRoutes:
   enabled: true
