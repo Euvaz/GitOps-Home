@@ -14,7 +14,7 @@ machine:
         disableManifestsDirectory: true
     network:
         interfaces:
-            - interface: eth0
+            - interface: enp89s0
               dhcp: true
               vip:
                 ip: 10.11.0.254
@@ -116,8 +116,8 @@ sops:
             ZE5Bd1NweG5DYlZWUzNTUDE5NkROaFEKbJEuG/SzBVfBKYiFDQhTOg9g2/Th/gUV
             zuW/kmkQ9Tm3lcBOm7eAIBGRppm3qPaPqhEML1Yzvs90UMS5jwl2bw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-23T07:14:36Z"
-    mac: ENC[AES256_GCM,data:Q78PSZe2gltU3iqswmtPtDCQ3RDO6E9vbbxRCb7OyAXcHBjkKmisYHivZV7qDVEqI4oU/nySy0MAwo/txhSsuJMYTKRbvI2ICQVFUiaWKXG4XlKnVyZBIi+QrxV3+rHKYCGx/c/fiuUtGAtius4/+eEoTwqBLXdCFRTksNsj0iw=,iv:rqIrAKabHnI2p8vqNbiK7hjamLmLbyyUohRG0/7w3aw=,tag:KwD8VrNO7VrDen3//uWbuQ==,type:str]
+    lastmodified: "2024-06-23T07:21:05Z"
+    mac: ENC[AES256_GCM,data:+XhjF94HheCOhs5P8JiyUjLOKj8GN10zZw+xSAcwjw0MYpQaQqO+8Xrafzu/GA0oiwh8lOcprbjSeyzp10dekrDaVojuXXkcNC3Fk58/ALhV6RqYgWuhyQsrmVTiBmI24j+kxDa4z3iH5Dw9EOEMXTlSLN0hBSJbbHnyxrQIfaY=,iv:HKvnWqKkDtmyTGJONJ9YwmZ3NwxEK7SmZr1WCalFiEI=,tag:/Ba1He6zmlT8N1y6ftF+Ow==,type:str]
     pgp: []
     encrypted_regex: secrets?|crt|key|token|serviceAccount
     version: 3.8.1
