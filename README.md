@@ -9,7 +9,7 @@ Effectively, this GitHub repository is the heart of my cluser.
 ## Overview
 
 - [Repository structure](#-repository-structure)
-- [Rebuild counter](#-rebuild-counter-10)
+- [Rebuild counter](#-rebuild-counter-11)
 
 ## 📂 Repository structure
 
@@ -27,6 +27,6 @@ cluster/            # Root cluster directory
 └── ...                 # Additional clusters
 ```
 
-## 💣 Rebuild counter: 10
+## 💣 Rebuild counter: 11
 
 How many times I've had to nuke and re-build my cluster, either due to hardware failure or hasty updating.
