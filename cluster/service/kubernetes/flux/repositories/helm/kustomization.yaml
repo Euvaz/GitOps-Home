@@ -6,6 +6,7 @@ resources:
   - ./bitnami.yaml
   - ./bjw-s.yaml
   - ./cilium.yaml
+  - ./coredns.yaml
   - ./crunchydata.yaml
   - ./emberstack.yaml
   - ./external-dns.yaml
