@@ -36,11 +36,11 @@ spec:
         - vikunja
   backups:
     pgbackrest:
-      # restore:
-      #   enabled: true
-      #   repoName: repo1
-      #   options:
-      #     - --set="20231229-180002F"
+      restore:
+        enabled: true
+        repoName: repo1
+        options:
+          - --set="20240623-060003F"
       global:
         archive-push-queue-max: 4GiB
         repo1-path: /pgbackrest/collaboration/vikunja/repo1
