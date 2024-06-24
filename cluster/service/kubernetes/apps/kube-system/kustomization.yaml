@@ -8,6 +8,7 @@ resources:
   - ./cilium/ks.yaml
   - ./coredns/ks.yaml
   - ./intel-gpu-plugin/ks.yaml
+  - ./kubelet-csr-approver/ks.yaml
   - ./metrics-server/ks.yaml
   - ./node-feature-discovery/ks.yaml
   - ./reflector/ks.yaml
