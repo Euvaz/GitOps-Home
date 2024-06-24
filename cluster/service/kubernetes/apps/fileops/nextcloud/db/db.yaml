@@ -40,6 +40,7 @@ spec:
         enabled: true
         repoName: repo1
         options:
+          - --type="immediate"
           - --set="20240623-060003F"
       global:
         archive-push-queue-max: 4GiB
