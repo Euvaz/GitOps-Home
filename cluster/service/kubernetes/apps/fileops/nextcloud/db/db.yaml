@@ -5,7 +5,7 @@ metadata:
   name: pg-cluster-nextcloud
   namespace: fileops
 spec:
-  postgresVersion: 15
+  postgresVersion: 14
   patroni:
     dynamicConfiguration:
       synchronous_mode: true
