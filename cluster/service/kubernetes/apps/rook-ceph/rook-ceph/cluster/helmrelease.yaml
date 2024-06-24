@@ -80,13 +80,13 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: "talos-rbj-udw"
+          - name: "talos-mj8-x3q"
             devices:
               - name: "/dev/disk/by-id/ata-CT1000MX500SSD1_2206E608FBD9"
-          - name: "talos-pgh-eih"
+          - name: "talos-1pg-b4y"
             devices:
               - name: "/dev/disk/by-id/ata-CT1000MX500SSD1_2206E608FB42"
-          - name: "talos-5ua-3fh"
+          - name: "talos-lc9-djo"
             devices:
               - name: "/dev/disk/by-id/ata-CT1000MX500SSD1_2206E608FBC9"
     cephBlockPools:
