@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: database
+  name: postgres-operator
   annotations:
     volsync.backube/privileged-movers: "true"
   labels:
