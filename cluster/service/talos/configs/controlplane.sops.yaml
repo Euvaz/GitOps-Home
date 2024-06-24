@@ -34,6 +34,15 @@ machine:
             port: 7445
         hostDNS:
             enabled: true
+            forwardKubeDNSToHost: false
+            resolveMemberNames: true
+    files:
+        - content: |
+            [plugins."io.containerd.grpc.v1.cri"]
+              enable_unprivileged_ports = true
+              enable_unprivileged_icmp = true
+          path: /etc/cri/conf.d/20-customization.part
+          op: create
 cluster:
     id: k6QPCm0628eObCAURISytBf0xwSavGwtChkuEFoQ5BU=
     secret: ENC[AES256_GCM,data:GnnrmADbI5HGb5H76spswUWFpVDkvIP3gqdiwAfiGgM2hSWwhkYxLVaqqZY=,iv:AgK4SCfOoYIYMvhltWQflpEr/3aLGqNl6vE6Ksv9POY=,tag:7lTUoACN1m2cgWVAPL4ocA==,type:str]
@@ -127,8 +136,8 @@ sops:
             ZE5Bd1NweG5DYlZWUzNTUDE5NkROaFEKbJEuG/SzBVfBKYiFDQhTOg9g2/Th/gUV
             zuW/kmkQ9Tm3lcBOm7eAIBGRppm3qPaPqhEML1Yzvs90UMS5jwl2bw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-06-23T10:57:40Z"
-    mac: ENC[AES256_GCM,data:aD4pNUNvCFpRbN5KidYWrvBBNKbKlEPEor/z5nxnpHnc7qT270mtTPr/NhnX1IHnMqBhSimBVeyvmvbpOL8CQ4s7Sf2ag6afJCatD1gWwjhr6OM/vZibuwDYq82EG8A2o5EvnP29unBSTK5/XIDbjpb3wzEaM1MzMOX729ui7jA=,iv:J0xEIDP9ql2GRnHdoo0ALXSOMV738ggtJWn+YDqni+Q=,tag:lNifmgZKP7oEQJHrv4hhUg==,type:str]
+    lastmodified: "2024-06-24T01:25:13Z"
+    mac: ENC[AES256_GCM,data:5JPrsaSekm5Vv1orOSakEtU7efI5nBjes0dkHDPt5+6w0vAga9f1FVYF/iyZoWlg5k+ZgG22uePDiXYt5WJjbESdy5weZGkSw0qTsJLpCVGIskuJF8lcGGEh9roLOhWuCvZ1slXNW34Ia3cuMyUD4n/Hk7WQJNRKCnqO9knvdW4=,iv:zJa+YSuD6SX8nn6xFCesM7wuOSzeguYluspfuizGRaI=,tag:zCbTVTP79IXIaZyKX/gMVg==,type:str]
     pgp: []
     encrypted_regex: secrets?|crt|key|token|serviceAccount
     version: 3.8.1
