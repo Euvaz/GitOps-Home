@@ -6,5 +6,5 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./radicale/ks.yaml
-  # - ./vikunja/ks.yaml
-  # - ./wikijs/ks.yaml
+  - ./vikunja/ks.yaml
+  - ./wikijs/ks.yaml
