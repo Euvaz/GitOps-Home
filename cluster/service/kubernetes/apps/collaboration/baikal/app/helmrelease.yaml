@@ -83,7 +83,7 @@ spec:
         existingClaim: baikal-data-v1
         globalMounts:
           - path: /var/www/baikal/Specific/
-      auth:
+      config:
         type: secret
         name: *app
         globalMounts:
