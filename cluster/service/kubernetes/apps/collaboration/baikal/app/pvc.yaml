@@ -11,16 +11,3 @@ spec:
   resources:
     requests:
       storage: 1Mi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: baikal-config-v1
-  namespace: collaboration
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: ceph-block
-  resources:
-    requests:
-      storage: 1Mi
