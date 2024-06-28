@@ -51,7 +51,7 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
           gethomepage.dev/enabled: "true"
-          gethomepage.dev/name: "baikal"
+          gethomepage.dev/name: "Baikal"
           gethomepage.dev/group: "Collaboration"
           gethomepage.dev/icon: "baikal"
           gethomepage.dev/description: "A Calendar+Contacts server."
