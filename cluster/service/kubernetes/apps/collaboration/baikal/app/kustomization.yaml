@@ -5,4 +5,4 @@ namespace: collaboration
 resources:
   - ./helmrelease.yaml
   - ./pvc.yaml
-  # - ./volsync.yaml
+  - ./volsync.yaml
