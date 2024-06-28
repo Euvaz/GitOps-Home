@@ -24,14 +24,12 @@ spec:
   values:
     controllers:
       main:
-        pod:
-          securityContext:
-            runAsUser: 101
-            runAsGroup: 101
-            fsGroup: 101
-            fsGroupChangePolicy: "OnRootMismatch"
-            supplementalGroups:
-              - 100
+        # pod:
+        #   securityContext:
+        #     runAsUser: 101
+        #     runAsGroup: 101
+        #     fsGroup: 101
+        #     fsGroupChangePolicy: "OnRootMismatch"
         containers:
           main:
             image:
