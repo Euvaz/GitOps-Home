@@ -69,6 +69,6 @@ spec:
         globalMounts:
           - path: /var/www/baikal/Specific/
       config:
-        existingClaim: baikal-data-v1
+        existingClaim: baikal-config-v1
         globalMounts:
           - path: /var/www/baikal/config/
