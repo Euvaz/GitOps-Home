@@ -30,6 +30,11 @@ spec:
         #     runAsGroup: 101
         #     fsGroup: 101
         #     fsGroupChangePolicy: "OnRootMismatch"
+        initContainers:
+          set-perms:
+            image:
+              repository: busybox
+            command: ["sh", "-c", "chown --recursive 101:101 /var/www/baikal/Specific/"]
         containers:
           main:
             image:
