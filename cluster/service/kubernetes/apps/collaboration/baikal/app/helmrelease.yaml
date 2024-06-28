@@ -30,6 +30,8 @@ spec:
             runAsGroup: 101
             fsGroup: 101
             fsGroupChangePolicy: "OnRootMismatch"
+            supplementalGroups:
+              - 100
         containers:
           main:
             image:
