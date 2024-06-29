@@ -2,14 +2,14 @@
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: radicale-data-v1-dest
+  name: baikal-data-v1-dest
   namespace: collaboration
 spec:
   trigger:
     manual: restore-once
   restic:
-    repository: radicale-restic-secret
-    destinationPVC: radicale-data-v1
+    repository: baikal-restic-secret
+    destinationPVC: baikal-data-v1
     copyMethod: Direct
 ---
 apiVersion: volsync.backube/v1alpha1
