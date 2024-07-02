@@ -69,10 +69,10 @@ spec:
                     key: port
             resources:
               requests:
-                cpu: 10m
-                memory: 105M
+                cpu: 15m
+                memory: 249M
               limits:
-                memory: 105M
+                memory: 249M
     service:
       main:
         controller: main
