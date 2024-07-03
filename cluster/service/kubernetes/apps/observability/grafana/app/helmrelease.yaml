@@ -88,8 +88,10 @@ spec:
     dashboards:
       default:
         node-exporter-full:
+          # renovate: depName="Node Exporter Full"
+          gnetId: 1860
+          revision: 37
           datasource: Prometheus
-          url: https://grafana.com/api/dashboards/1860/revisions/22/download
     sidecar:
       logLevel: INFO
       dashboards:
