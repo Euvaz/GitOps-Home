@@ -99,12 +99,12 @@ spec:
         enabled: true
         searchNamespace: ALL
     plugins:
+      - grafana-clock-panel
+      - grafana-piechart-panel
+      - grafana-worldmap-panel
       - natel-discrete-panel
       - pr0ps-trackmap-panel
-      - grafana-piechart-panel
       - vonage-status-panel
-      - grafana-worldmap-panel
-      - grafana-clock-panel
     serviceMonitor:
       enabled: true
     ingress:
