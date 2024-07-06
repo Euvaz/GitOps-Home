@@ -52,7 +52,7 @@ spec:
             port: 8080
     ingress:
       main:
-        ingressClassName: "external"
+        className: "external"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
