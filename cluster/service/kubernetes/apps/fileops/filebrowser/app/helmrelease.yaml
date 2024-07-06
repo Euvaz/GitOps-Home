@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: ghcr.io/onedr0p/filebrowser
-      tag: v2.24.1@sha256:810a4d5574409912e52c06301adf2a690b9e83ace12f2b6f589d957b0e6a10ad
+      tag: v2.27.0@sha256:c8dde2829b056883074e47a61f825b84394d8d6173371146dd26d5f50200c53f
     service:
       main:
         ports:
