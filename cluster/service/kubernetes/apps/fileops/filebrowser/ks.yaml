@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-rook-ceph-cluster
-  path: ./cluster/servie/kubernetes/apps/fileops/filebrowser/app
+  path: ./cluster/service/kubernetes/apps/fileops/filebrowser/app
   prune: true
   sourceRef:
     kind: GitRepository
