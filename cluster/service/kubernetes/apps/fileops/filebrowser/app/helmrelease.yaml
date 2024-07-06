@@ -8,67 +8,76 @@ spec:
   interval: 15m
   chart:
     spec:
+      interval: 15m
       chart: app-template
-      version: 1.5.1
+      version: 3.2.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-      interval: 15m
+  install:
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
   values:
-    image:
-      repository: ghcr.io/onedr0p/filebrowser
-      tag: v2.24.1@sha256:810a4d5574409912e52c06301adf2a690b9e83ace12f2b6f589d957b0e6a10ad
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: docker.io/filebrowser/filebrowser
+              tag: v2.30.0@sha256:862a8f4f4829cb2747ced869aea8593204bbc718c92f0f11c97e7b669a54b53d
+            env:
+              - name: TZ
+                value: ${TIMEZONE}
+              - name: FB_DATABASE
+                value: /config/filebrowser.db
+              - name: FB_ROOT
+                value: /data
+              - name: FB_LOG
+                value: stdout
+            resources:
+              requests:
+                cpu: 15m
+                memory: 105M
+              limits:
+                memory: 105M
     service:
       main:
+        controller: main
         ports:
           http:
             port: 8080
     ingress:
       main:
-        enabled: true
-        ingressClassName: "traefik"
+        ingressClassName: "external"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
-          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Filebrowser"
           gethomepage.dev/group: "FileOps"
           gethomepage.dev/icon: "filebrowser"
           gethomepage.dev/description: "Web File Browser."
         hosts:
-          - host: &host "files.${SECRET_DOMAIN}"
+          - host: &host "fb.${SECRET_DOMAIN}"
             paths:
               - path: /
-                type: Prefix
+                service:
+                  identifier: main
+                  port: http
         tls:
           - hosts:
               - *host
             secretName: filebrowser-tls
     persistence:
       config:
-        enabled: true
-        existingClaim: filebrowser-config-v1
-        mountPath: /config
+        existingClaim: filebrowser
       data:
-        enabled: true
         type: nfs
         server: "nas.${SECRET_DOMAIN}"
         path: /zfsa/Apps/External/Filebrowser
-        mountPath: /data
-      filebrowser:
-        enabled: true
-        type: configMap
-        name: *app
-        mountPath: /.filebrowser.json
-        subPath: filebrowser.json
-        readOnly: true
-    podAnnotations:
-      configmap.reloader.stakater.com/reload: *app
-    resources:
-      requests:
-        cpu: 15m
-        memory: 105M
-      limits:
-        memory: 105M
+        globalMounts:
+          - path: /data
