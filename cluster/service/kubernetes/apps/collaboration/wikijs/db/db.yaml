@@ -5,7 +5,7 @@ metadata:
   name: pg-cluster-wikijs
   namespace: collaboration
 spec:
-  postgresVersion: 14
+  postgresVersion: 15
   patroni:
     dynamicConfiguration:
       synchronous_mode: true
