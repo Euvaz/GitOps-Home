@@ -16,7 +16,7 @@ metadata:
   name: filebrowser
   namespace: fileops
 spec:
-  sourcePVC: filebrowser-config-v1
+  sourcePVC: filebrowser
   trigger:
     schedule: "0 0 * * *"
   restic:
