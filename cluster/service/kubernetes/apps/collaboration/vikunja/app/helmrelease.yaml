@@ -105,7 +105,7 @@ spec:
           gethomepage.dev/enabled: "true"
           gethomepage.dev/name: "Vikunja"
           gethomepage.dev/group: "Collaboration"
-          gethomepage.dev/icon: "https://vikunja.io/docs/favicon.ico"
+          gethomepage.dev/icon: "https://vikunja.io/favicon.svg"
           gethomepage.dev/description: "The open-source, self-hostable to-do app."
         hosts:
           - host: &host "tasks.${SECRET_DOMAIN}"
