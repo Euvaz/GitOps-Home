@@ -10,7 +10,7 @@ spec:
     spec:
       interval: 15m
       chart: thanos
-      version: 15.7.12
+      version: 15.7.11
       sourceRef:
         kind: HelmRepository
         name: bitnami
