@@ -31,7 +31,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "external"
+        ingressClassName: external
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"

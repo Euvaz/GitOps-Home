@@ -43,7 +43,7 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "internal"
+        ingressClassName: internal
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           gethomepage.dev/enabled: "true"
@@ -64,7 +64,7 @@ spec:
       thanosIngress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "internal"
+        ingressClassName: internal
         hosts:
           - &thanosHost "thanos-sidecar.${SECRET_DOMAIN}"
         tls:
@@ -133,7 +133,7 @@ spec:
       ingress:
         enabled: true
         pathType: Prefix
-        ingressClassName: "internal"
+        ingressClassName: internal
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           gethomepage.dev/enabled: "true"

@@ -48,7 +48,7 @@ spec:
       createPrometheusRules: true
     ingress:
       dashboard:
-        ingressClassName: "internal"
+        ingressClassName: internal
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           gethomepage.dev/enabled: "true"
