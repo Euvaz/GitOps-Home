@@ -27,7 +27,7 @@ spec:
         containers:
           main:
             image:
-              repository: ckulka/baikal
+              repository: docker.io/ckulka/baikal
               tag: 0.9.5-nginx-php8.2@sha256:89d667ece755bdddfb1ee076c3fd71a72ca165012a113bbcc0601315fe572652
             resources:
               requests:

@@ -35,7 +35,7 @@ spec:
         containers:
           main:
             image:
-              repository: vaultwarden/server
+              repository: docker.io/vaultwarden/server
               tag: 1.30.5-alpine@sha256:6f6ec220ed300e1a11475a91d270985915083512f9fb60c1c25783faaa66eef5
             env:
               TZ: "${TIMEZONE}"

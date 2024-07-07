@@ -32,7 +32,7 @@ spec:
         containers:
           main:
             image:
-              repository: mbround18/valheim
+              repository: docker.io/mbround18/valheim
               tag: 3.0.2@sha256:3ba54bc2725bfa1fd66054391c0d06cf14e82bfdb92fee03c323b180235342ae
             probes:
               liveness:

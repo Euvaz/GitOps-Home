@@ -27,7 +27,7 @@ spec:
         containers:
           main:
             image:
-              repository: vikunja/api
+              repository: docker.io/vikunja/api
               tag: 0.22.1@sha256:c9415431e6235229302bb8f9ee6660b74c24859d1e8adbc4a3e25bd418604b57
             env:
               - name: VIKUNJA_SERVICE_TIMEZONE
@@ -69,7 +69,7 @@ spec:
                 memory: 1269M
           frontend:
             image:
-              repository: vikunja/frontend
+              repository: docker.io/vikunja/frontend
               tag: 0.22.1@sha256:f0223d441997fe29c377d0b476dc4bb2fc091b44b9c24d76b1b88c213df520c5
             env:
               - name: VIKUNJA_ALLOW_ICON_CHANGES
@@ -82,7 +82,7 @@ spec:
                 memory: 35M
           proxy:
             image:
-              repository: caddy
+              repository: docker.io/caddy
               tag: 2.8.4-alpine@sha256:896c6fb9e3eae11890f53dc528b8a9be1b4d058f6b7603024feb084fc203c0b4
             resources:
               requests:

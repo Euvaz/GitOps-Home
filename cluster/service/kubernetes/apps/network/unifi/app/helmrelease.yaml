@@ -33,7 +33,7 @@ spec:
         containers:
           main:
             image:
-              repository: jacobalberty/unifi
+              repository: docker.io/jacobalberty/unifi
               tag: v8.2.93
             env:
               TZ: "${TIMEZONE}"
