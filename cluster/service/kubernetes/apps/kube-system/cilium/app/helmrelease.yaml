@@ -53,7 +53,7 @@ spec:
         enabled: true
         ingress:
           enabled: true
-          className: "internal"
+          className: internal
           annotations:
             cert-manager.io/cluster-issuer: "letsencrypt-production"
             gethomepage.dev/enabled: "true"

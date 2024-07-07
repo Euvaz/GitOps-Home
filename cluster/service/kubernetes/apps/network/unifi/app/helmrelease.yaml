@@ -85,7 +85,7 @@ spec:
             protocol: UDP
     ingress:
       main:
-        className: "internal"
+        className: internal
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"

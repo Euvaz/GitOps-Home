@@ -81,7 +81,7 @@ spec:
             port: 9090
     ingress:
       main:
-        className: "external"
+        className: external
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
