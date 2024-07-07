@@ -85,7 +85,6 @@ spec:
           limits:
             memory: 6294M
         thanos:
-          image: "quay.io/thanos/thanos@sha256:3e5c47dd3a0bfc6c595036c1c49c7ca95979a89c1fb93ee4cdee3bf5d296f944"
           objectStorageConfig:
             existingSecret:
               name: thanos-objstore-secret
