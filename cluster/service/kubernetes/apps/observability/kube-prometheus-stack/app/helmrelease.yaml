@@ -94,7 +94,7 @@ spec:
     kubeProxy:
       enabled: false
     kubeStateMetrics:
-      enabled: true
+      enabled: false
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
       metricLabelsAllowlist:
