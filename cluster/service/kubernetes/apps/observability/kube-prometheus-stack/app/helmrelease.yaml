@@ -93,8 +93,6 @@ spec:
       endpoints: *controlplanes
     kubeProxy:
       enabled: false
-    kubeStateMetrics:
-      enabled: false
     # kube-state-metrics:
     #   fullnameOverride: kube-state-metrics
     #   metricLabelsAllowlist:
@@ -110,8 +108,6 @@ spec:
     #           replacement: $1
     #           sourceLabels: ["__meta_kubernetes_pod_node_name"]
     #           targetLabel: kubernetes_node
-    nodeExporter:
-      enabled: true
     prometheus:
       ingress:
         enabled: true
