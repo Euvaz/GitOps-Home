@@ -22,85 +22,6 @@ spec:
     remediation:
       retries: 5
   values:
-    cleanPrometheusOperatorObjectNames: true
-    grafana:
-      enabled: false
-      forceDeployDashboards: true
-      sidecar:
-        dashboards:
-          multicluster:
-            etcd:
-              enabled: true
-    prometheusOperator:
-      prometheusConfigReloader:
-        resources:
-          requests:
-            cpu: 5m
-            memory: 24Mi
-          limits:
-            memory: 50Mi
-    prometheus:
-      ingress:
-        enabled: true
-        pathType: Prefix
-        ingressClassName: internal
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          gethomepage.dev/enabled: "true"
-          gethomepage.dev/name: "Prometheus"
-          gethomepage.dev/group: "Observability"
-          gethomepage.dev/icon: "prometheus"
-          gethomepage.dev/description: "The Prometheus monitoring system and time series database."
-        hosts:
-          - &prometheusHost "prometheus.${SECRET_DOMAIN}"
-        tls:
-          - hosts:
-              - *prometheusHost
-            secretName: prometheus-tls
-      thanosService:
-        enabled: true
-      thanosServiceMonitor:
-        enabled: true
-      thanosIngress:
-        enabled: true
-        pathType: Prefix
-        ingressClassName: internal
-        hosts:
-          - &thanosHost "thanos-sidecar.${SECRET_DOMAIN}"
-        tls:
-          - hosts:
-              - *thanosHost
-            secretName: thanos-sidecar-tls
-      prometheusSpec:
-        replicas: 3
-        replicaExternalLabelName: "__replica__"
-        enableFeatures:
-          - exemplar-storage
-        scrapeInterval: 1m
-        podAntiAffinity: hard
-        resources:
-          requests:
-            memory: 4Gi
-            cpu: 1000m
-          limits:
-            memory: 6294M
-        thanos:
-          objectStorageConfig:
-            existingSecret:
-              name: thanos-objstore-secret
-              key: objstore.yml
-          resources:
-            requests:
-              memory: 128Mi
-              cpu: 10m
-            limits:
-              memory: 160Mi
-        ruleSelectorNilUsesHelmValues: false
-        serviceMonitorSelectorNilUsesHelmValues: false
-        podMonitorSelectorNilUsesHelmValues: false
-        probeSelectorNilUsesHelmValues: false
-        enableAdminAPI: true
-        walCompression: true
     alertmanager:
       config:
         global:
@@ -148,8 +69,6 @@ spec:
               - *alertHost
             secretName: alertmanager-tls
       alertmanagerSpec:
-        replicas: 3
-        podAntiAffinity: hard
         storage:
           volumeClaimTemplate:
             spec:
@@ -157,6 +76,12 @@ spec:
               resources:
                 requests:
                   storage: 250Mi
+    crds:
+      enabled: false
+    cleanPrometheusOperatorObjectNames: true
+    grafana:
+      enabled: false
+      forceDeployDashboards: true
     kubeControllerManager:
       endpoints: &controlplanes
         - 10.11.0.50
@@ -168,3 +93,66 @@ spec:
       endpoints: *controlplanes
     kubeProxy:
       enabled: false
+    kubeStateMetrics:
+      enabled: true
+    kube-state-metrics:
+      fullnameOverride: kube-state-metrics
+      metricLabelsAllowlist:
+        - pods=[*]
+        - deployments=[*]
+        - persistentvolumeclaims=[*]
+      prometheus:
+        monitor:
+          enabled: true
+          relabelings:
+            - action: replace
+              regex: (.*)
+              replacement: $1
+              sourceLabels: ["__meta_kubernetes_pod_node_name"]
+              targetLabel: kubernetes_node
+    nodeExporter:
+      enabled: true
+    prometheus:
+      ingress:
+        enabled: true
+        pathType: Prefix
+        ingressClassName: internal
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Prometheus"
+          gethomepage.dev/group: "Observability"
+          gethomepage.dev/icon: "prometheus"
+          gethomepage.dev/description: "The Prometheus monitoring system and time series database."
+        hosts:
+          - &prometheusHost "prometheus.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - *prometheusHost
+            secretName: prometheus-tls
+      prometheusSpec:
+        enableAdminAPI: true
+        enableFeatures:
+          - exemplar-storage
+        podMonitorSelectorNilUsesHelmValues: false
+        probeSelectorNilUsesHelmValues: false
+        retention: 28d
+        retentionSize: 50Gi
+        ruleSelectorNilUsesHelmValues: false
+        scrapeConfigSelectorNilUsesHelmValues: false
+        scrapeInterval: 1m
+        serviceMonitorSelectorNilUsesHelmValues: false
+        walCompression: true
+        resources:
+          requests:
+            memory: 4Gi
+            cpu: 1000m
+          limits:
+            memory: 6294M
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: "ceph-block"
+            resources:
+              requests:
+                storage: 55Gi
