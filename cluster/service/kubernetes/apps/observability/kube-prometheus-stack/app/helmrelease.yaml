@@ -93,8 +93,8 @@ spec:
       endpoints: *controlplanes
     kubeProxy:
       enabled: false
-    # kubeStateMetrics:
-    #   enabled: false
+    kubeStateMetrics:
+      enabled: false
     # kube-state-metrics:
     #   fullnameOverride: kube-state-metrics
     #   metricLabelsAllowlist:
