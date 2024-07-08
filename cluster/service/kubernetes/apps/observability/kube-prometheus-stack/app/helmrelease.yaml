@@ -137,7 +137,7 @@ spec:
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
         retention: 28d
-        retentionSize: 50Gi
+        retentionSize: 50GiB
         ruleSelectorNilUsesHelmValues: false
         scrapeConfigSelectorNilUsesHelmValues: false
         scrapeInterval: 1m
