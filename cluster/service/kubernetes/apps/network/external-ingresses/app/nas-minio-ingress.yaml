@@ -12,7 +12,7 @@ metadata:
     gethomepage.dev/icon: "minio"
     gethomepage.dev/description: "High Performance, Kubernetes Native Object Storage."
 spec:
-  ingressClassName: "external"
+  ingressClassName: external
   rules:
     - host: &host-console "minio.${SECRET_DOMAIN}"
       http:
@@ -42,7 +42,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
     nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
 spec:
-  ingressClassName: "external"
+  ingressClassName: external
   rules:
     - host: &host-api "s3.${SECRET_DOMAIN}"
       http:
