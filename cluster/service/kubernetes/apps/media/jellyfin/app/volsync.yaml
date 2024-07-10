@@ -16,14 +16,14 @@ metadata:
   name: jellyfin
   namespace: media
 spec:
-  sourcePVC: jellyfin-config-v1
+  sourcePVC: jellyfin-config
   trigger:
     schedule: "0 0 * * *"
   restic:
     copyMethod: Snapshot
     pruneIntervalDays: 10
     repository: jellyfin-restic-secret
-    cacheCapacity: 11Gi
+    cacheCapacity: 2Gi
     volumeSnapshotClassName: csi-ceph-blockpool
     storageClassName: ceph-block
     moverSecurityContext:

@@ -94,3 +94,5 @@ spec:
             readOnly: true
       transcode:
         type: emptyDir
+        globalMounts:
+          - path: /config/transcodes
