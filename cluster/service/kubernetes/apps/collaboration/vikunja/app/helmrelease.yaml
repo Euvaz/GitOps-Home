@@ -27,11 +27,13 @@ spec:
         containers:
           main:
             image:
-              repository: docker.io/vikunja/api
-              tag: 0.22.1@sha256:c9415431e6235229302bb8f9ee6660b74c24859d1e8adbc4a3e25bd418604b57
+              repository: docker.io/vikunja/vikunja
+              tag: 0.24.1@sha256:acf323bc5ba298a9a1b3594bbbd07a036fe39f347850e8b8c05d641fb08c7003
             env:
               - name: VIKUNJA_SERVICE_TIMEZONE
                 value: "${TIMEZONE}"
+              - name: VIKUNJA_AUTH_LOCAL
+                value: true
               - name: VIKUNJA_SERVICE_JWTSECRET
                 valueFrom:
                   secretKeyRef:
@@ -61,41 +63,20 @@ spec:
                   secretKeyRef:
                     name: pg-cluster-vikunja-pguser-vikunja
                     key: dbname
+              - name: VIKUNJA_SERVICE_ALLOWICONCHANGES
+                value: false
             resources:
               requests:
                 cpu: 10m
                 memory: 183M
               limits:
                 memory: 1269M
-          frontend:
-            image:
-              repository: docker.io/vikunja/frontend
-              tag: 0.22.1@sha256:f0223d441997fe29c377d0b476dc4bb2fc091b44b9c24d76b1b88c213df520c5
-            env:
-              - name: VIKUNJA_ALLOW_ICON_CHANGES
-                value: "false"
-            resources:
-              requests:
-                cpu: 11m
-                memory: 35M
-              limits:
-                memory: 35M
-          proxy:
-            image:
-              repository: docker.io/caddy
-              tag: 2.8.4-alpine@sha256:896c6fb9e3eae11890f53dc528b8a9be1b4d058f6b7603024feb084fc203c0b4
-            resources:
-              requests:
-                cpu: 10m
-                memory: 35M
-              limits:
-                memory: 240M
     service:
       main:
         controller: main
         ports:
           http:
-            port: 8080
+            port: 3456
     ingress:
       main:
         className: external
@@ -123,18 +104,5 @@ spec:
         existingClaim: vikunja-config-v1
         globalMounts:
           - path: /app/vikunja/files
-      vikunja-config:
-        type: configMap
-        name: *app
-        globalMounts:
-          - path: /etc/vikunja/config.yaml
-            subPath: config.yaml
-      caddy-config:
-        type: configMap
-        name: *app
-        globalMounts:
-          - path: /etc/caddy/Caddyfile
-            subPath: Caddyfile
     podAnnotations:
-      configmap.reloader.stakater.com/reload: vikunja-configmap
       secret.reloader.stakater.com/reload: *app
