@@ -34,6 +34,8 @@ spec:
                 value: "${TIMEZONE}"
               - name: VIKUNJA_AUTH_LOCAL
                 value: true
+              - name: VIKUNJA_SERVICE_ALLOWICONCHANGES
+                value: false
               - name: VIKUNJA_SERVICE_JWTSECRET
                 valueFrom:
                   secretKeyRef:
@@ -63,8 +65,6 @@ spec:
                   secretKeyRef:
                     name: pg-cluster-vikunja-pguser-vikunja
                     key: dbname
-              - name: VIKUNJA_SERVICE_ALLOWICONCHANGES
-                value: false
             resources:
               requests:
                 cpu: 10m
