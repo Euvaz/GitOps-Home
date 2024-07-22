@@ -1,7 +1,0 @@
----
-- name: Cluster Prepare
-  hosts: kubernetes
-  become: true
-  gather_facts: true
-  roles:
-    - cluster-prepare

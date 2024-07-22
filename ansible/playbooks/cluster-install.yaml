@@ -1,8 +1,0 @@
----
-- name: Cluster Install
-  hosts: kubernetes
-  become: true
-  gather_facts: true
-  roles:
-    - cluster-prepare
-    - cluster-install

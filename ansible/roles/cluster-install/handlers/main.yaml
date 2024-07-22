@@ -1,5 +1,0 @@
----
-- name: Restart Kubernetes
-  ansible.builtin.systemd:
-    name: k3s
-    state: restarted
