@@ -30,41 +30,31 @@ spec:
               repository: docker.io/vikunja/vikunja
               tag: 0.24.1@sha256:acf323bc5ba298a9a1b3594bbbd07a036fe39f347850e8b8c05d641fb08c7003
             env:
-              - name: VIKUNJA_SERVICE_TIMEZONE
-                value: "${TIMEZONE}"
-              - name: VIKUNJA_AUTH_LOCAL
-                value: true
-              - name: VIKUNJA_SERVICE_ALLOWICONCHANGES
-                value: false
-              - name: VIKUNJA_SERVICE_JWTSECRET
-                valueFrom:
-                  secretKeyRef:
-                    name: *app
-                    key: VIKUNJA_SERVICE_JWTSECRET
-              - name: VIKUNJA_DATABASE_TYPE
-                value: "postgres"
-              - name: VIKUNJA_SERVICE_FRONTENDURL
-                value: "https://tasks.${SECRET_DOMAIN}"
-              - name: VIKUNJA_DATABASE_HOST
-                valueFrom:
-                  secretKeyRef:
-                    name: pg-cluster-vikunja-pguser-vikunja
-                    key: host
-              - name: VIKUNJA_DATABASE_USER
-                valueFrom:
-                  secretKeyRef:
-                    name: pg-cluster-vikunja-pguser-vikunja
-                    key: user
-              - name: VIKUNJA_DATABASE_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: pg-cluster-vikunja-pguser-vikunja
-                    key: password
-              - name: VIKUNJA_DATABASE_DATABASE
-                valueFrom:
-                  secretKeyRef:
-                    name: pg-cluster-vikunja-pguser-vikunja
-                    key: dbname
+              VIKUNJA_AUTH_LOCAL: true
+              VIKUNJA_DATABASE_DATABASE:
+                secretKeyRef:
+                  name: pg-cluster-vikunja-pguser-vikunja
+                  key: dbname
+              VIKUNJA_DATABASE_HOST:
+                secretKeyRef:
+                  name: pg-cluster-vikunja-pguser-vikunja
+                  key: host
+              VIKUNJA_DATABASE_PASSWORD:
+                secretKeyRef:
+                  name: pg-cluster-vikunja-pguser-vikunja
+                  key: password
+              VIKUNJA_DATABASE_TYPE: postgres
+              VIKUNJA_DATABASE_USER:
+                secretKeyRef:
+                  name: pg-cluster-vikunja-pguser-vikunja
+                  key: user
+              VIKUNJA_SERVICE_ALLOWICONCHANGES: false
+              VIKUNJA_SERVICE_PUBLICURL: "https://tasks.${SECRET_DOMAIN}"
+              VIKUNJA_SERVICE_JWTSECRET:
+                secretKeyRef:
+                  name: *app
+                  key: VIKUNJA_SERVICE_JWTSECRET
+              VIKUNJA_SERVICE_TIMEZONE: ${TIMEZONE}"
             resources:
               requests:
                 cpu: 10m
