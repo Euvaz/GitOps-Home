@@ -30,7 +30,6 @@ spec:
               repository: docker.io/vikunja/vikunja
               tag: 0.24.1@sha256:acf323bc5ba298a9a1b3594bbbd07a036fe39f347850e8b8c05d641fb08c7003
             env:
-              VIKUNJA_AUTH_LOCAL: true
               VIKUNJA_DATABASE_DATABASE:
                 secretKeyRef:
                   name: pg-cluster-vikunja-pguser-vikunja
@@ -54,7 +53,7 @@ spec:
                 secretKeyRef:
                   name: *app
                   key: VIKUNJA_SERVICE_JWTSECRET
-              VIKUNJA_SERVICE_TIMEZONE: ${TIMEZONE}
+              VIKUNJA_SERVICE_TIMEZONE: "${TIMEZONE}"
             resources:
               requests:
                 cpu: 10m
