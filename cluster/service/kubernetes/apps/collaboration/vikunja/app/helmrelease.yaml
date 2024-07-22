@@ -101,7 +101,7 @@ spec:
             secretName: tasks-tls
     persistence:
       files:
-        existingClaim: vikunja-config-v1
+        existingClaim: vikunja-config
         globalMounts:
           - path: /app/vikunja/files
     podAnnotations:
