@@ -54,7 +54,7 @@ spec:
                 secretKeyRef:
                   name: *app
                   key: VIKUNJA_SERVICE_JWTSECRET
-              VIKUNJA_SERVICE_TIMEZONE: ${TIMEZONE}"
+              VIKUNJA_SERVICE_TIMEZONE: ${TIMEZONE}
             resources:
               requests:
                 cpu: 10m
