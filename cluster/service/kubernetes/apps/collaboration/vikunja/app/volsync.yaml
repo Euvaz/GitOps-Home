@@ -16,7 +16,7 @@ metadata:
   name: vikunja
   namespace: collaboration
 spec:
-  sourcePVC: vikunja-config-v1
+  sourcePVC: vikunja-config
   trigger:
     schedule: "0 0 * * *"
   restic:
