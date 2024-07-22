@@ -7,5 +7,5 @@ resources:
   # Flux-Kustomizations
   - ./baikal/ks.yaml
   - ./linkding/ks.yaml
-  # - ./vikunja/ks.yaml
+  - ./vikunja/ks.yaml
   - ./wikijs/ks.yaml
