@@ -38,7 +38,7 @@ spec:
           gethomepage.dev/icon: "forgejo"
           gethomepage.dev/description: "Self-hosted lightweight software forge."
         hosts:
-          - host: &host "forgejo.${SECRET_DOMAIN}"
+          - host: &host "git.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
