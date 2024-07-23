@@ -51,7 +51,7 @@ spec:
       claimName: forgejo-data
     gitea:
       admin:
-        existingSecret: *app
+        existingSecret: gitea-admin-secret
       config:
         database:
           DB_TYPE: postgres
