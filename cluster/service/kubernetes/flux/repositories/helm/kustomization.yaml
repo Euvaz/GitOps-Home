@@ -11,6 +11,7 @@ resources:
   - ./emberstack.yaml
   - ./external-dns.yaml
   - ./fairwinds.yaml
+  - ./forgejo.yaml
   - ./grafana.yaml
   - ./ingress-nginx.yaml
   - ./jameswynn.yaml
