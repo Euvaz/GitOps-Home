@@ -53,6 +53,8 @@ spec:
       admin:
         existingSecret: gitea-admin-secret
       config:
+        server:
+          DISABLE_SSH: true
         database:
           DB_TYPE: postgres
           HOST: pg-cluster-forgejo-primary.collaboration.svc:5432
