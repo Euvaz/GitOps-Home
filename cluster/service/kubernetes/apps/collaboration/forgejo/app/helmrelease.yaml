@@ -58,6 +58,10 @@ spec:
           HOST: pg-cluster-forgejo-primary.collaboration.svc:5432
         service:
           DISABLE_REGISTRATION: true
+      postgresql-ha:
+        enabled: false
+      postgresql:
+        enabled: false
     valuesFrom:
       - kind: Secret
         name: pg-cluster-forgejo-pguser-forgejo
