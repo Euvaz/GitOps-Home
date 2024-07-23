@@ -1,0 +1,73 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app forgejo
+  namespace: collaboration
+spec:
+  interval: 15m
+  chart:
+    spec:
+      interval: 15m
+      chart: forgejo
+      version: 7.0.2
+      sourceRef:
+        kind: OCIRepository
+        name: forgejo
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    image:
+      repository: forgejo/forgejo
+      tag: 7.0.3
+      digest: sha256:7918c661718554aefb5901f2c6336b12a1bed427f2b080ee732ca6cd0324f8fd
+    ingress:
+      main:
+        ingressClassName: external
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns/is-public: "true"
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/name: "Forgejo"
+          gethomepage.dev/group: "Collaboration"
+          gethomepage.dev/icon: "forgejo"
+          gethomepage.dev/description: "Self-hosted lightweight software forge."
+        hosts:
+          - host: &host "forgejo.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+            secretName: forgejo-tls
+    persistence:
+      create: false
+      claimName: forgejo-data
+    gitea:
+      admin:
+        existingSecret: *app
+      config:
+        database:
+          DB_TYPE: postgres
+          HOST: pg-cluster-forgejo-primary.collaboration.svc:5432
+        service:
+          DISABLE_REGISTRATION: true
+    valuesFrom:
+      - kind: Secret
+        name: pg-cluster-forgejo-pguser-forgejo
+        valuesKey: dbname
+        targetPath: gitea.config.database.NAME
+      - kind: Secret
+        name: pg-cluster-forgejo-pguser-forgejo
+        valuesKey: user
+        targetPath: gitea.config.database.USER
+      - kind: Secret
+        name: pg-cluster-forgejo-pguser-forgejo
+        valuesKey: password
+        targetPath: gitea.config.database.PASSWD
