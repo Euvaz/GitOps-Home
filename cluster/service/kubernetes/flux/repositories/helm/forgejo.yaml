@@ -7,4 +7,4 @@ metadata:
 spec:
   interval: 1h
   type: oci
-  url: oci://code.forgejo.org/forgejo-helm/forgejo
+  url: oci://code.forgejo.org/forgejo-helm
