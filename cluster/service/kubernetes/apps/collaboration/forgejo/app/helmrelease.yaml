@@ -27,25 +27,24 @@ spec:
       tag: 7.0.3
       digest: sha256:7918c661718554aefb5901f2c6336b12a1bed427f2b080ee732ca6cd0324f8fd
     ingress:
-      main:
-        ingressClassName: external
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns/is-public: "true"
-          gethomepage.dev/enabled: "true"
-          gethomepage.dev/name: "Forgejo"
-          gethomepage.dev/group: "Collaboration"
-          gethomepage.dev/icon: "forgejo"
-          gethomepage.dev/description: "Self-hosted lightweight software forge."
-        hosts:
-          - host: &host "git.${SECRET_DOMAIN}"
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - *host
-            secretName: forgejo-tls
+      className: external
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns/is-public: "true"
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/name: "Forgejo"
+        gethomepage.dev/group: "Collaboration"
+        gethomepage.dev/icon: "forgejo"
+        gethomepage.dev/description: "Self-hosted lightweight software forge."
+      hosts:
+        - host: &host "git.${SECRET_DOMAIN}"
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - *host
+          secretName: forgejo-tls
     persistence:
       create: false
       claimName: forgejo-data
