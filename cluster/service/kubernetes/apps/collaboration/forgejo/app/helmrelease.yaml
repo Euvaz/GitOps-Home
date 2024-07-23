@@ -63,12 +63,12 @@ spec:
       enabled: false
     postgresql:
       enabled: false
-  resources:
-    requests:
-      cpu: 15m
-      memory: 249M
-    limits:
-      memory: 249M
+    resources:
+      requests:
+        cpu: 15m
+        memory: 249M
+      limits:
+        memory: 249M
   valuesFrom:
     - kind: Secret
       name: pg-cluster-forgejo-pguser-forgejo
