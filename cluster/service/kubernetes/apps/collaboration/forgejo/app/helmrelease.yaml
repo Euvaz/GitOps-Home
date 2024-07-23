@@ -27,6 +27,7 @@ spec:
       tag: 7.0.3
       digest: sha256:7918c661718554aefb5901f2c6336b12a1bed427f2b080ee732ca6cd0324f8fd
     ingress:
+      enabled: true
       className: external
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
