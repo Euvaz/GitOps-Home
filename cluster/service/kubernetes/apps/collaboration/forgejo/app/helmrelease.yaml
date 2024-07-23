@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       interval: 15m
-      chart: gitea
+      chart: forgejo
       version: 7.0.2
       sourceRef:
         kind: HelmRepository
