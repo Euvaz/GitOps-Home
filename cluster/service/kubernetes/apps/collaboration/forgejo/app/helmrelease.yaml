@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app forgejo
+  name: forgejo
   namespace: collaboration
 spec:
   interval: 15m
