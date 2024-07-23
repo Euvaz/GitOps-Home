@@ -6,6 +6,6 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./baikal/ks.yaml
-  # - ./forgejo/ks.yaml
+  - ./forgejo/ks.yaml
   - ./linkding/ks.yaml
   - ./wikijs/ks.yaml
