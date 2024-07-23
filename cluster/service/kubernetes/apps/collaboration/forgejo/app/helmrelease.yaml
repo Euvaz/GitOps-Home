@@ -62,16 +62,16 @@ spec:
       enabled: false
     postgresql:
       enabled: false
-    valuesFrom:
-      - kind: Secret
-        name: pg-cluster-forgejo-pguser-forgejo
-        valuesKey: dbname
-        targetPath: gitea.config.database.NAME
-      - kind: Secret
-        name: pg-cluster-forgejo-pguser-forgejo
-        valuesKey: user
-        targetPath: gitea.config.database.USER
-      - kind: Secret
-        name: pg-cluster-forgejo-pguser-forgejo
-        valuesKey: password
-        targetPath: gitea.config.database.PASSWD
+  valuesFrom:
+    - kind: Secret
+      name: pg-cluster-forgejo-pguser-forgejo
+      valuesKey: dbname
+      targetPath: gitea.config.database.NAME
+    - kind: Secret
+      name: pg-cluster-forgejo-pguser-forgejo
+      valuesKey: user
+      targetPath: gitea.config.database.USER
+    - kind: Secret
+      name: pg-cluster-forgejo-pguser-forgejo
+      valuesKey: password
+      targetPath: gitea.config.database.PASSWD
