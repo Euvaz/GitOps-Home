@@ -56,6 +56,8 @@ spec:
         database:
           DB_TYPE: postgres
           HOST: pg-cluster-forgejo-primary.collaboration.svc:5432
+          SCHEMA: public
+          SSL_MODE: disable
         service:
           DISABLE_REGISTRATION: true
     postgresql-ha:
