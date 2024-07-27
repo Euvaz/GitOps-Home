@@ -6,3 +6,4 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   # - ./valheim/ks.yaml
+  - ./zomboid/ks.yaml
