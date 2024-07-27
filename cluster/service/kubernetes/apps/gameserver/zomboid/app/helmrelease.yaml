@@ -49,6 +49,8 @@ spec:
                 secretKeyRef:
                   name: *app
                   key: ADMIN_PASSWORD
+              MOD_NAMES:
+              MOD_WORKSHOP_IDS: 2503622437;2347423660;2686624983;
               RCON_PASSWORD:
                 secretKeyRef:
                   name: *app
