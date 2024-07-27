@@ -35,6 +35,7 @@ spec:
           set-perms:
             image:
               repository: busybox
+              tag: 1.36.1@sha256:9ae97d36d26566ff84e8893c64a6dc4fe8ca6d1144bf5b87b2b85a32def253c7
             command: ["sh", "-c", "chown --recursive 1000:1000 /ZomboidConfig/ /ZomboidDedicatedServer/"]
         containers:
           main:
