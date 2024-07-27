@@ -1,0 +1,94 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app zomboid
+  namespace: gameserver
+spec:
+  interval: 15m
+  chart:
+    spec:
+      interval: 15m
+      chart: app-template
+      version: 3.2.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 5
+  upgrade:
+    remediation:
+      retries: 5
+  values:
+    controllers:
+      main:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        pod:
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            fsGroup: 1000
+        containers:
+          main:
+            image:
+              repository: ghcr.io/renegade-master/zomboid-dedicated-server
+              tag: 2.5.0@sha256:5e3479ea2ef66a4f14686fd3abc3286cf31a82c0e37f737b4b5976ff37da9951
+            probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+              startup:
+                enabled: false
+            env:
+              ADMIN_PASSWORD:
+                secretKeyRef:
+                  name: *app
+                  key: ADMIN_PASSWORD
+              RCON_PASSWORD:
+                secretKeyRef:
+                  name: *app
+                  key: RCON_PASSWORD
+              SERVER_NAME: ASD
+              SERVER_PASSWORD:
+                secretKeyRef:
+                  name: *app
+                  key: SERVER_PASSWORD
+              TZ: "${TIMEZONE}"
+            resources:
+              requests:
+                cpu: 20m
+                memory: 4096M
+              limits:
+                memory: 4096M
+    service:
+      main:
+        controller: main
+        type: LoadBalancer
+        externalTrafficPolicy: Local
+        annotations:
+          io.cilium/lb-ipam-ips: "${LB_ZOMBOID_IP}"
+        ports:
+          http:
+            port: 80
+          gameplay:
+            enabled: true
+            port: 16261
+            protocol: UDP
+          gameplay-2:
+            enabled: true
+            port: 16262
+            protocol: UDP
+          rcon:
+            enabled: true
+            port: 27015
+            protocol: TCP
+    persistence:
+      data:
+        existingClaim: zomboid-data
+        globalMounts:
+          - path: /ZomboidConfig/
+          - path: /ZomboidDedicatedServer/
