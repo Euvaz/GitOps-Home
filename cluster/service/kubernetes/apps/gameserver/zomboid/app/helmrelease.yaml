@@ -31,6 +31,11 @@ spec:
             runAsUser: 1000
             runAsGroup: 1000
             fsGroup: 1000
+        initContainers:
+          set-perms:
+            image:
+              repository: busybox
+            command: ["sh", "-c", "chown --recursive 1000:1000 /ZomboidConfig/ /ZomboidDedicatedServer/"]
         containers:
           main:
             image:
