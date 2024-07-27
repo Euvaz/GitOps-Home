@@ -6,9 +6,7 @@ metadata:
   namespace: flux-system
 data:
   TIMEZONE: "America/Chicago"
-  #
   LB_QBITTORRENT_IP: 10.11.0.214
-  #
   LB_JELLYFIN_IP: 10.11.1.2
   LB_MUMBLE_IP: 10.11.1.3
   LB_VALHEIM_IP: 10.11.1.4
