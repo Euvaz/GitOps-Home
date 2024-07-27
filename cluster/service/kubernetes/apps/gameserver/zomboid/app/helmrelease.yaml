@@ -93,5 +93,5 @@ spec:
       data:
         existingClaim: zomboid-data
         globalMounts:
-          - path: /ZomboidConfig/
-          - path: /ZomboidDedicatedServer/
+          - path: /home/steam/Zomboid/
+          - path: /home/steam/ZomboidDedicatedServer/
