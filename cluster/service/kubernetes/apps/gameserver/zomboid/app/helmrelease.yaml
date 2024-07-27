@@ -53,7 +53,7 @@ spec:
                 secretKeyRef:
                   name: *app
                   key: RCON_PASSWORD
-              SERVER_NAME: ASD
+              SERVER_NAME: Nineveh
               SERVER_PASSWORD:
                 secretKeyRef:
                   name: *app
