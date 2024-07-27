@@ -94,8 +94,8 @@ spec:
             port: 27015
             protocol: TCP
     persistence:
-      data:
-        existingClaim: zomboid-data
-        globalMounts:
-          - path: /home/steam/Zomboid/
-          - path: /home/steam/ZomboidDedicatedServer/
+      # data:
+      #   existingClaim: zomboid-data
+      #   globalMounts:
+      #     - path: /home/steam/Zomboid/
+      #     - path: /home/steam/ZomboidDedicatedServer/
