@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: valheim-data-v1
+  name: valheim-data
   namespace: gameserver
 spec:
   accessModes:

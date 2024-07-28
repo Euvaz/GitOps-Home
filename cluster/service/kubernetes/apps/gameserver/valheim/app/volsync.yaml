@@ -16,7 +16,7 @@ metadata:
   name: valheim
   namespace: gameserver
 spec:
-  sourcePVC: valheim-data-v1
+  sourcePVC: valheim-data
   trigger:
     schedule: "0 0 * * *"
   restic:
