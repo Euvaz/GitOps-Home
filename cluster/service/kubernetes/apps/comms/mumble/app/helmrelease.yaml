@@ -24,6 +24,8 @@ spec:
   values:
     controllers:
       main:
+        annotations:
+          reloader.stakater.com/auto: "true"
         pod:
           securityContext:
             runAsUser: 1000
@@ -35,13 +37,11 @@ spec:
               repository: docker.io/mumblevoip/mumble-server
               tag: v1.4.287-4@sha256:dd6cbd5dc981dc0433edebd7f9aee220431d23600b9ef7109dbe24b0feae6ad1
             env:
-              - name: TZ
-                value: "${TIMEZONE}"
-              - name: MUMBLE_SUPERUSER_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: *app
-                    key: MUMBLE_SUPERUSER_PASSWORD
+              MUMBLE_SUPERUSER_PASSWORD:
+                secretKeyRef:
+                  name: *app
+                  key: MUMBLE_SUPERUSER_PASSWORD
+              TZ: "${TIMEZONE}"
             resources:
               requests:
                 cpu: 15m
@@ -52,7 +52,7 @@ spec:
       main:
         controller: main
         type: LoadBalancer
-        externalTrafficPolicy: Local
+        externalTrafficPolicy: Cluster
         annotations:
           io.cilium/lb-ipam-ips: "${LB_MUMBLE_IP}"
         ports:
@@ -68,8 +68,6 @@ spec:
             protocol: UDP
     persistence:
       config:
-        existingClaim: mumble-config-v1
+        existingClaim: mumble-config
         globalMounts:
           - path: /data/
-    podAnnotations:
-      secret.reloader.stakater.com/reload: *app

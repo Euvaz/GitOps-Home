@@ -16,7 +16,7 @@ metadata:
   name: mumble
   namespace: comms
 spec:
-  sourcePVC: mumble-config-v1
+  sourcePVC: mumble-config
   trigger:
     schedule: "0 0 * * *"
   restic:

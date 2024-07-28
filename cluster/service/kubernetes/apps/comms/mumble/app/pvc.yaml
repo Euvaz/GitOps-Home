@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mumble-config-v1
+  name: mumble-config
   namespace: comms
 spec:
   accessModes:
