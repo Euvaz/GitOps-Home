@@ -30,43 +30,35 @@ spec:
               repository: docker.io/sissbruecker/linkding
               tag: 1.31.0@sha256:328c06bcb76128b653828c681d7d648baef7e8453d2d6e25f90bb31d72f997af
             env:
-              - name: LD_SUPERUSER_NAME
-                valueFrom:
-                  secretKeyRef:
-                    name: *app
-                    key: LD_SUPERUSER_NAME
-              - name: LD_SUPERUSER_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: *app
-                    key: LD_SUPERUSER_PASSWORD
-              - name: LD_DB_ENGINE
-                value: "postgres"
-              - name: LD_DB_DATABASE
-                valueFrom:
-                  secretKeyRef:
-                    name: pg-cluster-linkding-pguser-linkding
-                    key: dbname
-              - name: LD_DB_USER
-                valueFrom:
-                  secretKeyRef:
-                    name: pg-cluster-linkding-pguser-linkding
-                    key: user
-              - name: LD_DB_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: pg-cluster-linkding-pguser-linkding
-                    key: password
-              - name: LD_DB_HOST
-                valueFrom:
-                  secretKeyRef:
-                    name: pg-cluster-linkding-pguser-linkding
-                    key: host
-              - name: LD_DB_PORT
-                valueFrom:
-                  secretKeyRef:
-                    name: pg-cluster-linkding-pguser-linkding
-                    key: port
+              LD_SUPERUSER_NAME:
+                secretKeyRef:
+                  name: *app
+                  key: LD_SUPERUSER_NAME
+              LD_SUPERUSER_PASSWORD:
+                secretKeyRef:
+                  name: *app
+                  key: LD_SUPERUSER_PASSWORD
+              LD_DB_ENGINE: "postgres"
+              LD_DB_DATABASE:
+                secretKeyRef:
+                  name: pg-cluster-linkding-pguser-linkding
+                  key: dbname
+              LD_DB_USER:
+                secretKeyRef:
+                  name: pg-cluster-linkding-pguser-linkding
+                  key: user
+              LD_DB_PASSWORD:
+                secretKeyRef:
+                  name: pg-cluster-linkding-pguser-linkding
+                  key: password
+              LD_DB_HOST:
+                secretKeyRef:
+                  name: pg-cluster-linkding-pguser-linkding
+                  key: host
+              LD_DB_PORT:
+                secretKeyRef:
+                  name: pg-cluster-linkding-pguser-linkding
+                  key: port
             resources:
               requests:
                 cpu: 15m

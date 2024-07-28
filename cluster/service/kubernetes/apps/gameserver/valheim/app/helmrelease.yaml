@@ -42,19 +42,14 @@ spec:
               startup:
                 enabled: false
             env:
-              - name: NAME
-                value: "Blackwater"
-              - name: WORLD
-                value: "Blackwater"
-              - name: PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: *app
-                    key: PASSWORD
-              - name: TZ
-                value: "${TIMEZONE}"
-              - name: PUBLIC
-                value: 0
+              NAME: "Blackwater"
+              WORLD: "Blackwater"
+              PASSWORD:
+                secretKeyRef:
+                  name: *app
+                  key: PASSWORD
+              TZ: "${TIMEZONE}"
+              PUBLIC: 0
             resources:
               requests:
                 cpu: 441m

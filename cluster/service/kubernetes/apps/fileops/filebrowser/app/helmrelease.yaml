@@ -30,16 +30,11 @@ spec:
               repository: docker.io/filebrowser/filebrowser
               tag: v2.30.0@sha256:862a8f4f4829cb2747ced869aea8593204bbc718c92f0f11c97e7b669a54b53d
             env:
-              - name: FB_DATABASE
-                value: /config/filebrowser.db
-              - name: FB_LOG
-                value: stdout
-              - name: FB_NOAUTH
-                value: true
-              - name: FB_ROOT
-                value: /data
-              - name: TZ
-                value: ${TIMEZONE}
+              FB_DATABASE: /config/filebrowser.db
+              FB_LOG: stdout
+              FB_NOAUTH: true
+              FB_ROOT: /data
+              TZ: ${TIMEZONE}
             resources:
               requests:
                 cpu: 15m
