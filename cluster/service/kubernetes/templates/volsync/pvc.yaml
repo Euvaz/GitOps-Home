@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "${APP}"
+  namespace: "${NAMESPACE}"
+spec:
+  dataSourceRef:
+    kind: ReplicationDestination
+    apiGroup: volsync.backube
+    name: "${APP}-dst"
+  resources:
+    requests:
+      storage: "${VOLSYNC_CAPACITY}"
+  storageClassName: ceph-block
