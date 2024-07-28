@@ -65,7 +65,7 @@ spec:
       main:
         controller: main
         type: LoadBalancer
-        externalTrafficPolicy: Local
+        externalTrafficPolicy: Cluster
         annotations:
           io.cilium/lb-ipam-ips: "${LB_ZOMBOID_IP}"
         ports:
