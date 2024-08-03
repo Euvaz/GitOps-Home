@@ -43,8 +43,8 @@ spec:
                 secretKeyRef:
                   name: *app
                   key: ADMIN_PASSWORD
-              MOD_NAMES: CCFastRead;SkillRecoveryJournal;SleepWithFriends;
-              MOD_WORKSHOP_IDS: 2347423660;2503622437;2686624983;
+              MOD_NAMES: SkillRecoveryJournal;
+              MOD_WORKSHOP_IDS: 2503622437;
               RCON_PASSWORD:
                 secretKeyRef:
                   name: *app
