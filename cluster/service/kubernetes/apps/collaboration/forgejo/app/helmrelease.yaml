@@ -10,7 +10,7 @@ spec:
     spec:
       interval: 15m
       chart: forgejo
-      version: 8.2.2
+      version: 9.0.0
       sourceRef:
         kind: HelmRepository
         name: forgejo
