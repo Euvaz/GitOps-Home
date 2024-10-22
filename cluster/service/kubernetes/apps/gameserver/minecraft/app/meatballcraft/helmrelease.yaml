@@ -5,60 +5,80 @@ metadata:
   name: &app minecraft-meatballcraft
   namespace: gameserver
 spec:
-  interval: 5m
+  interval: 15m
   chart:
     spec:
-      chart: minecraft
-      version: 4.23.2
+      interval: 15m
+      chart: app-template
+      version: 3.4.0
       sourceRef:
         kind: HelmRepository
-        name: minecraft-server-charts
+        name: bjw-s
         namespace: flux-system
-      interval: 5m
   values:
-    livenessProbe:
-      command:
-        - mc-monitor
-        - status
-        - --host
-        - localhost
-      initialDelaySeconds: 60
-      periodSeconds: 10
-    readinessProbe:
-      command:
-        - mc-monitor
-        - status
-        - --host
-        - localhost
-      initialDelaySeconds: 60
-      periodSeconds: 10
-    image:
-      repository: itzg/minecraft-server
-      tag: java8-alpine@sha256:a915facec1b33519287c334f5e8af6fe59e2c92012270f8762bb97f8bda7d57b
-    autoCurseForge:
-      apiKey:
-        key: "$$2a$$10$$bL4bIL5pUWqfcO7KQtnMReakwtfHbNKh6v1uTpKlzhwoueEJQnPnm"
-      # slug: "meatballcraft"
-      # fileId: "5648191"
-      pageUrl: "https://www.curseforge.com/minecraft/modpacks/meatballcraft/files/5832045"
-      excludeMods: ["254144"]
-    minecraftServer:
-      difficulty: "hard"
-      eula: "TRUE"
-      externalTrafficPolicy: Cluster
-      loadBalancerIP: "${LB_MINECRAFT_MEATBALLCRAFT_IP}"
-      memory: "6144M"
-      motd: "MeatballCraft, Dimensional Ascension"
-      serviceType: LoadBalancer
-      type: "AUTO_CURSEFORGE"
-      version: "1.12.2"
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: itzg/minecraft-server
+              tag: java8-alpine@sha256:a915facec1b33519287c334f5e8af6fe59e2c92012270f8762bb97f8bda7d57b
+            probes:
+              liveness:
+                command:
+                  - mc-monitor
+                  - status
+                  - --host
+                  - localhost
+                initialDelaySeconds: 60
+                periodSeconds: 10
+              readiness:
+                command:
+                  - mc-monitor
+                  - status
+                  - --host
+                  - localhost
+                initialDelaySeconds: 60
+                periodSeconds: 10
+            env:
+              CF_API_KEY: "$$2a$$10$$bL4bIL5pUWqfcO7KQtnMReakwtfHbNKh6v1uTpKlzhwoueEJQnPnm"
+              CF_EXCLUDE_MODS: "254144"
+              CF_FILE_ID: "5648191"
+              CF_SLUG: "meatballcraft"
+              DIFFICULTY: "hard"
+              EULA: "TRUE"
+              MEMORY: "6G"
+              MOTD: "Harris's Strongest Knee Pads"
+              SERVER_NAME: "Crash and Burn"
+              TYPE: "AUTO_CURSEFORGE"
+              TZ: "${TIMEZONE}"
+              VERSION: "1.12.2"
+            resources:
+              requests:
+                cpu: 34m
+                memory: 6144M
+              limits:
+                memory: 8192M
+    service:
+      main:
+        controller: main
+        type: LoadBalancer
+        externalTrafficPolicy: Cluster
+        annotations:
+          io.cilium/lb-ipam-ips: "${LB_MINECRAFT_MEATBALLCRAFT_IP}"
+        ports:
+          http:
+            port: 80
+          gameplay:
+            enabled: true
+            port: 25565
+            protocol: UDP
+          rcon:
+            enabled: true
+            port: 25575
+            protocol: TCP
     persistence:
-      dataDir:
-        enabled: true
+      data:
         existingClaim: *app
-    resources:
-      requests:
-        cpu: 34m
-        memory: 6144M
-      limits:
-        memory: 8192M
+        globalMounts:
+          - path: /data/
