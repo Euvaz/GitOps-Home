@@ -22,7 +22,6 @@ resources:
   - ./metallb.yaml
   - ./metrics-server.yaml
   - ./minecraft-server-charts.yaml
-  - ./nextcloud.yaml
   - ./nfs-subdir-external-provisioner.yaml
   - ./node-feature-discovery.yaml
   - ./piraeus.yaml
