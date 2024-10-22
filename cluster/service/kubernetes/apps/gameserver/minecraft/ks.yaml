@@ -22,8 +22,3 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 3m
-  postBuild:
-    substitute:
-      APP: *app
-      NAMESPACE: *namespace
-      VOLSYNC_CAPACITY: 5Gi
