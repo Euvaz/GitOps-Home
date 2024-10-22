@@ -1,0 +1,64 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app minecraft-meatballcraft
+  namespace: gameserver
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: minecraft
+      version: 4.11.0
+      sourceRef:
+        kind: HelmRepository
+        name: minecraft-server-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    livenessProbe:
+      command:
+        - mc-monitor
+        - status
+        - --host
+        - localhost
+      initialDelaySeconds: 60
+      periodSeconds: 10
+    readinessProbe:
+      command:
+        - mc-monitor
+        - status
+        - --host
+        - localhost
+      initialDelaySeconds: 60
+      periodSeconds: 10
+    image:
+      repository: itzg/minecraft-server
+      tag: java8-alpine@sha256:a915facec1b33519287c334f5e8af6fe59e2c92012270f8762bb97f8bda7d57b
+    autoCurseForge:
+      apiKey:
+        key:"$$2a$$10$$bL4bIL5pUWqfcO7KQtnMReakwtfHbNKh6v1uTpKlzhwoueEJQnPnm"
+      slug: "meatballcraft"
+      fileId: "5648191"
+      excludeMods: ["254144"]
+    minecraftServer:
+      difficulty: "hard"
+      eula: "TRUE"
+      externalTrafficPolicy: Cluster
+      loadBalancerIP: "${LB_MINECRAFT_MEATBALLCRAFT_IP}"
+      memory: "6144M"
+      motd: "MeatballCraft, Dimensional Ascension"
+      serviceType: LoadBalancer
+      type: "AUTO_CURSEFORGE"
+      version: "1.12.2"
+    persistence:
+      dataDir:
+        enabled: true
+        existingClaim: *app
+        subPath: /data/
+    resources:
+      requests:
+        cpu: 34m
+        memory: 6144M
+      limits:
+        memory: 8192M
