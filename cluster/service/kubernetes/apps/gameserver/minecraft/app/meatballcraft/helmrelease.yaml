@@ -55,7 +55,6 @@ spec:
       dataDir:
         enabled: true
         existingClaim: *app
-        subPath: /data/
     resources:
       requests:
         cpu: 34m
