@@ -38,8 +38,9 @@ spec:
     autoCurseForge:
       apiKey:
         key: "$$2a$$10$$bL4bIL5pUWqfcO7KQtnMReakwtfHbNKh6v1uTpKlzhwoueEJQnPnm"
-      slug: "meatballcraft"
-      fileId: "5648191"
+      # slug: "meatballcraft"
+      # fileId: "5648191"
+      pageUrl: "https://www.curseforge.com/minecraft/modpacks/meatballcraft/files/5832045"
       excludeMods: ["254144"]
     minecraftServer:
       difficulty: "hard"
