@@ -45,10 +45,10 @@ spec:
               VERSION: "1.12.2"
             resources:
               requests:
-                cpu: 240m
-                memory: 6144M
+                cpu: 1500m
+                memory: 8192Mi
               limits:
-                memory: 8192M
+                memory: 10240Mi
     service:
       main:
         controller: main
