@@ -45,7 +45,7 @@ spec:
               VERSION: "1.12.2"
             resources:
               requests:
-                cpu: 1500m
+                cpu: 350m
                 memory: 8192Mi
               limits:
                 memory: 10240Mi
