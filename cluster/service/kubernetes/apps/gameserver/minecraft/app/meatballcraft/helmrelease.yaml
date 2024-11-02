@@ -37,7 +37,7 @@ spec:
               CF_SLUG: "meatballcraft"
               DIFFICULTY: "hard"
               EULA: "TRUE"
-              MEMORY: "6G"
+              MEMORY: "10G"
               MOTD: "Harris's Strongest Knee Pads"
               SERVER_NAME: "Crash and Burn"
               TYPE: "AUTO_CURSEFORGE"
