@@ -33,10 +33,10 @@ spec:
               TZ: "${TIMEZONE}"
             resources:
               requests:
-                cpu: 5m
-                memory: 100M
+                cpu: 1m
+                memory: 10Mi
               limits:
-                memory: 100M
+                memory: 10Mi
     service:
       main:
         controller: main
