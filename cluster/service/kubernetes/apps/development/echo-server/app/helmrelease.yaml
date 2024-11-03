@@ -46,10 +46,10 @@ spec:
                 enabled: false
             resources:
               requests:
-                cpu: 15m
-                memory: 105M
+                cpu: 1m
+                memory: 5Mi
               limits:
-                memory: 105M
+                memory: 5Mi
     service:
       main:
         controller: main
