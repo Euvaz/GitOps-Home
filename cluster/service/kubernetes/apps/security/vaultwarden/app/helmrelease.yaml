@@ -36,7 +36,7 @@ spec:
           main:
             image:
               repository: docker.io/vaultwarden/server
-              tag: 1.32.2-alpine@sha256:7d69bfbf51b74a93e951f9949e7ce772e22ef0161afca8f1403d7144b2bc868d
+              tag: 1.32.5-alpine@sha256:76d46d32ba4120b022e0a69487f9fd79fc52e2765b1650c5c51a5dd912a3c288
             env:
               TZ: "${TIMEZONE}"
               DOMAIN: "https://vault.${SECRET_DOMAIN}"
