@@ -33,7 +33,7 @@ spec:
           main:
             image:
               repository: docker.io/jellyfin/jellyfin
-              tag: 10.9.11@sha256:fc1b51f4be3fba725e42dae2022d9c6a5b069acce01bef04d32fdee025dc511e
+              tag: 10.10.3@sha256:17c3a8d9dddb97789b5f37112840ebf96566442c14d4754193a6c2eb154bc221
             env:
               TZ: "${TIMEZONE}"
             resources:
