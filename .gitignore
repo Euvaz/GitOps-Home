@@ -1,18 +1,6 @@
-# Fedora CoreOS
-fcos/*.ign
-fcos/*.iso
-
 # Kubernetes
 talosconfig
 kubeconfig
 
 # Task
 .task/*
-
-# Ansible
-ansible/roles/*
-!ansible/roles/cluster-common
-!ansible/roles/cluster-install
-!ansible/roles/cluster-prepare
-!ansible/roles/cluster-stale-containers
-!ansible/roles/cluster-uninstall
