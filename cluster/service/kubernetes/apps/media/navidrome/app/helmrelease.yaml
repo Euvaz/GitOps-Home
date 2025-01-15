@@ -28,7 +28,7 @@ spec:
           main:
             image:
               repository: docker.io/deluan/navidrome
-              tag: 0.53.3
+              tag: 0.54.4
             env:
               TZ: "${TIMEZONE}"
               ND_LOGLEVEL: "info"
