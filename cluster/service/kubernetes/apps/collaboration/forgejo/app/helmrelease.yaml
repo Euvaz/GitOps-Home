@@ -29,6 +29,7 @@ spec:
     service:
       ssh:
         type: LoadBalancer
+        port: 2222
         externalTrafficPolicy: Cluster
         annotations:
           io.cilium/lb-ipam-ips: "${LB_FORGEJO_IP}"
@@ -60,10 +61,8 @@ spec:
         existingSecret: gitea-admin-secret
       config:
         server:
-          SSH_DOMAIN: "ssh-git.${SECRET_DOMAIN}"
-          SSH_PORT: 22
+          SSH_PORT: 2222
           SSH_LISTEN_PORT: 2222
-          START_SSH_SERVER: true
         database:
           DB_TYPE: postgres
           HOST: pg-cluster-forgejo-primary.collaboration.svc:5432
