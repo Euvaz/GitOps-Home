@@ -29,10 +29,10 @@ spec:
     service:
       ssh:
         type: LoadBalancer
-        annotations:
-          lbipam.cilium.io/ips: ${LB_FORGEJO_IP}
         port: 2222
         externalTrafficPolicy: Cluster
+        annotations:
+          io.cilium/lb-ipam-ips: "${LB_FORGEJO_IP}"
     ingress:
       enabled: true
       className: external
