@@ -23,9 +23,9 @@ spec:
       retries: 5
   values:
     image:
-      repository: forgejo/forgejo
-      tag: 7.0.3
-      digest: sha256:7918c661718554aefb5901f2c6336b12a1bed427f2b080ee732ca6cd0324f8fd
+      repository: codeberg.org/forgejo/forgejo
+      tag: 10.0.0-rootless
+      digest: sha256:d07a623ff4da1a78baab6f3ba0b3273268efd305c73cbc597e1ebe735b77e6b1
     service:
       ssh:
         type: LoadBalancer
