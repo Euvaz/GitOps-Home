@@ -26,6 +26,13 @@ spec:
       repository: forgejo/forgejo
       tag: 7.0.3
       digest: sha256:7918c661718554aefb5901f2c6336b12a1bed427f2b080ee732ca6cd0324f8fd
+    service:
+      ssh:
+        type: LoadBalancer
+        annotations:
+          lbipam.cilium.io/ips: ${LB_FORGEJO_IP}
+        port: 2222
+        externalTrafficPolicy: Cluster
     ingress:
       enabled: true
       className: external
@@ -53,8 +60,6 @@ spec:
       admin:
         existingSecret: gitea-admin-secret
       config:
-        server:
-          DISABLE_SSH: true
         database:
           DB_TYPE: postgres
           HOST: pg-cluster-forgejo-primary.collaboration.svc:5432
