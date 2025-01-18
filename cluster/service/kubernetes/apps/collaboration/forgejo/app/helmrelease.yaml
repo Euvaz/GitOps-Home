@@ -63,6 +63,8 @@ spec:
         server:
           SSH_PORT: 2222
           SSH_LISTEN_PORT: 2222
+          START_SSH_SERVER: true
+          DISABLE_SSH: false 
         database:
           DB_TYPE: postgres
           HOST: pg-cluster-forgejo-primary.collaboration.svc:5432
