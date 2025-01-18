@@ -65,6 +65,7 @@ spec:
           SSH_LISTEN_PORT: 2222
           START_SSH_SERVER: true
           DISABLE_SSH: false
+          SSH_DOMAIN: "ssh-git.${SECRET_DOMAIN}"
         database:
           DB_TYPE: postgres
           HOST: pg-cluster-forgejo-primary.collaboration.svc:5432
