@@ -9,7 +9,7 @@ spec:
     spec:
       interval: 15m
       chart: coredns
-      version: 1.37.1
+      version: 1.39.0
       sourceRef:
         kind: HelmRepository
         name: coredns
