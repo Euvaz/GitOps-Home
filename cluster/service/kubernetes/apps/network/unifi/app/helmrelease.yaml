@@ -34,7 +34,7 @@ spec:
           main:
             image:
               repository: docker.io/jacobalberty/unifi
-              tag: v8.6.9
+              tag: v9.0.114
             env:
               TZ: "${TIMEZONE}"
               RUNAS_UID0: "false"
