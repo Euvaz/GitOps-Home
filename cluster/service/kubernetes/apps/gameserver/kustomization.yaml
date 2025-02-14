@@ -5,6 +5,6 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./minecraft/ks.yaml
+  # - ./minecraft/ks.yaml
   # - ./valheim/ks.yaml
-  - ./zomboid/ks.yaml
+  # - ./zomboid/ks.yaml
