@@ -14,7 +14,7 @@ metadata:
 spec:
   ingressClassName: external
   rules:
-    - host: &host-console "minio.${SECRET_DOMAIN}"
+    - host: &host-console "minio.scialytic.services"
       http:
         paths:
           - backend:
@@ -36,15 +36,10 @@ metadata:
   namespace: network
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      chunked_transfer_encoding off;
-    nginx.ingress.kubernetes.io/proxy-body-size: 0
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
-    nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
 spec:
   ingressClassName: external
   rules:
-    - host: &host-api "s3.${SECRET_DOMAIN}"
+    - host: &host-api "s3.scialytic.services"
       http:
         paths:
           - backend:
@@ -81,7 +76,7 @@ metadata:
   namespace: network
 subsets:
   - addresses:
-    - ip: 10.11.0.40
+      - ip: 10.11.0.40
     ports:
       - name: web
         port: 9001
