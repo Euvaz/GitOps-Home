@@ -28,6 +28,7 @@ spec:
     enableRbac: true
     env:
       TZ: "${TIMEZONE}"
+      HOMEPAGE_ALLOWED_HOSTS: &host "home.scialytic.services"
     ingress:
       main:
         enabled: true
@@ -36,7 +37,7 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
         hosts:
-          - host: &host "home.scialytic.services"
+          - host: *host
             paths:
               - path: /
                 pathType: Prefix
