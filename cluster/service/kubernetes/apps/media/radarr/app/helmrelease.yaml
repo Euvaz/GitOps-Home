@@ -35,8 +35,8 @@ spec:
         containers:
           main:
             image:
-              repository: ghcr.io/onedr0p/radarr-develop
-              tag: 5.19.0.9697@sha256:7b92d611e751c47b6f110d5945f771761e999511b8731c6e7c565943235d1fcf
+              repository: ghcr.io/home-operations/radarr
+              tag: 5.21.1.9799@sha256:13171f1d476b4b0c9a44191ae60ddd0d1581b9cd89f9c5f7a82be602c0f95096
             env:
               TZ: "${TIMEZONE}"
               RADARR__INSTANCE_NAME: Radarr
