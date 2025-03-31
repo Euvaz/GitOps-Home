@@ -5,6 +5,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./intel-device-plugins/ks.yaml
   - ./cilium/ks.yaml
   - ./coredns/ks.yaml
   - ./kubelet-csr-approver/ks.yaml
