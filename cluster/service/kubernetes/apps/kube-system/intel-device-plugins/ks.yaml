@@ -1,0 +1,44 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-apps-intel-device-plugins-operator
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cluster-apps-node-feature-discovery
+  path: ./cluster/service/kubernetes/apps/kube-system/intel-device-plugins/app
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: intel-device-plugins
+      namespace: kube-system
+  interval: 30m
+  retryInterval: 1m
+  timeout: 3m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: cluster-apps-intel-device-plugins-gpu
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cluster-apps-intel-device-plugins-operator
+  path: ./cluster/service/kubernetes/apps/kube-system/intel-device-plugins/gpu
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: intel-device-plugins
+      namespace: kube-system
+  interval: 30m
+  retryInterval: 1m
+  timeout: 3m
