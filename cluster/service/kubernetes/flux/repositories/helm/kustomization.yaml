@@ -14,6 +14,7 @@ resources:
   - ./forgejo.yaml
   - ./grafana.yaml
   - ./ingress-nginx.yaml
+  - ./intel.yaml
   - ./jameswynn.yaml
   - ./jetstack.yaml
   - ./k8s-at-home.yaml
