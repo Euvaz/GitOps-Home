@@ -1,0 +1,55 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: node-feature-discovery
+  namespace: kube-system
+spec:
+  interval: 15m
+  chart:
+    spec:
+      interval: 15m
+      chart: node-feature-discovery
+      version: 0.17.2
+      sourceRef:
+        kind: HelmRepository
+        name: node-feature-discovery
+        namespace: flux-system
+  install:
+    crds: CreateReplace
+    remediation:
+      retries: 5
+  upgrade:
+    crds: CreateReplace
+    remediation:
+      retries: 5
+  values:
+    worker:
+      config:
+        core:
+          sources:
+            - custom
+            - pci
+            - usb
+        sources:
+          usb:
+            deviceClassWhitelist:
+              - "02"
+              - "03"
+              - "0e"
+              - "ef"
+              - "fe"
+              - "ff"
+            deviceLabelFields:
+              - class
+              - vendor
+              - device
+          custom:
+            - name: "intel-gpu"
+              labels:
+                "intel.feature.node.kubernetes.io/gpu": "true"
+              matchFeatures:
+                - feature: pci.device
+                  matchExpressions:
+                    class: {op: In, value: ["0300"]}
+                    vendor: {op: In, value: ["8086"]}
