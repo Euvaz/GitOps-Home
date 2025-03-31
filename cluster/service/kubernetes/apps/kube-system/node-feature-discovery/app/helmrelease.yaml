@@ -27,29 +27,7 @@ spec:
     worker:
       config:
         core:
-          sources:
-            - custom
-            - pci
-            - usb
-        sources:
-          usb:
-            deviceClassWhitelist:
-              - "02"
-              - "03"
-              - "0e"
-              - "ef"
-              - "fe"
-              - "ff"
-            deviceLabelFields:
-              - class
-              - vendor
-              - device
-          custom:
-            - name: "intel-gpu"
-              labels:
-                "intel.feature.node.kubernetes.io/gpu": "true"
-              matchFeatures:
-                - feature: pci.device
-                  matchExpressions:
-                    class: {op: In, value: ["0300"]}
-                    vendor: {op: In, value: ["8086"]}
+          labelSources: ["pci", "system", "usb"]
+    prometheus:
+      enable: true
+
