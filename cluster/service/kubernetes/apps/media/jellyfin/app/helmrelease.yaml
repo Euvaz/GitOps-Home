@@ -38,7 +38,6 @@ spec:
               TZ: "${TIMEZONE}"
             resources:
               requests:
-                gpu.intel.com/i915: 1
                 cpu: 23m
                 memory: 7486M
               limits:
