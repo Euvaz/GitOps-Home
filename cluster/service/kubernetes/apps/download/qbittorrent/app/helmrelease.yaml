@@ -39,8 +39,8 @@ spec:
               tag: 5.0.4@sha256:995c561247b069c10b1fa098186f35b3155c2df63912041f70637a9232755756
             env:
               TZ: "${TIMEZONE}"
-              QBITTORRENT__PORT: &port 80
-              QBITTORRENT__BT_PORT: &port-bt 50413
+              QBT_WEBUI_PORT: &port 80
+              QBT_TORRENTING_PORT: &port-bt 50413
             resources:
               requests:
                 cpu: 63m
