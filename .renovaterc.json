@@ -13,22 +13,16 @@
     "github>Euvaz/GitOps-Home//.renovate/semanticCommits.json",
     "helpers:pinGitHubActionDigests"
   ],
-  "platform": "github",
-  "onboarding": false,
-  "requireConfig": "optional",
-  "reviewersFromCodeOwners": false,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "suppressNotifications": ["prIgnoreNotification"],
-  "ignorePaths": ["**/archive/**"],
+  "ignorePaths": ["**/*.sops.*"],
   "flux": {
-    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(\\.j2)?$"]
+    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml$"]
   },
   "helm-values": {
-    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml(\\.j2)?$"]
+    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml$"]
   },
   "kubernetes": {
-    "fileMatch": [
-      "(^|/)kubernetes/.+\\.ya?ml(\\.j2)?$"
-    ]
+    "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml$"]
   }
 }
