@@ -9,4 +9,3 @@ resources:
   - ./grafana/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
   # - ./snmp-exporter/ks.yaml
-  - ./vpa/ks.yaml
