@@ -8,9 +8,9 @@
     ":semanticCommits",
     ":automergeDigest",
     ":automergeBranch",
-    "github>Euvaz/GitOps-Home//.github/renovate/commitMessage.json5",
-    "github>Euvaz/GitOps-Home//.github/renovate/labels.json5",
-    "github>Euvaz/GitOps-Home//.github/renovate/semanticCommits.json5",
+    "github>Euvaz/GitOps-Home//.github/renovate/commitMessage.json",
+    "github>Euvaz/GitOps-Home//.github/renovate/labels.json",
+    "github>Euvaz/GitOps-Home//.github/renovate/semanticCommits.json",
     "helpers:pinGitHubActionDigests"
   ],
   "platform": "github",
