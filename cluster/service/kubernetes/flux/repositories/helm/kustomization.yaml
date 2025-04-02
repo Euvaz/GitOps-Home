@@ -3,12 +3,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ./backube.yaml
-  - ./bitnami.yaml
   - ./bjw-s.yaml
   - ./cilium.yaml
   - ./coredns.yaml
   - ./crunchydata.yaml
-  - ./emberstack.yaml
   - ./external-dns.yaml
   - ./fairwinds.yaml
   - ./forgejo.yaml
@@ -17,10 +15,7 @@ resources:
   - ./intel.yaml
   - ./jameswynn.yaml
   - ./jetstack.yaml
-  - ./k8s-at-home.yaml
   - ./k8s-gateway.yaml
-  - ./kyverno.yaml
-  - ./metallb.yaml
   - ./metrics-server.yaml
   - ./minecraft-server-charts.yaml
   - ./nfs-subdir-external-provisioner.yaml
@@ -30,5 +25,4 @@ resources:
   - ./prometheus-community.yaml
   - ./rook-ceph.yaml
   - ./stakater.yaml
-  - ./traefik.yaml
   - ./woodpecker.yaml
