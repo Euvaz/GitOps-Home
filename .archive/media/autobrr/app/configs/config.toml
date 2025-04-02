@@ -1,7 +1,0 @@
-# config.toml
-
-host = "0.0.0.0"
-port = 80
-logLevel = "INFO"
-checkForUpdates = false
-sessionSecret = "secret-session-key"
