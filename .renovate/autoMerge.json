@@ -6,7 +6,7 @@
       "automerge": true,
       "ignoreTests": true,
       "automergeType": "branch",
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch"]
     },
     {
       "description": "Auto Merge Pre-Commit",
@@ -14,7 +14,7 @@
       "automerge": true,
       "ignoreTests": true,
       "automergeType": "branch",
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch"]
     },
     {
       "description": "Auto Merge Flux",
@@ -22,7 +22,7 @@
       "automerge": true,
       "ignoreTests": true,
       "automergeType": "branch",
-      "matchUpdateTypes": ["patch"],
+      "matchUpdateTypes": ["patch"]
     }
   ]
 }
