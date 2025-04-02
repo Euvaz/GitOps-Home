@@ -31,3 +31,4 @@ resources:
   - ./rook-ceph.yaml
   - ./stakater.yaml
   - ./traefik.yaml
+  - ./woodpecker.yaml
