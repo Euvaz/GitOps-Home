@@ -1,0 +1,13 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: filebrowser-dest
+  namespace: download
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: filebrowser-restic-secret
+    destinationPVC: filebrowser
+    copyMethod: Direct

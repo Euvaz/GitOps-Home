@@ -15,12 +15,12 @@ spec:
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
 metadata:
-  name: vikunja-config-v1-dest
-  namespace: collaboration
+  name: forgejo-data-v1-dest
+  namespace: download
 spec:
   trigger:
     manual: restore-once
   restic:
-    repository: vikunja-restic-secret
-    destinationPVC: vikunja-config-v1
+    repository: forgejo-restic-secret
+    destinationPVC: forgejo-data-v1
     copyMethod: Direct

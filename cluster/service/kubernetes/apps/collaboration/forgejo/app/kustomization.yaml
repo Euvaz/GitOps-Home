@@ -6,3 +6,4 @@ resources:
   - ./helmrelease.yaml
   - ./pvc.yaml
   - ./secret.sops.yaml
+  - ./volsync.yaml

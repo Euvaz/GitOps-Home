@@ -1,0 +1,13 @@
+---
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationDestination
+metadata:
+  name: mumble-config-dest
+  namespace: collaboration
+spec:
+  trigger:
+    manual: restore-once
+  restic:
+    repository: mumble-restic-secret
+    destinationPVC: mumble-config
+    copyMethod: Direct
