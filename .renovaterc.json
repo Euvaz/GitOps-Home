@@ -1,13 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
+    ":automergeBranch",
+    ":automergeDigest",
+    ":dependencyDashboard",
+    ":disableRateLimiting",
+    ":semanticCommits",
     "config:recommended",
     "docker:enableMajor",
-    ":disableRateLimiting",
-    ":dependencyDashboard",
-    ":semanticCommits",
-    ":automergeDigest",
-    ":automergeBranch",
     "github>Euvaz/GitOps-Home//.renovate/commitMessage.json",
     "github>Euvaz/GitOps-Home//.renovate/labels.json",
     "github>Euvaz/GitOps-Home//.renovate/semanticCommits.json",
