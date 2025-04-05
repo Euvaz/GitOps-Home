@@ -44,9 +44,9 @@ spec:
             resources:
               requests:
                 cpu: 63m
-                memory: 2678M
+                memory: 2554Mi
               limits:
-                memory: 3887M
+                memory: 3707Mi
     service:
       main:
         nameOverride: "{{ .Release.Name }}"

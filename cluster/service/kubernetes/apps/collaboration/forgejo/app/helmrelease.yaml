@@ -78,9 +78,9 @@ spec:
     resources:
       requests:
         cpu: 15m
-        memory: 249M
+        memory: 237Mi
       limits:
-        memory: 249M
+        memory: 237Mi
   valuesFrom:
     - kind: Secret
       name: pg-cluster-forgejo-pguser-forgejo

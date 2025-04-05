@@ -58,9 +58,9 @@ spec:
             resources:
               requests:
                 cpu: 15m
-                memory: 411M
+                memory: 392Mi
               limits:
-                memory: 2000M
+                memory: 1907Mi
     service:
       main:
         controller: main

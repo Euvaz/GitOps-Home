@@ -134,10 +134,10 @@ spec:
         walCompression: true
         resources:
           requests:
-            memory: 4Gi
             cpu: 1000m
+            memory: 4Gi
           limits:
-            memory: 6294M
+            memory: 6002Mi
       storageSpec:
         volumeClaimTemplate:
           spec:

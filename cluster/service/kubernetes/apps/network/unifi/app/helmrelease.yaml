@@ -45,9 +45,9 @@ spec:
               JVM_MAX_HEAP_SIZE: 1024M
             resources:
               requests:
-                memory: 979M
+                memory: 934Mi
               limits:
-                memory: 1095M
+                memory: 1044Mi
     service:
       main:
         controller: main
