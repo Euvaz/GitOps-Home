@@ -35,7 +35,7 @@ spec:
           main:
             image:
               repository: docker.io/mbround18/valheim
-              tag: 3.1.0@sha256:70bd4da591cd50290454a9cc1511e640700c2e2f82ea4d5a8b2ee44629988936
+              tag: 3.1.2@sha256:44c2ab93f34c63765b0fbab8f5ec5f67a35f315d995760bf8d4af6ba2f766860
             probes:
               liveness:
                 enabled: false
